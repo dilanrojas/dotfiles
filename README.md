@@ -2,10 +2,6 @@
 
 A sleek, productive Hyprland environment with a curated list of themes and a focus on the GNOME/Adwaita ecosystem.
 
-## Preview
-
-<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/ff636a43-3d6c-454d-b7e5-eaac152fd398" />
-
 ---
 
 ## 🎨 Available Themes
