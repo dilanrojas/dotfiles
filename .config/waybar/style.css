@@ -1,0 +1,210 @@
+/* ==============================
+   === Waybar modules styling ===
+   ============================== */
+/* @import url('../hypr/themes/nordic/waybar.css'); */
+
+* {
+  font-size: inherit;
+  font-family: inherit;
+  font-weight: inherit;
+}
+
+button {
+  border-radius: 0;
+  box-shadow: none;
+  background-color: transparent;
+  border: 0;
+}
+
+window#waybar {
+  background-color: transparent;
+  transition-property: background-color;
+  transition-duration: .5s;
+  margin: 0;
+  padding: 0;
+}
+
+window#waybar>box {
+  margin: 0px;
+  margin-bottom: 0px;
+  border-radius: 0px;
+  padding: 0px 0px;
+  opacity: 1;
+  background: #090909;
+  border: none;
+}
+
+/* Modules styling */
+#custom-menu,
+#custom-separator,
+#workspaces,
+#language,
+#idle_inhibitor,
+#custom-updates,
+#window,
+#group-tray-expander,
+#custom-expand-icon,
+#pulseaudio,
+#backlight,
+#network,
+#power-profiles-daemon,
+#battery,
+#clock,
+#custom-notification,
+#custom-power {
+  margin: 0px 1px;
+  padding: 0px 5px;
+  font-size: 15px;
+  font-family: 'PlemoLJPConsoleNF', 'Adwaita Sans', 'Noto Sans', sans-serif;
+  font-weight: 400;
+  border-radius: 0px;
+  border: none;
+  background: transparent;
+  opacity: 1;
+  color: white;
+}
+
+#custom-separator {
+  opacity: .15;
+  font-size: .9rem;
+  margin: 0px;
+  padding: 0px 4px;
+}
+
+/* Tray modules */
+#custom-bluetooth,
+#tray {
+  margin: 0px 7px
+}
+
+/* Fixes */
+#custom-expand-icon {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  margin-right: 2px;
+}
+
+#network {
+  padding-right: 3px;
+}
+
+#group-tray-expander {
+  margin: 0;
+  padding: 0;
+}
+
+#language {
+  margin-left: 4px
+}
+
+#custom-menu {
+  padding-left: 11px;
+  padding-right: 7px;
+}
+
+#idle_inhibitor {
+  padding-left: 6px;
+  padding-right: 4px
+}
+
+#power-profiles-daemon {
+  padding-right: 8px;
+}
+
+#custom-power {
+  padding-right: 15px
+}
+
+#custom-notification {
+  padding-right: 2px;
+}
+
+#window {
+  opacity: .5
+}
+
+/* Styling */
+#custom-menu,
+#language,
+#idle_inhibitor,
+#custom-updates,
+#pulseaudio,
+#backlight,
+#network,
+#battery,
+#power-profiles-daemon,
+#clock,
+#custom-notification,
+#custom-power {
+  transition: opacity .12s ease;
+}
+
+#custom-menu:hover,
+#language:hover,
+#idle_inhibitor:hover,
+#custom-updates:hover,
+#pulseaudio:hover,
+#backlight:hover,
+#network:hover,
+#battery:hover,
+#power-profiles-daemon:hover,
+#clock:hover,
+#custom-notification:hover,
+#custom-power:hover {
+  opacity: .75
+}
+
+/* Battery states */
+#battery.warning:not(.charging),
+#battery.critical:not(.charging) {
+  color: #ff8080
+}
+
+#battery.plugged:not(.charging) {
+  color: #ffb588
+}
+
+#battery.charging {
+  color: #88ff88
+}
+
+/* Hyprland/workspaces styling */
+#workspaces {
+  padding: 0;
+  margin: 0;
+}
+
+#workspaces button {
+  padding: 0px 5px;
+  margin: 0px 0px;
+  border: none;
+  color: inherit;
+  min-width: 0px;
+  letter-spacing: 0px;
+  box-shadow: none;
+  background: transparent;
+  opacity: .5;
+  transition: color .08s ease, background .08s ease, opacity .08s ease;
+}
+
+#workspaces button.urgent {
+  color: #ff8080
+}
+
+#workspaces button.empty {
+  opacity: .25
+}
+
+#workspaces button.visible {
+  opacity: 1
+}
+
+#workspaces button:hover:not(.visible) {
+  opacity: .8
+}
+
+tooltip {
+  border-radius: 6px;
+  background: black;
+}
