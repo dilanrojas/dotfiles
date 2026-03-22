@@ -159,15 +159,15 @@ bash ~/.config/hypr/themes/solarized-osaka/theme.sh
 I'm using a ThinkPad T480 and using Throttled helps the performance
 
 ```bash
-# Install Power Profiles Daemon
-sudo pacman -S power-profiles-daemon
+# Install TLP
+sudo pacman -S tlp tlp-pd acpi_call tlpui tlp-rdw
 
 # Install Throttled
 sudo pacman -S throttled
 sudo cp dotfiles/throttled.conf /etc/
 
 # Enable the services
-sudo systemctl enable --now power-profiles-daemon throttled
+sudo systemctl enable --now tlp tlp-pd throttled
 ```
 
 ### 3. SDDM & Font Rendering (Optional)
