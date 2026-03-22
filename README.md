@@ -85,7 +85,7 @@ The `SUPER` key (Windows key) is your primary modifier.
 The core environment including fonts, UI tools, and GNOME apps.
 
 ```bash
-sudo pacman -S hyprland uwsm sddm hyprpicker hyprland-protocols wlroots0.19 hyprsunset hyprlock hypridle hyprpaper qt6ct qt5ct hyprcursor waybar swaync rofi-wayland nwg-look adw-gtk-theme polkit-gnome xdg-desktop-portal-hyprland xdg-desktop-portal-gnome alacritty fish starship lsd bat eza nautilus gnome-disk-utility loupe totem gnome-text-editor gnome-calendar gnome-clocks gnome-calculator evince papers grim slurp cliphist neovim nano brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd ttf-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm ripgrep fd fzf git udiskie udisks2 libappindicator unzip unrar wget curl mlocate fastfetch python-pipx
+sudo pacman -S hyprland uwsm sddm hyprpicker hyprland-protocols wlroots0.19 hyprsunset hyprlock hypridle hyprpaper qt6ct qt5ct hyprcursor waybar swaync nwg-look adw-gtk-theme polkit-gnome xdg-desktop-portal-hyprland xdg-desktop-portal-gnome alacritty fish starship lsd bat eza nautilus gnome-disk-utility loupe totem gnome-text-editor gnome-calendar gnome-clocks gnome-calculator evince papers grim slurp cliphist neovim nano brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd ttf-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm ripgrep fd fzf git udiskie udisks2 libappindicator unzip unrar wget curl mlocate fastfetch python-pipx
 ```
 
 ```bash
