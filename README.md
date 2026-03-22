@@ -156,12 +156,18 @@ bash ~/.config/hypr/themes/solarized-osaka/theme.sh
 
 ### Battery tools (Useful for a Laptop)
 
+I'm using a ThinkPad T480 and using Throttled helps the performance
+
 ```bash
 # Install Power Profiles Daemon
 sudo pacman -S power-profiles-daemon
 
+# Install Throttled
+sudo pacman -S throttled
+sudo cp dotfiles/throttled.conf /etc/
+
 # Enable the services
-sudo systemctl enable --now power-profiles-daemon
+sudo systemctl enable --now power-profiles-daemon throttled
 ```
 
 ### 3. SDDM & Font Rendering (Optional)
