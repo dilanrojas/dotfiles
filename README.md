@@ -88,6 +88,21 @@ The core environment including fonts, UI tools, and GNOME apps.
 sudo pacman -S hyprland uwsm sddm hyprpicker hyprland-protocols wlroots0.19 hyprsunset hyprlock hypridle hyprpaper qt6ct qt5ct hyprcursor waybar swaync nwg-look adw-gtk-theme polkit-gnome xdg-desktop-portal-hyprland xdg-desktop-portal-gnome alacritty fish starship lsd bat eza nautilus gnome-disk-utility loupe totem gnome-text-editor gnome-calendar gnome-clocks gnome-calculator evince papers grim slurp cliphist neovim nano brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd ttf-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm ripgrep fd fzf git udiskie udisks2 libappindicator unzip unrar wget curl mlocate fastfetch python-pipx
 ```
 
+AUR Helper
+
+```bash
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -rsi
+cd .. && rm -rf yay
+```
+
+Fonts & Apps
+
+```bash
+yay -S ttf-plemoljp-bin rofi-wayland waybar-module-pacman-updates-git wlogout brave-bin onlyoffice-bin epson-inkjet-printer-escpr ttf-ms-fonts downgrade
+```
+
 ```bash
 # A simple program for viewing markdown files on the command line
 pipx install rich-cli
@@ -109,11 +124,10 @@ Sound servers, Bluetooth, and Printing services.
 sudo pacman -S pipewire pipewire-pulse pipewire-alsa alsa-utils pavucontrol wireplumber bluez bluez-utils blueman cups cups-pdf
 ```
 
-### 🌟 AUR Packages
+Media codecs
 
 ```bash
-yay -S ttf-plemoljp-bin rofi-wayland waybar-module-pacman-updates-git wlogout brave-bin onlyoffice-bin epson-inkjet-printer-escpr ttf-ms-fonts downgrade
-
+sudo pacman -S gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly x265 x264
 ```
 
 ---
@@ -124,7 +138,7 @@ yay -S ttf-plemoljp-bin rofi-wayland waybar-module-pacman-updates-git wlogout br
 
 ```bash
 sudo systemctl enable sddm bluetooth cups
-systemctl --user enable waybar hypridle hyprsunset pipewire wireplumber
+systemctl --user enable waybar hypridle hyprsunset pipewire wireplumber pipewire-pulse
 
 ```
 
