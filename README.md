@@ -89,7 +89,7 @@ The `SUPER` key (Windows key) is your primary modifier.
 The core environment including fonts, UI tools, and GNOME apps.
 
 ```bash
-sudo pacman -S hyprland uwsm sddm hyprpicker hyprland-protocols wlroots0.19 hyprsunset hyprlock hypridle hyprpaper qt6ct qt5ct hyprcursor waybar swaync nwg-look adw-gtk-theme polkit-gnome xdg-desktop-portal-hyprland xdg-desktop-portal-gnome alacritty fish starship lsd bat eza nautilus gnome-disk-utility loupe totem gnome-text-editor gnome-calendar gnome-clocks gnome-calculator evince papers grim slurp cliphist neovim nano brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd woff2-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm ripgrep fd fzf git udiskie udisks2 libappindicator unzip unrar wget curl mlocate fastfetch python-pipx kwallet kwalletmanager libsecret ksshaskpass ttf-opensans
+sudo pacman -S hyprland uwsm sddm hyprpicker hyprland-protocols wlroots0.19 hyprsunset hyprlock hypridle hyprpaper qt6ct qt5ct hyprcursor waybar swaync nwg-look adw-gtk-theme polkit-gnome xdg-desktop-portal-hyprland xdg-desktop-portal-gnome alacritty fish starship lsd bat eza nautilus gnome-disk-utility loupe totem gnome-text-editor gnome-calendar gnome-clocks gnome-calculator evince papers grim slurp cliphist neovim nano brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd woff2-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm ripgrep fd fzf git udiskie udisks2 libappindicator unzip unrar wget curl mlocate fastfetch python-pipx kwallet kwalletmanager libsecret ksshaskpass ttf-opensans breeze
 ```
 
 AUR Helper
@@ -132,6 +132,24 @@ Media codecs
 
 ```bash
 sudo pacman -S gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly x265 x264
+```
+
+### Setup zram
+
+Using zram-generator
+
+> [!NOTE]
+> Use only zram or swap. Do not use both.
+
+```bash
+# Install the package
+sudo pacman -S zram-generator
+
+# Configure zram
+sudo cp dotfiles/zram-generator.conf /etc/systemd/
+
+# Enable the service
+sudo systemctl enable --now  systemd-zram-setup@zram0.service
 ```
 
 ---
