@@ -6,7 +6,7 @@ WINIT_X11_SCALE_FACTOR = "1"
 dynamic_padding = false
 decorations = "full"
 title = "Alacritty@ArchLinux"
-opacity = 0.9
+opacity = 0.94
 blur = true
 
 [window.padding]
@@ -33,19 +33,19 @@ size = 14.5
 offset = { x = 0, y = 0 }
 
 [font.normal]
-family = "PlemolJPConsoleNF"
+family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [font.bold]
-family = "PlemolJPConsoleNF"
+family = "JetBrainsMono Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "PlemolJPConsoleNF"
+family = "JetBrainsMono Nerd Font"
 style = "Italic"
 
 [font.bold_italic]
-family = "PlemolJPConsoleNF"
+family = "JetBrainsMono Nerd Font"
 style = "Bold"
 
 [selection]
@@ -144,4 +144,4 @@ action = "ResetFontSize"
 live_config_reload = true
 working_directory = "None"
 
-import = ["~/.config/hypr/themes/solarized-osaka/alacritty.toml"]
+import = ["~/.config/hypr/themes/rose-pine/alacritty.toml"]

@@ -51,11 +51,13 @@ window#waybar>box {
 #battery,
 #clock,
 #custom-notification,
+#custom-bluetooth,
+#custom-screenshot,
 #custom-power {
   margin: 0px 1px;
   padding: 0px 5px;
   font-size: 15px;
-  font-family: 'PlemoLJPConsoleNF', 'Adwaita Sans', 'Noto Sans', sans-serif;
+  font-family: 'JetBrains Mono Nerd Font', sans-serif;
   font-weight: 400;
   border-radius: 0px;
   border: none;
@@ -73,8 +75,9 @@ window#waybar>box {
 
 /* Tray modules */
 #custom-bluetooth,
+#custom-screenshot,
 #tray {
-  margin: 0px 7px
+  margin: 0px 3px
 }
 
 /* Fixes */
@@ -82,7 +85,7 @@ window#waybar>box {
   background: transparent;
   margin: 0;
   padding: 0;
-  margin-right: 2px;
+  margin-right: 3px;
 }
 
 #network {

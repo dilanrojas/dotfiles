@@ -113,6 +113,8 @@
     },
     "modules": [
       "custom/expand-icon",
+      "custom/bluetooth",
+      "custom/screenshot",
       "tray"
     ]
   },
@@ -125,18 +127,12 @@
     "spacing": 13
   },
   "clock": {
-    "format": "{:%I:%M %p}",
-    "format-alt": "{:%d/%m/%y}",
-    "on-click-right": "gnome-calendar",
+    "format": "{:%b %d  %I:%M %p}",
+    "on-click": "gnome-calendar",
     "tooltip": false
   },
   "backlight": {
-    "format": "  {percent}%",
-    "format-icons": [
-      "󰃞",
-      "󰃟",
-      "󰃠"
-    ],
+    "format": " {percent}%",
     "on-click": "alacritty --class float -e nvim ~/.config/hypr/settings/monitors.conf",
     "scroll-step": 5
   },
@@ -206,25 +202,10 @@
   },
   "pulseaudio": {
     "scroll-step": 5,
-    "format": "{icon}  {volume}%",
-    "format-bluetooth": "{icon}  {volume}%",
-    "format-bluetooth-muted": "{icon}  0%",
-    "format-muted": " 0%",
+    "format": " {volume}%",
+    "format-muted": " 0%",
     "format-source": " {volume}%",
     "format-source-muted": " ",
-    "format-icons": {
-      "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
-      "default": [
-        "",
-        "",
-        ""
-      ]
-    },
     "on-click": "pamixer --toggle-mute",
     "on-click-right": "pavucontrol",
     "tooltip-format": "{volume}%",
@@ -232,7 +213,12 @@
   },
   "custom/bluetooth": {
     "format": "",
-    "on-click": "blueberry",
+    "on-click": "alacritty --class float -e bluetuith",
+    "tooltip": false
+  },
+  "custom/screenshot": {
+    "format": "󰆐",
+    "on-click": "bash ~/.config/hypr/scripts/cropscreenshot.sh",
     "tooltip": false
   },
   "custom/separator": {
