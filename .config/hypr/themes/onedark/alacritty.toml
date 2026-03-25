@@ -1,9 +1,9 @@
 [colors.primary]
-background = "#1E232A"
+background = "#1a1f25"
 foreground = "#abb2bf"
 
 [colors.cursor]
-text       = "#1E232A"
+text       = "#1a1f25"
 cursor     = "#528bff"
 
 [colors.selection]

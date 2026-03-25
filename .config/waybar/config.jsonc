@@ -134,7 +134,8 @@
   "backlight": {
     "format": " {percent}%",
     "on-click": "alacritty --class float -e nvim ~/.config/hypr/settings/monitors.conf",
-    "scroll-step": 5
+    "scroll-step": 5,
+    "tooltip": false
   },
   "battery": {
     "states": {
@@ -209,7 +210,7 @@
     "on-click": "pamixer --toggle-mute",
     "on-click-right": "pavucontrol",
     "tooltip-format": "{volume}%",
-    "tooltip": true
+    "tooltip": false
   },
   "custom/bluetooth": {
     "format": "",
