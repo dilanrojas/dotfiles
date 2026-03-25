@@ -138,7 +138,7 @@ sudo pacman -S gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-p
 
 ```bash
 sudo systemctl enable sddm bluetooth cups
-systemctl --user enable waybar hypridle hyprsunset pipewire wireplumber pipewire-pulse
+systemctl --user enable hypridle hyprsunset pipewire wireplumber pipewire-pulse
 
 ```
 
