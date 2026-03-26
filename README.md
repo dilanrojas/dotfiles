@@ -104,7 +104,7 @@ cd .. && rm -rf yay
 Fonts & Apps
 
 ```bash
-yay -S rofi-wayland waybar-module-pacman-updates-git wlogout brave-bin onlyoffice-bin epson-inkjet-printer-escpr ttf-ms-fonts downgrade
+yay -S rofi-wayland waybar-module-pacman-updates-git wlogout brave-bin onlyoffice-bin epson-inkjet-printer-escpr ttf-ms-fonts otf-san-francisco downgrade
 ```
 
 ```bash
@@ -200,7 +200,10 @@ sudo pacman -S tlp tlp-pd acpi_call tlpui tlp-rdw
 
 # Install Throttled
 sudo pacman -S throttled
+
+# Configure
 sudo cp dotfiles/throttled.conf /etc/
+sudo cp dotfiles/tlp.conf /etc/
 
 # Enable the services
 sudo systemctl enable --now tlp tlp-pd throttled
