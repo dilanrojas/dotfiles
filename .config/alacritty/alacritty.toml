@@ -6,7 +6,7 @@ WINIT_X11_SCALE_FACTOR = "1"
 dynamic_padding = false
 decorations = "full"
 title = "Alacritty@ArchLinux"
-opacity = 0.94
+opacity = 1
 blur = true
 
 [window.padding]
@@ -29,7 +29,7 @@ multiplier = 3
 draw_bold_text_with_bright_colors = true
 
 [font]
-size = 14.5
+size = 13
 offset = { x = 0, y = 0 }
 
 [font.normal]
@@ -144,4 +144,4 @@ action = "ResetFontSize"
 live_config_reload = true
 working_directory = "None"
 
-import = ["~/.config/hypr/themes/rose-pine/alacritty.toml"]
+import = ["~/.config/hypr/themes/tokyodark/alacritty.toml"]

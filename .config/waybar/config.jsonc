@@ -4,7 +4,7 @@
 {
   "reload_style_on_change": true,
   "layer": "background",
-  "height": 32,
+  "height": 37,
   // "width": 990,
   "spacing": 0,
   "modules-left": [
@@ -39,18 +39,19 @@
     "disable-scroll": false,
     "format": "{icon}",
     "format-icons": {
-      "default": "",
-      "1": "DEV",
-      "2": "WWW",
-      "3": "IMG",
-      "4": "DOC",
-      "5": "MSC",
-      "6": "SYS",
-      "7": "FLS",
-      "8": "GFX",
-      "9": "TER",
-      "10": "MDA"
-      // "active": "O"
+      // "1": "I",
+      // "2": "II",
+      // "3": "III",
+      // "4": "IV",
+      // "5": "V",
+      // "6": "VI",
+      // "7": "VII",
+      // "8": "VIII",
+      // "9": "IX",
+      // "10": "X"
+      "empty": "",
+      "active": "󰮯",
+      "default": ""
     },
     "persistent-workspaces": {
       "*": 5
@@ -100,6 +101,7 @@
   },
   "idle_inhibitor": {
     "format": "{icon} ",
+    "signal": 10,
     "format-icons": {
       "activated": "",
       "deactivated": ""
@@ -139,8 +141,8 @@
   },
   "battery": {
     "states": {
-      "warning": 10,
-      "critical": 4
+      "warning": 12,
+      "critical": 6
     },
     "format": "{icon}",
     "format-charging": " {icon}",
@@ -204,6 +206,8 @@
   "pulseaudio": {
     "scroll-step": 5,
     "format": " {volume}%",
+    "format-bluetooth": "󰂰 {volume}%",
+    "format-bluetooth-muted": "󰂰 0%",
     "format-muted": " 0%",
     "format-source": " {volume}%",
     "format-source-muted": " ",

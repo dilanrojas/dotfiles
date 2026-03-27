@@ -30,7 +30,7 @@ window#waybar>box {
   border-radius: 0px;
   padding: 0px 0px;
   opacity: 1;
-  background: #090909;
+  background: black;
   border: none;
 }
 
@@ -81,6 +81,10 @@ window#waybar>box {
 }
 
 /* Fixes */
+#clock {
+  letter-spacing: -1px;
+}
+
 #custom-expand-icon {
   background: transparent;
   margin: 0;
@@ -183,8 +187,7 @@ window#waybar>box {
   margin: 0px 0px;
   border: none;
   color: inherit;
-  min-width: 0px;
-  letter-spacing: 0px;
+  letter-spacing: -1px;
   box-shadow: none;
   background: transparent;
   opacity: .5;
@@ -200,7 +203,7 @@ window#waybar>box {
 }
 
 #workspaces button.visible {
-  opacity: 1
+  opacity: 1;
 }
 
 #workspaces button:hover:not(.visible) {

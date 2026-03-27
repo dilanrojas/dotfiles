@@ -12,7 +12,7 @@
   --noti-bg-focus: var(--noti-bg-hover);
 
   --border: 2px solid var(--noti-border-color);
-  --border-radius: 0px;
+  --border-radius: 6px;
 
   --bg-selected: rgb(0, 128, 255);
   --notification-icon-size: 48px;
