@@ -5,15 +5,15 @@ set fish_greeting ""
 
 # Aliases
 alias neofetch fastfetch
-alias ls "lsd -la"
+alias ls "lsd -l"
 alias cat bat
 alias tkn "cat ~/Documents/Files/GitToken.txt"
-alias update "sudo pacman -Syu && yay -Syu"
 alias n nvim
 
-alias cputemp "sensors | grep CPU"
+alias cputemp "sensors | grep Core"
 alias rich "rich --pager --theme one-dark --padding 3,10,3,10"
 
+alias update "sudo pacman -Syu && yay -Syu"
 alias i "sudo pacman -S --noconfirm"
 alias s "pacman -Ss"
 alias r "sudo pacman -Rns"
@@ -31,12 +31,10 @@ alias stopu "systemctl --user stop"
 alias disable "sudo systemctl disable"
 alias disableu "systemctl --user disable"
 alias sstatus "systemctl status"
-alias sstatussu "systemctl --user status"
+alias sstatusu "systemctl --user status"
 
 alias mount "udisksctl mount -b"
 alias umount "udisksctl unmount -b"
-
-alias typingtest "tt -t 30 -theme one-dark"
 
 # Prompt
 starship init fish | source

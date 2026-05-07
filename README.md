@@ -1,10 +1,10 @@
-# 🌌 Hyprland Dotfiles
+# Hyprland Dotfiles
 
 A sleek, productive Hyprland environment with a curated list of themes and a focus on the GNOME/Adwaita ecosystem.
 
 ## Preview
 
-<img src="./preview/rose-pine.png" alt="Rose Pine theme preview" />
+<img src="./preview/gruvbox.png" alt="Gruvbox theme preview" />
 
 ---
 
@@ -89,7 +89,7 @@ The `SUPER` key (Windows key) is your primary modifier.
 The core environment including fonts, UI tools, and GNOME apps.
 
 ```bash
-sudo pacman -S hyprland uwsm sddm hyprpicker hyprland-protocols wlroots0.19 hyprsunset hyprlock hypridle hyprpaper qt6ct qt5ct hyprcursor waybar swaync nwg-look adw-gtk-theme polkit-gnome xdg-desktop-portal-hyprland xdg-desktop-portal-gnome alacritty fish starship lsd bat eza nautilus gnome-disk-utility loupe totem gnome-text-editor gnome-calendar gnome-clocks gnome-calculator evince papers grim slurp cliphist neovim nano brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd woff2-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm ripgrep fd fzf git udiskie udisks2 libappindicator unzip unrar wget curl mlocate fastfetch python-pipx kwallet kwalletmanager libsecret ksshaskpass ttf-opensans breeze
+sudo pacman -S hyprland sddm hyprpicker hyprland-protocols wlroots0.19 hyprsunset hyprlock hypridle hyprpaper qt6ct qt5ct hyprcursor waybar swaync nwg-look adw-gtk-theme polkit-gnome xdg-desktop-portal-hyprland xdg-desktop-portal-gnome alacritty fish starship lsd bat nautilus gnome-disk-utility loupe showtime gnome-text-editor gnome-calendar gnome-clocks gnome-calculator papers grim slurp cliphist neovim nano brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd woff2-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm ripgrep fd fzf luarocks gcc lazygit git udiskie udisks2 libappindicator unzip unrar wget curl mlocate fastfetch python-pipx kwallet kwalletmanager libsecret ksshaskpass ttf-opensans breeze libnotify rofi
 ```
 
 AUR Helper
@@ -104,7 +104,7 @@ cd .. && rm -rf yay
 Fonts & Apps
 
 ```bash
-yay -S rofi-wayland waybar-module-pacman-updates-git wlogout brave-bin onlyoffice-bin epson-inkjet-printer-escpr ttf-ms-fonts otf-san-francisco downgrade
+yay -S waybar-module-pacman-updates-git wlogout brave-bin onlyoffice-bin epson-inkjet-printer-escpr ttf-ms-fonts otf-san-francisco downgrade
 ```
 
 ```bash
@@ -112,26 +112,38 @@ yay -S rofi-wayland waybar-module-pacman-updates-git wlogout brave-bin onlyoffic
 pipx install rich-cli
 ```
 
-### 🖥️ Xorg & Graphics
-
-Drivers and base display server components for hardware acceleration.
-
-```bash
-sudo pacman -S xorg xorg-server libva libva-intel-driver intel-media-driver mesa vulkan-intel vulkan-icd-loader 
-```
-
 ### 🎧 Audio & Connectivity
 
 Sound servers, Bluetooth, and Printing services.
 
 ```bash
-sudo pacman -S pipewire pipewire-pulse pipewire-alsa alsa-utils pavucontrol wireplumber bluez bluez-utils blueman cups cups-pdf
+sudo pacman -S pipewire pipewire-pulse pipewire-alsa alsa-utils pavucontrol pipewire-jack wireplumber bluez bluez-utils blueman cups cups-pdf
 ```
 
 Media codecs
 
 ```bash
 sudo pacman -S gst-libav gst-plugins-base gst-plugins-good gst-plugins-bad gst-plugins-ugly x265 x264
+```
+
+### 🖥️ Xorg & Graphics & Gaming
+
+Drivers and base display server components for hardware acceleration.
+
+```bash
+sudo pacman -S xorg xorg-server libva libva-intel-driver intel-media-driver mesa vulkan-intel vulkan-icd-loader vulkan-headers vulkan-devel vulkan-mesa-layers opencl-mesa vulkan-mesa-implicit-layers
+```
+
+lib32 components. Must enable Multilib repos on `/etc/pacman.conf`
+
+```bash
+sudo pacman -S lib32-mesa lib32-opencl-mesa lib32-vulkan-mesa-layers lib32-vulkan-mesa-implicit-layers lib32-vulkan-icd-loader lib32-vulkan lib32-pipewire lib32-pipewire-jack lib32-vulkan-virtio lib32-vulkan-validation-layers lib32-vulkan-intel
+```
+
+Wine and various utilities. Useful for gaming
+
+```bash
+yay -S --needed wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libgpg-error lib32-libgpg-error lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libxinerama libgcrypt lib32-libgcrypt libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs
 ```
 
 ### Setup zram
@@ -160,7 +172,6 @@ sudo systemctl enable --now  systemd-zram-setup@zram0.service
 
 ```bash
 sudo systemctl enable sddm bluetooth cups
-systemctl --user enable hypridle hyprsunset pipewire wireplumber pipewire-pulse
 
 ```
 
@@ -187,26 +198,17 @@ pamixer ---set-volume 50
 
 # Finalize theme & updatedb for locate
 sudo updatedb
-bash ~/.config/hypr/themes/solarized-osaka/theme.sh
+bash ~/.config/hypr/themes/gruvbox/theme.sh
 ```
 
 ### Battery tools (Useful for a Laptop)
 
-I'm using a ThinkPad T480 and using Throttled helps the performance
-
 ```bash
-# Install TLP
-sudo pacman -S tlp tlp-pd acpi_call tlpui tlp-rdw
-
-# Install Throttled
-sudo pacman -S throttled
-
-# Configure
-sudo cp dotfiles/throttled.conf /etc/
-sudo cp dotfiles/tlp.conf /etc/
+# Install Power Profiles Daemon
+sudo pacman -S power-profiles-daemon
 
 # Enable the services
-sudo systemctl enable --now tlp tlp-pd throttled
+sudo systemctl enable --now power-profiles-daemon
 ```
 
 ### 3. SDDM & Font Rendering (Optional)

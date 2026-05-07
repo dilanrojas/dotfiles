@@ -56,8 +56,8 @@ window#waybar>box {
 #custom-power {
   margin: 0px 1px;
   padding: 0px 5px;
-  font-size: 15px;
-  font-family: 'JetBrains Mono Nerd Font', sans-serif;
+  font-size: 17px;
+  font-family: 'PlemolJP35 Console NF', sans-serif;
   font-weight: 400;
   border-radius: 0px;
   border: none;
@@ -77,7 +77,7 @@ window#waybar>box {
 #custom-bluetooth,
 #custom-screenshot,
 #tray {
-  margin: 0px 3px
+  margin: 0px 4px
 }
 
 /* Fixes */

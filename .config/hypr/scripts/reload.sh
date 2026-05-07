@@ -10,5 +10,12 @@ hyprpaper &
 pkill swaync
 swaync &
 
-systemctl stop --user hypridle
-systemctl start --user hypridle
+pkill swayosd-server
+swayosd-server &
+
+pkill hypridle
+hypridle &
+
+pkill hyprsunset
+sleep 1
+hyprsunset &
