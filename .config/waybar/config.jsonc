@@ -4,7 +4,7 @@
 {
   "reload_style_on_change": true,
   "layer": "background",
-  "height": 38,
+  "height": 30,
   "outputs": [
     "eDP-1"
   ],
