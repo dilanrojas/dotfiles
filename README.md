@@ -104,7 +104,7 @@ cd .. && rm -rf yay
 Fonts & Apps
 
 ```bash
-yay -S waybar-module-pacman-updates-git wlogout brave-bin onlyoffice-bin epson-inkjet-printer-escpr ttf-ms-fonts otf-san-francisco downgrade
+yay -S ttf-plemoljp-bin waybar-module-pacman-updates-git wlogout brave-bin onlyoffice-bin epson-inkjet-printer-escpr ttf-ms-fonts otf-san-francisco downgrade
 ```
 
 ```bash
