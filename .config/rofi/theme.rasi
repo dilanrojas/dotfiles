@@ -7,5 +7,7 @@
     text: #aaaaaa;
     text-secondary: #ffffff;
 
-    error: #e0b4b4;
+    error: #ff4040;
+
+    rounding: 0px;
 }

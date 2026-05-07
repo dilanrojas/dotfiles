@@ -1,5 +1,5 @@
 @theme "/dev/null"
-@import "/colors.rasi"
+@import "/theme.rasi"
 
 configuration {
 	modi: "window,run,drun";
@@ -7,7 +7,7 @@ configuration {
 	display-window: "Windows";
 	display-run: "Run";
 	drun-display-format: "{icon} {name}";
-	font: "PlemolJP35 Console NF 12";
+	font: "CaskaydiaCove Nerd Font 11";
 	show-icons: true;
 }
 
@@ -26,7 +26,7 @@ window {
     enabled:                     true;
     border:			 2px solid;
     border-color:		 @window-border;
-    border-radius:               0px;
+    border-radius:               @rounding;
     cursor:                      "default";
     background-color:            @background-primary;
 }
@@ -63,7 +63,7 @@ inputbar {
     enabled:                     true;
     spacing:                     7px;
     padding:                     13px;
-    border-radius:               0px;
+    border-radius:               @rounding;
     background-color:		 @background-secondary;
     text-color:			 @text;
     children:                    [ "textbox-prompt-colon", "entry" ];
@@ -92,7 +92,7 @@ mode-switcher{
 }
 button {
     padding:                     12px;
-    border-radius:               0px;
+    border-radius:               @rounding;
     background-color:            @background-secondary;
     text-color:                  @text;
     cursor:                      pointer;
@@ -124,7 +124,7 @@ element {
     enabled:                     true;
     spacing:                     12px;
     padding:                     12px;
-    border-radius:               0px;
+    border-radius:               @rounding;
     background-color:            transparent;
     text-color:                  @text;
     cursor:                      pointer;
@@ -172,7 +172,7 @@ message {
 }
 textbox {
     padding:                     12px;
-    border-radius:               0px;
+    border-radius:               @rounding;
     background-color:            @background-secondary;
     text-color:                  @text;
     vertical-align:              0.5;
@@ -180,7 +180,7 @@ textbox {
 }
 error-message {
     padding:                     12px;
-    border-radius:               0px;
+    border-radius:               @rounding;
     background-color:            @background-secondary;
     text-color:                  @text;
 }
