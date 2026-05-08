@@ -57,27 +57,19 @@ window#waybar>box {
   margin: 0px 1px;
   padding: 0px 5px;
   font-size: 14px;
-  font-family: 'JetBrainsMono Nerd Font', sans-serif;
+  font-family: 'CaskaydiaCove Nerd Font', sans-serif;
   font-weight: 400;
   border-radius: 0px;
   border: none;
-  background: transparent;
   opacity: 1;
   color: white;
 }
 
 #custom-separator {
-  opacity: .15;
+  opacity: 0.15;
   font-size: .9rem;
   margin: 0px;
   padding: 0px 4px;
-}
-
-/* Tray modules */
-#custom-bluetooth,
-#custom-screenshot,
-#tray {
-  margin: 0px 4px
 }
 
 /* Fixes */
@@ -108,6 +100,7 @@ window#waybar>box {
 #custom-menu {
   padding-left: 11px;
   padding-right: 7px;
+  font-size: 20px;
 }
 
 #idle_inhibitor {
@@ -190,6 +183,7 @@ window#waybar>box {
   letter-spacing: -1px;
   box-shadow: none;
   background: transparent;
+  font-weight: 600;
   opacity: .5;
   transition: color .08s ease, background .08s ease, opacity .08s ease;
 }

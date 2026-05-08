@@ -19,3 +19,5 @@ hypridle &
 pkill hyprsunset
 sleep 1
 hyprsunset &
+
+hyprctl switchxkblayout at-translated-set-2-keyboard 0

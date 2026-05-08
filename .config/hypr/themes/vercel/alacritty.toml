@@ -1,13 +1,13 @@
 [colors.primary]
-background = "#090909"
+background = "#000000"
 foreground = "#ffffff"
 
 [colors.cursor]
-text       = "#090909"
+text       = "#000000"
 cursor     = "#ffffff"
 
 [colors.selection]
-text       = "#090909"
+text       = "#000000"
 background = "#2c2c2c"
 
 [colors.normal]

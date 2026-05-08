@@ -6,12 +6,12 @@ WINIT_X11_SCALE_FACTOR = "1"
 dynamic_padding = false
 decorations = "full"
 title = "Alacritty@ArchLinux"
-opacity = 0.95
+opacity = 1
 blur = true
 
 [window.padding]
-x = 10
-y = 9
+x = 15
+y = 0
 
 [window.dimensions]
 columns = 100
@@ -144,4 +144,4 @@ action = "ResetFontSize"
 live_config_reload = true
 working_directory = "None"
 
-import = ["~/.config/hypr/themes/gruvbox/alacritty.toml"]
+import = ["~/.config/hypr/themes/vercel/alacritty.toml"]

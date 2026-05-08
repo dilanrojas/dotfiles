@@ -17,14 +17,14 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       450px;
-    height:                      420px;
+    width:                       350px;
+    height:                      360px;
     x-offset:                    0px;
     y-offset:                    0px;
 
     /* properties for all widgets */
     enabled:                     true;
-    border:			 2px solid;
+    border:			 1px solid;
     border-color:		 @window-border;
     border-radius:               @rounding;
     cursor:                      "default";
@@ -64,8 +64,8 @@ inputbar {
     spacing:                     7px;
     padding:                     13px;
     border-radius:               @rounding;
-    background-color:		 @background-secondary;
-    text-color:			 @text;
+    background-color:		         @background-primary;
+    text-color:			             @text-secondary;
     children:                    [ "textbox-prompt-colon", "entry" ];
 }
 textbox-prompt-colon {
@@ -73,33 +73,33 @@ textbox-prompt-colon {
     expand:                      false;
     str:                         "  ";
     background-color:            inherit;
-    text-color:                  inherit;
+    text-color:                  @text;
 }
 entry {
     enabled:                     true;
-    background-color:            inherit;
-    text-color:                  inherit;
+    background-color:            @background-primary;
+    text-color:                  @text;
     cursor:                      text;
-    placeholder:                 "Search";
-    placeholder-color:           inherit;
+    placeholder:                 "Search...";
+    placeholder-color:           @text-secondary;
 }
 
 mode-switcher{
     enabled:                     true;
     spacing:                     10px;
     background-color:            transparent;
-    text-color:                  @text;
+    text-color:                  @text-secondary;
 }
 button {
     padding:                     12px;
     border-radius:               @rounding;
     background-color:            @background-secondary;
-    text-color:                  @text;
+    text-color:                  @text-secondary;
     cursor:                      pointer;
 }
 button selected {
     background-color:            @background-secondary;
-    text-color:                  @text-secondary;
+    text-color:                  @text;
 }
 
 listview {
@@ -116,7 +116,7 @@ listview {
     
     spacing:                     10px;
     background-color:            transparent;
-    text-color:                  @text;
+    text-color:                  @text-secondary;
     cursor:                      "default";
 }
 
@@ -126,7 +126,7 @@ element {
     padding:                     12px;
     border-radius:               @rounding;
     background-color:            transparent;
-    text-color:                  @text;
+    text-color:                  @text-secondary;
     cursor:                      pointer;
 }
 element normal.normal {
@@ -135,23 +135,23 @@ element normal.normal {
 }
 element normal.urgent {
     background-color:            @error;
-    text-color:                  @text;
+    text-color:                  @text-secondary;
 }
 element normal.active {
     background-color:            @background-secondary;
-    text-color:                  @text;
+    text-color:                  @text-secondary;
 }
 element selected.normal {
-    background-color:            @background-secondary;
-    text-color:                  @text-secondary;
+    background-color:            transparent;
+    text-color:                  @text;
 }
 element selected.urgent {
     background-color:            @error;
-    text-color:                  @text-secondary;
+    text-color:                  @text;
 }
 element selected.active {
     background-color:            @error;
-    text-color:                  @text-secondary;
+    text-color:                  @text;
 }
 element-icon {
     background-color:            transparent;
@@ -174,7 +174,7 @@ textbox {
     padding:                     12px;
     border-radius:               @rounding;
     background-color:            @background-secondary;
-    text-color:                  @text;
+    text-color:                  @text-secondary;
     vertical-align:              0.5;
     horizontal-align:            0.0;
 }
@@ -182,5 +182,5 @@ error-message {
     padding:                     12px;
     border-radius:               @rounding;
     background-color:            @background-secondary;
-    text-color:                  @text;
+    text-color:                  @text-secondary;
 }

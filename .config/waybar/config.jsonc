@@ -24,7 +24,10 @@
     "custom/notification"
   ],
   "modules-right": [
-    "group/tray-expander",
+    "tray",
+    "custom/separator",
+    "custom/bluetooth",
+    "custom/screenshot",
     "custom/separator",
     "pulseaudio",
     "network",
@@ -48,9 +51,9 @@
       // "8": "MDA",
       // "9": "FLS",
       // "10": "DCR"
-      "empty": "",
-      "active": "󰮯",
-      "default": ""
+      //"empty": "",
+      "active": "󱓻"
+      //"default": ""
     },
     "persistent-workspaces": {
       "*": 5
@@ -124,7 +127,7 @@
     "tooltip": false
   },
   "tray": {
-    "icon-size": 16,
+    "icon-size": 15,
     "spacing": 13
   },
   "clock": {
@@ -140,12 +143,12 @@
   },
   "battery": {
     "states": {
-      "warning": 12,
-      "critical": 6
+      "warning": 20,
+      "critical": 10
     },
-    "format": "{icon}",
-    "format-charging": " {icon}",
-    "format-plugged": " {icon}",
+    "format": "{icon}  {capacity}%",
+    "format-charging": " {icon} {capacity}%",
+    "format-plugged": " {icon} {capacity}%",
     "format-icons": [
       "󰂎",
       "󰁺",
@@ -160,7 +163,7 @@
       "󰁹"
     ],
     "interval": 3,
-    "on-click-right": "alacritty --class float -e sudo nano /sys/class/power_supply/BAT*/charge_control_end_threshold",
+    "tooltip": false,
     "tooltip-format": "Battery: {capacity}%"
   },
   "power-profiles-daemon": {
@@ -252,7 +255,7 @@
     "on-click": "alacritty -e btop"
   },
   "custom/menu": {
-    "format": "",
+    "format": "",
     "on-click": "alacritty --class float -e nvim ~/.config/hypr/hyprland.conf",
     "tooltip": false
   },
