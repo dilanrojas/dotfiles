@@ -3,7 +3,7 @@
 # style = "/etc/xdg/swayosd/style.css"
 
 ## on which height to show the OSD
-top_margin = 0.93
+top_margin = 0.94
 
 ## The maximum volume that can be reached in %
 # max_volume = 150

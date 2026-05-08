@@ -1,12 +1,12 @@
 window#osd {
   border-radius: 0px;
   border: none;
-  background: #202020;
-  border: 2px solid #404040
+  background: #000000;
+  border: 1px solid #606060;
 }
 
 window#osd #container {
-  margin: 16px;
+  margin: 12px 17px;
 }
 
 window#osd image,
@@ -32,7 +32,7 @@ window#osd segment {
   min-height: inherit;
   border-radius: inherit;
   border: none;
-  background: #404040;
+  background: #191919;
 }
 
 window#osd progress,
