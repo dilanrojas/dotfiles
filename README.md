@@ -4,7 +4,7 @@ A sleek, productive Hyprland environment with a curated list of themes and a foc
 
 ## Preview
 
-<img src="./preview/gruvbox.png" alt="Gruvbox theme preview" />
+<img src="./preview/vercel.png" alt="Vercel theme preview" />
 
 ---
 
@@ -198,7 +198,7 @@ pamixer ---set-volume 50
 
 # Finalize theme & updatedb for locate
 sudo updatedb
-bash ~/.config/hypr/themes/gruvbox/theme.sh
+bash ~/.config/hypr/themes/vercel/theme.sh
 ```
 
 ### Battery tools (Useful for a Laptop)
