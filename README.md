@@ -104,7 +104,7 @@ cd .. && rm -rf yay
 Fonts & Apps
 
 ```bash
-yay -S ttf-plemoljp-bin waybar-module-pacman-updates-git wlogout brave-bin onlyoffice-bin epson-inkjet-printer-escpr ttf-ms-fonts otf-san-francisco downgrade
+yay -S ttf-plemoljp-bin waybar-module-pacman-updates-git wlogout brave-bin onlyoffice-bin epson-inkjet-printer-escpr ttf-ms-fonts otf-san-francisco downgrade rate-mirrors-bin --noconfirm
 ```
 
 ```bash
@@ -150,9 +150,6 @@ yay -S --needed wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib
 
 Using zram-generator
 
-> [!NOTE]
-> Use only zram or swap. Do not use both.
-
 ```bash
 # Install the package
 sudo pacman -S zram-generator
@@ -162,6 +159,12 @@ sudo cp dotfiles/zram-generator.conf /etc/systemd/
 
 # Enable the service
 sudo systemctl enable --now  systemd-zram-setup@zram0.service
+```
+
+### Configure mirrors
+
+```bash
+rate-mirrors --allow-root --protocol https arch | grep -v '#' | sudo tee /etc/pacman.d/mirrorlist
 ```
 
 ---
