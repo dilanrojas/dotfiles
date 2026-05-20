@@ -1,7 +1,6 @@
 /* ==============================
    === Waybar modules styling ===
    ============================== */
-/* @import url('../hypr/themes/nordic/waybar.css'); */
 
 * {
   font-size: inherit;
@@ -35,24 +34,19 @@ window#waybar>box {
 }
 
 /* Modules styling */
-#custom-menu,
 #custom-separator,
 #workspaces,
 #language,
 #idle_inhibitor,
 #custom-updates,
 #window,
-#group-tray-expander,
-#custom-expand-icon,
 #pulseaudio,
-#backlight,
+#tray,
+#scratchpad,
 #network,
 #power-profiles-daemon,
 #battery,
 #clock,
-#custom-notification,
-#custom-bluetooth,
-#custom-screenshot,
 #custom-power {
   margin: 0px 1px;
   padding: 0px 5px;
@@ -97,12 +91,6 @@ window#waybar>box {
   margin-left: 4px
 }
 
-#custom-menu {
-  padding-left: 11px;
-  padding-right: 7px;
-  font-size: 20px;
-}
-
 #idle_inhibitor {
   padding-left: 6px;
   padding-right: 4px
@@ -113,46 +101,7 @@ window#waybar>box {
 }
 
 #custom-power {
-  padding-right: 15px
-}
-
-#custom-notification {
-  padding-right: 2px;
-}
-
-#window {
-  opacity: .5
-}
-
-/* Styling */
-#custom-menu,
-#language,
-#idle_inhibitor,
-#custom-updates,
-#pulseaudio,
-#backlight,
-#network,
-#battery,
-#power-profiles-daemon,
-#clock,
-#custom-notification,
-#custom-power {
-  transition: opacity .12s ease;
-}
-
-#custom-menu:hover,
-#language:hover,
-#idle_inhibitor:hover,
-#custom-updates:hover,
-#pulseaudio:hover,
-#backlight:hover,
-#network:hover,
-#battery:hover,
-#power-profiles-daemon:hover,
-#clock:hover,
-#custom-notification:hover,
-#custom-power:hover {
-  opacity: .75
+  padding-right: 9px
 }
 
 /* Battery states */
@@ -169,7 +118,7 @@ window#waybar>box {
   color: #88ff88
 }
 
-/* Hyprland/workspaces styling */
+/* Workspaces styling */
 #workspaces {
   padding: 0;
   margin: 0;
@@ -183,9 +132,14 @@ window#waybar>box {
   letter-spacing: -1px;
   box-shadow: none;
   background: transparent;
+  font-family: 'Liberation Sans';
   font-weight: 600;
   opacity: .5;
   transition: color .08s ease, background .08s ease, opacity .08s ease;
+}
+
+#workspaces button:first-child {
+  padding-left: 10px;
 }
 
 #workspaces button.urgent {

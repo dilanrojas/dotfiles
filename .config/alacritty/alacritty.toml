@@ -6,6 +6,8 @@ WINIT_X11_SCALE_FACTOR = "1"
 dynamic_padding = false
 decorations = "full"
 title = "Alacritty@ArchLinux"
+startup_mode = "Maximized"
+decorations_theme_variant = "Dark"
 opacity = 1
 blur = true
 
@@ -15,7 +17,7 @@ y = 0
 
 [window.dimensions]
 columns = 100
-lines = 20
+lines = 32
 
 [window.class]
 instance = "Alacritty"

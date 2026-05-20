@@ -1,5 +1,6 @@
 :root {
   --cc-bg: #000000;
+  --cc-border-color: 1px solid var(--noti-border-color);
   --noti-border-color: #606060;
   --text-color: #ffffff;
   --noti-bg-darker: #101010;
@@ -83,7 +84,7 @@ blankwindow {
 }
 
 .notification-row .notification-background {
-  padding: 3px;
+  padding: 5px;
 }
 
 .notification-row .notification-background .notification {
@@ -331,7 +332,7 @@ blankwindow {
   background: var(--cc-bg);
   color: var(--text-color);
   border-radius: var(--border-radius);
-  border: 2px solid var(--noti-border-color);
+  border: var(--cc-border-color);
   padding: 8px;
   /* box-shadow: 0px 5px 20px rgba(0, 0, 0, .3); */
   box-shadow: none;

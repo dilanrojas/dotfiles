@@ -1,144 +1,108 @@
-// =============================
-// === Waybar modules config ===
-// =============================
+// -*- mode: jsonc -*-
 {
+  // "layer": "top",
   "reload_style_on_change": true,
-  "layer": "background",
-  "height": 30,
-  "outputs": [
-    "eDP-1"
-  ],
-  // "width": 990,
-  "spacing": 0,
+  // "position": "bottom",
+  "height": 35,
+  // "width": 1280,
+  "spacing": 4,
   "modules-left": [
-    "custom/menu",
-    "custom/separator",
-    "hyprland/workspaces",
-    "custom/separator",
-    "hyprland/language",
-    "idle_inhibitor",
-    "custom/updates"
+    "sway/workspaces"
   ],
   "modules-center": [
-    "clock",
-    "custom/notification"
+    "clock"
   ],
   "modules-right": [
     "tray",
+    "custom/updates",
     "custom/separator",
-    "custom/bluetooth",
-    "custom/screenshot",
-    "custom/separator",
-    "pulseaudio",
-    "network",
-    "battery",
+    "sway/scratchpad",
+    "sway/language",
     "power-profiles-daemon",
     "custom/separator",
+    "network",
+    "pulseaudio",
+    "battery",
     "custom/power"
   ],
   // Modules configuration
-  "hyprland/workspaces": {
-    "disable-scroll": false,
+  "sway/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "warp-on-scroll": false,
     "format": "{icon}",
     "format-icons": {
-      // "1": "DEV",
-      // "2": "WWW",
-      // "3": "IMG",
-      // "4": "DOC",
-      // "5": "MSC",
-      // "6": "GFX",
-      // "7": "SYS",
-      // "8": "MDA",
-      // "9": "FLS",
-      // "10": "DCR"
-      //"empty": "",
-      "active": "󱓻"
-      //"default": ""
+      "1": "I",
+      "2": "II",
+      "3": "III",
+      "4": "IV",
+      "5": "V",
+      "6": "VI",
+      "7": "VII",
+      "8": "VIII",
+      "9": "IX",
+      "10": "X",
+      //"urgent": "",
+      "focused": "O"
     },
     "persistent-workspaces": {
-      "*": 5
-    },
-    "on-scroll-up": "hyprctl dispatch workspace e-1",
-    "on-scroll-down": "hyprctl dispatch workspace e+1"
-  },
-  "hyprland/language": {
-    "format": "{}",
-    "format-en": "US",
-    "format-es": "LA",
-    "on-click": "hyprctl switchxkblayout at-translated-set-2-keyboard next"
-  },
-  "hyprland/window": {
-    "format": " {title}",
-    "max-length": 40,
-    "separate-outputs": false,
-    "rewrite": {
-      "(.*) ": " ",
-      "(.*)Mozilla Firefox": " Firefox",
-      "(.*) ~(.*)": "󰆍 Alacritty",
-      "(.*)Alacritty@ArchLinux": "󰆍 Alacritty",
-      "(.*) - Nvim": " Neovim",
-      "(.*)Discord": "󰙯 Discord"
-    },
-    "tooltip": false
-  },
-  "custom/notification": {
-    "tooltip": false,
-    "format": "{icon} ",
-    "format-icons": {
-      "notification": "",
-      "none": "",
-      "dnd-notification": "",
-      "dnd-none": "",
-      "inhibited-notification": "",
-      "inhibited-none": "",
-      "dnd-inhibited-notification": "",
-      "dnd-inhibited-none": ""
-    },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "escape": true,
-    "on-click": "swaync-client -t -sw",
-    "on-click-right": "swaync-client -d -sw"
-  },
-  "idle_inhibitor": {
-    "format": "{icon} ",
-    "signal": 10,
-    "format-icons": {
-      "activated": "",
-      "deactivated": ""
+      "1": [
+        "eDP-1"
+      ],
+      "2": [
+        "eDP-1"
+      ],
+      "3": [
+        "eDP-1"
+      ],
+      "4": [
+        "eDP-1"
+      ],
+      "5": [
+        "eDP-1"
+      ],
+      "6": [
+        "HDMI-A-1"
+      ],
+      "7": [
+        "HDMI-A-1"
+      ],
+      "8": [
+        "HDMI-A-1"
+      ],
+      "9": [
+        "HDMI-A-1"
+      ],
+      "10": [
+        "HDMI-A-1"
+      ]
     }
   },
-  "group/tray-expander": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 300,
-      "children-class": "tray-group-item"
-    },
-    "modules": [
-      "custom/expand-icon",
-      "custom/bluetooth",
-      "custom/screenshot",
-      "tray"
-    ]
+  "sway/scratchpad": {
+    "format": "{icon} {count}",
+    "show-empty": false,
+    "format-icons": [
+      "",
+      ""
+    ],
+    "tooltip": true,
+    "tooltip-format": "{app}: {title}"
   },
-  "custom/expand-icon": {
-    "format": " ",
-    "tooltip": false
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
   },
   "tray": {
-    "icon-size": 15,
-    "spacing": 13
+    "icon-size": 21,
+    "spacing": 14
   },
   "clock": {
     "format": "{:%b %d  %I:%M %p}",
-    "on-click": "gnome-calendar",
-    "tooltip": false
-  },
-  "backlight": {
-    "format": " {percent}%",
-    "on-click": "alacritty --class float -e nvim ~/.config/hypr/settings/monitors.conf",
-    "scroll-step": 5,
+    "on-click-right": "gnome-calendar",
+    "on-click": "swaync-client -t -sw",
     "tooltip": false
   },
   "battery": {
@@ -231,37 +195,18 @@
     },
     "tooltip": false
   },
-  "custom/bluetooth": {
-    "format": "",
-    "on-click": "alacritty --class float -e bluetui",
-    "tooltip": false
-  },
-  "custom/screenshot": {
-    "format": "󰆐",
-    "on-click": "bash ~/.config/hypr/scripts/cropscreenshot.sh",
-    "tooltip": false
-  },
   "custom/separator": {
     "format": "|",
     "tooltip": false
   },
-  "cpu": {
-    "format": "  {usage}%",
-    "on-click": "alacritty -e btop",
+  "custom/power": {
+    "format": " ",
+    "on-click": "wlogout",
     "tooltip": false
-  },
-  "memory": {
-    "format": "  {}%",
-    "on-click": "alacritty -e btop"
   },
   "custom/menu": {
     "format": "",
     "on-click": "alacritty --class float -e nvim ~/.config/hypr/hyprland.conf",
-    "tooltip": false
-  },
-  "custom/power": {
-    "format": "",
-    "on-click": "wlogout",
     "tooltip": false
   }
 }

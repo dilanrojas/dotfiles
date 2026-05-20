@@ -1,33 +1,10 @@
-# Hyprland Dotfiles
+# Sway Dotfiles
 
-A sleek, productive Hyprland environment with a curated list of themes and a focus on the GNOME/Adwaita ecosystem.
+A sleek, productive Sway environment with a focus on the GNOME/Adwaita ecosystem.
 
 ## Preview
 
-<img src="./preview/vercel.png" alt="Vercel theme preview" />
-
----
-
-## 🎨 Available Themes
-
-Easily switch between professional dark and light modes.
-
-| **Dark Themes** | **Light Themes** |
-| --- | --- |
-| 🪵 [Gruvbox](https://github.com/morhetz/gruvbox) | ☀️ [Solarized Light](https://github.com/maxmx03/solarized.nvim) |
-| 🌊 [Kanagawa Wave](https://github.com/rebelot/kanagawa.nvim) | 🪷 [Kanagawa Lotus](https://github.com/rebelot/kanagawa.nvim) |
-| 🌲 [Everforest](https://github.com/sainnhe/everforest) | 🌿 [Everforest Light](https://github.com/sainnhe/everforest) |
-| ❄️ [Nordic](https://github.com/AlexvZyl/nordic.nvim) | 🌅 [Rosé Pine Dawn](https://rosepinetheme.com/) |
-| 🌹 [Rosé Pine](https://rosepinetheme.com/) | 🪵 [Gruvbox Light](https://github.com/morhetz/gruvbox) |
-| 🌑 [Doom One](https://github.com/NTBBloodbath/doom-one.nvim) | 🧪 [Vercel](https://github.com/tiesen243/vercel.nvim) |
-| 🍵 [Catppuccin Mocha](https://catppuccin.com/) | 🎨 [Onedark](https://github.com/navarasu/onedark.nvim) |
-| 🦇 [Dracula](https://draculatheme.com/) | 🏮 [Solarized Osaka](https://github.com/craftzdog/solarized-osaka.nvim) |
-
-> [!TIP]
-> **Theme Selector:** Press `SUPER` + `T` to launch the picker.
-> **Customization:** Add your own themes to `~/.config/hypr/themes/`.
-
----
+<img src="./preview/image.png" alt="Gruvbox theme preview" />
 
 ## ⌨️ Keybindings
 
@@ -41,7 +18,6 @@ The `SUPER` key (Windows key) is your primary modifier.
 | `SUPER` + `B` | Open Web Browser (Brave) |
 | `SUPER` + `E` | Open File Manager (Nautilus) |
 | `SUPER` + `M` | App Launcher (Rofi) |
-| `SUPER` + `T` | Theme Selector |
 | `SUPER` + `V` | Clipboard History |
 | `Print` | Screenshot (Area Select) |
 | `SUPER` + `Shift` + `Q` | Logout Menu (Wlogout) |
@@ -70,7 +46,7 @@ The `SUPER` key (Windows key) is your primary modifier.
 
 ## 🛠️ Core Components
 
-* **Window Manager:** [Hyprland](https://hyprland.org/) (wrapped in [UWSM](https://github.com/Vladimir-csp/uwsm))
+* **Window Manager:** [Sway](https://swaywm.org/)
 * **Bar:** [Waybar](https://github.com/Alexays/Waybar)
 * **Shell:** [Fish](https://fishshell.com/) with [Starship](https://starship.rs/)
 * **Terminal:** [Alacritty](https://alacritty.org/)
@@ -84,12 +60,12 @@ The `SUPER` key (Windows key) is your primary modifier.
 
 ## 📦 List of Packages
 
-### ❄️ Hyprland & Desktop
+### ❄️ Sway & Desktop
 
 The core environment including fonts, UI tools, and GNOME apps.
 
 ```bash
-sudo pacman -S hyprland sddm hyprpicker hyprland-protocols wlroots0.19 hyprsunset hyprlock hypridle hyprpaper qt6ct qt5ct hyprcursor waybar swaync nwg-look adw-gtk-theme polkit-gnome xdg-desktop-portal-hyprland xdg-desktop-portal-gnome alacritty fish starship lsd bat nautilus gnome-disk-utility loupe showtime gnome-text-editor gnome-calendar gnome-clocks gnome-calculator papers grim slurp cliphist neovim nano brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd woff2-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm ripgrep fd fzf luarocks gcc lazygit git udiskie udisks2 libappindicator unzip unrar wget curl mlocate fastfetch python-pipx kwallet kwalletmanager libsecret ksshaskpass ttf-opensans breeze libnotify rofi
+sudo pacman -S sway swaybg sway swayidle swayosd swaync sddm hyprpicker qt6ct qt5ct waybar nwg-look nwg-displays adw-gtk-theme polkit-gnome xdg-desktop-portal-gnome xdg-desktop-portal-gtk alacritty fish starship lsd bat nautilus gnome-disk-utility loupe showtime gnome-text-editor gnome-calendar gnome-clocks gnome-calculator papers grim slurp cliphist neovim nano brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd woff2-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm ripgrep fd fzf luarocks gcc lazygit git udiskie udisks2 libappindicator unzip unrar wget curl mlocate fastfetch python-pipx kwallet kwalletmanager libsecret ksshaskpass ttf-opensans breeze libnotify rofi
 ```
 
 AUR Helper
@@ -195,13 +171,8 @@ sudo usermod --shell /usr/bin/fish root
 # Configure git
 git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
 
-# Set volume & brightness to an integer
-brightnessctl set 50%
-pamixer ---set-volume 50
-
 # Finalize theme & updatedb for locate
 sudo updatedb
-bash ~/.config/hypr/themes/vercel/theme.sh
 ```
 
 ### Battery tools (Useful for a Laptop)
