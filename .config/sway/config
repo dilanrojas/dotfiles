@@ -51,13 +51,16 @@ input type:pointer {
   accel_profile flat
 }
 
+input type:keyboard {
+    xkb_layout "us,latam"
+}
 
 # -------------
 # --- LOOKS -- 
 # -------------
 
 # Wallpaper
-output * bg ~/Pictures/wallpapers/233.jpg fill
+output * bg ~/Pictures/wallpapers/231.jpg fill
 
 # Borders
 default_border pixel 2
@@ -107,9 +110,10 @@ bindsym $mod+e exec $files
 bindsym $mod+p exec $colorpicker
 
 floating_modifier $mod normal
+bindsym $mod+space input "type:keyboard" xkb_switch_layout next
 
 bindsym $mod+Shift+r exec $reload
-bindsym $mod+Shift+q exec swaymsg exit
+bindsym $mod+Shift+q exec wlogout
 
 bindsym $mod+$left focus left
 bindsym $mod+$down focus down
