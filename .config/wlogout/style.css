@@ -1,5 +1,3 @@
-/* @import url('../hypr/themes/nordic/waybar.css'); */
-
 * {
   background-image: none;
   box-shadow: none;
@@ -10,9 +8,8 @@ window {
 }
 
 button {
-  border-radius: 10px;
-  margin: 5px;
-  border-color: transparent;
+  border-radius: 0;
+  border-color: black;
   text-decoration-color: #FFFFFF;
   color: #FFFFFF;
   background-color: #131313;
@@ -26,32 +23,31 @@ button {
 button:focus,
 button:active,
 button:hover {
-  background-color: #282828;
-  outline-style: none;
-  outline-color: #aaa;
+  background-color: #d65d0e;
   color: white;
+  outline-style: none;
 }
 
 #lock {
-  background-image: image(url("./icons/lock.png"));
+  background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
 }
 
 #logout {
-  background-image: image(url("./icons/logout.png"));
+  background-image: image(url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
 }
 
 #suspend {
-  background-image: image(url("./icons/suspend.png"));
+  background-image: image(url("/usr/share/wlogout/icons/suspend.png"), url("/usr/local/share/wlogout/icons/suspend.png"));
 }
 
 #hibernate {
-  background-image: image(url("./icons/hibernate.png"));
+  background-image: image(url("/usr/share/wlogout/icons/hibernate.png"), url("/usr/local/share/wlogout/icons/hibernate.png"));
 }
 
 #shutdown {
-  background-image: image(url("./icons/shutdown.png"));
+  background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
 }
 
 #reboot {
-  background-image: image(url("./icons/reboot.png"));
+  background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
 }

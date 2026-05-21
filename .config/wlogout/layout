@@ -5,10 +5,10 @@
     "keybind" : "s"
 }
 {
-    "label" : "lock",
-    "action" : "swaylock",
-    "text" : "Lock",
-    "keybind" : "l"
+    "label" : "logout",
+    "action" : "swaymsg exit",
+    "text" : "Logout",
+    "keybind" : "e"
 }
 {
     "label" : "reboot",
@@ -23,15 +23,14 @@
     "keybind" : "h"
 }
 {
-    "label" : "logout",
-    "action" : "swaymsg exit",
-    "text" : "Logout",
-    "keybind" : "e"
-}
-{
     "label" : "suspend",
     "action" : "systemctl suspend",
     "text" : "Suspend",
     "keybind" : "u"
 }
-
+{
+    "label" : "lock",
+    "action" : "swaylock",
+    "text" : "Lock",
+    "keybind" : "l"
+}
