@@ -1,4 +1,13 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export ELECTRON_OZONE_PLATFORM_HINT:wayland
+SETUVAR --export GDK_BACKEND:wayland\x2cx11\x2c\x2a
+SETUVAR --export MOZ_ENABLE_WAYLAND:1
+SETUVAR --export OZONE_PLATFORM:wayland
+SETUVAR --export QT_QPA_PLATFORM:wayland
+SETUVAR --export QT_QPA_PLATFORMTHEME:qt6ct
+SETUVAR --export SDL_VIDEODRIVER:wayland
+SETUVAR --export _JAVA_AWT_HM_WM_NONREPARENTING:1
+SETUVAR --export _JAVA_OPTIONS:\x2dDawt\x2euseSystemAAFontSettings\x3don\x20\x2dDswing\x2eaatext\x3dtrue
 SETUVAR __fish_initialized:4300
 SETUVAR fish_user_paths:/home/jwd/\x2elocal/bin

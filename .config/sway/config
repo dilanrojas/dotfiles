@@ -33,7 +33,9 @@ exec swayosd-server
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec swaync
 exec bash ~/.config/sway/scripts/low_battery.sh
+
 exec wmname LG3D
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP /usr/lib/xdg-desktop-portal-gnome
 
 # -------------
 # --- INPUT ---
@@ -54,31 +56,6 @@ input type:pointer {
 input type:keyboard {
     xkb_layout "us,latam"
 }
-
-# -------------------
-# --- ENVIRONMENT ---
-# -------------------
-
-exec export QT_QPA_PLATFORM=wayland
-exec export MOZ_ENABLE_WAYLAND=1
-exec export _JAVA_AWT_HM_WM_NONREPARENTING=1
-
-exec export GDK_BACKEND="wayland,x11,*"
-exec export QT_QPA_PLATFORM="wayland;xcb"
-exec export SDL_VIDEODRIVER="wayland"
-exec export MOZ_ENABLE_WAYLAND=1
-exec export ELECTRON_OZONE_PLATFORM_HINT="wayland"
-exec export OZONE_PLATFORM="wayland"
-exec export XDG_SESSION_TYPE="wayland"
-
-exec export QT_QPA_PLATFORMTHEME="qt6ct"
-exec export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
-
-exec export XDG_CURRENT_DESKTOP="sway"
-exec export XDG_SESSION_DESKTOP="sway"
-
-# exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP /usr/lib/xdg-desktop-portal-gnome
 
 # -------------
 # --- LOOKS -- 
@@ -224,7 +201,7 @@ bindsym $mod+Shift+s exec $screenshot
 # -------------
 
 mouse_warping container
-focus_follows_mouse no
+focus_follows_mouse yes
 for_window [app_id="float"] floating enable
 
 # ----------

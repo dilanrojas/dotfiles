@@ -21,6 +21,13 @@ alias yi "yay -S --noconfirm"
 alias ys "yay -Ss"
 alias yr "yay -Rns"
 
+# git
+alias g git
+alias gc "git commit -m"
+alias ga "git add ."
+alias gpull "git pull"
+alias gpush "git push"
+
 # Systemd
 alias start "sudo systemctl start"
 alias startu "systemctl --user start"
@@ -45,3 +52,8 @@ if not string match -q -- $PNPM_HOME $PATH
     set -gx PATH "$PNPM_HOME" $PATH
 end
 # pnpm end
+
+set -Ux GDK_BACKEND "wayland,x11,*"
+set -Ux _JAVA_AWT_HM_WM_NONREPARENTING 1
+set -Ux QT_QPA_PLATFORMTHEME qt6ct
+set -Ux _JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
