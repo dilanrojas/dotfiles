@@ -13,13 +13,8 @@
     "clock"
   ],
   "modules-right": [
-    "tray",
-    "custom/updates",
-    "custom/separator",
-    "sway/scratchpad",
+    "group/tray-expander",
     "sway/language",
-    "power-profiles-daemon",
-    "custom/separator",
     "network",
     "pulseaudio",
     "battery",
@@ -105,6 +100,43 @@
     "on-click": "swaync-client -t -sw",
     "tooltip": false
   },
+  "group/tray-expander": {
+    "orientation": "inherit",
+    "drawer": {
+      "transition-duration": 600,
+      "children-class": "tray-group-item"
+    },
+    "modules": [
+      "group/expand-icons",
+      "tray",
+      "custom-updates",
+      "power-profiles-daemon"
+    ]
+  },
+  "group/expand-icons": {
+    "orientation": "inherit",
+    "modules": [
+      "custom/expand-icon#horizontal",
+      "custom/expand-icon#vertical"
+    ]
+  },
+  "custom/expand-icon#horizontal": {
+    "format": "",
+    "tooltip": false,
+    "on-scroll-up": "",
+    "on-scroll-down": "",
+    "on-scroll-left": "",
+    "on-scroll-right": ""
+  },
+  "custom/expand-icon#vertical": {
+    "format": "",
+    "rotate": 270,
+    "tooltip": false,
+    "on-scroll-up": "",
+    "on-scroll-down": "",
+    "on-scroll-left": "",
+    "on-scroll-right": ""
+  },
   "battery": {
     "states": {
       "warning": 20,
@@ -170,30 +202,21 @@
     ]
   },
   "pulseaudio": {
-    "scroll-step": 5,
-    "format": "{icon} ",
-    "format-bluetooth": "󰂰",
-    "format-bluetooth-muted": "󰂰",
-    "format-muted": " ",
-    "format-source": " {volume}%",
-    "format-source-muted": " ",
+    "format": "{icon}",
     "on-click": "pamixer --toggle-mute",
     "on-click-right": "pavucontrol",
-    "tooltip-format": "{volume}%",
+    "tooltip-format": "Playing at {volume}%",
+    "scroll-step": 5,
+    "format-muted": "",
     "format-icons": {
       "headphone": "",
-      "hands-free": "",
-      "headset": "",
-      "phone": "",
-      "portable": "",
-      "car": "",
+      "headset": "",
       "default": [
         "",
         "",
         ""
       ]
-    },
-    "tooltip": false
+    }
   },
   "custom/separator": {
     "format": "|",

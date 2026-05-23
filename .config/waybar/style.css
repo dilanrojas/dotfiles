@@ -34,6 +34,7 @@ window#waybar>box {
 }
 
 /* Modules styling */
+#custom-expand-icon,
 #custom-separator,
 #workspaces,
 #language,
@@ -51,7 +52,7 @@ window#waybar>box {
   margin: 0px 1px;
   padding: 0px 5px;
   font-size: 14px;
-  font-family: 'CaskaydiaCove Nerd Font', sans-serif;
+  font-family: 'JetBrainsMono Nerd Font', sans-serif;
   font-weight: 400;
   border-radius: 0px;
   border: none;
@@ -69,13 +70,6 @@ window#waybar>box {
 /* Fixes */
 #clock {
   letter-spacing: -1px;
-}
-
-#custom-expand-icon {
-  background: transparent;
-  margin: 0;
-  padding: 0;
-  margin-right: 3px;
 }
 
 #network {
@@ -97,11 +91,46 @@ window#waybar>box {
 }
 
 #power-profiles-daemon {
-  padding-right: 8px;
+  padding-left: 8px;
+  padding-right: 12px;
+  font-size: 17px;
+}
+
+#pulseaudio {
+  padding-right: 10px;
 }
 
 #custom-power {
   padding-right: 9px
+}
+
+#custom-expand-icon {
+  background: transparent;
+  margin: 0;
+  padding: 0;
+  padding: 0px 10px;
+  opacity: .7;
+}
+
+#custom-expand-icon.vertical,
+.left #custom-expand-icon.horizontal,
+.right #custom-expand-icon.horizontal {
+  opacity: 0;
+  font-size: 0;
+  min-width: 0;
+  min-height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.left #custom-expand-icon.vertical,
+.right #custom-expand-icon.vertical {
+  opacity: 1;
+  font-size: inherit;
+  min-width: 0;
+  min-height: 12px;
+  margin: 1.5px 0;
+  padding: 6px 0;
 }
 
 /* Battery states */
@@ -135,7 +164,7 @@ window#waybar>box {
   font-family: 'Liberation Sans';
   font-weight: 600;
   opacity: .5;
-  transition: color .08s ease, background .08s ease, opacity .08s ease;
+  /* transition: color .08s ease, background .08s ease, opacity .08s ease; */
 }
 
 #workspaces button:first-child {
@@ -159,6 +188,10 @@ window#waybar>box {
 }
 
 tooltip {
-  border-radius: 6px;
+  border-radius: 0px;
+  border: 1px solid #404040;
+  font-family: inherit;
+  font-weight: 500;
   background: black;
+  padding: 2px;
 }
