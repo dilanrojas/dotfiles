@@ -96,8 +96,8 @@
     }
   },
   "tray": {
-    "icon-size": 21,
-    "spacing": 14
+    "icon-size": 18,
+    "spacing": 16
   },
   "clock": {
     "format": "{:%b %d  %I:%M %p}",
@@ -111,8 +111,8 @@
       "critical": 10
     },
     "format": "{icon}  {capacity}%",
-    "format-charging": " {icon} {capacity}%",
-    "format-plugged": " {icon} {capacity}%",
+    "format-charging": "{icon} {capacity}%",
+    "format-plugged": "{icon} {capacity}%",
     "format-icons": [
       "󰂎",
       "󰁺",
@@ -148,16 +148,16 @@
       "has-updates": "󱍷",
       "updated": "󰂪"
     },
-    "on-click": "alacritty --class float -e bash ~/.config/hypr/scripts/update_system.sh",
+    "on-click": "alacritty --class float -e bash ~/.config/sway/scripts/update_system.sh",
     "exec-if": "which waybar-module-pacman-updates",
     "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
   },
   "network": {
     "format": "{icon}",
     "format-wifi": "{icon}",
-    "format-ethernet": "  {ipaddr}/{cidr}",
-    "tooltip-format": "  {ifname} via {gwaddr}",
-    "format-linked": "  {ifname} (No IP)",
+    "format-ethernet": " ",
+    "tooltip-format": "  ",
+    "format-linked": "  ",
     "format-disconnected": "󰤮 ",
     "tooltip": false,
     "on-click": "alacritty --class float -e nmtui",

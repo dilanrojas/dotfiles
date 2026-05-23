@@ -30,7 +30,7 @@ exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
 exec mpris-proxy
 exec swayosd-server
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP /usr/lib/xdg-desktop-portal-gnome
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec swaync
 exec bash ~/.config/sway/scripts/low_battery.sh
 exec wmname LG3D
@@ -55,6 +55,31 @@ input type:keyboard {
     xkb_layout "us,latam"
 }
 
+# -------------------
+# --- ENVIRONMENT ---
+# -------------------
+
+exec export QT_QPA_PLATFORM=wayland
+exec export MOZ_ENABLE_WAYLAND=1
+exec export _JAVA_AWT_HM_WM_NONREPARENTING=1
+
+exec export GDK_BACKEND="wayland,x11,*"
+exec export QT_QPA_PLATFORM="wayland;xcb"
+exec export SDL_VIDEODRIVER="wayland"
+exec export MOZ_ENABLE_WAYLAND=1
+exec export ELECTRON_OZONE_PLATFORM_HINT="wayland"
+exec export OZONE_PLATFORM="wayland"
+exec export XDG_SESSION_TYPE="wayland"
+
+exec export QT_QPA_PLATFORMTHEME="qt6ct"
+exec export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Dswing.aatext=true"
+
+exec export XDG_CURRENT_DESKTOP="sway"
+exec export XDG_SESSION_DESKTOP="sway"
+
+# exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP XDG_SESSION_DESKTOP
+exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP /usr/lib/xdg-desktop-portal-gnome
+
 # -------------
 # --- LOOKS -- 
 # -------------
@@ -71,30 +96,28 @@ default_floating_border pixel 2
 gaps inner 10
 # smart_gaps on
 
-# Theme
-set $bg0_hard       #1d2021
-set $bg0            #282828
-set $bg1            #3c3836
-set $bg3            #665c54
+# Theme (Monochrome Version)
+set $bg0_hard       #1c1c1c
+set $bg0            #262626
+set $bg1            #3a3a3a
+set $bg3            #585858
 
-set $fg0            #fbf1c7
-set $fg1            #ebdbb2
-set $fg4            #a89984
+set $fg0            #eeeeee
+set $fg1            #e4e4e4
+set $fg4            #8a8a8a
 
-set $yellow         #d79921
-set $orange         #d65d0e
-set $red            #cc241d
-set $green          #98971a
-set $aqua           #689d6a
-set $blue           #458588
-set $purple         #b16286
+# Replaced accent colors with a greyscale gradient
+set $light          #909090
+set $light_grey     #bcbcbc
+set $mid_grey       #6c6c6c
+set $dark_grey      #444444
 
-# class                 border  background  text   indicator child_border
-client.focused          $orange $orange     $fg0   $yellow   $orange
-client.focused_inactive $bg1    $bg1        $fg4   $bg3      $bg1
-client.unfocused        $bg0    $bg0        $fg4   $bg1      $bg0
-client.urgent           $red    $red        $fg0   $red      $red
-client.placeholder      $bg0    $bg0        $fg4   $bg0      $bg0
+# class                 border      background  text        indicator   child_border
+client.focused          $light      $light      $bg0_hard   $light_grey $light
+client.focused_inactive $bg1        $bg1        $fg4        $bg3        $bg1
+client.unfocused        $bg0        $bg0        $fg4        $bg1        $bg0
+client.urgent           $light_grey $light_grey $bg0_hard   $light      $light_grey
+client.placeholder      $bg0        $bg0        $fg4        $bg0        $bg0
 
 client.background       $bg0_hard
 
@@ -108,6 +131,8 @@ bindsym $mod+m exec $menu
 bindsym $mod+b exec $browser
 bindsym $mod+e exec $files
 bindsym $mod+p exec $colorpicker
+bindsym $mod+Shift+b exec alacritty --class float -e bluetui
+bindsym $mod+v exec $clipboard
 
 floating_modifier $mod normal
 bindsym $mod+space input "type:keyboard" xkb_switch_layout next
@@ -157,7 +182,7 @@ bindsym $mod+Shift+8 move container to workspace number 8
 bindsym $mod+Shift+9 move container to workspace number 9
 bindsym $mod+Shift+0 move container to workspace number 10
 
-bindsym $mod+Shift+b splith
+bindsym $mod+Shift+n splith
 bindsym $mod+Shift+v splitv
 
 bindsym $mod+o layout tabbed
@@ -198,6 +223,8 @@ bindsym $mod+Shift+s exec $screenshot
 # --- RULES ---
 # -------------
 
+mouse_warping container
+focus_follows_mouse no
 for_window [app_id="float"] floating enable
 
 # ----------
