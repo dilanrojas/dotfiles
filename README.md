@@ -185,6 +185,21 @@ sudo pacman -S power-profiles-daemon
 sudo systemctl enable --now power-profiles-daemon
 ```
 
+### Configuring persistent workspaces in Waybar
+
+Get your primary monitor name.
+
+```bash
+swaymsg -t get_outputs
+```
+
+Update your waybar config.
+Locate the workspaces module and check the values.
+
+```bash
+nvim ~/.config/waybar/config.json
+```
+
 ### 3. SDDM & Font Rendering (Optional)
 
 ```bash
