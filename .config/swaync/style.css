@@ -183,7 +183,7 @@ blankwindow {
 .notification-row .notification-background .notification .notification-default-action .notification-content .text-box .body {
   /* Notification body */
   font-size: var(--font-size-body);
-  font-weight: normal;
+  font-weight: 500;
   background: transparent;
   color: var(--text-color);
   text-shadow: none;

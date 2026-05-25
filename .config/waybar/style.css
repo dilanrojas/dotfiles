@@ -158,7 +158,6 @@ window#waybar>box {
   margin: 0px 0px;
   border: none;
   color: inherit;
-  letter-spacing: -1px;
   box-shadow: none;
   background: transparent;
   font-family: 'Liberation Sans';

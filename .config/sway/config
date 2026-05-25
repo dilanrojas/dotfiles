@@ -62,41 +62,55 @@ input type:keyboard {
 # -------------
 
 # Wallpaper
-output * bg ~/Pictures/wallpapers/231.jpg fill
+output * bg ~/Pictures/wallpapers/091.jpg fill
 
 # Borders
-default_border pixel 2
-default_border pixel 1
+default_border pixel 0
 default_floating_border pixel 2
 
 # Gaps
 gaps inner 10
 # smart_gaps on
 
-# Theme (Monochrome Version)
-set $bg0_hard       #1c1c1c
-set $bg0            #262626
-set $bg1            #3a3a3a
-set $bg3            #585858
+# Theme (Gruvbox Dark Version)
+set $bg0_hard       #1d2021
+set $bg0            #282828
+set $bg1            #3c3836
+set $bg3            #665c54
 
-set $fg0            #eeeeee
-set $fg1            #e4e4e4
-set $fg4            #8a8a8a
+set $fg0            #fbf1c7
+set $fg1            #ebdbb2
+set $fg4            #a89984
 
-# Replaced accent colors with a greyscale gradient
-set $light          #909090
-set $light_grey     #bcbcbc
-set $mid_grey       #6c6c6c
-set $dark_grey      #444444
+# Replaced greyscale gradient with Gruvbox accent colors
+set $accent         #d65d0e
+set $accent_bright  #fe8019
+set $neutral_yellow #d79921
+set $dark_gray      #504945
 
-# class                 border      background  text        indicator   child_border
-client.focused          $light      $light      $bg0_hard   $light_grey $light
-client.focused_inactive $bg1        $bg1        $fg4        $bg3        $bg1
-client.unfocused        $bg0        $bg0        $fg4        $bg1        $bg0
-client.urgent           $light_grey $light_grey $bg0_hard   $light      $light_grey
-client.placeholder      $bg0        $bg0        $fg4        $bg0        $bg0
+# class                 border          background      text            indicator       child_border
+client.focused          $accent         $accent         $bg0_hard       $accent_bright  $accent
+client.focused_inactive $bg1            $bg1            $fg4            $bg3            $bg1
+client.unfocused        $bg0            $bg0            $fg4            $bg1            $bg0
+client.urgent           $neutral_yellow $neutral_yellow $bg0_hard       $accent         $neutral_yellow
+client.placeholder      $bg0            $bg0            $fg4            $bg0            $bg0
 
 client.background       $bg0_hard
+
+# SWAY FX
+
+blur disable
+blur_passes 3
+blur_radius 2
+blur_noise 0.15
+blur_brightness 1
+blur_contrast 1
+blur_saturation 1
+blur_xray enable
+
+default_dim_inactive 0.2
+
+for_window [app_id="Alacritty"] blur enable
 
 # -------------------
 # --- KEYBINDINGS ---
@@ -203,6 +217,7 @@ bindsym $mod+Shift+s exec $screenshot
 mouse_warping container
 focus_follows_mouse yes
 for_window [app_id="float"] floating enable
+for_window [app_id="lunarclient"] floating enable
 
 # ----------
 # -- BAR ---

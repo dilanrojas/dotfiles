@@ -25,8 +25,8 @@ alias yr "yay -Rns"
 alias g git
 alias gc "git commit -m"
 alias ga "git add ."
+alias gp "git push"
 alias gpull "git pull"
-alias gpush "git push"
 
 # Systemd
 alias start "sudo systemctl start"
