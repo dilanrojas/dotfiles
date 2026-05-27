@@ -6,11 +6,11 @@ A sleek, productive Sway environment with a focus on the GNOME/Adwaita ecosystem
 
 <img src="./preview/image.png" alt="Gruvbox theme preview" />
 
-## ⌨️ Keybindings
+## Keybindings
 
 The `SUPER` key (Windows key) is your primary modifier.
 
-### 🚀 Applications & Utilities
+### Applications & Utilities
 
 | Keybind | Action |
 | --- | --- |
@@ -22,7 +22,7 @@ The `SUPER` key (Windows key) is your primary modifier.
 | `Print` | Screenshot (Area Select) |
 | `SUPER` + `Shift` + `Q` | Logout Menu (Wlogout) |
 
-### 🪟 Window Management
+### Window Management
 
 | Keybind | Action |
 | --- | --- |
@@ -33,7 +33,7 @@ The `SUPER` key (Windows key) is your primary modifier.
 | `SUPER` + `Shift` + `H/J/K/L` | Move Window Position |
 | `SUPER` + `Ctrl` + `H/J/K/L` | Resize Active Window |
 
-### 🔢 Workspaces
+### Workspaces
 
 | Keybind | Action |
 | --- | --- |
@@ -41,6 +41,12 @@ The `SUPER` key (Windows key) is your primary modifier.
 | `SUPER` + `Shift` + `1-0` | Move Window to Workspace 1-10 |
 | `SUPER` + `U` | Toggle Special Workspace (Scratchpad) |
 
+
+## Themes
+
+I usually switched between [Solarized Osaka](https://github.com/craftzdog/solarized-osaka.nvim) and [Gruvbox](https://github.com/morhetz/gruvbox).
+Feel free to edit `~/.config/alacritty/alacritty.toml` and add more themes into `~/.config/alacritty/themes`.
+Also, change your NeoVim theme on `~/.config/nvim/lua/plugins/colorscheme.lua`. The list of themes is available at `~/.config/nvim/lua/plugins/themes.lua`.
 
 ---
 
@@ -50,7 +56,7 @@ The `SUPER` key (Windows key) is your primary modifier.
 * **Bar:** [Waybar](https://github.com/Alexays/Waybar)
 * **Shell:** [Fish](https://fishshell.com/) with [Starship](https://starship.rs/)
 * **Terminal:** [Alacritty](https://alacritty.org/)
-* **App Launcher:** [Rofi Wayland](https://github.com/in0ni/rofi-wayland)
+* **App Launcher:** [Rofi](https://github.com/davatorium/rofi)
 * **File Manager:** [Nautilus](https://apps.gnome.org/en/Nautilus/)
 * **Editor:** [Neovim](https://neovim.io/) + [LazyVim](http://www.lazyvim.org/)
 * **SDDM Theme:** [SDDM Astronaut](https://github.com/Keyitdev/sddm-astronaut-theme)
@@ -65,7 +71,7 @@ The `SUPER` key (Windows key) is your primary modifier.
 The core environment including fonts, UI tools, and GNOME apps.
 
 ```bash
-sudo pacman -S swaybg sway swayidle swayosd swaync wmname sddm hyprpicker qt6ct qt5ct waybar nwg-look nwg-displays adw-gtk-theme polkit-gnome xdg-desktop-portal-gnome xdg-desktop-portal-gtk alacritty fish starship lsd bat nautilus gnome-disk-utility loupe showtime gnome-text-editor gnome-calendar gnome-clocks gnome-calculator papers grim slurp cliphist neovim nano brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd woff2-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm ripgrep fd fzf luarocks gcc lazygit git udiskie udisks2 libappindicator unzip unrar wget curl mlocate fastfetch python-pipx gnome-keyring seahorse libsecret ksshaskpass ttf-opensans breeze libnotify rofi wireless-regdb
+sudo pacman -S swaybg swayidle swayosd swaync wmname sddm hyprpicker qt6ct qt5ct waybar nwg-look nwg-displays adw-gtk-theme polkit-gnome xdg-desktop-portal-gnome xdg-desktop-portal-gtk alacritty fish starship lsd bat nautilus gnome-disk-utility loupe showtime gnome-text-editor gnome-calendar gnome-clocks gnome-calculator papers grim slurp cliphist neovim nano brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd woff2-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm ripgrep fd fzf luarocks gcc lazygit git udiskie udisks2 libappindicator unzip unrar wget curl mlocate fastfetch python-pipx gnome-keyring seahorse libsecret ksshaskpass ttf-opensans breeze libnotify rofi wireless-regdb
 ```
 
 AUR Helper
