@@ -4,7 +4,7 @@ A sleek, productive Sway environment with a focus on the GNOME/Adwaita ecosystem
 
 ## Preview
 
-<img src="./preview/image.png" alt="Gruvbox theme preview" />
+<img src="./preview/gruvbox.png" alt="Gruvbox theme preview" />
 
 ## Keybindings
 
