@@ -114,7 +114,7 @@ shadow_blur_radius 15
 shadow_color #00000070
 shadow_offset 0 0
 
-default_dim_inactive 0.1
+default_dim_inactive 0.06
 
 # This is a hack for blurring only
 # specific windows for improving performance

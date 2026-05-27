@@ -1,9 +1,9 @@
 :root {
-  --border-size: 0px;
+  --border-size: 1px;
 
   --cc-bg: #303030;
-  --cc-border-color: var(--border-size) solid var(--noti-border-color);
-  --noti-border-color: #606060;
+  --noti-border-color: #37373b;
+  --cc-border-color: var(--border-size) solid #37373b;
   --text-color: #ffffff;
   --noti-bg-darker: #303030;
   --noti-bg-hover: #353535;
@@ -136,7 +136,7 @@ blankwindow {
 .notification-row .notification-background .notification .notification-default-action .notification-content {
   background: transparent;
   border-radius: var(--border-radius);
-  padding: 16px;
+  padding: 10px;
 }
 
 .notification-row .notification-background .notification .notification-default-action .notification-content .image {

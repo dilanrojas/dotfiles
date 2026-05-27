@@ -24,7 +24,7 @@
   "control-center-height": 580,
   "notification-window-width": 420,
   "keyboard-shortcuts": true,
-  "notification-grouping": true,
+  "notification-grouping": false,
   "image-visibility": "when-available",
   "transition-time": 200,
   "hide-on-clear": false,
