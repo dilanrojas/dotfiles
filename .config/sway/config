@@ -17,6 +17,14 @@ set $colorpicker ~/.config/sway/scripts/hyprpicker.sh
 set $reload ~/.config/sway/scripts/reload.sh
 set $clipboard cliphist list | rofi -dmenu | cliphist decode | wl-copy
 
+# ----------------
+# --- MONITORS ---
+# ----------------
+
+output DP-1 mode 1920x1080@100.0Hz position 0,0
+output eDP-1 mode 1920x1080@60.0Hz position 0,0
+# output HDMI-A-1 resolution 1920x1080 position 1920,0
+
 # -----------------
 # --- AUTOSTART ---
 # -----------------
@@ -34,7 +42,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec swaync
 exec bash ~/.config/sway/scripts/low_battery.sh
 
-exec wmname LG3D
+exec_always wmname LG3D
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP /usr/lib/xdg-desktop-portal-gnome
 
 # -------------
@@ -62,14 +70,14 @@ input type:keyboard {
 # -------------
 
 # Wallpaper
-output * bg ~/Pictures/wallpapers/091.jpg fill
+output * bg ~/Pictures/wallpapers/039.jpg fill
 
 # Borders
-default_border pixel 0
-default_floating_border pixel 2
+default_border pixel 1
+default_floating_border pixel 1
 
 # Gaps
-gaps inner 10
+gaps inner 4
 # smart_gaps on
 
 # Theme (Gruvbox Dark Version)
@@ -83,8 +91,8 @@ set $fg1            #ebdbb2
 set $fg4            #a89984
 
 # Replaced greyscale gradient with Gruvbox accent colors
-set $accent         #d65d0e
-set $accent_bright  #fe8019
+set $accent         #37373b
+set $accent_bright  #252528
 set $neutral_yellow #d79921
 set $dark_gray      #504945
 
@@ -99,18 +107,29 @@ client.background       $bg0_hard
 
 # SWAY FX
 
+corner_radius 12
+
+shadows disable
+shadow_blur_radius 15
+shadow_color #00000070
+shadow_offset 0 0
+
+default_dim_inactive 0.1
+
+# This is a hack for blurring only
+# specific windows for improving performance
 blur disable
 blur_passes 3
 blur_radius 2
-blur_noise 0.15
+blur_noise 0.05
 blur_brightness 1
 blur_contrast 1
 blur_saturation 1
 blur_xray enable
 
-default_dim_inactive 0.2
-
 for_window [app_id="Alacritty"] blur enable
+for_window [app_id="float"] blur enable
+for_window [app_id="swaync"] blur enable
 
 # -------------------
 # --- KEYBINDINGS ---
@@ -218,6 +237,7 @@ mouse_warping container
 focus_follows_mouse yes
 for_window [app_id="float"] floating enable
 for_window [app_id="lunarclient"] floating enable
+for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 
 # ----------
 # -- BAR ---

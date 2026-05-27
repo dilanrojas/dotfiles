@@ -11,13 +11,14 @@ button {
   border-radius: 0;
   border-color: black;
   text-decoration-color: #FFFFFF;
-  color: #FFFFFF;
+  color: white;
   background-color: #131313;
   border-style: solid;
   border-width: 1px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 25%;
+  opacity: 1;
 }
 
 button:focus,
@@ -26,6 +27,7 @@ button:hover {
   background-color: #d65d0e;
   color: white;
   outline-style: none;
+  opacity: 1;
 }
 
 #lock {

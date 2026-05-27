@@ -8,12 +8,12 @@ decorations = "full"
 title = "Alacritty@ArchLinux"
 startup_mode = "Maximized"
 decorations_theme_variant = "Dark"
-opacity = 1
+opacity = 0.92
 blur = true
 
 [window.padding]
 x = 15
-y = 0
+y = 15
 
 [window.dimensions]
 columns = 100
@@ -146,4 +146,4 @@ action = "ResetFontSize"
 live_config_reload = true
 working_directory = "None"
 
-import = ["~/.config/hypr/themes/vercel/alacritty.toml"]
+import = ["./themes/gruvbox-hard.toml"]

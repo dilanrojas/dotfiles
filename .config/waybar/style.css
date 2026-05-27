@@ -1,6 +1,6 @@
-/* ==============================
-   === Waybar modules styling ===
-   ============================== */
+/* ---------------
+   --- Waybar ----
+   --------------- */
 
 * {
   font-size: inherit;
@@ -35,6 +35,7 @@ window#waybar>box {
 
 /* Modules styling */
 #custom-expand-icon,
+#custom-notification,
 #custom-separator,
 #workspaces,
 #language,
@@ -49,7 +50,7 @@ window#waybar>box {
 #battery,
 #clock,
 #custom-power {
-  margin: 0px 1px;
+  margin: 0px 2px;
   padding: 0px 5px;
   font-size: 14px;
   font-family: 'CaskaydiaCove Nerd Font', sans-serif;
@@ -69,20 +70,27 @@ window#waybar>box {
 
 /* Fixes */
 #clock {
-  letter-spacing: -1px;
+  margin-left: 15px;
+}
+
+#custom-notification {
+  font-size: 14px;
+  padding-left: 0px;
+  padding-right: 6px;
+  margin-left: 6px;
 }
 
 #network {
   padding-right: 3px;
 }
 
+#custom-updates {
+  padding-left: 6px;
+}
+
 #group-tray-expander {
   margin: 0;
   padding: 0;
-}
-
-#language {
-  margin-left: 4px
 }
 
 #idle_inhibitor {

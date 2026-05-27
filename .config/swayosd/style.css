@@ -1,12 +1,13 @@
 window#osd {
-  border-radius: 0px;
+  border-radius: 30px;
   border: none;
   background: #000000;
-  border: 1px solid #606060;
+  border: 0px solid #606060;
 }
 
 window#osd #container {
-  margin: 12px 17px;
+  margin: 13px 24px;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, .7);
 }
 
 window#osd image,
