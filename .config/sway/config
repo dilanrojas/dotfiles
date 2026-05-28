@@ -21,8 +21,8 @@ set $clipboard cliphist list | rofi -dmenu | cliphist decode | wl-copy
 # --- MONITORS ---
 # ----------------
 
-output DP-1 mode 1920x1080@100.0Hz position 0,0
-output eDP-1 resolution 1366x768 position 0,0
+# output DP-1 mode 1920x1080@100.0Hz position 0,0
+# output eDP-1 resolution 1366x768 position 0,0
 # output HDMI-A-1 resolution 1920x1080 position 1920,0
 
 # -----------------
@@ -42,7 +42,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec swaync
 exec bash ~/.config/sway/scripts/low_battery.sh
 
-exec_always wmname LG3D
+exec_always "while [ -z \"$DISPLAY\" ]; do sleep 0.5; done; wmname LG3D"
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP /usr/lib/xdg-desktop-portal-gnome
 
 # -------------
@@ -83,7 +83,7 @@ gaps inner 4
 # Theme Colors
 set $color_bg_primary        #1d1d20
 set $color_bg_secondary      #222226
-set $color_bg_tertiary       #161620
+set $color_bg_tertiary       #232326
 set $color_bg_muted          #353538
 
 set $color_fg_primary        #fbf1c7
