@@ -16,7 +16,7 @@ while true; do
 
     # Level 2: Critical Warning (10%)
     if [ "$CAPACITY" -le "$CRIT_LEVEL" ] && [ "$NOTIFIED_10" = false ]; then
-      notify-send -u critical "Battery Critical" "Plug in immediately! ${CAPACITY}% remaining."
+      notify-send -u critical "Battery Critical" "Battery is at ${CAPACITY}%."
       NOTIFIED_10=true
       NOTIFIED_20=true # Ensure the 20% alert doesn't fire if we somehow skip to 10%
 

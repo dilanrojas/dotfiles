@@ -22,7 +22,7 @@ set $clipboard cliphist list | rofi -dmenu | cliphist decode | wl-copy
 # ----------------
 
 output DP-1 mode 1920x1080@100.0Hz position 0,0
-output eDP-1 mode 1920x1080@60.0Hz position 0,0
+output eDP-1 resolution 1366x768 position 0,0
 # output HDMI-A-1 resolution 1920x1080 position 1920,0
 
 # -----------------
@@ -80,30 +80,30 @@ default_floating_border pixel 1
 gaps inner 4
 # smart_gaps on
 
-# Theme (Gruvbox Dark Version)
-set $bg0_hard       #1d2021
-set $bg0            #282828
-set $bg1            #3c3836
-set $bg3            #665c54
+# Theme Colors
+set $color_bg_primary        #1d1d20
+set $color_bg_secondary      #222226
+set $color_bg_tertiary       #161620
+set $color_bg_muted          #353538
 
-set $fg0            #fbf1c7
-set $fg1            #ebdbb2
-set $fg4            #a89984
+set $color_fg_primary        #fbf1c7
+set $color_fg_secondary      #ebdbb2
+set $color_fg_muted          #a89984
 
-# Replaced greyscale gradient with Gruvbox accent colors
-set $accent         #37373b
-set $accent_bright  #252528
-set $neutral_yellow #d79921
-set $dark_gray      #504945
+set $color_accent            #37373b
+set $color_accent_active     #424245
 
-# class                 border          background      text            indicator       child_border
-client.focused          $accent         $accent         $bg0_hard       $accent_bright  $accent
-client.focused_inactive $bg1            $bg1            $fg4            $bg3            $bg1
-client.unfocused        $bg0            $bg0            $fg4            $bg1            $bg0
-client.urgent           $neutral_yellow $neutral_yellow $bg0_hard       $accent         $neutral_yellow
-client.placeholder      $bg0            $bg0            $fg4            $bg0            $bg0
+set $color_border_muted      #504945
+set $color_urgent            #3b2626
 
-client.background       $bg0_hard
+# class                 border                  background              text                    indicator               child_border
+client.focused          $color_accent           $color_accent           $color_bg_primary       $color_accent_active    $color_accent
+client.focused_inactive $color_bg_secondary     $color_bg_secondary     $color_fg_muted         $color_bg_muted         $color_bg_secondary
+client.unfocused        $color_bg_tertiary      $color_bg_tertiary      $color_fg_muted         $color_bg_secondary     $color_bg_tertiary
+client.urgent           $color_urgent           $color_bg_primary       $color_accent           $color_urgent           $color_urgent
+client.placeholder      $color_bg_tertiary      $color_bg_tertiary      $color_fg_muted         $color_bg_tertiary      $color_bg_tertiary
+
+client.background       $color_bg_primary
 
 # SWAY FX
 
@@ -114,7 +114,7 @@ shadow_blur_radius 15
 shadow_color #00000070
 shadow_offset 0 0
 
-default_dim_inactive 0.06
+default_dim_inactive 0
 
 # This is a hack for blurring only
 # specific windows for improving performance
