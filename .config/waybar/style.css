@@ -71,6 +71,8 @@ window#waybar>box {
 /* Fixes */
 #clock {
   margin-left: 15px;
+  font-family: 'Liberation Sans';
+  font-weight: 500;
 }
 
 #custom-notification {
@@ -86,6 +88,7 @@ window#waybar>box {
 
 #custom-updates {
   padding-left: 6px;
+  padding-right: 2px;
 }
 
 #group-tray-expander {
@@ -99,8 +102,8 @@ window#waybar>box {
 }
 
 #power-profiles-daemon {
-  padding-left: 8px;
-  padding-right: 12px;
+  padding-left: 6px;
+  padding-right: 11px;
   font-size: 17px;
 }
 

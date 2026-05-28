@@ -7,10 +7,10 @@
   "layer-shell": true,
   "layer-shell-cover-screen": true,
   "cssPriority": "application",
-  "control-center-margin-top": 8,
-  "control-center-margin-bottom": 8,
-  "control-center-margin-right": 8,
-  "control-center-margin-left": 8,
+  "control-center-margin-top": 4,
+  "control-center-margin-bottom": 4,
+  "control-center-margin-right": 4,
+  "control-center-margin-left": 4,
   "notification-2fa-action": true,
   "notification-inline-replies": false,
   "notification-body-image-height": 100,
@@ -50,9 +50,9 @@
     }
   },
   "widgets": [
-    "mpris",
     "title",
     "notifications",
+    "mpris",
     "dnd"
   ],
   "widget-config": {

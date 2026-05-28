@@ -24,8 +24,8 @@ window {
 
     /* properties for all widgets */
     enabled:                     true;
-    border:			 1px solid;
-    border-color:		 @window-border;
+    border:                      1px solid;
+    border-color:                @window-border;
     border-radius:               @rounding;
     cursor:                      "default";
     background-color:            @background-primary;

@@ -60,8 +60,8 @@ blankwindow {
   text-shadow: none;
   padding: 0;
   border-radius: 100%;
-  margin-top: 12px;
-  margin-right: 12px;
+  margin-top: 8px;
+  margin-right: 8px;
   box-shadow: none;
   border: none;
   min-width: 24px;
@@ -85,7 +85,7 @@ blankwindow {
 }
 
 .notification-row .notification-background {
-  padding: 8px;
+  padding: 4px;
 }
 
 .notification-row .notification-background .notification {
@@ -350,7 +350,6 @@ blankwindow {
 
 .control-center .control-center-list {
   /* List of notifications */
-  background: transparent;
 }
 
 .control-center .control-center-list .notification {
@@ -369,7 +368,6 @@ blankwindow {
 
 .blank-window {
   /* Window behind control center and on all other monitors */
-  background: transparent;
 }
 
 .floating-notifications {
@@ -417,11 +415,6 @@ blankwindow {
 /* Label widget */
 .widget-label>label {
   font-size: 1.1rem;
-}
-
-.notifications {
-  margin: 0;
-  padding: 0;
 }
 
 /* Mpris widget */

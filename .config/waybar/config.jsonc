@@ -3,7 +3,7 @@
   // "layer": "top",
   "reload_style_on_change": true,
   // "position": "bottom",
-  "height": 35,
+  "height": 32,
   // "width": 1280,
   "spacing": 0,
   "modules-left": [
@@ -38,9 +38,9 @@
       "7": "VII",
       "8": "VIII",
       "9": "IX",
-      "10": "X",
+      "10": "X"
       //"urgent": "",
-      "focused": "O"
+      // "focused": "O"
     },
     "persistent-workspaces": {
       "1": [
@@ -162,7 +162,10 @@
     ],
     "interval": 3,
     "tooltip": false,
-    "tooltip-format": "Battery: {capacity}%"
+    "tooltip-format": "Battery: {capacity}%",
+    "on-click": "echo hey",
+    "on-scroll-up": "brightnessctl set 5%+",
+    "on-scroll-down": "brightnessctl set 5%-"
   },
   "power-profiles-daemon": {
     "format": "{icon}",

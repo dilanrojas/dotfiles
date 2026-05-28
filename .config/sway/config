@@ -70,7 +70,7 @@ input type:keyboard {
 # -------------
 
 # Wallpaper
-output * bg ~/Pictures/wallpapers/039.jpg fill
+output * bg ~/Pictures/wallpapers/221.jpg fill
 
 # Borders
 default_border pixel 1
