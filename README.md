@@ -105,7 +105,7 @@ pipx install rich-cli
 Sound servers, Bluetooth, and Printing services.
 
 ```bash
-sudo pacman -S pipewire pipewire-pulse pipewire-alsa alsa-utils pavucontrol pipewire-jack wireplumber bluez bluez-utils blueman cups cups-pdf
+sudo pacman -S pipewire pipewire-pulse pipewire-alsa alsa-utils pavucontrol pipewire-jack wireplumber bluez bluez-utils bluetui cups cups-pdf
 ```
 
 Media codecs
@@ -120,18 +120,6 @@ Drivers and base display server components for hardware acceleration.
 
 ```bash
 sudo pacman -S xorg xorg-server libva libva-intel-driver intel-media-driver mesa vulkan-intel vulkan-icd-loader vulkan-headers vulkan-devel vulkan-mesa-layers opencl-mesa vulkan-mesa-implicit-layers
-```
-
-lib32 components. Must enable Multilib repos on `/etc/pacman.conf`
-
-```bash
-sudo pacman -S lib32-mesa lib32-opencl-mesa lib32-vulkan-mesa-layers lib32-vulkan-mesa-implicit-layers lib32-vulkan-icd-loader lib32-vulkan lib32-pipewire lib32-pipewire-jack lib32-vulkan-virtio lib32-vulkan-validation-layers lib32-vulkan-intel
-```
-
-Wine and various utilities. Useful for gaming
-
-```bash
-yay -S --needed wine-staging giflib lib32-giflib libpng lib32-libpng libldap lib32-libldap gnutls lib32-gnutls mpg123 lib32-mpg123 openal lib32-openal v4l-utils lib32-v4l-utils libgpg-error lib32-libgpg-error lib32-alsa-plugins alsa-lib lib32-alsa-lib libjpeg-turbo lib32-libjpeg-turbo sqlite lib32-sqlite libxcomposite lib32-libxcomposite libxinerama lib32-libxinerama libgcrypt lib32-libgcrypt libxslt lib32-libxslt libva lib32-libva gtk3 lib32-gtk3 gst-plugins-base-libs lib32-gst-plugins-base-libs
 ```
 
 ### Setup zram
