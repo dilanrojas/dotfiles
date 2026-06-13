@@ -21,6 +21,8 @@ The `SUPER` key (Windows key) is your primary modifier.
 | `SUPER` + `V` | Clipboard History |
 | `Print` | Screenshot (Area Select) |
 | `SUPER` + `Shift` + `Q` | Logout Menu (Wlogout) |
+| `SUPER` + `Shift` + `P` | Power Profiles (Rofi) |
+| `SUPER` + `N` | Do not disturb mode (Mako) |
 
 ### Window Management
 
