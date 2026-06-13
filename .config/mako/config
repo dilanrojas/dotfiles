@@ -1,0 +1,38 @@
+font=Adwaita Sans 12
+format=<b>%a </b> %s\n%b
+sort=-time
+output=eDP-1
+layer=overlay
+anchor=top-center
+background-color=#54545a
+margin=2
+border-size=0
+border-color=#88c0d0
+border-radius=12
+icons=0
+max-icon-size=64
+ignore-timeout=1
+group-by=app-name,summary,body
+default-timeout=5000
+width=515
+outer-margin=2
+padding=10,15
+
+[mode=dnd]
+invisible=1
+
+[urgency=normal]
+border-color=#54545a
+
+[urgency=high]
+border-color=#54545a
+default-timeout=0
+
+[app-name=lightcord]
+border-color=#54545a
+
+[summary~="log-.*"]
+border-color=#54545a
+
+[app-name=lightcord summary~="(.*(^| )orz|ORZ|sto|STO|otl|OTL( |$).*)"]
+invisible=1

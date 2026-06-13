@@ -16,6 +16,7 @@ set $cropscreenshot ~/.config/sway/scripts/cropscreenshot.sh
 set $colorpicker ~/.config/sway/scripts/hyprpicker.sh
 set $reload ~/.config/sway/scripts/reload.sh
 set $clipboard cliphist list | rofi -dmenu | cliphist decode | wl-copy
+set $dnd ~/.config/sway/scripts/dnd.sh
 
 # ----------------
 # --- MONITORS ---
@@ -30,9 +31,9 @@ set $clipboard cliphist list | rofi -dmenu | cliphist decode | wl-copy
 # -----------------
 
 # exec swayidle -w \
-#          timeout 300 'swaylock -f -c 000000' \
-#          timeout 600 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
-#          before-sleep 'swaylock -f -c 000000'
+#     timeout 300 'brightnessctl set 30%' \
+#     timeout 600 'brightnessctl set 0%' resume 'brightnessctl set 100%' \
+#     before-sleep 'brightnessctl set 0%'
 
 exec wl-paste --type text --watch cliphist store
 exec wl-paste --type image --watch cliphist store
@@ -42,7 +43,10 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec swaync
 exec bash ~/.config/sway/scripts/low_battery.sh
 
-exec_always "while [ -z \"$DISPLAY\" ]; do sleep 0.5; done; wmname LG3D"
+exec_always wmname LG3D
+
+exec systemctl --user start --ignore-dependencies xdg-desktop-portal
+
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP /usr/lib/xdg-desktop-portal-gnome
 
 # -------------
@@ -70,14 +74,14 @@ input type:keyboard {
 # -------------
 
 # Wallpaper
-output * bg ~/Pictures/wallpapers/221.jpg fill
+output * bg ~/Pictures/wallpapers/135.jpg fill
 
 # Borders
 default_border pixel 1
 default_floating_border pixel 1
 
 # Gaps
-gaps inner 4
+gaps inner 5
 # smart_gaps on
 
 # Theme Colors
@@ -105,32 +109,6 @@ client.placeholder      $color_bg_tertiary      $color_bg_tertiary      $color_f
 
 client.background       $color_bg_primary
 
-# SWAY FX
-
-corner_radius 12
-
-shadows disable
-shadow_blur_radius 15
-shadow_color #00000070
-shadow_offset 0 0
-
-default_dim_inactive 0
-
-# This is a hack for blurring only
-# specific windows for improving performance
-blur disable
-blur_passes 3
-blur_radius 2
-blur_noise 0.05
-blur_brightness 1
-blur_contrast 1
-blur_saturation 1
-blur_xray enable
-
-for_window [app_id="Alacritty"] blur enable
-for_window [app_id="float"] blur enable
-for_window [app_id="swaync"] blur enable
-
 # -------------------
 # --- KEYBINDINGS ---
 # -------------------
@@ -143,6 +121,7 @@ bindsym $mod+e exec $files
 bindsym $mod+p exec $colorpicker
 bindsym $mod+Shift+b exec alacritty --class float -e bluetui
 bindsym $mod+v exec $clipboard
+bindsym $mod+n exec $dnd
 
 floating_modifier $mod normal
 bindsym $mod+space input "type:keyboard" xkb_switch_layout next
@@ -238,6 +217,7 @@ focus_follows_mouse yes
 for_window [app_id="float"] floating enable
 for_window [app_id="lunarclient"] floating enable
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
+for_window [app_id="brave" title=".*wants to save.*"] floating enable, move position center
 
 # ----------
 # -- BAR ---

@@ -8,7 +8,7 @@ decorations = "full"
 title = "Alacritty@ArchLinux"
 startup_mode = "Maximized"
 decorations_theme_variant = "Dark"
-opacity = 0.92
+opacity = 1
 blur = true
 
 [window.padding]
@@ -31,7 +31,7 @@ multiplier = 3
 draw_bold_text_with_bright_colors = true
 
 [font]
-size = 12
+size = 14
 offset = { x = 0, y = 0 }
 
 [font.normal]
