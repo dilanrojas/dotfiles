@@ -50,7 +50,7 @@ window#waybar>box {
 #custom-power {
   margin: 0px 2px;
   padding: 0px 5px;
-  font-size: 16px;
+  font-size: 18px;
   font-family: 'CaskaydiaCove Nerd Font', sans-serif;
   font-weight: 600;
   border-radius: 0px;
@@ -67,15 +67,36 @@ window#waybar>box {
 }
 
 /* Fixes */
+
+/* Font size normalize */
+#clock,
+#tray,
+#tooltip {
+  font-size: 16px;
+}
+
+/* Font weight normalize */
+#tooltip,
+#tray {
+  font-weight: 400;
+}
+
+/* Font family normalize */
+#tray,
+#clock,
+#tooltip,
+#language {
+  font-family: 'Adwaita Sans';
+}
+
+/* Visual fixes */
 #clock {
   margin-left: 15px;
-  font-family: 'Adwaita Sans';
   font-weight: 600;
 }
 
 #tray {
   margin-right: 10px;
-  font-weight: 400;
 }
 
 #scratchpad {
@@ -108,10 +129,6 @@ window#waybar>box {
 
 #pulseaudio {
   padding-right: 10px;
-}
-
-#custom-power {
-  padding-right: 9px
 }
 
 /* Battery states */
@@ -148,9 +165,7 @@ window#waybar>box {
   color: inherit;
   box-shadow: none;
   background: white;
-  font-family: 'Adwaita Sans';
   font-size: 0;
-  font-weight: 500;
   opacity: .5;
   border-radius: 100px;
   /* transition: color .08s ease, background .08s ease, opacity .08s ease; */
@@ -179,7 +194,6 @@ tooltip {
   border-radius: 0px;
   border: 1px solid #404040;
   font-family: inherit;
-  font-weight: 500;
   background: black;
   padding: 2px;
 }

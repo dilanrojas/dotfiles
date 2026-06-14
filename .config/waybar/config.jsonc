@@ -84,6 +84,9 @@
     "tooltip": true,
     "tooltip-format": "{app}: {title}"
   },
+  "sway/language": {
+    "tooltip": false
+  },
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
@@ -92,7 +95,7 @@
     }
   },
   "tray": {
-    "icon-size": 18,
+    "icon-size": 20,
     "spacing": 16
   },
   "clock": {
@@ -158,7 +161,7 @@
       "󰁹"
     ],
     "interval": 3,
-    "tooltip": false,
+    "tooltip": true,
     "tooltip-format": "Battery: {capacity}%",
     "on-click": "bash ~/.config/sway/scripts/power_profile.sh",
     "on-scroll-up": "brightnessctl set 5%+",
@@ -190,10 +193,10 @@
     "format": "{icon}",
     "format-wifi": "{icon}",
     "format-ethernet": " ",
-    "tooltip-format": "  ",
     "format-linked": "  ",
     "format-disconnected": "󰤮 ",
-    "tooltip": false,
+    "tooltip": true,
+    "tooltip-format": "{essid} ({signalStrength}%)",
     "on-click": "alacritty --class float -e nmtui",
     "format-icons": [
       "󰤯 ",
