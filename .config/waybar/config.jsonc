@@ -10,17 +10,16 @@
     "sway/workspaces"
   ],
   "modules-center": [
-    "clock",
-    "custom/notification"
+    "clock"
   ],
   "modules-right": [
-    "group/tray-expander",
-    "sway/language",
     "sway/scratchpad",
+    "tray",
+    "custom/updates",
+    "sway/language",
     "network",
     "pulseaudio",
-    "battery",
-    "custom/power"
+    "battery"
   ],
   // Modules configuration
   "sway/workspaces": {
@@ -98,8 +97,7 @@
   },
   "clock": {
     "format": "{:%b %d  %I:%M %p}",
-    "on-click-right": "swaync-client -d -sw",
-    "on-click": "swaync-client -t -sw",
+    "on-click": "gnome-calendar",
     "tooltip": false
   },
   "group/tray-expander": {
@@ -111,7 +109,6 @@
     "modules": [
       "group/expand-icons",
       "tray",
-      "custom/updates",
       "power-profiles-daemon"
     ]
   },
@@ -144,9 +141,9 @@
       "warning": 20,
       "critical": 10
     },
-    "format": "{icon}  {capacity}%",
-    "format-charging": "{icon} {capacity}%",
-    "format-plugged": "{icon} {capacity}%",
+    "format": "{icon}",
+    "format-charging": "{icon}",
+    "format-plugged": "{icon}",
     "format-icons": [
       "󰂎",
       "󰁺",
@@ -163,7 +160,7 @@
     "interval": 3,
     "tooltip": false,
     "tooltip-format": "Battery: {capacity}%",
-    "on-click": "echo hey",
+    "on-click": "bash ~/.config/sway/scripts/power_profile.sh",
     "on-scroll-up": "brightnessctl set 5%+",
     "on-scroll-down": "brightnessctl set 5%-"
   },
@@ -222,37 +219,5 @@
         ""
       ]
     }
-  },
-  "custom/separator": {
-    "format": "|",
-    "tooltip": false
-  },
-  "custom/power": {
-    "format": " ",
-    "on-click": "wlogout",
-    "tooltip": false
-  },
-  "custom/menu": {
-    "format": "",
-    "on-click": "alacritty --class float -e nvim ~/.config/hypr/hyprland.conf",
-    "tooltip": false
-  },
-  "custom/notification": {
-    "tooltip": false,
-    "format": "{icon}",
-    "format-icons": {
-      "notification": "",
-      "none": " ",
-      "dnd-notification": "",
-      "dnd-none": "",
-      "inhibited-notification": "",
-      "inhibited-none": "",
-      "dnd-inhibited-notification": "",
-      "dnd-inhibited-none": ""
-    },
-    "return-type": "json",
-    "exec-if": "which swaync-client",
-    "exec": "swaync-client -swb",
-    "escape": true
   }
 }

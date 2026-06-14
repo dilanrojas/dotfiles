@@ -17,6 +17,7 @@ set $colorpicker ~/.config/sway/scripts/hyprpicker.sh
 set $reload ~/.config/sway/scripts/reload.sh
 set $clipboard cliphist list | rofi -dmenu | cliphist decode | wl-copy
 set $dnd ~/.config/sway/scripts/dnd.sh
+set $power_profile ~/.config/sway/scripts/power_profile.sh
 
 # ----------------
 # --- MONITORS ---
@@ -122,6 +123,7 @@ bindsym $mod+p exec $colorpicker
 bindsym $mod+Shift+b exec alacritty --class float -e bluetui
 bindsym $mod+v exec $clipboard
 bindsym $mod+n exec $dnd
+bindsym $mod+Shift+p exec $power_profile
 
 floating_modifier $mod normal
 bindsym $mod+space input "type:keyboard" xkb_switch_layout next
@@ -218,6 +220,7 @@ for_window [app_id="float"] floating enable
 for_window [app_id="lunarclient"] floating enable
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 for_window [app_id="brave" title=".*wants to save.*"] floating enable, move position center
+for_window [app_id="steam"] floating enable
 
 # ----------
 # -- BAR ---

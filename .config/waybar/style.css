@@ -34,8 +34,6 @@ window#waybar>box {
 }
 
 /* Modules styling */
-#custom-expand-icon,
-#custom-notification,
 #custom-separator,
 #workspaces,
 #language,
@@ -52,9 +50,9 @@ window#waybar>box {
 #custom-power {
   margin: 0px 2px;
   padding: 0px 5px;
-  font-size: 14px;
+  font-size: 16px;
   font-family: 'CaskaydiaCove Nerd Font', sans-serif;
-  font-weight: 400;
+  font-weight: 600;
   border-radius: 0px;
   border: none;
   opacity: 1;
@@ -71,15 +69,17 @@ window#waybar>box {
 /* Fixes */
 #clock {
   margin-left: 15px;
-  font-family: 'Liberation Sans';
-  font-weight: 500;
+  font-family: 'Adwaita Sans';
+  font-weight: 600;
 }
 
-#custom-notification {
-  font-size: 14px;
-  padding-left: 0px;
-  padding-right: 6px;
-  margin-left: 6px;
+#tray {
+  margin-right: 10px;
+  font-weight: 400;
+}
+
+#scratchpad {
+  margin-right: 5px;
 }
 
 #network {
@@ -89,11 +89,11 @@ window#waybar>box {
 #custom-updates {
   padding-left: 6px;
   padding-right: 2px;
+  margin-right: 10px;
 }
 
-#group-tray-expander {
-  margin: 0;
-  padding: 0;
+#language {
+  margin-right: 10px;
 }
 
 #idle_inhibitor {
@@ -104,7 +104,6 @@ window#waybar>box {
 #power-profiles-daemon {
   padding-left: 6px;
   padding-right: 11px;
-  font-size: 17px;
 }
 
 #pulseaudio {
@@ -115,36 +114,11 @@ window#waybar>box {
   padding-right: 9px
 }
 
-#custom-expand-icon {
-  background: transparent;
-  margin: 0;
-  padding: 0;
-  padding: 0px 10px;
-  opacity: .7;
-}
-
-#custom-expand-icon.vertical,
-.left #custom-expand-icon.horizontal,
-.right #custom-expand-icon.horizontal {
-  opacity: 0;
-  font-size: 0;
-  min-width: 0;
-  min-height: 0;
-  margin: 0;
-  padding: 0;
-}
-
-.left #custom-expand-icon.vertical,
-.right #custom-expand-icon.vertical {
-  opacity: 1;
-  font-size: inherit;
-  min-width: 0;
-  min-height: 12px;
-  margin: 1.5px 0;
-  padding: 6px 0;
-}
-
 /* Battery states */
+#battery {
+  padding-right: 12px;
+}
+
 #battery.warning:not(.charging),
 #battery.critical:not(.charging) {
   color: #ff8080
@@ -162,24 +136,26 @@ window#waybar>box {
 #workspaces {
   padding: 0;
   margin: 0;
+  margin-left: 10px;
 }
 
 #workspaces button {
-  padding: 0px 5px;
-  margin: 0px 0px;
+  padding: 0px 0px;
+  margin: 13px 4px;
+  min-height: 0px;
+  min-width: 6px;
   border: none;
   color: inherit;
   box-shadow: none;
-  background: transparent;
-  font-family: 'Liberation Sans';
-  font-weight: 600;
+  background: white;
+  font-family: 'Adwaita Sans';
+  font-size: 0;
+  font-weight: 500;
   opacity: .5;
+  border-radius: 100px;
   /* transition: color .08s ease, background .08s ease, opacity .08s ease; */
 }
 
-#workspaces button:first-child {
-  padding-left: 10px;
-}
 
 #workspaces button.urgent {
   color: #ff8080
@@ -191,6 +167,8 @@ window#waybar>box {
 
 #workspaces button.visible {
   opacity: 1;
+  margin: 12px 4px;
+  min-width: 28px;
 }
 
 #workspaces button:hover:not(.visible) {
