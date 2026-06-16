@@ -8,6 +8,7 @@ set $down j
 set $up k
 set $right l
 set $term alacritty
+set $term_float alacritty --class float -e
 set $menu rofi -show drun
 set $browser brave
 set $files nautilus -w
@@ -121,7 +122,8 @@ bindsym $mod+m exec $menu
 bindsym $mod+b exec $browser
 bindsym $mod+e exec $files
 bindsym $mod+p exec $colorpicker
-bindsym $mod+Shift+b exec alacritty --class float -e bluetui
+bindsym $mod+Shift+b exec $term_float bluetui
+bindsym $mod+Shift+w exec $term_float nmtui
 bindsym $mod+v exec $clipboard
 bindsym $mod+n exec $dnd
 bindsym $mod+Shift+p exec $power_profile
@@ -207,6 +209,12 @@ bindsym XF86AudioMicMute exec $osd --input-volume mute-toggle
 bindsym XF86MonBrightnessDown exec $osd --brightness lower
 bindsym XF86MonBrightnessUp exec $osd --brightness raise
 
+bindsym XF86AudioPlay exec $osd --playerctl play-pause
+bindsym XF86AudioPause exec $osd --playerctl play-pause
+bindsym XF86AudioPrev exec $osd --playerctl previous
+bindsym XF86AudioNext exec $osd --playerctl next
+bindsym XF86AudioStop exec $osd --playerctl stop
+
 bindsym Print exec $cropscreenshot
 bindsym $mod+Print exec $screenshot
 bindsym $mod+s exec $cropscreenshot
@@ -222,7 +230,7 @@ for_window [app_id="float"] floating enable
 for_window [app_id="lunarclient"] floating enable
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 for_window [app_id="brave" title=".*wants to save.*"] floating enable, move position center
-for_window [app_id="steam"] floating enable
+for_window [class="steam"] floating enable
 for_window [app_id="org.gnome.Loupe"] floating enable
 for_window [app_id="org.gnome.Calendar"] floating enable
 for_window [app_id="org.gnome.Calculator"] floating enable
