@@ -4,7 +4,7 @@ A sleek, productive Sway environment with a focus on the GNOME/Adwaita ecosystem
 
 ## Preview
 
-<img src="./preview/image.png" alt="Dotfiles preview" />
+<img src="./preview/desktop.png" alt="Dotfiles preview" />
 
 ## Keybindings
 

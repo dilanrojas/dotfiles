@@ -18,6 +18,7 @@ set $reload ~/.config/sway/scripts/reload.sh
 set $clipboard cliphist list | rofi -dmenu | cliphist decode | wl-copy
 set $dnd ~/.config/sway/scripts/dnd.sh
 set $power_profile ~/.config/sway/scripts/power_profile.sh
+set $toggle_theme ~/.config/sway/scripts/toggle_theme.sh
 
 # ----------------
 # --- MONITORS ---
@@ -44,7 +45,7 @@ exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec swaync
 exec bash ~/.config/sway/scripts/low_battery.sh
 
-exec_always wmname LG3D
+exec sleep 3 && wmname LG3D
 
 exec systemctl --user start --ignore-dependencies xdg-desktop-portal
 
@@ -75,7 +76,7 @@ input type:keyboard {
 # -------------
 
 # Wallpaper
-output * bg ~/Pictures/wallpapers/135.jpg fill
+output * bg ~/Pictures/wallpapers/232.jpg fill
 
 # Borders
 default_border pixel 1
@@ -124,6 +125,7 @@ bindsym $mod+Shift+b exec alacritty --class float -e bluetui
 bindsym $mod+v exec $clipboard
 bindsym $mod+n exec $dnd
 bindsym $mod+Shift+p exec $power_profile
+bindsym $mod+t exec $toggle_theme
 
 floating_modifier $mod normal
 bindsym $mod+space input "type:keyboard" xkb_switch_layout next
@@ -221,6 +223,10 @@ for_window [app_id="lunarclient"] floating enable
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 for_window [app_id="brave" title=".*wants to save.*"] floating enable, move position center
 for_window [app_id="steam"] floating enable
+for_window [app_id="org.gnome.Loupe"] floating enable
+for_window [app_id="org.gnome.Calendar"] floating enable
+for_window [app_id="org.gnome.Calculator"] floating enable
+for_window [app_id="org.gnome.clocks"] floating enable
 
 # ----------
 # -- BAR ---
