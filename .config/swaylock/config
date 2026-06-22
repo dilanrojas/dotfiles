@@ -1,0 +1,44 @@
+# Background Image & Scaling
+image=/home/jwd/Pictures/wallpapers/230.jpg
+scaling=fill
+
+# General Settings
+clock
+indicator
+indicator-radius=100
+indicator-thickness=7
+line-uses-inside
+
+# Color Palette (Nord/Deep Blue Inspired - Adjust to match wallpaper 230.jpg)
+# Format: RRGGBBAA
+
+# Inside Circle
+inside-color=2E3440D0
+inside-clear-color=88C0D0D0
+inside-ver-color=81A1C1D0
+inside-wrong-color=BF616A00
+
+# Outer Ring
+ring-color=4C566A
+ring-clear-color=88C0D0
+ring-ver-color=81A1C1
+ring-wrong-color=BF616A
+
+# Text & Fonts
+font="Ubuntu"
+font-size=24
+text-color=D8DEE9
+text-clear-color=2E3440
+text-ver-color=2E3440
+text-wrong-color=BF616A
+
+# Keypress / Action Indicators
+key-hl-color=A3BE8C
+bs-hl-color=B48EAD
+caps-lock-key-hl-color=EBCB8B
+caps-lock-bs-hl-color=B48EAD
+disable-caps-lock-text
+
+# Layout & Behavior
+separator-color=00000000
+fade-in=0.2

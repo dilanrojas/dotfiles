@@ -42,16 +42,17 @@ window#waybar>box {
 #window,
 #pulseaudio,
 #tray,
+#idle_inhibitor,
 #scratchpad,
 #network,
 #power-profiles-daemon,
 #battery,
 #clock,
 #custom-power {
-  margin: 0px 2px;
+  margin: 0px 3px;
   padding: 0px 5px;
   font-size: 18px;
-  font-family: 'CaskaydiaCove Nerd Font', sans-serif;
+  font-family: 'JetBrains Mono Nerd Font', sans-serif;
   font-weight: 600;
   border-radius: 0px;
   border: none;
@@ -66,7 +67,7 @@ window#waybar>box {
   padding: 0px 4px;
 }
 
-/* Fixes */
+/* --- Fixes */
 
 /* Font size normalize */
 #clock,
@@ -89,42 +90,35 @@ window#waybar>box {
   font-family: 'Adwaita Sans';
 }
 
-/* Visual fixes */
-#clock {
-  margin-left: 15px;
-  font-weight: 600;
-}
 
-#tray {
-  margin-right: 10px;
-}
+/* --- Visual fixes */
 
-#scratchpad {
-  margin-right: 5px;
-}
-
-#network {
-  padding-right: 3px;
+/* Secondary modules */
+#tray,
+#scratchpad,
+#custom-updates,
+#idle_inhibitor,
+#language {
+  margin-right: 12px;
 }
 
 #custom-updates {
   padding-left: 6px;
   padding-right: 2px;
-  margin-right: 10px;
-}
-
-#language {
-  margin-right: 10px;
 }
 
 #idle_inhibitor {
-  padding-left: 6px;
-  padding-right: 4px
+  padding-right: 14px
 }
 
-#power-profiles-daemon {
-  padding-left: 6px;
-  padding-right: 11px;
+/* Primary modules */
+#network {
+  padding-right: 0px;
+}
+
+#clock {
+  margin-left: 15px;
+  font-weight: 600;
 }
 
 #pulseaudio {
@@ -133,7 +127,7 @@ window#waybar>box {
 
 /* Battery states */
 #battery {
-  padding-right: 12px;
+  padding-right: 10px;
 }
 
 #battery.warning:not(.charging),
@@ -168,7 +162,6 @@ window#waybar>box {
   font-size: 0;
   opacity: .5;
   border-radius: 100px;
-  /* transition: color .08s ease, background .08s ease, opacity .08s ease; */
 }
 
 

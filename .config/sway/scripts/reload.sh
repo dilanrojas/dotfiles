@@ -1,12 +1,11 @@
 #!/bin/sh
 
-swaymsg reload
-
 pkill waybar
-waybar &
 
-pkill swaync
-swaync &
+swaymsg reload
 
 pkill swayosd-server
 swayosd-server &
+
+pkill swaync &
+swaync &

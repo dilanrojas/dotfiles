@@ -12,30 +12,34 @@ set $term_float alacritty --class float -e
 set $menu rofi -show drun
 set $browser brave
 set $files nautilus -w
-set $screenshot ~/.config/sway/scripts/screenshot.sh
-set $cropscreenshot ~/.config/sway/scripts/cropscreenshot.sh
-set $colorpicker ~/.config/sway/scripts/hyprpicker.sh
-set $reload ~/.config/sway/scripts/reload.sh
 set $clipboard cliphist list | rofi -dmenu | cliphist decode | wl-copy
-set $dnd ~/.config/sway/scripts/dnd.sh
-set $power_profile ~/.config/sway/scripts/power_profile.sh
-set $toggle_theme ~/.config/sway/scripts/toggle_theme.sh
+
+set $scripts ~/.config/sway/scripts
+set $screenshot $scripts/screenshot.sh
+set $cropscreenshot $scripts/cropscreenshot.sh
+set $colorpicker $scripts/hyprpicker.sh
+set $reload $scripts/reload.sh
+set $dnd $scripts/dnd.sh
+set $power_profile $scripts/power_profile.sh
+set $toggle_theme $scripts/toggle_theme.sh
+set $screen_health $scripts/screen-health.sh
+set $rand_wallpaper $scripts/rand-wallpaper.sh
 
 # ----------------
 # --- MONITORS ---
 # ----------------
 
 # output DP-1 mode 1920x1080@100.0Hz position 0,0
-# output eDP-1 resolution 1366x768 position 0,0
-# output HDMI-A-1 resolution 1920x1080 position 1920,0
+output eDP-1 resolution 1920x1080 position 0,0
+output HDMI-A-1 resolution 1920x1080 position 1920,0
 
 # -----------------
 # --- AUTOSTART ---
 # -----------------
 
 # exec swayidle -w \
-#     timeout 300 'brightnessctl set 30%' \
-#     timeout 600 'brightnessctl set 0%' resume 'brightnessctl set 100%' \
+#     timeout 120 'brightnessctl set 30%' \
+#     timeout 300 'brightnessctl set 0%' resume 'brightnessctl set 100%' \
 #     before-sleep 'brightnessctl set 0%'
 
 exec wl-paste --type text --watch cliphist store
@@ -45,12 +49,12 @@ exec swayosd-server
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec swaync
 exec bash ~/.config/sway/scripts/low_battery.sh
-
-exec sleep 3 && wmname LG3D
-
+exec $screen_health
 exec systemctl --user start --ignore-dependencies xdg-desktop-portal
-
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP /usr/lib/xdg-desktop-portal-gnome
+exec wlsunset -s 19:00 -S 06:00 -t 4800
+
+exec_always sleep 3 && wmname LG3D
 
 # -------------
 # --- INPUT ---
@@ -77,15 +81,18 @@ input type:keyboard {
 # -------------
 
 # Wallpaper
-output * bg ~/Pictures/wallpapers/232.jpg fill
+output * bg /home/jwd/Pictures/wallpapers/174.jpg fill
 
 # Borders
 default_border pixel 1
 default_floating_border pixel 1
 
 # Gaps
-gaps inner 5
-# smart_gaps on
+gaps inner 8
+smart_gaps off
+
+for_window [app_id="Alacritty"] blur enable
+for_window [app_id="float"] blur enable
 
 # Theme Colors
 set $color_bg_primary        #1d1d20
@@ -93,12 +100,12 @@ set $color_bg_secondary      #222226
 set $color_bg_tertiary       #232326
 set $color_bg_muted          #353538
 
-set $color_fg_primary        #fbf1c7
-set $color_fg_secondary      #ebdbb2
-set $color_fg_muted          #a89984
+set $color_fg_primary        #ffffff
+set $color_fg_secondary      #cccccc
+set $color_fg_muted          #aaaaaa
 
-set $color_accent            #37373b
-set $color_accent_active     #424245
+set $color_accent            #d79921
+set $color_accent_active     #d79921
 
 set $color_border_muted      #504945
 set $color_urgent            #3b2626
@@ -128,6 +135,8 @@ bindsym $mod+v exec $clipboard
 bindsym $mod+n exec $dnd
 bindsym $mod+Shift+p exec $power_profile
 bindsym $mod+t exec $toggle_theme
+bindsym $mod+Shift+m exec LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U
+bindsym $mod+r exec $rand_wallpaper
 
 floating_modifier $mod normal
 bindsym $mod+space input "type:keyboard" xkb_switch_layout next
@@ -235,6 +244,9 @@ for_window [app_id="org.gnome.Loupe"] floating enable
 for_window [app_id="org.gnome.Calendar"] floating enable
 for_window [app_id="org.gnome.Calculator"] floating enable
 for_window [app_id="org.gnome.clocks"] floating enable
+for_window [app_id="xdg-desktop-portal-gtk"] floating enable
+for_window [app_id="guvcview"] floating enable
+for_window [class="guvcview"] floating enable
 
 # ----------
 # -- BAR ---

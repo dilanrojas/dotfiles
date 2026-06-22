@@ -100,7 +100,7 @@
   },
   "clock": {
     "format": "{:%b %d  %I:%M %p}",
-    "on-click": "gnome-calendar",
+    "on-click": "swaync-client -t sw",
     "tooltip": false
   },
   "group/tray-expander": {
@@ -214,8 +214,8 @@
     "scroll-step": 5,
     "format-muted": "",
     "format-icons": {
-      "headphone": "",
-      "headset": "",
+      "headphone": "",
+      "headset": "",
       "default": [
         "",
         "",
