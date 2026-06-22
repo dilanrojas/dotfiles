@@ -9,7 +9,6 @@ if grim "$FILEPATH"; then
   wl-copy <"$FILEPATH"
 
   ACTION=$(notify-send 'Screenshot' 'Copied to clipboard and saved to Pictures' \
-    -a GRIM \
     -i "$FILEPATH" \
     --action "default=Open Image")
 

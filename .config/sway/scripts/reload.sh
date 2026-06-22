@@ -7,5 +7,4 @@ swaymsg reload
 pkill swayosd-server
 swayosd-server &
 
-pkill swaync &
-swaync &
+pkill dunst

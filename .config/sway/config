@@ -22,16 +22,27 @@ set $reload $scripts/reload.sh
 set $dnd $scripts/dnd.sh
 set $power_profile $scripts/power_profile.sh
 set $toggle_theme $scripts/toggle_theme.sh
-set $screen_health $scripts/screen-health.sh
-set $rand_wallpaper $scripts/rand-wallpaper.sh
+set $rand_wallpaper $scripts/rand_wallpaper.sh
+set $toggle_mirroring $scripts/toggle_mirroring.sh
 
 # ----------------
 # --- MONITORS ---
 # ----------------
 
 # output DP-1 mode 1920x1080@100.0Hz position 0,0
-output eDP-1 resolution 1920x1080 position 0,0
-output HDMI-A-1 resolution 1920x1080 position 1920,0
+output eDP-1 resolution 1920x1200 position 0,0
+output HDMI-A-1 position 1920,0
+
+workspace 1 output eDP-1
+workspace 2 output eDP-1
+workspace 3 output eDP-1
+workspace 4 output eDP-1
+workspace 5 output eDP-1
+workspace 6 output HDMI-A-1
+workspace 7 output HDMI-A-1
+workspace 8 output HDMI-A-1
+workspace 9 output HDMI-A-1
+workspace 10 output HDMI-A-1
 
 # -----------------
 # --- AUTOSTART ---
@@ -47,9 +58,8 @@ exec wl-paste --type image --watch cliphist store
 exec mpris-proxy
 exec swayosd-server
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec swaync
+exec dunst
 exec bash ~/.config/sway/scripts/low_battery.sh
-exec $screen_health
 exec systemctl --user start --ignore-dependencies xdg-desktop-portal
 exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP /usr/lib/xdg-desktop-portal-gnome
 exec wlsunset -s 19:00 -S 06:00 -t 4800
@@ -81,14 +91,15 @@ input type:keyboard {
 # -------------
 
 # Wallpaper
-output * bg /home/jwd/Pictures/wallpapers/174.jpg fill
+output * bg /home/jwd/Pictures/wallpapers/234.jpg fill
 
 # Borders
-default_border pixel 1
-default_floating_border pixel 1
+default_border pixel 0
+default_floating_border pixel 0
 
 # Gaps
-gaps inner 8
+gaps outer 8
+gaps inner 5
 smart_gaps off
 
 for_window [app_id="Alacritty"] blur enable
@@ -137,6 +148,7 @@ bindsym $mod+Shift+p exec $power_profile
 bindsym $mod+t exec $toggle_theme
 bindsym $mod+Shift+m exec LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U
 bindsym $mod+r exec $rand_wallpaper
+bindsym $mod+Shift+o exec $toggle_mirroring
 
 floating_modifier $mod normal
 bindsym $mod+space input "type:keyboard" xkb_switch_layout next
