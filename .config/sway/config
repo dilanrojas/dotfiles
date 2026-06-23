@@ -95,7 +95,7 @@ input type:keyboard {
 # -------------
 
 # Wallpaper
-output * bg ~/Pictures/wallpapers/232.jpg fill
+output * bg ~/Pictures/wallpapers/234.jpg fill
 
 # Borders
 default_border pixel 2
@@ -119,8 +119,8 @@ set $color_fg_primary        #ffffff
 set $color_fg_secondary      #cccccc
 set $color_fg_muted          #aaaaaa
 
-set $color_accent            #d79921
-set $color_accent_active     #d79921
+set $color_accent            #938AA9
+set $color_accent_active     #938AA9
 
 set $inactive_border #23232600
 
@@ -155,7 +155,7 @@ bindsym $mod+t exec $sway_theme
 bindsym $mod+Shift+m exec LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U
 bindsym $mod+r exec $rand_wallpaper
 bindsym $mod+Shift+o exec $toggle_mirroring
-bindsym $mod+Shift+c exec $scripts_menu
+bindsym $mod+c exec $scripts_menu
 
 floating_modifier $mod normal
 bindsym $mod+space input "type:keyboard" xkb_switch_layout next

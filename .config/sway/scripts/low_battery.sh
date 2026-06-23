@@ -16,13 +16,13 @@ while true; do
 
     # Level 2: Critical Warning (10%)
     if [ "$CAPACITY" -le "$CRIT_LEVEL" ] && [ "$NOTIFIED_10" = false ]; then
-      notify-send -u critical "Battery Critical" "Battery is at ${CAPACITY}%."
+      notify-send -i /usr/share/icons/Papirus/48x48/status/battery-empty.svg -u critical "Battery Critical" "Battery is at ${CAPACITY}%."
       NOTIFIED_10=true
       NOTIFIED_20=true # Ensure the 20% alert doesn't fire if we somehow skip to 10%
 
     # Level 1: Low Alert (20%)
     elif [ "$CAPACITY" -le "$WARN_LEVEL" ] && [ "$CAPACITY" -gt "$CRIT_LEVEL" ] && [ "$NOTIFIED_20" = false ]; then
-      notify-send -u normal "Low Battery" "Battery is at ${CAPACITY}%."
+      notify-send -i /usr/share/icons/Papirus/48x48/status/battery-low.svg -u normal "Low Battery" "Battery is at ${CAPACITY}%."
       NOTIFIED_20=true
     fi
 

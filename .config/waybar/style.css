@@ -63,7 +63,7 @@ window#waybar>box {
 }
 
 #custom-separator {
-  opacity: 0.5;
+  opacity: 0.4;
   font-size: .9rem;
   margin: 0px;
   padding: 0px 2px;
@@ -77,8 +77,6 @@ window#waybar>box {
 #window {
   color: @fg;
 }
-
-#clock {}
 
 /* Workspaces styling */
 #workspaces {

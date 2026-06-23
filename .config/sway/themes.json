@@ -43,5 +43,38 @@
       "fg_secondary": "#7c6f64",
       "accent": "#d79921"
     }
+  },
+  "kanagawa-dragon": {
+    "wallpaper": "234.jpg",
+    "neovim_scheme": "kanagawa-dragon",
+    "alacritty_theme": "kanagawa-dragon.toml",
+    "palette": {
+      "bg": "#131111",
+      "fg": "#C8C093",
+      "fg_secondary": "#646049",
+      "accent": "#938AA9"
+    }
+  },
+  "everforest": {
+    "wallpaper": "166.jpg",
+    "neovim_scheme": "everforest",
+    "alacritty_theme": "everforest-hard.toml",
+    "palette": {
+      "bg": "#272e33",
+      "fg": "#d3c6aa",
+      "fg_secondary": "#414b50",
+      "accent": "#83c092"
+    }
+  },
+  "doom-one": {
+    "wallpaper": "183.jpg",
+    "neovim_scheme": "doom-one",
+    "alacritty_theme": "doom-one.toml",
+    "palette": {
+      "bg": "#282c34",
+      "fg": "#bbc2cf",
+      "fg_secondary": "#5a5e64",
+      "accent": "#46d9ff"
+    }
   }
 }
