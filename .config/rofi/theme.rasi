@@ -1,13 +1,13 @@
 * {
-    window-border: #37373b;
-    background-primary: #2e2e32;
+    window-border: #d79921;
+    background-primary: #1d2021;
 
     background-secondary: #1a1a1a;
 
-    text-secondary: #919191;
-    text: #ffffff;
+    text-secondary: #a89984;
+    text: #ebdbb2;
 
     error: #ff4040;
 
-    rounding: 12px;
+    rounding: 0px;
 }

@@ -17,10 +17,10 @@
     "sway/scratchpad",
     "custom/updates",
     "sway/language",
+    "power-profiles-daemon",
     "custom/separator",
     "network",
     "pulseaudio",
-    "power-profiles-daemon",
     "battery",
     "custom/separator",
     "clock"
@@ -32,16 +32,16 @@
     "warp-on-scroll": false,
     "format": "{icon}",
     "format-icons": {
-      "1": "DEV",
-      "2": "WWW",
-      "3": "IMG",
-      "4": "FLS",
-      "5": "MSC",
-      "6": "BOX",
-      "7": "SYS",
-      "8": "GFX",
-      "9": "PFS",
-      "10": "EXT"
+      "1": "dev",
+      "2": "www",
+      "3": "img",
+      "4": "fls",
+      "5": "msc",
+      "6": "box",
+      "7": "sys",
+      "8": "gfx",
+      "9": "pfs",
+      "10": "ext"
       //"urgent": "",
       // "focused": "O"
     },
@@ -79,7 +79,7 @@
     }
   },
   "sway/scratchpad": {
-    "format": "pad: {count}",
+    "format": "PAD: {count}",
     "show-empty": false,
     "format-icons": [
       "",
@@ -109,103 +109,34 @@
     "on-click": "gnome-calendar",
     "tooltip": false
   },
-  "group/tray-expander": {
-    "orientation": "inherit",
-    "drawer": {
-      "transition-duration": 600,
-      "children-class": "tray-group-item"
-    },
-    "modules": [
-      "group/expand-icons",
-      "tray",
-      "power-profiles-daemon"
-    ]
-  },
-  "group/expand-icons": {
-    "orientation": "inherit",
-    "modules": [
-      "custom/expand-icon#horizontal",
-      "custom/expand-icon#vertical"
-    ]
-  },
-  "custom/expand-icon#horizontal": {
-    "format": "",
-    "tooltip": false,
-    "on-scroll-up": "",
-    "on-scroll-down": "",
-    "on-scroll-left": "",
-    "on-scroll-right": ""
-  },
-  "custom/expand-icon#vertical": {
-    "format": "",
-    "rotate": 270,
-    "tooltip": false,
-    "on-scroll-up": "",
-    "on-scroll-down": "",
-    "on-scroll-left": "",
-    "on-scroll-right": ""
-  },
   "battery": {
     "states": {
       "warning": 20,
       "critical": 10
     },
     "format": "bat: {capacity}%",
-    "format-icons": [
-      "󰂎",
-      "󰁺",
-      "󰁻",
-      "󰁼",
-      "󰁽",
-      "󰁾",
-      "󰁿",
-      "󰂀",
-      "󰂁",
-      "󰂂",
-      "󰁹"
-    ],
     "interval": 3,
     "tooltip": false,
-    "tooltip-format": "Battery: {capacity}%",
     "on-click": "bash ~/.config/sway/scripts/power_profile.sh",
     "on-scroll-up": "brightnessctl set 5%+",
     "on-scroll-down": "brightnessctl set 5%-"
   },
   "power-profiles-daemon": {
     "format": "prf: {profile}",
-    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
-    "tooltip": true,
-    "format-icons": {
-      "default": "󰓅",
-      "performance": "󰓅",
-      "balanced": "󰾅",
-      "power-saver": "󰾆"
-    }
+    "tooltip": false
   },
   "custom/updates": {
     "format": "upd: {}",
     "return-type": "json",
-    "format-icons": {
-      "has-updates": "󱍷",
-      "updated": "󰂪"
-    },
-    "on-click": "alacritty --class float -e bash ~/.config/sway/scripts/update_system.sh",
+    "on-click": "bash ~/.config/sway/scripts/update_system.sh",
     "exec-if": "which waybar-module-pacman-updates",
     "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
   },
   "network": {
     "format": "net: {signalStrength}%",
     "format-disconnected": "net: none",
-    "tooltip": true,
-    "tooltip-format": "{essid} ({signalStrength}%)",
-    "on-click": "alacritty --class float -e nmtui",
-    "format-icons": [
-      "󰤯 ",
-      "󰤟 ",
-      "󰤢 ",
-      "󰤥 ",
-      "󰤨 "
-    ]
+    "tooltip": false,
+    "on-click": "alacritty --class float -e nmtui"
   },
   "pulseaudio": {
     "format": "vol: {volume}%",
@@ -213,46 +144,10 @@
     "on-click": "pamixer --toggle-mute",
     "on-click-right": "pavucontrol",
     "tooltip": false,
-    "tooltip-format": "Playing at {volume}%",
-    "scroll-step": 5,
-    "format-icons": {
-      "headphone": "",
-      "headset": "",
-      "default": [
-        "",
-        "",
-        ""
-      ]
-    }
+    "scroll-step": 5
   },
   "custom/separator": {
     "format": "|",
     "tooltip": false
-  },
-  "mpd": {
-    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
-    "format-disconnected": "Disconnected ",
-    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
-    "unknown-tag": "N/A",
-    "interval": 5,
-    "consume-icons": {
-      "on": " "
-    },
-    "random-icons": {
-      "off": "<span color=\"#f53c3c\"></span> ",
-      "on": " "
-    },
-    "repeat-icons": {
-      "on": " "
-    },
-    "single-icons": {
-      "on": "1 "
-    },
-    "state-icons": {
-      "paused": "",
-      "playing": ""
-    },
-    "tooltip-format": "MPD (connected)",
-    "tooltip-format-disconnected": "MPD (disconnected)"
   }
 }

@@ -1,0 +1,47 @@
+{
+  "solarized-osaka": {
+    "wallpaper": "048.jpg",
+    "neovim_scheme": "solarized-osaka",
+    "alacritty_theme": "solarized-osaka.toml",
+    "palette": {
+      "bg": "#00141a",
+      "fg": "#839496",
+      "fg_secondary": "#586e75",
+      "accent": "#2aa198"
+    }
+  },
+  "catppuccin": {
+    "wallpaper": "058.jpg",
+    "neovim_scheme": "catppuccin-mocha",
+    "alacritty_theme": "catppuccin.toml",
+    "palette": {
+      "bg": "#1e1e2e",
+      "fg": "#cdd6f4",
+      "fg_secondary": "#45475A",
+      "accent": "#89b4fa"
+    }
+  },
+  "gruvbox-hard": {
+    "wallpaper": "232.jpg",
+    "neovim_scheme": "gruvbox",
+    "alacritty_theme": "gruvbox-hard.toml",
+    "palette": {
+      "bg": "#1d2021",
+      "fg": "#ebdbb2",
+      "fg_secondary": "#a89984",
+      "accent": "#d79921"
+    }
+  },
+  "gruvbox-light": {
+    "wallpaper": "034.jpg",
+    "neovim_scheme": "gruvbox",
+    "alacritty_theme": "gruvbox-light.toml",
+    "system_theme": "light",
+    "palette": {
+      "bg": "#fbf1c7",
+      "fg": "#3c3836",
+      "fg_secondary": "#7c6f64",
+      "accent": "#d79921"
+    }
+  }
+}

@@ -2,6 +2,8 @@
    --- Waybar ----
    --------------- */
 
+@import url('./theme.css');
+
 * {
   font-size: inherit;
   font-family: inherit;
@@ -29,8 +31,8 @@ window#waybar>box {
   border-radius: 0px;
   padding: 0px 0px;
   opacity: 1;
-  background: rgba(0, 0, 0, 1);
   border: none;
+  background: @bg;
 }
 
 /* Modules styling */
@@ -49,27 +51,34 @@ window#waybar>box {
 #battery,
 #clock,
 #custom-power {
-  margin: 0px 2px;
-  padding: 0px 5px;
+  margin: 0px 0px;
+  padding: 0px 7px;
   font-size: 15px;
   font-family: 'JetBrainsMono Nerd Font', sans-serif;
   font-weight: 600;
   border-radius: 0px;
   border: none;
   opacity: 1;
-  color: #a0a0a0;
+  color: @fg;
 }
 
 #custom-separator {
-  opacity: 0.3;
+  opacity: 0.5;
   font-size: .9rem;
   margin: 0px;
   padding: 0px 2px;
+  color: @fg;
 }
 
-#clock {
-  padding-right: 15px;
+#tray {
+  font-family: 'Adwaita Sans';
 }
+
+#window {
+  color: @fg;
+}
+
+#clock {}
 
 /* Workspaces styling */
 #workspaces {
@@ -78,31 +87,28 @@ window#waybar>box {
 }
 
 #workspaces button {
-  padding: 0px 10px;
+  padding: 0px 8px;
   margin: 0px;
   min-width: 0px;
   border: none;
   color: inherit;
   box-shadow: none;
   /* font-size: 0; */
-  opacity: .5;
+  opacity: 1;
 }
-
-#workspaces button:first-child {
-  padding-left: 15px;
-}
-
 
 #workspaces button.urgent {
   color: #ffbebc
 }
 
 #workspaces button.empty {
-  opacity: .3
+  opacity: .4
 }
 
 #workspaces button.visible {
   opacity: 1;
+  background: @accent;
+  color: @bg;
 }
 
 #workspaces button:hover:not(.visible) {

@@ -16,14 +16,14 @@ set $clipboard cliphist list | rofi -dmenu | cliphist decode | wl-copy
 
 set $scripts ~/.config/sway/scripts
 set $screenshot $scripts/screenshot.sh
-set $cropscreenshot $scripts/cropscreenshot.sh
 set $colorpicker $scripts/hyprpicker.sh
 set $reload $scripts/reload.sh
 set $dnd $scripts/dnd.sh
 set $power_profile $scripts/power_profile.sh
-set $toggle_theme $scripts/toggle_theme.sh
+set $sway_theme $scripts/sway_theme.sh
 set $rand_wallpaper $scripts/rand_wallpaper.sh
 set $toggle_mirroring $scripts/toggle_mirroring.sh
+set $scripts_menu $scripts/scripts_menu.sh
 
 # ----------------
 # --- MONITORS ---
@@ -33,16 +33,16 @@ set $toggle_mirroring $scripts/toggle_mirroring.sh
 output eDP-1 resolution 1920x1200 position 0,0
 output HDMI-A-1 position 1920,0
 
-workspace 1 output eDP-1
-workspace 2 output eDP-1
-workspace 3 output eDP-1
-workspace 4 output eDP-1
-workspace 5 output eDP-1
-workspace 6 output HDMI-A-1
-workspace 7 output HDMI-A-1
-workspace 8 output HDMI-A-1
-workspace 9 output HDMI-A-1
-workspace 10 output HDMI-A-1
+# workspace 1 output eDP-1
+# workspace 2 output eDP-1
+# workspace 3 output eDP-1
+# workspace 4 output eDP-1
+# workspace 5 output eDP-1
+# workspace 6 output HDMI-A-1
+# workspace 7 output HDMI-A-1
+# workspace 8 output HDMI-A-1
+# workspace 9 output HDMI-A-1
+# workspace 10 output HDMI-A-1
 
 # -----------------
 # --- AUTOSTART ---
@@ -60,9 +60,13 @@ exec swayosd-server
 exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec dunst
 exec bash ~/.config/sway/scripts/low_battery.sh
-exec systemctl --user start --ignore-dependencies xdg-desktop-portal
-exec dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY XDG_CURRENT_DESKTOP /usr/lib/xdg-desktop-portal-gnome
 exec wlsunset -s 19:00 -S 06:00 -t 4800
+
+exec systemctl --user start --ignore-dependencies xdg-desktop-portal
+
+exec exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec dbus-update-activation-environment 2>/dev/null && \
+     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 exec_always sleep 3 && wmname LG3D
 
@@ -91,11 +95,11 @@ input type:keyboard {
 # -------------
 
 # Wallpaper
-output * bg /home/jwd/Pictures/wallpapers/234.jpg fill
+output * bg ~/Pictures/wallpapers/232.jpg fill
 
 # Borders
-default_border pixel 0
-default_floating_border pixel 0
+default_border pixel 2
+default_floating_border pixel 2
 
 # Gaps
 gaps outer 8
@@ -118,13 +122,15 @@ set $color_fg_muted          #aaaaaa
 set $color_accent            #d79921
 set $color_accent_active     #d79921
 
+set $inactive_border #23232600
+
 set $color_border_muted      #504945
 set $color_urgent            #3b2626
 
 # class                 border                  background              text                    indicator               child_border
 client.focused          $color_accent           $color_accent           $color_bg_primary       $color_accent_active    $color_accent
 client.focused_inactive $color_bg_secondary     $color_bg_secondary     $color_fg_muted         $color_bg_muted         $color_bg_secondary
-client.unfocused        $color_bg_tertiary      $color_bg_tertiary      $color_fg_muted         $color_bg_secondary     $color_bg_tertiary
+client.unfocused        $inactive_border        $color_bg_tertiary      $color_fg_muted         $inactive_border        $inactive_border
 client.urgent           $color_urgent           $color_bg_primary       $color_accent           $color_urgent           $color_urgent
 client.placeholder      $color_bg_tertiary      $color_bg_tertiary      $color_fg_muted         $color_bg_tertiary      $color_bg_tertiary
 
@@ -145,10 +151,11 @@ bindsym $mod+Shift+w exec $term_float nmtui
 bindsym $mod+v exec $clipboard
 bindsym $mod+n exec $dnd
 bindsym $mod+Shift+p exec $power_profile
-bindsym $mod+t exec $toggle_theme
+bindsym $mod+t exec $sway_theme
 bindsym $mod+Shift+m exec LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U
 bindsym $mod+r exec $rand_wallpaper
 bindsym $mod+Shift+o exec $toggle_mirroring
+bindsym $mod+Shift+c exec $scripts_menu
 
 floating_modifier $mod normal
 bindsym $mod+space input "type:keyboard" xkb_switch_layout next
@@ -236,10 +243,8 @@ bindsym XF86AudioPrev exec $osd --playerctl previous
 bindsym XF86AudioNext exec $osd --playerctl next
 bindsym XF86AudioStop exec $osd --playerctl stop
 
-bindsym Print exec $cropscreenshot
-bindsym $mod+Print exec $screenshot
-bindsym $mod+s exec $cropscreenshot
-bindsym $mod+Shift+s exec $screenshot
+bindsym Print exec $screenshot
+bindsym $mod+s exec $screenshot
 
 # -------------
 # --- RULES ---

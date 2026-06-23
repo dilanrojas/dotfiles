@@ -11,30 +11,42 @@ if [ ! -f "$QT_CONFIG" ]; then
   exit 1
 fi
 
-# 1. Check the current state of custom_palette
-# This grabs the value after the '=' for custom_palette
-CURRENT_STATE=$(grep -E '^custom_palette=' "$QT_CONFIG" | cut -d'=' -f2 | tr -d '[:space:]')
+# Check for required argument
+if [ -z "$1" ]; then
+  echo "Usage: $0 {light|dark}" >&2
+  exit 1
+fi
 
-# 2. Toggle based on the current state
-if [ "$CURRENT_STATE" = "false" ]; then
+# Convert argument to lowercase
+MODE=$(echo "$1" | tr '[:upper:]' '[:lower:]')
+
+case "$MODE" in
+"dark")
   echo "Switching to DARK mode..."
 
   # Update qt6ct.conf: set custom_palette=true
-  sed -i 's/^custom_palette=false/custom_palette=true/' "$QT_CONFIG"
+  sed -i 's/^custom_palette=.*/custom_palette=true/' "$QT_CONFIG"
 
   # Update GTK themes using gsettings
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
   gsettings set org.gnome.desktop.interface gtk-theme "$GTK_DARK"
+  ;;
 
-else
+"light")
   echo "Switching to LIGHT mode..."
 
   # Update qt6ct.conf: set custom_palette=false
-  sed -i 's/^custom_palette=true/custom_palette=false/' "$QT_CONFIG"
+  sed -i 's/^custom_palette=.*/custom_palette=false/' "$QT_CONFIG"
 
   # Update GTK themes using gsettings
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
   gsettings set org.gnome.desktop.interface gtk-theme "$GTK_LIGHT"
-fi
+  ;;
 
-echo "Theme toggle complete!"
+*)
+  echo "Invalid option: '$1'. Please use 'light' or 'dark'." >&2
+  exit 1
+  ;;
+esac
+
+echo "Theme adjustment complete!"

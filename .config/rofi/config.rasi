@@ -7,7 +7,7 @@ configuration {
 	display-window: "Windows";
 	display-run: "Run";
 	drun-display-format: "{icon} {name}";
-	font: "CaskaydiaCove Nerd Font 12";
+	font: "JetBrainsMono Nerd Font Medium 11";
 	show-icons: true;
 }
 
@@ -24,7 +24,7 @@ window {
 
     /* properties for all widgets */
     enabled:                     true;
-    border:                      1px solid;
+    border:                      2px solid;
     border-color:                @window-border;
     border-radius:               @rounding;
     cursor:                      "default";
@@ -64,7 +64,7 @@ inputbar {
     spacing:                     7px;
     padding:                     13px;
     border-radius:               @rounding;
-    background-color:		         @background-primary;
+    background-color:		         #00000000;
     text-color:			             @text-secondary;
     children:                    [ "textbox-prompt-colon", "entry" ];
 }
@@ -72,7 +72,7 @@ textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
     str:                         "  ";
-    background-color:            inherit;
+    background-color:            #00000000;
     text-color:                  @text;
 }
 entry {
@@ -81,6 +81,7 @@ entry {
     text-color:                  @text;
     cursor:                      text;
     placeholder:                 "Search...";
+    background-color:            #00000000;
     placeholder-color:           @text-secondary;
 }
 

@@ -1,1 +1,1 @@
-sudo pacman -Syu && yay -Syu && flatpak update
+alacritty --class float -e sudo pacman -Syu && yay -Syu && flatpak update
