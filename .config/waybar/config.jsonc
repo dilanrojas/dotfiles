@@ -3,23 +3,27 @@
   // "layer": "top",
   "reload_style_on_change": true,
   // "position": "bottom",
-  "height": 32,
+  "height": 30,
   // "width": 1280,
   "spacing": 0,
   "modules-left": [
-    "sway/workspaces"
+    "sway/workspaces",
+    "custom/separator",
+    "sway/window"
   ],
-  "modules-center": [
-    "clock"
-  ],
+  "modules-center": [],
   "modules-right": [
-    "sway/scratchpad",
     "tray",
+    "sway/scratchpad",
     "custom/updates",
     "sway/language",
+    "custom/separator",
     "network",
     "pulseaudio",
-    "battery"
+    "power-profiles-daemon",
+    "battery",
+    "custom/separator",
+    "clock"
   ],
   // Modules configuration
   "sway/workspaces": {
@@ -28,16 +32,16 @@
     "warp-on-scroll": false,
     "format": "{icon}",
     "format-icons": {
-      "1": "I",
-      "2": "II",
-      "3": "III",
-      "4": "IV",
-      "5": "V",
-      "6": "VI",
-      "7": "VII",
-      "8": "VIII",
-      "9": "IX",
-      "10": "X"
+      "1": "DEV",
+      "2": "WWW",
+      "3": "IMG",
+      "4": "FLS",
+      "5": "MSC",
+      "6": "BOX",
+      "7": "SYS",
+      "8": "GFX",
+      "9": "PFS",
+      "10": "EXT"
       //"urgent": "",
       // "focused": "O"
     },
@@ -58,24 +62,24 @@
         "eDP-1"
       ],
       "6": [
-        "HDMI-A-1"
+        "eDP-1"
       ],
       "7": [
-        "HDMI-A-1"
+        "eDP-1"
       ],
       "8": [
-        "HDMI-A-1"
+        "eDP-1"
       ],
       "9": [
-        "HDMI-A-1"
+        "eDP-1"
       ],
       "10": [
-        "HDMI-A-1"
+        "eDP-1"
       ]
     }
   },
   "sway/scratchpad": {
-    "format": "{icon} {count}",
+    "format": "pad: {count}",
     "show-empty": false,
     "format-icons": [
       "",
@@ -85,7 +89,9 @@
     "tooltip-format": "{app}: {title}"
   },
   "sway/language": {
-    "tooltip": false
+    "format": "kbd: {}",
+    "tooltip": false,
+    "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
   },
   "idle_inhibitor": {
     "format": "{icon}",
@@ -95,12 +101,12 @@
     }
   },
   "tray": {
-    "icon-size": 20,
+    "icon-size": 16,
     "spacing": 16
   },
   "clock": {
-    "format": "{:%b %d  %I:%M %p}",
-    "on-click": "swaync-client -t sw",
+    "format": "{:%a, %b %d  %I:%M %p}",
+    "on-click": "gnome-calendar",
     "tooltip": false
   },
   "group/tray-expander": {
@@ -144,9 +150,7 @@
       "warning": 20,
       "critical": 10
     },
-    "format": "{icon}",
-    "format-charging": "{icon}",
-    "format-plugged": "{icon}",
+    "format": "bat: {capacity}%",
     "format-icons": [
       "󰂎",
       "󰁺",
@@ -161,14 +165,14 @@
       "󰁹"
     ],
     "interval": 3,
-    "tooltip": true,
+    "tooltip": false,
     "tooltip-format": "Battery: {capacity}%",
     "on-click": "bash ~/.config/sway/scripts/power_profile.sh",
     "on-scroll-up": "brightnessctl set 5%+",
     "on-scroll-down": "brightnessctl set 5%-"
   },
   "power-profiles-daemon": {
-    "format": "{icon}",
+    "format": "prf: {profile}",
     "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
     "tooltip": true,
     "format-icons": {
@@ -179,7 +183,7 @@
     }
   },
   "custom/updates": {
-    "format": "󰒙 {}",
+    "format": "upd: {}",
     "return-type": "json",
     "format-icons": {
       "has-updates": "󱍷",
@@ -190,11 +194,8 @@
     "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
   },
   "network": {
-    "format": "{icon}",
-    "format-wifi": "{icon}",
-    "format-ethernet": " ",
-    "format-linked": "  ",
-    "format-disconnected": "󰤮 ",
+    "format": "net: {signalStrength}%",
+    "format-disconnected": "net: none",
     "tooltip": true,
     "tooltip-format": "{essid} ({signalStrength}%)",
     "on-click": "alacritty --class float -e nmtui",
@@ -207,12 +208,13 @@
     ]
   },
   "pulseaudio": {
-    "format": "{icon}",
+    "format": "vol: {volume}%",
+    "format-muted": "vol: 0%",
     "on-click": "pamixer --toggle-mute",
     "on-click-right": "pavucontrol",
+    "tooltip": false,
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 5,
-    "format-muted": "",
     "format-icons": {
       "headphone": "",
       "headset": "",
@@ -222,5 +224,35 @@
         ""
       ]
     }
+  },
+  "custom/separator": {
+    "format": "|",
+    "tooltip": false
+  },
+  "mpd": {
+    "format": "{stateIcon} {consumeIcon}{randomIcon}{repeatIcon}{singleIcon}{artist} - {album} - {title} ({elapsedTime:%M:%S}/{totalTime:%M:%S}) ⸨{songPosition}|{queueLength}⸩ {volume}% ",
+    "format-disconnected": "Disconnected ",
+    "format-stopped": "{consumeIcon}{randomIcon}{repeatIcon}{singleIcon}Stopped ",
+    "unknown-tag": "N/A",
+    "interval": 5,
+    "consume-icons": {
+      "on": " "
+    },
+    "random-icons": {
+      "off": "<span color=\"#f53c3c\"></span> ",
+      "on": " "
+    },
+    "repeat-icons": {
+      "on": " "
+    },
+    "single-icons": {
+      "on": "1 "
+    },
+    "state-icons": {
+      "paused": "",
+      "playing": ""
+    },
+    "tooltip-format": "MPD (connected)",
+    "tooltip-format-disconnected": "MPD (disconnected)"
   }
 }
