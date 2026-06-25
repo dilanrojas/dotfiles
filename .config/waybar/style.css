@@ -145,7 +145,3 @@ tooltip {
 #battery {
   color: @yellow;
 }
-
-#clock {
-  color: @fg;
-}

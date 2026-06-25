@@ -33,7 +33,7 @@ window#osd segment {
   min-height: inherit;
   border-radius: inherit;
   border: none;
-  background: @black;
+  background: rgba(0, 0, 0, .2);
 }
 
 window#osd progress,

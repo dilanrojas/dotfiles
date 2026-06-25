@@ -79,7 +79,7 @@
     }
   },
   "sway/scratchpad": {
-    "format": "PAD: {count}",
+    "format": "pad: {count}",
     "show-empty": false,
     "format-icons": [
       "",
