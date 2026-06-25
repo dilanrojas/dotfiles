@@ -1,11 +1,11 @@
 * {
-    window-border: #938AA9;
-    background-primary: #131111;
+    window-border: #89b4fa;
+    background-primary: #1e1e2e;
 
     background-secondary: #1a1a1a;
 
-    text-secondary: #646049;
-    text: #C8C093;
+    text-secondary: #45475A;
+    text: #cdd6f4;
 
     error: #ff4040;
 

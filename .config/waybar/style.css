@@ -55,7 +55,7 @@ window#waybar>box {
   padding: 0px 7px;
   font-size: 15px;
   font-family: 'JetBrainsMono Nerd Font', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 0px;
   border: none;
   opacity: 1;
@@ -63,7 +63,7 @@ window#waybar>box {
 }
 
 #custom-separator {
-  opacity: 0.4;
+  opacity: 1;
   font-size: .9rem;
   margin: 0px;
   padding: 0px 2px;
@@ -72,10 +72,7 @@ window#waybar>box {
 
 #tray {
   font-family: 'Adwaita Sans';
-}
-
-#window {
-  color: @fg;
+  font-weight: 400;
 }
 
 /* Workspaces styling */
@@ -92,11 +89,11 @@ window#waybar>box {
   color: inherit;
   box-shadow: none;
   /* font-size: 0; */
-  opacity: 1;
+  opacity: .7;
 }
 
 #workspaces button.urgent {
-  color: #ffbebc
+  color: @red;
 }
 
 #workspaces button.empty {
@@ -105,26 +102,11 @@ window#waybar>box {
 
 #workspaces button.visible {
   opacity: 1;
-  background: @accent;
-  color: @bg;
+  color: @accent;
 }
 
 #workspaces button:hover:not(.visible) {
   opacity: .8
-}
-
-/* Battery states */
-#battery.warning:not(.charging),
-#battery.critical:not(.charging) {
-  color: #c0a2a2;
-}
-
-#battery.plugged:not(.charging) {
-  color: #c0b99f;
-}
-
-#battery.charging {
-  color: #a2c09e;
 }
 
 tooltip {
@@ -133,4 +115,37 @@ tooltip {
   font-family: inherit;
   background: black;
   padding: 2px;
+}
+
+/* Colors */
+#window {
+  color: @accent;
+}
+
+#custom-updates {
+  color: @blue;
+}
+
+#language {
+  color: @cyan;
+}
+
+#power-profiles-daemon {
+  color: @green;
+}
+
+#network {
+  color: @magenta;
+}
+
+#pulseaudio {
+  color: @red;
+}
+
+#battery {
+  color: @yellow;
+}
+
+#clock {
+  color: @fg;
 }

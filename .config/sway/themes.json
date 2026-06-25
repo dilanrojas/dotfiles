@@ -6,7 +6,7 @@
     "palette": {
       "bg": "#00141a",
       "fg": "#839496",
-      "fg_secondary": "#586e75",
+      "fg_secondary": "#063642",
       "accent": "#2aa198"
     }
   },
@@ -45,7 +45,7 @@
     }
   },
   "kanagawa-dragon": {
-    "wallpaper": "234.jpg",
+    "wallpaper": "224.jpg",
     "neovim_scheme": "kanagawa-dragon",
     "alacritty_theme": "kanagawa-dragon.toml",
     "palette": {
@@ -75,6 +75,52 @@
       "fg": "#bbc2cf",
       "fg_secondary": "#5a5e64",
       "accent": "#46d9ff"
+    }
+  },
+  "tokyonight": {
+    "wallpaper": "227.jpg",
+    "neovim_scheme": "tokyonight-night",
+    "alacritty_theme": "tokyonight.toml",
+    "palette": {
+      "bg": "#1a1b26",
+      "fg": "#a9b1d6",
+      "fg_secondary": "#787c99",
+      "accent": "#7aa2f7"
+    }
+  },
+  "rose-pine": {
+    "wallpaper": "180.jpg",
+    "neovim_scheme": "rose-pine",
+    "alacritty_theme": "rose-pine.toml",
+    "palette": {
+      "bg": "#191724",
+      "fg": "#e0def4",
+      "fg_secondary": "#524f67",
+      "accent": "#c4a7e7"
+    }
+  },
+  "rose-pine-dawn": {
+    "wallpaper": "210.jpg",
+    "neovim_scheme": "rose-pine-dawn",
+    "alacritty_theme": "rose-pine-dawn.toml",
+    "system_theme": "light",
+    "palette": {
+      "bg": "#faf4ed",
+      "fg": "#575279",
+      "fg_secondary": "#9e95dc",
+      "accent": "#907aa9"
+    }
+  },
+  "solarized-osaka-day": {
+    "wallpaper": "025.jpg",
+    "neovim_scheme": "solarized-osaka-day",
+    "alacritty_theme": "solarized-osaka-day.toml",
+    "system_theme": "light",
+    "palette": {
+      "bg": "#fdf5e0",
+      "fg": "#586e74",
+      "fg_secondary": "#97bec8",
+      "accent": "#2aa198"
     }
   }
 }

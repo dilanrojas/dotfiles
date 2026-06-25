@@ -35,13 +35,13 @@
       "1": "dev",
       "2": "www",
       "3": "img",
-      "4": "fls",
-      "5": "msc",
-      "6": "box",
+      "4": "doc",
+      "5": "box",
+      "6": "fls",
       "7": "sys",
       "8": "gfx",
-      "9": "pfs",
-      "10": "ext"
+      "9": "dsc",
+      "10": "msc"
       //"urgent": "",
       // "focused": "O"
     },
@@ -147,7 +147,7 @@
     "scroll-step": 5
   },
   "custom/separator": {
-    "format": "|",
+    "format": "⋮",
     "tooltip": false
   }
 }

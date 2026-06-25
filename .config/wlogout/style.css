@@ -1,3 +1,5 @@
+@import url('../waybar/theme.css');
+
 * {
   background-image: none;
   box-shadow: none;
@@ -12,22 +14,21 @@ button {
   border-color: black;
   text-decoration-color: #FFFFFF;
   color: white;
-  background-color: #131313;
   border-style: solid;
   border-width: 1px;
   background-repeat: no-repeat;
   background-position: center;
   background-size: 25%;
   opacity: 1;
+  background-color: @black;
 }
 
 button:focus,
 button:active,
 button:hover {
-  background-color: #404040;
-  color: white;
   outline-style: none;
   opacity: 1;
+  background-color: @accent;
 }
 
 #lock {

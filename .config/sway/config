@@ -12,7 +12,7 @@ set $term_float alacritty --class float -e
 set $menu rofi -show drun
 set $browser brave
 set $files nautilus -w
-set $clipboard cliphist list | rofi -dmenu | cliphist decode | wl-copy
+set $clipboard cliphist list | rofi -no-show-icons -dmenu -theme-str 'window { width: 600px; }' | cliphist decode | wl-copy
 
 set $scripts ~/.config/sway/scripts
 set $screenshot $scripts/screenshot.sh
@@ -24,25 +24,37 @@ set $sway_theme $scripts/sway_theme.sh
 set $rand_wallpaper $scripts/rand_wallpaper.sh
 set $toggle_mirroring $scripts/toggle_mirroring.sh
 set $scripts_menu $scripts/scripts_menu.sh
+set $toggle_system_theme $scripts/system_theme.sh
 
 # ----------------
 # --- MONITORS ---
 # ----------------
 
-# output DP-1 mode 1920x1080@100.0Hz position 0,0
-output eDP-1 resolution 1920x1200 position 0,0
-output HDMI-A-1 position 1920,0
+output eDP-1 {
+    scale 1
+    adaptive_sync on
+    allow_tearing on
+    scale_filter linear
+    position 0,0
+}
 
-# workspace 1 output eDP-1
-# workspace 2 output eDP-1
-# workspace 3 output eDP-1
-# workspace 4 output eDP-1
-# workspace 5 output eDP-1
-# workspace 6 output HDMI-A-1
-# workspace 7 output HDMI-A-1
-# workspace 8 output HDMI-A-1
-# workspace 9 output HDMI-A-1
-# workspace 10 output HDMI-A-1
+output HDMI-A-I {
+  scale 1
+  allow_tearing off
+  position 1920,0
+}
+
+
+workspace 1 output eDP-1
+workspace 2 output eDP-1
+workspace 3 output eDP-1
+workspace 4 output eDP-1
+workspace 5 output eDP-1
+workspace 6 output HDMI-A-1
+workspace 7 output HDMI-A-1
+workspace 8 output HDMI-A-1
+workspace 9 output HDMI-A-1
+workspace 10 output HDMI-A-1
 
 # -----------------
 # --- AUTOSTART ---
@@ -70,72 +82,6 @@ exec dbus-update-activation-environment 2>/dev/null && \
 
 exec_always sleep 3 && wmname LG3D
 
-# -------------
-# --- INPUT ---
-# -------------
-
-input type:touchpad {
-  tap enabled
-  drag_lock disabled
-  dwt enabled
-  natural_scroll enabled
-  accel_profile adaptive
-}
-
-input type:pointer {
-  accel_profile flat
-}
-
-input type:keyboard {
-    xkb_layout "us,latam"
-}
-
-# -------------
-# --- LOOKS -- 
-# -------------
-
-# Wallpaper
-output * bg ~/Pictures/wallpapers/234.jpg fill
-
-# Borders
-default_border pixel 2
-default_floating_border pixel 2
-
-# Gaps
-gaps outer 8
-gaps inner 5
-smart_gaps off
-
-for_window [app_id="Alacritty"] blur enable
-for_window [app_id="float"] blur enable
-
-# Theme Colors
-set $color_bg_primary        #1d1d20
-set $color_bg_secondary      #222226
-set $color_bg_tertiary       #232326
-set $color_bg_muted          #353538
-
-set $color_fg_primary        #ffffff
-set $color_fg_secondary      #cccccc
-set $color_fg_muted          #aaaaaa
-
-set $color_accent            #938AA9
-set $color_accent_active     #938AA9
-
-set $inactive_border #23232600
-
-set $color_border_muted      #504945
-set $color_urgent            #3b2626
-
-# class                 border                  background              text                    indicator               child_border
-client.focused          $color_accent           $color_accent           $color_bg_primary       $color_accent_active    $color_accent
-client.focused_inactive $color_bg_secondary     $color_bg_secondary     $color_fg_muted         $color_bg_muted         $color_bg_secondary
-client.unfocused        $inactive_border        $color_bg_tertiary      $color_fg_muted         $inactive_border        $inactive_border
-client.urgent           $color_urgent           $color_bg_primary       $color_accent           $color_urgent           $color_urgent
-client.placeholder      $color_bg_tertiary      $color_bg_tertiary      $color_fg_muted         $color_bg_tertiary      $color_bg_tertiary
-
-client.background       $color_bg_primary
-
 # -------------------
 # --- KEYBINDINGS ---
 # -------------------
@@ -152,6 +98,7 @@ bindsym $mod+v exec $clipboard
 bindsym $mod+n exec $dnd
 bindsym $mod+Shift+p exec $power_profile
 bindsym $mod+t exec $sway_theme
+bindsym $mod+Shift+t exec $toggle_system_theme
 bindsym $mod+Shift+m exec LD_PRELOAD=/usr/lib/spotify-adblock.so spotify --uri=%U
 bindsym $mod+r exec $rand_wallpaper
 bindsym $mod+Shift+o exec $toggle_mirroring
@@ -244,7 +191,103 @@ bindsym XF86AudioNext exec $osd --playerctl next
 bindsym XF86AudioStop exec $osd --playerctl stop
 
 bindsym Print exec $screenshot
-bindsym $mod+s exec $screenshot
+bindsym $mod+s exec $screenshot crop
+bindsym $mod+Shift+s exec $screenshot
+
+# -------------
+# --- INPUT ---
+# -------------
+
+input type:touchpad {
+  tap enabled
+  drag_lock disabled
+  dwt enabled
+  natural_scroll enabled
+  accel_profile adaptive
+}
+
+input type:pointer {
+  accel_profile flat
+}
+
+input type:keyboard {
+    xkb_layout "us,latam"
+}
+
+# -------------
+# --- LOOKS -- 
+# -------------
+
+# Wallpaper
+output * bg ~/Pictures/wallpapers/058.jpg fill
+
+# Borders
+default_border pixel 2
+default_floating_border pixel 2
+
+# Gaps
+gaps outer 8
+gaps inner 5
+smart_gaps off
+
+for_window [app_id="Alacritty"] blur enable
+for_window [app_id="float"] blur enable
+
+# Theme Colors
+set $color_bg_primary        #1d1d20
+set $color_bg_secondary      #222226
+set $color_bg_tertiary       #232326
+set $color_bg_muted          #353538
+
+set $color_fg_primary        #ffffff
+set $color_fg_secondary      #cccccc
+set $color_fg_muted          #aaaaaa
+
+set $color_accent            #89b4fa
+set $color_accent_active     #89b4fa
+
+set $alpha               30
+
+# Sway concatenates them automatically when parsing the space-separated tokens
+set $inactive_border        $color_accent$alpha
+
+set $color_border_muted      #504945
+set $color_urgent            #3b2626
+
+# class                 border                  background              text                    indicator               child_border
+client.focused          $color_accent           $color_accent           $color_bg_primary       $color_accent_active    $color_accent
+client.focused_inactive $color_bg_secondary     $color_bg_secondary     $color_fg_muted         $color_bg_muted         $color_bg_secondary
+client.unfocused        $inactive_border        $color_bg_tertiary      $color_fg_muted         $inactive_border        $inactive_border
+client.urgent           $color_urgent           $color_bg_primary       $color_accent           $color_urgent           $color_urgent
+client.placeholder      $color_bg_tertiary      $color_bg_tertiary      $color_fg_muted         $color_bg_tertiary      $color_bg_tertiary
+
+client.background       $color_bg_primary
+
+# ------------------------
+# --- SwayFX exclusive ---
+# ------------------------
+
+corner_radius 0
+
+shadows disable
+shadow_blur_radius 15
+shadow_color #00000070
+shadow_offset 0 0
+
+default_dim_inactive 0
+
+blur disable
+blur_passes 3
+blur_radius 2
+blur_noise 0.05
+blur_brightness 1
+blur_contrast 1
+blur_saturation 1
+blur_xray enable
+
+for_window [app_id="Alacritty"] blur enable
+for_window [app_id="float"] blur enable
+for_window [app_id="waybar"] blur enable
 
 # -------------
 # --- RULES ---
@@ -252,6 +295,7 @@ bindsym $mod+s exec $screenshot
 
 mouse_warping container
 focus_follows_mouse yes
+
 for_window [app_id="float"] floating enable
 for_window [app_id="lunarclient"] floating enable
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
@@ -264,6 +308,7 @@ for_window [app_id="org.gnome.clocks"] floating enable
 for_window [app_id="xdg-desktop-portal-gtk"] floating enable
 for_window [app_id="guvcview"] floating enable
 for_window [class="guvcview"] floating enable
+for_window [title="(?i)^DBeaver" app_id="java"] floating enable
 
 # ----------
 # -- BAR ---

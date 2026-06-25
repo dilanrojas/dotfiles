@@ -8,7 +8,7 @@ decorations = "full"
 title = "Alacritty@ArchLinux"
 startup_mode = "Maximized"
 decorations_theme_variant = "Dark"
-opacity = 1
+opacity = 0.92
 blur = true
 
 [window.padding]
@@ -146,4 +146,4 @@ action = "ResetFontSize"
 live_config_reload = true
 working_directory = "None"
 
-import = ["./themes/kanagawa-dragon.toml"]
+import = ["./themes/catppuccin.toml"]

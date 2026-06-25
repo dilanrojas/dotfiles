@@ -12,49 +12,61 @@ The `SUPER` key (Windows key) is your primary modifier.
 
 ### Applications & Utilities
 
-| Keybind | Action |
-| --- | --- |
-| `SUPER` + `Enter` | Open Terminal (Alacritty) |
-| `SUPER` + `B` | Open Web Browser (Brave) |
-| `SUPER` + `E` | Open File Manager (Nautilus) |
-| `SUPER` + `M` | App Launcher (Rofi) |
-| `SUPER` + `V` | Clipboard History |
-| `Print` | Screenshot (Area Select) |
-| `SUPER` + `Shift` + `Q` | Logout Menu (Wlogout) |
-| `SUPER` + `Shift` + `P` | Power Profiles (Rofi) |
-| `SUPER` + `N` | Do not disturb mode (Mako) |
-
-### Window Management
 
 | Keybind | Action |
 | --- | --- |
-| `SUPER` + `Q` | Kill Active Window |
-| `SUPER` + `F` | Toggle Fullscreen |
-| `SUPER` + `Shift` + `F` | Toggle Floating |
-| `SUPER` + `H/J/K/L` | Move Focus (Left/Down/Up/Right) |
-| `SUPER` + `Shift` + `H/J/K/L` | Move Window Position |
-| `SUPER` + `Ctrl` + `H/J/K/L` | Resize Active Window |
+| `$mod` + `Return` | Open Terminal |
+| `$mod` + `++q` | Kill active window |
+| `$mod` + `m` | Open Menu (App Launcher) |
+| `$mod` + `b` | Open Web Browser |
+| `$mod` + `e` | Open File Manager |
+| `$mod` + `p` | Open Colorpicker |
+| `$mod` + `Shift` + `b` | Open Bluetooth Manager (`bluetui`) |
+| `$mod` + `Shift` + `w` | Open Network Manager (`nmtui`) |
+| `$mod` + `v` | Open Clipboard History |
+| `$mod` + `n` | Toggle Do Not Disturb (`dnd`) |
+| `$mod` + `Shift` + `p` | Change Power Profile |
+| `$mod` + `t` | Change Sway Theme |
+| `$mod` + `Shift` + `t` | Toggle System Theme (Dark/Light) |
+| `$mod` + `Shift` + `m` | Launch Spotify (with adblock) |
+| `$mod` + `r` | Change Random Wallpaper |
+| `$mod` + `Shift` + `o` | Toggle Display Mirroring |
+| `$mod` + `c` | Open Scripts Menu |
+| `$mod` + `Shift` + `r` | Reload Sway Configuration |
+| `$mod` + `Shift` + `q` | Open Logout Menu (`wlogout`) |
+| `Print` | Take Screenshot |
+| `$mod` + `s` | Take Screenshot (Crop / Selection) |
 
-### Workspaces
+---
+
+### Window Management & Navigation
+
 
 | Keybind | Action |
 | --- | --- |
-| `SUPER` + `1-0` | Switch to Workspace 1-10 |
-| `SUPER` + `Shift` + `1-0` | Move Window to Workspace 1-10 |
-| `SUPER` + `U` | Toggle Special Workspace (Scratchpad) |
+| `$mod` + `Arrow` / `Vim Keys` | Focus Window (Left/Down/Up/Right) |
+| `$mod` + `Shift` + `Arrow` / `Vim Keys` | Move Window (Left/Down/Up/Right) |
+| `$mod` + `Control` + `Arrow` | Resize Active Window |
+| `$mod` + `1` to `0` | Switch to Workspace 1 - 10 |
+| `$mod` + `Shift` + `1` to `0` | Move Container to Workspace 1 - 10 |
+| `$mod` + `f` | Toggle Fullscreen |
+| `$mod` + `Shift` + `f` | Toggle Floating Mode |
+| `$mod` + `space` | Switch Keyboard Layout |
+| `$mod` + `u` | Show Scratchpad |
+| `$mod` + `Shift` + `u` | Move Window to Scratchpad |
 
 
 ## Themes
 
-I usually switched between [Solarized Osaka](https://github.com/craftzdog/solarized-osaka.nvim) and [Gruvbox](https://github.com/morhetz/gruvbox).
-Feel free to edit `~/.config/alacritty/alacritty.toml` and add more themes into `~/.config/alacritty/themes`.
-Also, change your NeoVim theme on `~/.config/nvim/lua/plugins/colorscheme.lua`. The list of themes is available at `~/.config/nvim/lua/plugins/themes.lua`.
+Press `mod + t` for opening the Sway Theme script.
+If you want to add more themes, see `~/.config/sway/themes.json`.
+You'll need to add theme Alacritty (`~/.config/alacritty/themes`) theme and the Neovim (`~/.config/nvim/lua/plugins/themes.lua`) theme.
 
 ---
 
 ## 🛠️ Core Components
 
-* **Window Manager:** [Sway](https://swaywm.org/)
+* **Window Manager:** [SwayFX](https://github.com/WillPower3309/swayfx)
 * **Bar:** [Waybar](https://github.com/Alexays/Waybar)
 * **Shell:** [Fish](https://fishshell.com/) with [Starship](https://starship.rs/)
 * **Terminal:** [Alacritty](https://alacritty.org/)
@@ -73,7 +85,7 @@ Also, change your NeoVim theme on `~/.config/nvim/lua/plugins/colorscheme.lua`. 
 The core environment including fonts, UI tools, and GNOME apps.
 
 ```bash
-sudo pacman -S sway sway-contrib swaybg swayidle swayosd mako wmname sddm hyprpicker qt6ct qt5ct waybar nwg-look nwg-displays adw-gtk-theme polkit-gnome xdg-desktop-portal-wlr xdg-desktop-portal-gtk alacritty fish starship lsd bat nautilus gnome-disk-utility loupe showtime gnome-text-editor gnome-calendar gnome-clocks gnome-calculator papers grim slurp cliphist neovim nano brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd woff2-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm ripgrep fd fzf luarocks gcc lazygit git udiskie udisks2 libappindicator unzip unrar wget curl mlocate fastfetch python-pipx gnome-keyring seahorse libsecret ksshaskpass ttf-opensans breeze dunst libnotify rofi wireless-regdb playerctl papirus-icon-theme jq
+sudo pacman -S swaybg swayidle swayosd mako wmname sddm hyprpicker qt6ct qt5ct waybar nwg-look nwg-displays adw-gtk-theme polkit-gnome xdg-desktop-portal-wlr xdg-desktop-portal-gtk alacritty fish starship lsd bat nautilus gnome-disk-utility loupe showtime gnome-text-editor gnome-calendar gnome-clocks gnome-calculator papers grim slurp cliphist neovim nano brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd woff2-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm ripgrep fd fzf luarocks gcc lazygit git udiskie udisks2 libappindicator unzip unrar wget curl mlocate fastfetch python-pipx gnome-keyring seahorse libsecret ksshaskpass ttf-opensans breeze dunst libnotify rofi wireless-regdb playerctl papirus-icon-theme jq
 ```
 
 AUR Helper
@@ -94,7 +106,7 @@ yay -S swayfx
 Fonts & Basic Apps
 
 ```bash
-yay -S dunst ttf-plemoljp-bin waybar-module-pacman-updates-git wlogout brave-bin onlyoffice-bin epson-inkjet-printer-escpr ttf-ms-fonts downgrade rate-mirrors-bin --noconfirm
+yay -S swayfx sway-contrib ttf-plemoljp-bin waybar-module-pacman-updates-git wlogout brave-bin ttf-ms-fonts downgrade rate-mirrors-bin --noconfirm
 ```
 
 ```bash
@@ -136,7 +148,7 @@ sudo pacman -S zram-generator
 sudo cp dotfiles/zram-generator.conf /etc/systemd/
 
 # Enable the service
-sudo systemctl enable --now  systemd-zram-setup@zram0.service
+sudo systemctl enable --now  systemd-zram-setup@zram0.service pipewire pipewire-pulse wireplumber
 ```
 
 ### Configure mirrors

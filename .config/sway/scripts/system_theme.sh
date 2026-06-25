@@ -11,34 +11,36 @@ if [ ! -f "$QT_CONFIG" ]; then
   exit 1
 fi
 
-# Check for required argument
+# If no argument was provided, determine current mode and toggle
 if [ -z "$1" ]; then
-  echo "Usage: $0 {light|dark}" >&2
-  exit 1
+  CURRENT=$(grep '^custom_palette=' "$QT_CONFIG" | cut -d= -f2)
+
+  if [ "$CURRENT" = "true" ]; then
+    MODE="light"
+  else
+    MODE="dark"
+  fi
+
+  echo "No mode specified. Toggling to $MODE..."
+else
+  MODE=$(echo "$1" | tr '[:upper:]' '[:lower:]')
 fi
 
-# Convert argument to lowercase
-MODE=$(echo "$1" | tr '[:upper:]' '[:lower:]')
-
 case "$MODE" in
-"dark")
+dark)
   echo "Switching to DARK mode..."
 
-  # Update qt6ct.conf: set custom_palette=true
   sed -i 's/^custom_palette=.*/custom_palette=true/' "$QT_CONFIG"
 
-  # Update GTK themes using gsettings
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
   gsettings set org.gnome.desktop.interface gtk-theme "$GTK_DARK"
   ;;
 
-"light")
+light)
   echo "Switching to LIGHT mode..."
 
-  # Update qt6ct.conf: set custom_palette=false
   sed -i 's/^custom_palette=.*/custom_palette=false/' "$QT_CONFIG"
 
-  # Update GTK themes using gsettings
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
   gsettings set org.gnome.desktop.interface gtk-theme "$GTK_LIGHT"
   ;;

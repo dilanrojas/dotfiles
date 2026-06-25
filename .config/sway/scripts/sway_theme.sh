@@ -39,12 +39,32 @@ FG_SECONDARY=$(jq -r --arg theme "$THEME" '.[$theme].palette.fg_secondary' "$JSO
 ACCENT=$(jq -r --arg theme "$THEME" '.[$theme].palette.accent' "$JSON_FILE")
 ACCENT_ACTIVE="$ACCENT"
 
+eval "$(
+  awk '
+    /^\[colors\.normal\]/ { in_normal=1; next }
+    /^\[/ { in_normal=0 }
+    in_normal && /^[a-z]+[[:space:]]*=/ {
+      split($0, a, "=")
+      gsub(/[[:space:]\047]/, "", a[1])
+      gsub(/[[:space:]\047]/, "", a[2])
+      print toupper(a[1]) "=" a[2]
+    }
+  ' "$HOME/.config/alacritty/themes/${ALACRITTY_THEME}"
+)"
+
 # ------------------------------------------------------------------------------
 # Waybar
 # ------------------------------------------------------------------------------
 sed -i "s/\(@define-color bg \).*/\1$BG;/" "$HOME/.config/waybar/theme.css"
 sed -i "s/\(@define-color fg \).*/\1$FG;/" "$HOME/.config/waybar/theme.css"
 sed -i "s/\(@define-color accent \).*/\1$ACCENT;/" "$HOME/.config/waybar/theme.css"
+sed -i "s/\(@define-color black \).*/\1$BLACK;/" "$HOME/.config/waybar/theme.css"
+sed -i "s/\(@define-color blue \).*/\1$BLUE;/" "$HOME/.config/waybar/theme.css"
+sed -i "s/\(@define-color cyan \).*/\1$CYAN;/" "$HOME/.config/waybar/theme.css"
+sed -i "s/\(@define-color green \).*/\1$GREEN;/" "$HOME/.config/waybar/theme.css"
+sed -i "s/\(@define-color magenta \).*/\1$MAGENTA;/" "$HOME/.config/waybar/theme.css"
+sed -i "s/\(@define-color red \).*/\1$RED;/" "$HOME/.config/waybar/theme.css"
+sed -i "s/\(@define-color yellow \).*/\1$YELLOW;/" "$HOME/.config/waybar/theme.css"
 
 # ------------------------------------------------------------------------------
 # Rofi
@@ -85,7 +105,9 @@ sed -i "s/\(set \$color_accent_active[[:space:]]\+\).*/\1$ACCENT_ACTIVE/" \
 # ------------------------------------------------------------------------------
 # Wallpaper
 # ------------------------------------------------------------------------------
-sed -i "s|\(output \* bg ~/Pictures/wallpapers/\)[^[:space:]]\+\(.*\)|\1$WALLPAPER\2|" "$HOME/.config/sway/config"
+sed -i \
+  "s|^\(output \* bg \)[^[:space:]]*\( .*$\)|\1~/Pictures/wallpapers/$WALLPAPER\2|" \
+  "$HOME/.config/sway/config"
 
 # ------------------------------------------------------------------------------
 # System Theme Toggle (Light/Dark)

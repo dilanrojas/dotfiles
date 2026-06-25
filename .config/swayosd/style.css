@@ -1,0 +1,53 @@
+@import url('../waybar/theme.css');
+
+window#osd {
+  border-radius: 0px;
+  background: @bg;
+  border: 2px solid @accent;
+}
+
+window#osd #container {
+  margin: 13px 24px;
+}
+
+window#osd image,
+window#osd label {
+  color: @fg;
+}
+
+window#osd progressbar:disabled,
+window#osd image:disabled {
+  opacity: 0.5;
+}
+
+window#osd progressbar,
+window#osd segmentedprogress {
+  min-height: 6px;
+  border-radius: 999px;
+  background: transparent;
+  border: none;
+}
+
+window#osd trough,
+window#osd segment {
+  min-height: inherit;
+  border-radius: inherit;
+  border: none;
+  background: @black;
+}
+
+window#osd progress,
+window#osd segment.active {
+  min-height: inherit;
+  border-radius: inherit;
+  border: none;
+  background: @fg;
+}
+
+window#osd segment {
+  margin-left: 8px;
+}
+
+window#osd segment:first-child {
+  margin-left: 0;
+}

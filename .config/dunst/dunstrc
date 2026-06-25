@@ -33,9 +33,9 @@
 
     separator_height = 5
     frame_width = 2
-    background = "#131111"
-    foreground = "#C8C093"
-    frame_color = "#938AA9"
+    background = "#1e1e2e"
+    foreground = "#cdd6f4"
+    frame_color = "#89b4fa"
 
     separator_color = frame
     sort = yes
@@ -55,7 +55,7 @@
     ignore_newline = no
     stack_duplicates = false
     hide_duplicate_count = false
-    show_indicators = yes
+    show_indicators = no
     enable_posix_regex = false
 
 ### Icons ###
@@ -108,6 +108,6 @@
     default_icon = preferences-desktop-notification
 
 [urgency_critical]
-    timeout = 10
+    timeout = 6
     override_pause_level = 60
     default_icon = gnome-warning

@@ -1,10 +1,10 @@
-# Colors (Solarized Osaka)
+# Colors (Solarized Osaka: Day)
 # Source https://github.com/craftzdog/solarized-osaka.nvim
 
 # Default colors
 [colors.primary]
-background = '#00141a'
-foreground = '#839496'
+background = '#fdf5e0'
+foreground = '#586e74'
 
 # Normal colors
 [colors.normal]
