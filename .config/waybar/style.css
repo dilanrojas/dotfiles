@@ -53,9 +53,9 @@ window#waybar>box {
 #custom-power {
   margin: 0px 0px;
   padding: 0px 7px;
-  font-size: 15px;
-  font-family: 'JetBrainsMono Nerd Font', sans-serif;
-  font-weight: 700;
+  font-size: 14px;
+  font-family: 'Adwaita Mono', sans-serif;
+  font-weight: 600;
   border-radius: 0px;
   border: none;
   opacity: 1;

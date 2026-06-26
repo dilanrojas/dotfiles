@@ -8,7 +8,7 @@ decorations = "full"
 title = "Alacritty@ArchLinux"
 startup_mode = "Maximized"
 decorations_theme_variant = "Dark"
-opacity = 0.92
+opacity = 1
 blur = true
 
 [window.padding]
@@ -36,7 +36,7 @@ offset = { x = 0, y = 0 }
 
 [font.normal]
 family = "JetBrainsMono Nerd Font"
-style = "Medium"
+style = "Regular"
 
 [font.bold]
 family = "JetBrainsMono Nerd Font"
@@ -44,7 +44,7 @@ style = "Bold"
 
 [font.italic]
 family = "JetBrainsMono Nerd Font"
-style = "Medium Italic"
+style = "Regular Italic"
 
 [font.bold_italic]
 family = "JetBrainsMono Nerd Font"
@@ -146,4 +146,4 @@ action = "ResetFontSize"
 live_config_reload = true
 working_directory = "None"
 
-import = ["./themes/catppuccin.toml"]
+import = ["./themes/everforest-hard.toml"]

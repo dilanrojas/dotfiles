@@ -49,6 +49,7 @@ if not string match -q -- $PNPM_HOME $PATH
 end
 # pnpm end
 
-set _JAVA_AWT_WM_NONREPARENTING 1
+set -gx PATH $HOME/.local/bin $PATH
 set -Ux QT_QPA_PLATFORMTHEME qt6ct
-set -Ux _JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=lcd -J-Dsun.java2d.uiScale=1.25 -Dswing.aatext=true"
+set -Ux _JAVA_AWT_WM_NONREPARENTING true
+set -Ux _JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true"

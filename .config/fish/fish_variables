@@ -1,5 +1,6 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export QT_QPA_PLATFORMTHEME:qt6ct
-SETUVAR --export _JAVA_OPTIONS:\x2dDawt\x2euseSystemAAFontSettings\x3dlcd\x20\x2dJ\x2dDsun\x2ejava2d\x2euiScale\x3d1\x2e25\x20\x2dDswing\x2eaatext\x3dtrue
+SETUVAR --export _JAVA_AWT_WM_NONREPARENTING:true
+SETUVAR --export _JAVA_OPTIONS:\x2dDawt\x2euseSystemAAFontSettings\x3dlcd\x20\x2dDswing\x2eaatext\x3dtrue
 SETUVAR __fish_initialized:4300

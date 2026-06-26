@@ -66,7 +66,7 @@ You'll need to add theme Alacritty (`~/.config/alacritty/themes`) theme and the 
 
 ## 🛠️ Core Components
 
-* **Window Manager:** [SwayFX](https://github.com/WillPower3309/swayfx)
+* **Window Manager:** [Sway](https://swaywm.org/)
 * **Bar:** [Waybar](https://github.com/Alexays/Waybar)
 * **Shell:** [Fish](https://fishshell.com/) with [Starship](https://starship.rs/)
 * **Terminal:** [Alacritty](https://alacritty.org/)
@@ -85,7 +85,7 @@ You'll need to add theme Alacritty (`~/.config/alacritty/themes`) theme and the 
 The core environment including fonts, UI tools, and GNOME apps.
 
 ```bash
-sudo pacman -S swaybg swayidle swayosd mako wmname sddm hyprpicker qt6ct qt5ct waybar nwg-look nwg-displays adw-gtk-theme polkit-gnome xdg-desktop-portal-wlr xdg-desktop-portal-gtk alacritty fish starship lsd bat nautilus gnome-disk-utility loupe showtime gnome-text-editor gnome-calendar gnome-clocks gnome-calculator papers grim slurp cliphist neovim nano brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd woff2-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm ripgrep fd fzf luarocks gcc lazygit git udiskie udisks2 libappindicator unzip unrar wget curl mlocate fastfetch python-pipx gnome-keyring seahorse libsecret ksshaskpass ttf-opensans breeze dunst libnotify rofi wireless-regdb playerctl papirus-icon-theme jq
+sudo pacman -S sway sway-contrib swaybg swayidle swayosd mako wmname sddm hyprpicker qt6ct qt5ct waybar nwg-look nwg-displays adw-gtk-theme polkit-gnome xdg-desktop-portal-wlr xdg-desktop-portal-gtk alacritty fish starship lsd bat nautilus gnome-disk-utility loupe showtime gnome-text-editor gnome-calendar gnome-clocks gnome-calculator papers grim slurp cliphist neovim nano brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd woff2-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm ripgrep fd fzf luarocks gcc lazygit git udiskie udisks2 libappindicator unzip unrar wget curl mlocate fastfetch python-pipx gnome-keyring seahorse libsecret ksshaskpass ttf-opensans breeze dunst libnotify rofi wireless-regdb playerctl papirus-icon-theme jq
 ```
 
 AUR Helper
@@ -97,16 +97,10 @@ makepkg -rsi
 cd .. && rm -rf yay
 ```
 
-Sway FX
-
-```bash
-yay -S swayfx
-```
-
 Fonts & Basic Apps
 
 ```bash
-yay -S swayfx sway-contrib ttf-plemoljp-bin waybar-module-pacman-updates-git wlogout brave-bin ttf-ms-fonts downgrade rate-mirrors-bin --noconfirm
+yay -S ttf-plemoljp-bin waybar-module-pacman-updates-git wlogout brave-bin ttf-ms-fonts downgrade rate-mirrors-bin --noconfirm
 ```
 
 ```bash

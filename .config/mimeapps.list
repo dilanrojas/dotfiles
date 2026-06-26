@@ -20,9 +20,9 @@ x-scheme-handler/unknown=firefox.desktop
 x-scheme-handler/terminal=Alacritty.desktop
 application/xhtml+xml=firefox.desktop
 application/pdf=org.gnome.Papers.desktop;
-application/vnd.openxmlformats-officedocument.wordprocessingml.document=onlyoffice-desktopeditors.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-startcenter.desktop
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=onlyoffice-desktopeditors.desktop
-application/vnd.openxmlformats-officedocument.presentationml.presentation=onlyoffice-desktopeditors.desktop
+application/vnd.openxmlformats-officedocument.presentationml.presentation=libreoffice-startcenter.desktop
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=onlyoffice-desktopeditors.desktop
 application/msword=onlyoffice-desktopeditors.desktop
 application/vnd.ms-excel=onlyoffice-desktopeditors.desktop
@@ -31,3 +31,9 @@ text/x-java=nvim.desktop
 text/x-python3=nvim.desktop
 text/plain=nvim.desktop
 application/json=nvim.desktop
+application/vnd.oasis.opendocument.text=libreoffice-startcenter.desktop
+
+[Added Associations]
+application/vnd.oasis.opendocument.text=libreoffice-startcenter.desktop;
+application/vnd.openxmlformats-officedocument.presentationml.presentation=libreoffice-startcenter.desktop;
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-startcenter.desktop;

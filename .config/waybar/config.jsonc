@@ -3,7 +3,7 @@
   // "layer": "top",
   "reload_style_on_change": true,
   // "position": "bottom",
-  "height": 30,
+  "height": 28,
   // "width": 1280,
   "spacing": 0,
   "modules-left": [
@@ -39,7 +39,7 @@
       "5": "box",
       "6": "fls",
       "7": "sys",
-      "8": "gfx",
+      "8": "mda",
       "9": "dsc",
       "10": "msc"
       //"urgent": "",

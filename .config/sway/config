@@ -220,7 +220,7 @@ input type:keyboard {
 # -------------
 
 # Wallpaper
-output * bg ~/Pictures/wallpapers/025.jpg fill
+output * bg ~/Pictures/wallpapers/166.jpg fill
 
 # Borders
 default_border pixel 2
@@ -244,8 +244,8 @@ set $color_fg_primary        #ffffff
 set $color_fg_secondary      #cccccc
 set $color_fg_muted          #aaaaaa
 
-set $color_accent            #2aa198
-set $color_accent_active     #2aa198
+set $color_accent            #83c092
+set $color_accent_active     #83c092
 
 set $alpha               30
 
@@ -267,28 +267,28 @@ client.background       $color_bg_primary
 # ------------------------
 # --- SwayFX exclusive ---
 # ------------------------
-
-corner_radius 0
-
-shadows disable
-shadow_blur_radius 15
-shadow_color #00000070
-shadow_offset 0 0
-
-default_dim_inactive 0
-
-blur disable
-blur_passes 3
-blur_radius 2
-blur_noise 0.05
-blur_brightness 1
-blur_contrast 1
-blur_saturation 1
-blur_xray enable
-
-for_window [app_id="Alacritty"] blur enable
-for_window [app_id="float"] blur enable
-for_window [app_id="waybar"] blur enable
+#
+# corner_radius 0
+#
+# shadows disable
+# shadow_blur_radius 15
+# shadow_color #00000070
+# shadow_offset 0 0
+#
+# default_dim_inactive 0
+#
+# blur disable
+# blur_passes 3
+# blur_radius 2
+# blur_noise 0.05
+# blur_brightness 1
+# blur_contrast 1
+# blur_saturation 1
+# blur_xray enable
+#
+# for_window [app_id="Alacritty"] blur enable
+# for_window [app_id="float"] blur enable
+# for_window [app_id="waybar"] blur enable
 
 # -------------
 # --- RULES ---
