@@ -8,7 +8,6 @@
   "spacing": 0,
   "modules-left": [
     "sway/workspaces",
-    "custom/separator",
     "sway/window"
   ],
   "modules-center": [],
@@ -18,11 +17,9 @@
     "custom/updates",
     "sway/language",
     "power-profiles-daemon",
-    "custom/separator",
     "network",
     "pulseaudio",
     "battery",
-    "custom/separator",
     "clock"
   ],
   // Modules configuration
@@ -42,8 +39,8 @@
       "8": "mda",
       "9": "dsc",
       "10": "msc"
-      //"urgent": "",
       // "focused": "O"
+      //"urgent": ""
     },
     "persistent-workspaces": {
       "1": [

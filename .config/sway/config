@@ -227,8 +227,8 @@ default_border pixel 2
 default_floating_border pixel 2
 
 # Gaps
-gaps outer 8
-gaps inner 5
+gaps outer 2
+gaps inner 4
 smart_gaps off
 
 for_window [app_id="Alacritty"] blur enable
