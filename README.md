@@ -142,7 +142,7 @@ sudo pacman -S zram-generator
 sudo cp dotfiles/zram-generator.conf /etc/systemd/
 
 # Enable the service
-sudo systemctl enable --now  systemd-zram-setup@zram0.service pipewire pipewire-pulse wireplumber
+sudo systemctl enable --now  systemd-zram-setup@zram0.service
 ```
 
 ### Configure mirrors
@@ -160,6 +160,7 @@ rate-mirrors --allow-root --protocol https arch | grep -v '#' | sudo tee /etc/pa
 ```bash
 sudo systemctl enable sddm bluetooth cups
 
+systemctl --user enable --now pipewire pipewire-pulse wireplumber
 ```
 
 ### 2. Deploy Dotfiles
