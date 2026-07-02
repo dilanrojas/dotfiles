@@ -50,6 +50,3 @@ end
 # pnpm end
 
 set -gx PATH $HOME/.local/bin $PATH
-set -Ux QT_QPA_PLATFORMTHEME qt6ct
-set -Ux _JAVA_AWT_WM_NONREPARENTING true
-set -Ux _JAVA_OPTIONS "-Dawt.useSystemAAFontSettings=lcd -Dswing.aatext=true"
