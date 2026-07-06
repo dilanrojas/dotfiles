@@ -4,7 +4,7 @@ WINIT_X11_SCALE_FACTOR = "1"
 
 [window]
 dynamic_padding = false
-decorations = "full"
+decorations = "Full"
 title = "Alacritty@ArchLinux"
 startup_mode = "Maximized"
 decorations_theme_variant = "Dark"
@@ -31,7 +31,7 @@ multiplier = 3
 draw_bold_text_with_bright_colors = true
 
 [font]
-size = 13
+size = 11.5
 offset = { x = 0, y = 0 }
 
 [font.normal]
@@ -146,4 +146,4 @@ action = "ResetFontSize"
 live_config_reload = true
 working_directory = "None"
 
-import = ["./themes/everforest-hard.toml"]
+import = ["./themes/gruvbox-hard.toml"]

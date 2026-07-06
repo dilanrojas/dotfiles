@@ -5,7 +5,7 @@ set fish_greeting ""
 
 # Aliases
 alias neofetch fastfetch
-alias ls "lsd -l"
+alias ls "ls -l --color=auto --group-directories-first"
 alias cat bat
 alias tkn "cat ~/Documents/Files/GitToken.txt"
 alias n nvim
@@ -13,7 +13,7 @@ alias n nvim
 alias cputemp "sensors | grep Core"
 alias rich "rich --pager --theme one-dark --padding 3,10,3,10"
 
-alias update "sudo pacman -Syu && yay -Syu"
+alias update "sudo pacman -Syu && yay -Syu && flatpak update"
 alias i "sudo pacman -S --noconfirm"
 alias s "pacman -Ss"
 alias r "sudo pacman -Rns"
