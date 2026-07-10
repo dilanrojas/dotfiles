@@ -32,7 +32,7 @@ set $toggle_system_theme $scripts/system_theme.sh
 
 output eDP-1 {
     scale 1
-    adaptive_sync off
+    adaptive_sync on
     allow_tearing on
     scale_filter linear
     position 0,0
@@ -220,15 +220,15 @@ input type:keyboard {
 # -------------
 
 # Wallpaper
-output * bg ~/Pictures/wallpapers/224.jpg fill
+output * bg ~/Pictures/wallpapers/227.jpg fill
 
 # Borders
 default_border pixel 2
 default_floating_border pixel 2
 
 # Gaps
-gaps outer 10
-gaps inner 5
+gaps outer 6
+gaps inner 3
 smart_gaps off
 
 for_window [app_id="Alacritty"] blur enable
@@ -244,8 +244,8 @@ set $color_fg_primary        #ffffff
 set $color_fg_secondary      #cccccc
 set $color_fg_muted          #aaaaaa
 
-set $color_accent            #938AA9
-set $color_accent_active     #938AA9
+set $color_accent            #7aa2f7
+set $color_accent_active     #7aa2f7
 
 set $alpha               30
 
