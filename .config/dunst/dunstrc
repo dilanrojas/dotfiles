@@ -33,9 +33,9 @@
 
     separator_height = 5
     frame_width = 2
-    background = "#272e33"
-    foreground = "#d3c6aa"
-    frame_color = "#83c092"
+    background = "#282828"
+    foreground = "#ffffff"
+    frame_color = "#484848"
 
     separator_color = frame
     sort = yes
@@ -85,7 +85,7 @@
 
 ### Wayland ###
 
-    # layer = top
+    layer = top
     force_xwayland = false
 
 ### Legacy

@@ -8,3 +8,5 @@ pkill swayosd-server
 swayosd-server &
 
 pkill dunst
+
+dunstctl reload

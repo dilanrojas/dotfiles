@@ -50,3 +50,5 @@ end
 # pnpm end
 
 set -gx PATH $HOME/.local/bin $PATH
+
+set -Ux QT_QPA_PLATFORMTHEME qt6ct

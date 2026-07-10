@@ -11,7 +11,7 @@ window {
 
 button {
   border-radius: 0;
-  border-color: black;
+  border-color: #101010;
   text-decoration-color: #FFFFFF;
   color: white;
   border-style: solid;
@@ -20,7 +20,7 @@ button {
   background-position: center;
   background-size: 25%;
   opacity: 1;
-  background-color: @black;
+  background-color: #000000;
 }
 
 button:focus,
@@ -28,7 +28,7 @@ button:active,
 button:hover {
   outline-style: none;
   opacity: 1;
-  background-color: @accent;
+  background-color: #242424;
 }
 
 #lock {

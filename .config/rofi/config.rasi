@@ -7,7 +7,7 @@ configuration {
 	display-window: "Windows";
 	display-run: "Run";
 	drun-display-format: "{icon} {name}";
-	font: "JetBrainsMono Nerd Font Medium 11";
+	font: "JetBrainsMono Nerd Font 12.5";
 	show-icons: true;
 }
 
@@ -18,7 +18,7 @@ window {
     anchor:                      center;
     fullscreen:                  false;
     width:                       350px;
-    height:                      360px;
+    height:                      370px;
     x-offset:                    0px;
     y-offset:                    0px;
 

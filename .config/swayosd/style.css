@@ -2,8 +2,8 @@
 
 window#osd {
   border-radius: 0px;
-  background: @bg;
-  border: 2px solid @accent;
+  background: #282828;
+  border: 2px solid #484848;
 }
 
 window#osd #container {
@@ -33,7 +33,7 @@ window#osd segment {
   min-height: inherit;
   border-radius: inherit;
   border: none;
-  background: rgba(0, 0, 0, .2);
+  background: #484848;
 }
 
 window#osd progress,

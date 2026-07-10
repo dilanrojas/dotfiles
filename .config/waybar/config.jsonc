@@ -3,24 +3,24 @@
   // "layer": "top",
   "reload_style_on_change": true,
   // "position": "bottom",
-  "height": 28,
+  "height": 32,
   // "width": 1280,
   "spacing": 0,
   "modules-left": [
-    "sway/workspaces",
-    "sway/window"
+    "sway/workspaces"
+    // "sway/window"
   ],
-  "modules-center": [],
+  "modules-center": [
+    "clock"
+  ],
   "modules-right": [
     "tray",
     "sway/scratchpad",
     "custom/updates",
     "sway/language",
-    "power-profiles-daemon",
     "network",
     "pulseaudio",
-    "battery",
-    "clock"
+    "battery"
   ],
   // Modules configuration
   "sway/workspaces": {
@@ -29,17 +29,17 @@
     "warp-on-scroll": false,
     "format": "{icon}",
     "format-icons": {
-      "1": "dev",
-      "2": "www",
-      "3": "img",
-      "4": "doc",
-      "5": "box",
-      "6": "fls",
-      "7": "sys",
-      "8": "mda",
-      "9": "dsc",
-      "10": "msc"
-      // "focused": "O"
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "focused": ""
       //"urgent": ""
     },
     "persistent-workspaces": {
@@ -59,19 +59,19 @@
         "eDP-1"
       ],
       "6": [
-        "eDP-1"
+        "HDMI-A-I"
       ],
       "7": [
-        "eDP-1"
+        "HDMI-A-I"
       ],
       "8": [
-        "eDP-1"
+        "HDMI-A-I"
       ],
       "9": [
-        "eDP-1"
+        "HDMI-A-I"
       ],
       "10": [
-        "eDP-1"
+        "HDMI-A-I"
       ]
     }
   },
@@ -86,7 +86,7 @@
     "tooltip-format": "{app}: {title}"
   },
   "sway/language": {
-    "format": "kbd: {}",
+    "format": "{}",
     "tooltip": false,
     "on-click": "swaymsg input type:keyboard xkb_switch_layout next"
   },
@@ -98,11 +98,11 @@
     }
   },
   "tray": {
-    "icon-size": 16,
+    "icon-size": 18,
     "spacing": 16
   },
   "clock": {
-    "format": "{:%a, %b %d  %I:%M %p}",
+    "format": "{:%a %b %d %I:%M %p}",
     "on-click": "gnome-calendar",
     "tooltip": false
   },
@@ -111,9 +111,23 @@
       "warning": 20,
       "critical": 10
     },
-    "format": "bat: {capacity}%",
+    "format": "{icon}",
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
     "interval": 3,
-    "tooltip": false,
+    "tooltip": true,
+    "tooltip-format": "{capacity}%",
     "on-click": "bash ~/.config/sway/scripts/power_profile.sh",
     "on-scroll-up": "brightnessctl set 5%+",
     "on-scroll-down": "brightnessctl set 5%-"
@@ -123,24 +137,47 @@
     "tooltip": false
   },
   "custom/updates": {
-    "format": "upd: {}",
+    "format": "󰣇 {}",
     "return-type": "json",
     "on-click": "bash ~/.config/sway/scripts/update_system.sh",
     "exec-if": "which waybar-module-pacman-updates",
     "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
   },
   "network": {
-    "format": "net: {signalStrength}%",
-    "format-disconnected": "net: none",
-    "tooltip": false,
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "format": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)",
+    "tooltip-format-ethernet": "Connected",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 3,
+    "spacing": 1,
     "on-click": "alacritty --class float -e nmtui"
   },
   "pulseaudio": {
-    "format": "vol: {volume}%",
-    "format-muted": "vol: 0%",
+    "format": "{icon}",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "headset": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
     "on-click": "pamixer --toggle-mute",
     "on-click-right": "pavucontrol",
-    "tooltip": false,
+    "tooltip": true,
+    "tooltip-format": "{volume}%",
     "scroll-step": 5
   },
   "custom/separator": {

@@ -50,11 +50,11 @@ ACTION=$(
     "Screenshot Saved" \
     "Copied to clipboard" \
     --icon="$SCREENSHOT_FILE" \
-    --action="edit,Edit in Swappy" \
+    --action="view, Open with image viewer" \
     --wait \
     --expire-time=10000
 )
 
 if [[ "$ACTION" == "0" ]]; then
-  swappy -f "$SCREENSHOT_FILE" -o "$SCREENSHOT_FILE"
+  loupe "$SCREENSHOT_FILE"
 fi

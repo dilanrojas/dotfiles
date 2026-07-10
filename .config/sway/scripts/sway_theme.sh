@@ -55,31 +55,31 @@ eval "$(
 # ------------------------------------------------------------------------------
 # Waybar
 # ------------------------------------------------------------------------------
-sed -i "s/\(@define-color bg \).*/\1$BG;/" "$HOME/.config/waybar/theme.css"
-sed -i "s/\(@define-color fg \).*/\1$FG;/" "$HOME/.config/waybar/theme.css"
-sed -i "s/\(@define-color accent \).*/\1$ACCENT;/" "$HOME/.config/waybar/theme.css"
-sed -i "s/\(@define-color black \).*/\1$BLACK;/" "$HOME/.config/waybar/theme.css"
-sed -i "s/\(@define-color blue \).*/\1$BLUE;/" "$HOME/.config/waybar/theme.css"
-sed -i "s/\(@define-color cyan \).*/\1$CYAN;/" "$HOME/.config/waybar/theme.css"
-sed -i "s/\(@define-color green \).*/\1$GREEN;/" "$HOME/.config/waybar/theme.css"
-sed -i "s/\(@define-color magenta \).*/\1$MAGENTA;/" "$HOME/.config/waybar/theme.css"
-sed -i "s/\(@define-color red \).*/\1$RED;/" "$HOME/.config/waybar/theme.css"
-sed -i "s/\(@define-color yellow \).*/\1$YELLOW;/" "$HOME/.config/waybar/theme.css"
+# sed -i "s/\(@define-color bg \).*/\1$BG;/" "$HOME/.config/waybar/theme.css"
+# sed -i "s/\(@define-color fg \).*/\1$FG;/" "$HOME/.config/waybar/theme.css"
+# sed -i "s/\(@define-color accent \).*/\1$ACCENT;/" "$HOME/.config/waybar/theme.css"
+# sed -i "s/\(@define-color black \).*/\1$BLACK;/" "$HOME/.config/waybar/theme.css"
+# sed -i "s/\(@define-color blue \).*/\1$BLUE;/" "$HOME/.config/waybar/theme.css"
+# sed -i "s/\(@define-color cyan \).*/\1$CYAN;/" "$HOME/.config/waybar/theme.css"
+# sed -i "s/\(@define-color green \).*/\1$GREEN;/" "$HOME/.config/waybar/theme.css"
+# sed -i "s/\(@define-color magenta \).*/\1$MAGENTA;/" "$HOME/.config/waybar/theme.css"
+# sed -i "s/\(@define-color red \).*/\1$RED;/" "$HOME/.config/waybar/theme.css"
+# sed -i "s/\(@define-color yellow \).*/\1$YELLOW;/" "$HOME/.config/waybar/theme.css"
 
 # ------------------------------------------------------------------------------
 # Rofi
 # ------------------------------------------------------------------------------
-sed -i "s/\(background-primary:[[:space:]]*\).*/\1$BG;/" "$HOME/.config/rofi/theme.rasi"
-sed -i "s/\(window-border:[[:space:]]*\).*/\1$ACCENT;/" "$HOME/.config/rofi/theme.rasi"
-sed -i "s/\(text:[[:space:]]*\).*/\1$FG;/" "$HOME/.config/rofi/theme.rasi"
-sed -i "s/\(text-secondary:[[:space:]]*\).*/\1$FG_SECONDARY;/" "$HOME/.config/rofi/theme.rasi"
+# sed -i "s/\(background-primary:[[:space:]]*\).*/\1$BG;/" "$HOME/.config/rofi/theme.rasi"
+# sed -i "s/\(window-border:[[:space:]]*\).*/\1$ACCENT;/" "$HOME/.config/rofi/theme.rasi"
+# sed -i "s/\(text:[[:space:]]*\).*/\1$FG;/" "$HOME/.config/rofi/theme.rasi"
+# sed -i "s/\(text-secondary:[[:space:]]*\).*/\1$FG_SECONDARY;/" "$HOME/.config/rofi/theme.rasi"
 
 # ------------------------------------------------------------------------------
 # Dunst
 # ------------------------------------------------------------------------------
-sed -i "s/\(background[[:space:]]*=[[:space:]]*\).*/\1\"$BG\"/" "$HOME/.config/dunst/dunstrc"
-sed -i "s/\(foreground[[:space:]]*=[[:space:]]*\).*/\1\"$FG\"/" "$HOME/.config/dunst/dunstrc"
-sed -i "s/\(frame_color[[:space:]]*=[[:space:]]*\).*/\1\"$ACCENT\"/" "$HOME/.config/dunst/dunstrc"
+# sed -i "s/\(background[[:space:]]*=[[:space:]]*\).*/\1\"$BG\"/" "$HOME/.config/dunst/dunstrc"
+# sed -i "s/\(foreground[[:space:]]*=[[:space:]]*\).*/\1\"$FG\"/" "$HOME/.config/dunst/dunstrc"
+# sed -i "s/\(frame_color[[:space:]]*=[[:space:]]*\).*/\1\"$ACCENT\"/" "$HOME/.config/dunst/dunstrc"
 
 # ------------------------------------------------------------------------------
 # Neovim
