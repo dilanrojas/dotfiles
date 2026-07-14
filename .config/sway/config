@@ -225,7 +225,7 @@ input type:keyboard {
 # -------------
 
 # Wallpaper
-output * bg ~/Pictures/wallpapers/180.jpg fill
+output * bg ~/Pictures/wallpapers/127.jpg fill
 
 # Borders
 default_border pixel 2
@@ -249,9 +249,9 @@ set $color_fg_primary        #ffffff
 set $color_fg_secondary      #cccccc
 set $color_fg_muted          #aaaaaa
 
-set $color_accent            #c4a7e7
+set $color_accent            #d79921
 
-set $color_inactive          #26233a
+set $color_inactive          #282828
 
 set $alpha_inactive          ff
 set $alpha_active            ff
