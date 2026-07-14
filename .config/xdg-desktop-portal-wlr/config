@@ -1,0 +1,5 @@
+[screencast]
+exec_before = ~/.config/sway/scripts/dnd.sh on
+exec_after = ~/.config/sway/scripts/dnd.sh off
+chooser_type = simple
+chooser_cmd = ~/.config/sway/scripts/screenshare-chooser.sh

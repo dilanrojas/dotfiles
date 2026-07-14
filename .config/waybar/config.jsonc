@@ -18,6 +18,8 @@
     "sway/scratchpad",
     "custom/updates",
     "sway/language",
+    "power-profiles-daemon",
+    "custom/dnd",
     "network",
     "pulseaudio",
     "battery"
@@ -76,11 +78,11 @@
     }
   },
   "sway/scratchpad": {
-    "format": "pad: {count}",
+    "format": "{icon} {count}",
     "show-empty": false,
     "format-icons": [
-      "",
-      ""
+      "",
+      "󱂬"
     ],
     "tooltip": true,
     "tooltip-format": "{app}: {title}"
@@ -102,16 +104,19 @@
     "spacing": 16
   },
   "clock": {
-    "format": "{:%a %b %d %I:%M %p}",
+    "format": "{:%a %b %d  %I:%M %p}",
     "on-click": "gnome-calendar",
     "tooltip": false
   },
   "battery": {
+    "format": "{icon}",
+    "format-full": "{icon}",
+    "format-charging": "{icon} ",
+    "format-plugged": "{icon} ",
     "states": {
       "warning": 20,
       "critical": 10
     },
-    "format": "{icon}",
     "format-icons": [
       "󰂎",
       "󰁺",
@@ -129,12 +134,19 @@
     "tooltip": true,
     "tooltip-format": "{capacity}%",
     "on-click": "bash ~/.config/sway/scripts/power_profile.sh",
-    "on-scroll-up": "brightnessctl set 5%+",
-    "on-scroll-down": "brightnessctl set 5%-"
+    "on-scroll-up": "bash ~/.config/sway/scripts/osd.sh brightness increase",
+    "on-scroll-down": "bash ~/.config/sway/scripts/osd.sh brightness decrease",
+    "scroll-step": 5
   },
   "power-profiles-daemon": {
-    "format": "prf: {profile}",
-    "tooltip": false
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "performance": "󰓅",
+      "balanced": "󰾅",
+      "power-saver": "󰾆"
+    }
   },
   "custom/updates": {
     "format": "󰣇 {}",
@@ -175,13 +187,28 @@
       ]
     },
     "on-click": "pamixer --toggle-mute",
-    "on-click-right": "pavucontrol",
+    "on-click-right": "alacritty --class float -e pulsemixer",
     "tooltip": true,
     "tooltip-format": "{volume}%",
+    "on-scroll-up": "bash ~/.config/sway/scripts/osd.sh volume increase",
+    "on-scroll-down": "bash ~/.config/sway/scripts/osd.sh volume decrease",
     "scroll-step": 5
   },
   "custom/separator": {
     "format": "⋮",
     "tooltip": false
+  },
+  "custom/dnd": {
+    "exec": "~/.config/waybar/scripts/dnd-status.sh",
+    "return-type": "json",
+    "interval": 30,
+    "signal": 8,
+    "on-click-right": "~/.config/sway/scripts/notification_history.sh",
+    "on-click": "~/.config/sway/scripts/dnd.sh",
+    "format": "{icon}",
+    "format-icons": {
+      "dnd-on": "󰂛",
+      "dnd-off": "󰂚"
+    }
   }
 }

@@ -87,6 +87,13 @@ eval "$(
 sed -i "s/\(colorscheme[[:space:]]*=[[:space:]]*\"\).*/\1$NVIM_SCHEME\",/" \
   "$HOME/.config/nvim/lua/plugins/colorscheme.lua"
 
+# 2. Update all *running* Neovim windows immediately via sockets
+for socket in "${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"/nvim*.0; do
+  if [ -S "$socket" ]; then
+    nvim --server "$socket" --remote-send "<cmd>colorscheme $NVIM_SCHEME<cr>"
+  fi
+done
+
 # ------------------------------------------------------------------------------
 # Alacritty
 # ------------------------------------------------------------------------------
@@ -99,7 +106,7 @@ sed -i "s/\(import[[:space:]]*=[[:space:]]*\[\"[.\/]*themes\/\).*/\1$ALACRITTY_T
 sed -i "s/\(set \$color_accent[[:space:]]\+\).*/\1$ACCENT/" \
   "$HOME/.config/sway/config"
 
-sed -i "s/\(set \$color_accent_active[[:space:]]\+\).*/\1$ACCENT_ACTIVE/" \
+sed -i "s/\(set \$color_inactive[[:space:]]\+\).*/\1$BLACK/" \
   "$HOME/.config/sway/config"
 
 # ------------------------------------------------------------------------------

@@ -1,6 +1,6 @@
 {
   "solarized-osaka": {
-    "wallpaper": "048.jpg",
+    "wallpaper": "040.jpg",
     "neovim_scheme": "solarized-osaka",
     "alacritty_theme": "solarized-osaka.toml",
     "palette": {
@@ -22,7 +22,7 @@
     }
   },
   "gruvbox-hard": {
-    "wallpaper": "232.jpg",
+    "wallpaper": "127.jpg",
     "neovim_scheme": "gruvbox",
     "alacritty_theme": "gruvbox-hard.toml",
     "palette": {

@@ -1,6 +1,6 @@
 * {
-    window-border: #484848;
-    background-primary: #282828;
+    window-border: #282828;
+    background-primary: #181818;
 
     background-secondary: #1a1a1a;
 
@@ -9,5 +9,5 @@
 
     error: #ff4040;
 
-    rounding: 0px;
+    rounding: 12px;
 }

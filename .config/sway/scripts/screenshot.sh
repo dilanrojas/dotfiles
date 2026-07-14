@@ -7,15 +7,30 @@ SCREENSHOT_FILE="$SAVE_DIR/screenshot_$(date +%Y%m%d_%H%M%S).png"
 
 capture_screenshot() {
   local mode="$1"
-  grimshot save "$mode" "$SCREENSHOT_FILE"
+
+  if [[ "$mode" == "area" ]]; then
+    wayfreeze --hide-cursor &
+    FREEZE_PID=$!
+    sleep 0.1
+
+    if ! grimshot save "$mode" "$SCREENSHOT_FILE"; then
+      kill "$FREEZE_PID" 2>/dev/null
+      exit 0
+    fi
+
+    kill "$FREEZE_PID" 2>/dev/null
+  else
+    grimshot save "$mode" "$SCREENSHOT_FILE"
+  fi
+
   if [[ ! -f "$SCREENSHOT_FILE" ]]; then
     notify-send "Screenshot Failed"
     exit 1
   fi
+
   wl-copy <"$SCREENSHOT_FILE"
 }
 
-# If a flag is passed, skip rofi and capture directly
 if [[ $# -gt 0 ]]; then
   case "$1" in
   crop) capture_screenshot area ;;
@@ -50,11 +65,11 @@ ACTION=$(
     "Screenshot Saved" \
     "Copied to clipboard" \
     --icon="$SCREENSHOT_FILE" \
-    --action="view, Open with image viewer" \
+    --action="edit=Open with image editor" \
     --wait \
     --expire-time=10000
 )
 
-if [[ "$ACTION" == "0" ]]; then
-  loupe "$SCREENSHOT_FILE"
+if [[ "$ACTION" == "edit" ]]; then
+  swappy -f "$SCREENSHOT_FILE" -o "$SCREENSHOT_FILE"
 fi

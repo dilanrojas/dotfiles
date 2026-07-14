@@ -4,10 +4,10 @@
 
     monitor = 0
     follow = keyboard
-    width = 350
+    width = 450
     height = (0, 300)
-    origin = top-right
-    offset = (20, 20)
+    origin = top-center
+    offset = (4, 4)
     scale = 0
     notification_limit = 20
 
@@ -28,7 +28,7 @@
 
     padding = 15
     gap_size = 5
-    horizontal_padding = 8
+    horizontal_padding = 15
     text_icon_padding = 15
 
     separator_height = 5
@@ -43,7 +43,7 @@
 
 ### Text  ###
 
-    font = Adwaita Sans Medium 12
+    font = Adwaita Sans 12
     line_height = 2
     markup = full
     format = "<b>%s</b>\n%b"
@@ -63,8 +63,8 @@
     enable_recursive_icon_lookup = false
     icon_theme = Papirus
     icon_position = left
-    min_icon_size = 48
-    max_icon_size = 48
+    min_icon_size = 42
+    max_icon_size = 64
     icon_path = /usr/share/icons/Papirus/48x48/apps/:/usr/share/icons/Papirus/48x48/status/
 
 ### History ###
@@ -79,7 +79,7 @@
     always_run_script = true
     title = Dunst
     class = Dunst
-    corner_radius = 0
+    corner_radius = 12
     corners = all
     ignore_dbusclose = false
 
@@ -108,6 +108,6 @@
     default_icon = preferences-desktop-notification
 
 [urgency_critical]
-    timeout = 6
+    timeout = 15
     override_pause_level = 60
     default_icon = gnome-warning

@@ -1,0 +1,42 @@
+# Enable fingerprint/PAM feedback
+indicator
+indicator-radius=100
+indicator-thickness=7
+
+# Take a screenshot of the current workspace and blur it
+screenshots
+effect-blur=5x5
+effect-vignette=0
+
+# Clock display
+clock
+timestr=%R
+datestr=%a, %b %d
+
+# Layout & Typography
+font="Adwaita Sans Medium"
+font-size=24
+
+# --- Color Palette (Nord/Dracula inspired) ---
+# Main circle color
+key-hl-color=88c0d0
+bs-hl-color=bf616a
+
+# Inside the circle
+inside-color=2e3440c0
+inside-clear-color=d8dee9c0
+inside-ver-color=5e81acc0
+inside-wrong-color=bf616ac0
+
+# Ring borders
+ring-color=4c566a
+ring-clear-color=d8dee9
+ring-ver-color=5e81ac
+ring-wrong-color=bf616a
+
+# Text indicators
+text-color=d8dee9
+text-clear-color=2e3440
+text-ver-color=2e3440
+text-wrong-color=2e3440
+line-uses-inside

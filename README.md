@@ -4,7 +4,7 @@ A sleek, productive Sway environment with a focus on the GNOME/Adwaita ecosystem
 
 ## Preview
 
-<img src="./preview/image.png" alt="Dotfiles preview" />
+<img src="./preview/desktop.png" alt="Dotfiles preview" />
 
 ## Keybindings
 
@@ -82,12 +82,6 @@ You'll need to add theme Alacritty (`~/.config/alacritty/themes`) theme and the 
 
 ### ❄️ Sway & Desktop
 
-The core environment including fonts, UI tools, and GNOME apps.
-
-```bash
-sudo pacman -S sway sway-contrib swaybg swayidle swayosd wmname sddm hyprpicker qt6ct qt5ct waybar nwg-look nwg-displays adw-gtk-theme polkit-gnome xdg-desktop-portal-wlr xdg-desktop-portal-gtk alacritty fish starship lsd bat nautilus gnome-disk-utility loupe showtime gnome-text-editor gnome-calendar gnome-clocks gnome-calculator papers grim slurp cliphist neovim nano brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd woff2-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm ripgrep fd fzf luarocks gcc lazygit git udiskie udisks2 libappindicator unzip unrar wget curl mlocate fastfetch python-pipx gnome-keyring seahorse libsecret ksshaskpass ttf-opensans breeze dunst libnotify rofi wireless-regdb playerctl papirus-icon-theme jq
-```
-
 AUR Helper
 
 ```bash
@@ -97,10 +91,26 @@ makepkg -rsi
 cd .. && rm -rf yay
 ```
 
+Configure mirrors
+
+```bash
+yay -S rate-mirrors-bin --noconfirm
+
+rate-mirrors --allow-root --protocol https arch | grep -v '#' | sudo tee /etc/pacman.d/mirrorlist
+```
+
+The core environment including fonts, UI tools, and GNOME apps.
+
+```bash
+yay -S swayfx swaylock-effects
+
+sudo pacman -S sway-contrib swaybg swayidle swayosd wmname sddm hyprpicker qt6ct qt5ct waybar nwg-look nwg-displays adw-gtk-theme polkit-gnome xdg-desktop-portal-wlr xdg-desktop-portal-gtk alacritty fish starship lsd bat nautilus gnome-disk-utility loupe showtime gnome-text-editor gnome-calendar gnome-clocks gnome-calculator papers grim slurp cliphist neovim nano brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd woff2-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm ripgrep fd fzf luarocks gcc lazygit git udiskie udisks2 libappindicator unzip unrar wget curl mlocate fastfetch python-pipx gnome-keyring seahorse libsecret ksshaskpass ttf-opensans breeze dunst libnotify rofi wireless-regdb playerctl papirus-icon-theme jq
+```
+
 Fonts & Basic Apps
 
 ```bash
-yay -S ttf-plemoljp-bin waybar-module-pacman-updates-git wlogout brave-bin ttf-ms-fonts downgrade rate-mirrors-bin --noconfirm
+yay -S ttf-plemoljp-bin waybar-module-pacman-updates-git wlogout brave-bin ttf-ms-fonts downgrade wayfreeze lswt --noconfirm
 ```
 
 ```bash
@@ -145,12 +155,6 @@ sudo cp dotfiles/zram-generator.conf /etc/systemd/
 sudo systemctl enable --now  systemd-zram-setup@zram0.service
 ```
 
-### Configure mirrors
-
-```bash
-rate-mirrors --allow-root --protocol https arch | grep -v '#' | sudo tee /etc/pacman.d/mirrorlist
-```
-
 ---
 
 ## 🚀 Installation & Setup
@@ -179,6 +183,9 @@ sudo usermod --shell /usr/bin/fish root
 
 # Configure git
 git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
+
+# Update user directories
+xdg-user-dirs-update
 
 # Finalize theme & updatedb for locate
 sudo updatedb
@@ -216,7 +223,7 @@ nvim ~/.config/waybar/config.json
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
 ```
 
-### Improve Font Rendering (Optional, might be too aggressive)
+### Improve Font Rendering
 
 ```bash
 # Clone the repo and run the script

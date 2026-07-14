@@ -50,6 +50,7 @@ window#waybar>box {
 #power-profiles-daemon,
 #battery,
 #clock,
+#custom-dnd,
 #custom-power {
   margin: 0px 0px;
   padding: 0px 10px;
@@ -86,6 +87,11 @@ window#waybar>box {
 #tray {
   font-weight: 400;
   font-size: 14px;
+}
+
+#custom-dnd {
+  padding-left: 10px;
+  padding-right: 6px;
 }
 
 /* Workspaces styling */
@@ -127,6 +133,19 @@ tooltip {
   font-family: inherit;
   background: black;
   padding: 2px;
+}
+
+#battery.charging, #battery.plugged {
+    color: #85ff8d;
+}
+
+#battery.plugged:not(.charing),
+#battery.warning:not(.charging) {
+  color: #ffb783;
+}
+
+#battery.critical:not(.charing) {
+  color: #ff7878;
 }
 
 /* Colors */

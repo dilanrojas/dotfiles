@@ -15,6 +15,7 @@ set $files nautilus -w
 set $clipboard cliphist list | rofi -no-show-icons -dmenu -theme-str 'window { width: 600px; }' | cliphist decode | wl-copy
 
 set $scripts ~/.config/sway/scripts
+set $osd $scripts/osd.sh
 set $screenshot $scripts/screenshot.sh
 set $colorpicker $scripts/hyprpicker.sh
 set $reload $scripts/reload.sh
@@ -25,6 +26,35 @@ set $rand_wallpaper $scripts/rand_wallpaper.sh
 set $toggle_mirroring $scripts/toggle_mirroring.sh
 set $scripts_menu $scripts/scripts_menu.sh
 set $toggle_system_theme $scripts/system_theme.sh
+set $low_battery $scripts/low_battery.sh
+
+# -----------------
+# --- AUTOSTART ---
+# -----------------
+
+# exec swayidle -w \
+#      timeout 120 'brightnessctl set 30%' \
+#      timeout 300 'brightnessctl set 0%' \
+#      timeout 300 'swaylock' \
+#      timeout 600 'swaymsg "output * power off"' \
+#      resume 'swaymsg "output * power on"' \
+#      before-sleep 'swaylock'
+
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+exec mpris-proxy
+exec swayosd-server
+exec dunst
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
+exec wlsunset -s 19:00 -S 06:00 -t 4800
+
+exec $low_battery
+
+exec systemctl --user start --ignore-dependencies xdg-desktop-portal
+
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 # ----------------
 # --- MONITORS ---
@@ -32,7 +62,7 @@ set $toggle_system_theme $scripts/system_theme.sh
 
 output eDP-1 {
     scale 1
-    adaptive_sync on
+    adaptive_sync off
     allow_tearing on
     scale_filter linear
     position 0,0
@@ -55,31 +85,6 @@ workspace 7 output HDMI-A-I
 workspace 8 output HDMI-A-I
 workspace 9 output HDMI-A-I
 workspace 10 output HDMI-A-I
-
-# -----------------
-# --- AUTOSTART ---
-# -----------------
-
-# exec swayidle -w \
-#     timeout 120 'brightnessctl set 30%' \
-#     timeout 300 'brightnessctl set 0%' resume 'brightnessctl set 100%' \
-#     before-sleep 'brightnessctl set 0%'
-
-exec wl-paste --type text --watch cliphist store
-exec wl-paste --type image --watch cliphist store
-exec mpris-proxy
-exec swayosd-server
-exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec dunst
-exec bash ~/.config/sway/scripts/low_battery.sh
-exec wlsunset -s 19:00 -S 06:00 -t 4800
-
-exec systemctl --user start --ignore-dependencies xdg-desktop-portal
-exec systemctl --user start xdg-desktop-portal-wlr
-
-exec exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
-exec dbus-update-activation-environment 2>/dev/null && \
-     dbus-update-activation-environment --systemd DISPLAY WAYLAND_DISPLAY SWAYSOCK
 
 # -------------------
 # --- KEYBINDINGS ---
@@ -174,20 +179,20 @@ bindsym $mod+Control+$right resize grow width 50px
 bindsym $mod+Control+$up resize grow height 50px
 bindsym $mod+Control+$down resize shrink height 50px
 
-set $osd swayosd-client --monitor "$(swaymsg -t get_outputs | jq -r '.[] | select(.focused == true).name')"
+bindsym XF86AudioMute exec $osd volume toggle-mute
+bindsym XF86AudioLowerVolume exec $osd volume decrease
+bindsym XF86AudioRaiseVolume exec $osd volume increase
 
-bindsym XF86AudioMute exec $osd --output-volume mute-toggle
-bindsym XF86AudioLowerVolume exec $osd --output-volume lower
-bindsym XF86AudioRaiseVolume exec $osd --output-volume raise
-bindsym XF86AudioMicMute exec $osd --input-volume mute-toggle
-bindsym XF86MonBrightnessDown exec $osd --brightness lower
-bindsym XF86MonBrightnessUp exec $osd --brightness raise
+bindsym XF86AudioMicMute exec $osd mic toggle-mute
 
-bindsym XF86AudioPlay exec $osd --playerctl play-pause
-bindsym XF86AudioPause exec $osd --playerctl play-pause
-bindsym XF86AudioPrev exec $osd --playerctl previous
-bindsym XF86AudioNext exec $osd --playerctl next
-bindsym XF86AudioStop exec $osd --playerctl stop
+bindsym XF86MonBrightnessUp exec $osd brightness increase
+bindsym XF86MonBrightnessDown exec $osd brightness decrease
+
+bindsym XF86AudioPlay exec $osd playerctl play-pause
+bindsym XF86AudioPause exec $osd playerctl play-pause
+bindsym XF86AudioPrev exec $osd playerctl previous
+bindsym XF86AudioNext exec $osd playerctl next
+bindsym XF86AudioStop exec $osd playerctl stop
 
 bindsym Print exec $screenshot
 bindsym $mod+s exec $screenshot crop
@@ -220,15 +225,15 @@ input type:keyboard {
 # -------------
 
 # Wallpaper
-output * bg ~/Pictures/wallpapers/227.jpg fill
+output * bg ~/Pictures/wallpapers/180.jpg fill
 
 # Borders
 default_border pixel 2
 default_floating_border pixel 2
 
 # Gaps
-gaps outer 6
-gaps inner 3
+gaps outer 5
+gaps inner 6
 smart_gaps off
 
 for_window [app_id="Alacritty"] blur enable
@@ -244,51 +249,53 @@ set $color_fg_primary        #ffffff
 set $color_fg_secondary      #cccccc
 set $color_fg_muted          #aaaaaa
 
-set $color_accent            #7aa2f7
-set $color_accent_active     #7aa2f7
+set $color_accent            #c4a7e7
 
-set $alpha               30
+set $color_inactive          #26233a
 
-# Sway concatenates them automatically when parsing the space-separated tokens
-set $inactive_border        $color_accent$alpha
+set $alpha_inactive          ff
+set $alpha_active            ff
+
+set $active_border           $color_accent$alpha_active
+set $active_border_indicator $color_accent$alpha_active
+set $inactive_border         $color_inactive$alpha_inactive
 
 set $color_border_muted      #504945
 set $color_urgent            #3b2626
 
-# class                 border                  background              text                    indicator               child_border
-client.focused          $color_accent           $color_accent           $color_bg_primary       $color_accent_active    $color_accent
-client.focused_inactive $color_bg_secondary     $color_bg_secondary     $color_fg_muted         $color_bg_muted         $color_bg_secondary
-client.unfocused        $inactive_border        $color_bg_tertiary      $color_fg_muted         $inactive_border        $inactive_border
-client.urgent           $color_urgent           $color_bg_primary       $color_accent           $color_urgent           $color_urgent
-client.placeholder      $color_bg_tertiary      $color_bg_tertiary      $color_fg_muted         $color_bg_tertiary      $color_bg_tertiary
+# class                 border                  background              text                    indicator                  child_border
+client.focused          $active_border          $active_border          $color_bg_primary       $active_border_indicator   $active_border
+client.focused_inactive $color_bg_secondary     $color_bg_secondary     $color_fg_muted         $color_bg_muted            $color_bg_secondary
+client.unfocused        $inactive_border        $color_bg_tertiary      $color_fg_muted         $inactive_border           $inactive_border
+client.urgent           $color_urgent           $color_bg_primary       $active_border          $color_urgent              $color_urgent
+client.placeholder      $color_bg_tertiary      $color_bg_tertiary      $color_fg_muted         $color_bg_tertiary         $color_bg_tertiary
 
 client.background       $color_bg_primary
 
 # ------------------------
 # --- SwayFX exclusive ---
 # ------------------------
-#
-# corner_radius 0
-#
-# shadows disable
-# shadow_blur_radius 15
-# shadow_color #00000070
-# shadow_offset 0 0
-#
-# default_dim_inactive 0
-#
-# blur disable
-# blur_passes 3
-# blur_radius 2
-# blur_noise 0.05
-# blur_brightness 1
-# blur_contrast 1
-# blur_saturation 1
-# blur_xray enable
-#
+
+corner_radius 7
+
+shadows disable
+shadow_blur_radius 15
+shadow_color #00000070
+shadow_offset 0 0
+
+default_dim_inactive 0
+
+blur enable
+blur_passes 2
+blur_radius 4
+blur_noise 0.05
+blur_brightness 1
+blur_contrast 1
+blur_saturation 1
+blur_xray enable
+
 # for_window [app_id="Alacritty"] blur enable
 # for_window [app_id="float"] blur enable
-# for_window [app_id="waybar"] blur enable
 
 # -------------
 # --- RULES ---
@@ -301,6 +308,7 @@ for_window [app_id="float"] floating enable
 for_window [app_id="lunarclient"] floating enable
 for_window [app_id="org.pulseaudio.pavucontrol"] floating enable
 for_window [app_id="brave" title=".*wants to save.*"] floating enable, move position center
+for_window [app_id=".*brave.*Default.*"] floating enable, move position center
 for_window [class="steam"] floating enable
 for_window [app_id="org.gnome.Loupe"] floating enable
 for_window [app_id="org.gnome.Calendar"] floating enable

@@ -7,7 +7,7 @@ configuration {
 	display-window: "Windows";
 	display-run: "Run";
 	drun-display-format: "{icon} {name}";
-	font: "JetBrainsMono Nerd Font 12.5";
+	font: "PlemolJP Console NF 12.5";
 	show-icons: true;
 }
 
