@@ -110,7 +110,7 @@ sudo pacman -S sway-contrib swaybg swayidle swayosd wmname sddm hyprpicker qt6ct
 Fonts & Basic Apps
 
 ```bash
-yay -S ttf-plemoljp-bin waybar-module-pacman-updates-git wlogout brave-bin ttf-ms-fonts downgrade wayfreeze lswt --noconfirm
+yay -S ttf-plemoljp-bin waybar-module-pacman-updates-git wlogout brave-bin ttf-ms-fonts downgrade wayfreeze lswt appimagelauncher --noconfirm
 ```
 
 ```bash

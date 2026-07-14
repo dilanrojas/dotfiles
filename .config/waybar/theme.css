@@ -1,11 +1,11 @@
 @define-color bg #000000;
 @define-color fg #ffffff;
-@define-color accent #d79921;
+@define-color accent #7aa2f7;
 
-@define-color black #fbf1c7;
-@define-color blue #458588;
-@define-color cyan #689d6a;
-@define-color green #98971a;
-@define-color magenta #b16286;
-@define-color red #cc241d;
-@define-color yellow #d79921;
+@define-color black #32344a;
+@define-color blue #7aa2f7;
+@define-color cyan #449dab;
+@define-color green #9ece6a;
+@define-color magenta #ad8ee6;
+@define-color red #f7768e;
+@define-color yellow #e0af68;

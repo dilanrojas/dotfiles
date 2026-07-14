@@ -232,9 +232,11 @@ default_border pixel 2
 default_floating_border pixel 2
 
 # Gaps
-gaps outer 5
-gaps inner 6
-smart_gaps off
+gaps outer 0
+gaps inner 10
+
+smart_gaps on
+smart_borders on
 
 for_window [app_id="Alacritty"] blur enable
 for_window [app_id="float"] blur enable
@@ -276,7 +278,7 @@ client.background       $color_bg_primary
 # --- SwayFX exclusive ---
 # ------------------------
 
-corner_radius 7
+corner_radius 0
 
 shadows disable
 shadow_blur_radius 15
@@ -286,16 +288,31 @@ shadow_offset 0 0
 default_dim_inactive 0
 
 blur enable
-blur_passes 2
-blur_radius 4
+blur_passes 3
+blur_radius 5
 blur_noise 0.05
 blur_brightness 1
 blur_contrast 1
-blur_saturation 1
+blur_saturation 1.2
 blur_xray enable
 
 # for_window [app_id="Alacritty"] blur enable
 # for_window [app_id="float"] blur enable
+
+# layer_effects "rofi" {
+#     blur enable
+#     blur_ignore_transparent enable
+# }
+#
+# layer_effects "waybar" {
+#     blur enable
+#     blur_ignore_transparent enable
+# }
+
+# layer_effects "notifications" {
+#     blur enable
+#     blur_ignore_transparent enable
+# }
 
 # -------------
 # --- RULES ---
