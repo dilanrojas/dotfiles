@@ -151,7 +151,8 @@
   "custom/updates": {
     "format": "󰣇 {}",
     "return-type": "json",
-    "on-click": "bash ~/.config/sway/scripts/update_system.sh",
+    "tooltip": false,
+    "on-click": "~/.config/sway/scripts/update_system.sh",
     "exec-if": "which waybar-module-pacman-updates",
     "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
   },
@@ -172,7 +173,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "spacing": 1,
-    "on-click": "alacritty --class float -e nmtui"
+    "on-click": "alacritty --class float -e wlctl"
   },
   "pulseaudio": {
     "format": "{icon}",

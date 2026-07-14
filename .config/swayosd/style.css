@@ -1,9 +1,9 @@
-@import url('../waybar/theme.css');
+@import url('./theme.css');
 
 window#osd {
   border-radius: 30px;
-  background: #181818;
-  border: 2px solid #282828;
+  background: @bg;
+  border: 2px solid @border;
 }
 
 window#osd #container {
@@ -12,7 +12,7 @@ window#osd #container {
 
 window#osd image,
 window#osd label {
-  color: @fg;
+  color: @progress;
 }
 
 window#osd progressbar:disabled,
@@ -33,7 +33,7 @@ window#osd segment {
   min-height: inherit;
   border-radius: inherit;
   border: none;
-  background: #484848;
+  background: @segment;
 }
 
 window#osd progress,
@@ -41,7 +41,7 @@ window#osd segment.active {
   min-height: inherit;
   border-radius: inherit;
   border: none;
-  background: @fg;
+  background: @progress;
 }
 
 window#osd segment {

@@ -235,8 +235,8 @@ default_floating_border pixel 2
 gaps outer 0
 gaps inner 10
 
-smart_gaps on
-smart_borders on
+# smart_gaps on
+# smart_borders on
 
 for_window [app_id="Alacritty"] blur enable
 for_window [app_id="float"] blur enable
@@ -294,7 +294,7 @@ blur_noise 0.05
 blur_brightness 1
 blur_contrast 1
 blur_saturation 1.2
-blur_xray enable
+blur_xray disable
 
 # for_window [app_id="Alacritty"] blur enable
 # for_window [app_id="float"] blur enable
