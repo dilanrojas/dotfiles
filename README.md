@@ -58,6 +58,7 @@ The `SUPER` key (Windows key) is your primary modifier, referred to as `$mod` be
 | `$mod` + `Shift` + `q` | Open Logout Menu (`wlogout`) |
 | `Print` | Take Screenshot |
 | `$mod` + `s` | Take Screenshot (Crop / Selection) |
+| `$mod` + `Shift` `m` | Open System menu |
 
 ### Window Management & Navigation
 
