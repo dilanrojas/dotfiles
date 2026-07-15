@@ -107,12 +107,16 @@ window#waybar>box {
   padding-right: 15px;
 }
 
+#custom-updates {
+  font-size: 16px;
+}
+
 #custom-bluetooth {
   padding-right: 8px;
 }
 
 #power-profiles-daemon {
-  padding-left: 5px;
+  padding-left: 3px;
 }
 
 #idle_inhibitor {
