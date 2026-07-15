@@ -158,7 +158,7 @@ sudo pacman -S libreoffice-still libreoffice-still-es ttf-caladea ttf-carlito \
 
 ```bash
 yay -S ttf-plemoljp-bin waybar-module-pacman-updates-git wlogout brave-bin ttf-ms-fonts \
-  downgrade wayfreeze lswt appimagelauncher wlctl-bin --noconfirm
+  downgrade wayfreeze lswt appimagelauncher wlctl-bin pfetch --noconfirm
 ```
 
 ```bash
