@@ -1,12 +1,12 @@
 * {
-    accent: #89b4fa;
-    bg-primary: #1e1e2e;
-    bg-primary-opacity: #1e1e2ee6;
+    accent: #d79921;
+    bg-primary: #1d2021;
+    bg-primary-opacity: #1d2021e6;
 
-    bg-secondary: #45475A;
+    bg-secondary: #282828;
 
-    fg: #cdd6f4;
-    fg-secondary: #45475A;
+    fg: #ebdbb2;
+    fg-secondary: #7e7164;
 
     error: #ff7878;
 
