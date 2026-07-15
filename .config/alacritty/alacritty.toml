@@ -31,24 +31,24 @@ multiplier = 3
 draw_bold_text_with_bright_colors = true
 
 [font]
-size = 14.5
+size = 14
 offset = { x = 0, y = 0 }
 
 [font.normal]
-family = "PlemolJP Console NF"
+family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [font.bold]
-family = "PlemolJP Console NF"
-style = "Medium"
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
 
 [font.italic]
-family = "PlemolJP Console NF"
+family = "JetBrainsMono Nerd Font"
 style = "Italic"
 
 [font.bold_italic]
-family = "PlemolJP Console NF"
-style = "Medium"
+family = "JetBrainsMono Nerd Font"
+style = "Bold"
 
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
@@ -146,4 +146,4 @@ action = "ResetFontSize"
 live_config_reload = true
 working_directory = "None"
 
-import = ["./themes/gruvbox-hard.toml"]
+import = ["./themes/catppuccin.toml"]

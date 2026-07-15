@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 JSON_FILE="$HOME/.config/sway/themes.json"
+CURRENT_THEME_FILE="$HOME/.config/sway/current_theme"
 
 # Check if the JSON file exists
 if [ ! -f "$JSON_FILE" ]; then
@@ -11,7 +12,10 @@ fi
 # If no theme argument is provided, prompt with Rofi
 if [ -z "$1" ]; then
   THEME_LIST=$(jq -r 'keys[] | select(. != "default-dark" and . != "default-light")' "$JSON_FILE")
-  THEME=$(echo "$THEME_LIST" | rofi -no-show-icons -dmenu -p "Select Theme" -i)
+  THEME=$(
+    echo "$THEME_LIST" | rofi -no-show-icons -dmenu -p "Select Theme" -i \
+      -theme-str 'window {width: 300px; height: 354px;}'
+  )
 
   if [ -z "$THEME" ]; then
     exit 0
@@ -58,6 +62,35 @@ if [ "$BG_DEFAULT" = "null" ] || [ -z "$BG_DEFAULT" ]; then
   FG_SECONDARY_DEFAULT="$FG_SECONDARY"
 fi
 
+# ------------------------------------------------------------------------------
+# Opacity (per-theme, falling back to default-dark/default-light, then 0.9)
+# ------------------------------------------------------------------------------
+OPACITY=$(jq -r --arg theme "$THEME" '.[$theme].opacity // empty' "$JSON_FILE")
+
+if [ -z "$OPACITY" ]; then
+  OPACITY=$(jq -r --arg key "$DEFAULT_KEY" '.[$key].opacity // empty' "$JSON_FILE")
+fi
+
+if [ -z "$OPACITY" ]; then
+  OPACITY="0.9"
+  echo "Warning: no opacity set for '$THEME' or '$DEFAULT_KEY', defaulting to $OPACITY"
+fi
+
+# Decimal opacity, used as-is by alacritty and CSS alpha() functions
+ALPHA_CSS="$OPACITY"
+ALPHA_TER="$OPACITY"
+
+# Hex alpha (00-ff), used by rofi/dunst hex-suffixed colors, rounded to nearest int
+ALPHA=$(awk -v o="$OPACITY" 'BEGIN { printf "%02x", int(o * 255 + 0.5) }')
+
+# Store the current theme
+cat >"$CURRENT_THEME_FILE" <<EOF
+THEME=$THEME
+SYSTEM_THEME=$SYSTEM_THEME
+BG=${BG#\#}
+OPACITY=$OPACITY
+EOF
+
 eval "$(
   awk '
     /^\[colors\.normal\]/ { in_normal=1; next }
@@ -74,8 +107,8 @@ eval "$(
 # ------------------------------------------------------------------------------
 # Waybar
 # ------------------------------------------------------------------------------
-sed -i "s/\(@define-color bg \).*/\1$BG_DEFAULT;/" "$HOME/.config/waybar/theme.css"
-sed -i "s/\(@define-color fg \).*/\1$FG_DEFAULT;/" "$HOME/.config/waybar/theme.css"
+sed -i "s/\(@define-color bg \).*/\1alpha(${BG}, ${ALPHA_CSS});/" "$HOME/.config/waybar/theme.css"
+sed -i "s/\(@define-color fg \).*/\1$FG;/" "$HOME/.config/waybar/theme.css"
 sed -i "s/\(@define-color accent \).*/\1$ACCENT;/" "$HOME/.config/waybar/theme.css"
 sed -i "s/\(@define-color black \).*/\1$BLACK;/" "$HOME/.config/waybar/theme.css"
 sed -i "s/\(@define-color blue \).*/\1$BLUE;/" "$HOME/.config/waybar/theme.css"
@@ -88,17 +121,19 @@ sed -i "s/\(@define-color yellow \).*/\1$YELLOW;/" "$HOME/.config/waybar/theme.c
 # ------------------------------------------------------------------------------
 # Rofi
 # ------------------------------------------------------------------------------
-sed -i "s/\(background-primary:[[:space:]]*\).*/\1$BG_DEFAULT;/" "$HOME/.config/rofi/theme.rasi"
-sed -i "s/\(window-border:[[:space:]]*\).*/\1$BG_DEFAULT_TERTIARY;/" "$HOME/.config/rofi/theme.rasi"
-sed -i "s/\(text:[[:space:]]*\).*/\1$FG_DEFAULT;/" "$HOME/.config/rofi/theme.rasi"
-sed -i "s/\(text-secondary:[[:space:]]*\).*/\1$FG_SECONDARY_DEFAULT;/" "$HOME/.config/rofi/theme.rasi"
+sed -i "s/\(bg-primary:[[:space:]]*\).*/\1$BG;/" "$HOME/.config/rofi/theme.rasi"
+sed -i "s/\(bg-primary-opacity:[[:space:]]*\).*/\1$BG$ALPHA;/" "$HOME/.config/rofi/theme.rasi"
+sed -i "s/\(bg-secondary:[[:space:]]*\).*/\1$BLACK;/" "$HOME/.config/rofi/theme.rasi"
+sed -i "s/\(accent:[[:space:]]*\).*/\1$ACCENT;/" "$HOME/.config/rofi/theme.rasi"
+sed -i "s/\(fg:[[:space:]]*\).*/\1$FG;/" "$HOME/.config/rofi/theme.rasi"
+sed -i "s/\(fg-secondary:[[:space:]]*\).*/\1$FG_SECONDARY;/" "$HOME/.config/rofi/theme.rasi"
 
 # ------------------------------------------------------------------------------
 # Dunst
 # ------------------------------------------------------------------------------
-sed -i "s/\(background[[:space:]]*=[[:space:]]*\).*/\1\"$BG_DEFAULT\"/" "$HOME/.config/dunst/dunstrc"
-sed -i "s/\(foreground[[:space:]]*=[[:space:]]*\).*/\1\"$FG_DEFAULT\"/" "$HOME/.config/dunst/dunstrc"
-sed -i "s/\(frame_color[[:space:]]*=[[:space:]]*\).*/\1\"$BG_DEFAULT_TERTIARY\"/" "$HOME/.config/dunst/dunstrc"
+sed -i "s/\(background[[:space:]]*=[[:space:]]*\).*/\1\"$BG$ALPHA\"/" "$HOME/.config/dunst/dunstrc"
+sed -i "s/\(foreground[[:space:]]*=[[:space:]]*\).*/\1\"$FG\"/" "$HOME/.config/dunst/dunstrc"
+sed -i "s/\(frame_color[[:space:]]*=[[:space:]]*\).*/\1\"$ACCENT\"/" "$HOME/.config/dunst/dunstrc"
 
 # ------------------------------------------------------------------------------
 # Neovim
@@ -110,12 +145,15 @@ sed -i "s/\(colorscheme[[:space:]]*=[[:space:]]*\"\).*/\1$NVIM_SCHEME\",/" \
 for socket in "${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"/nvim*.0; do
   if [ -S "$socket" ]; then
     nvim --server "$socket" --remote-send "<cmd>colorscheme $NVIM_SCHEME<cr>"
+    nvim --server "$socket" --remote-send "<cmd>set background=$SYSTEM_THEME<cr>"
   fi
 done
 
 # ------------------------------------------------------------------------------
 # Alacritty
 # ------------------------------------------------------------------------------
+sed -i "s/^\(opacity[[:space:]]*=[[:space:]]*\).*/\1$ALPHA_TER/" "$HOME/.config/alacritty/alacritty.toml"
+
 sed -i "s/\(import[[:space:]]*=[[:space:]]*\[\"[.\/]*themes\/\).*/\1$ALACRITTY_THEME\"\]/" \
   "$HOME/.config/alacritty/alacritty.toml"
 
@@ -123,25 +161,25 @@ sed -i "s/\(import[[:space:]]*=[[:space:]]*\[\"[.\/]*themes\/\).*/\1$ALACRITTY_T
 # Sway
 # ------------------------------------------------------------------------------
 sed -i "s/\(set \$color_accent[[:space:]]\+\).*/\1$ACCENT/" \
-  "$HOME/.config/sway/config"
+  "$HOME/.config/sway/config.d/06-looks"
 
-sed -i "s/\(set \$color_inactive[[:space:]]\+\).*/\1$BLACK/" \
-  "$HOME/.config/sway/config"
+sed -i "s/\(set \$color_inactive[[:space:]]\+\).*/\1$BG/" \
+  "$HOME/.config/sway/config.d/06-looks"
 
 # ------------------------------------------------------------------------------
-# Sway osd
+# SwayOSD
 # ------------------------------------------------------------------------------
-sed -i "s/\(@define-color bg \).*/\1$BG_DEFAULT_SECONDARY;/" "$HOME/.config/swayosd/theme.css"
-sed -i "s/\(@define-color border \).*/\1$BG_DEFAULT_TERTIARY;/" "$HOME/.config/swayosd/theme.css"
+sed -i "s/\(@define-color bg \).*/\1alpha(${BG}, ${ALPHA_CSS});/" "$HOME/.config/swayosd/theme.css"
+sed -i "s/\(@define-color border \).*/\1$ACCENT;/" "$HOME/.config/swayosd/theme.css"
 sed -i "s/\(@define-color segment \).*/\1$BG_DEFAULT_LIGHTER;/" "$HOME/.config/swayosd/theme.css"
-sed -i "s/\(@define-color progress \).*/\1$FG_DEFAULT;/" "$HOME/.config/swayosd/theme.css"
+sed -i "s/\(@define-color progress \).*/\1$FG;/" "$HOME/.config/swayosd/theme.css"
 
 # ------------------------------------------------------------------------------
 # Wallpaper
 # ------------------------------------------------------------------------------
 sed -i \
   "s|^\(output \* bg \)[^[:space:]]*\( .*$\)|\1~/Pictures/wallpapers/$WALLPAPER\2|" \
-  "$HOME/.config/sway/config"
+  "$HOME/.config/sway/config.d/06-looks"
 
 # ------------------------------------------------------------------------------
 # System Theme Toggle (Light/Dark)
@@ -158,8 +196,16 @@ fi
 # ------------------------------------------------------------------------------
 # Reload
 # ------------------------------------------------------------------------------
-if [ -f "$HOME/.config/sway/scripts/reload.sh" ]; then
-  bash "$HOME/.config/sway/scripts/reload.sh"
-fi
+# if [ -f "$HOME/.config/sway/scripts/reload.sh" ]; then
+#   bash "$HOME/.config/sway/scripts/reload.sh"
+# fi
 
-echo "Theme '$THEME' successfully applied!"
+dunstctl close-all
+dunstctl reload
+
+pkill swayosd-server
+swayosd-server &
+
+swaymsg reload
+
+# notify-send -t 1500 -i /usr/share/icons/Papirus/48x48/apps/gnome-settings-theme.svg "Sway Theme" "Now using $THEME!"

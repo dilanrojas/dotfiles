@@ -1,0 +1,31 @@
+# -----------------
+# --- AUTOSTART ---
+# -----------------
+
+exec swayidle -w \
+    timeout 120 'brightnessctl -s set 20%' \
+    resume 'brightnessctl -r' \
+    timeout 120 'swaylock -f' \
+    timeout 240 'brightnessctl set 0%' \
+    resume 'brightnessctl -r' \
+
+exec waybar
+
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+exec mpris-proxy
+exec swayosd-server
+exec dunst
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
+exec wlsunset -s 19:00 -S 06:00 -t 5200
+
+exec $low_battery
+
+exec systemctl --user start --ignore-dependencies xdg-desktop-portal
+
+exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+exec_always swaymsg '[app_id="Alacritty"] blur enable'
+exec_always swaymsg '[app_id="float"] blur enable'

@@ -1,0 +1,31 @@
+# ----------------
+# -- VARIABLES ---
+# ----------------
+
+set $mod Mod4
+set $left h
+set $down j
+set $up k
+set $right l
+set $term alacritty
+set $term_float alacritty --class float -e
+set $menu rofi -show drun
+set $browser brave
+set $files nautilus -w
+set $clipboard cliphist list | rofi -no-show-icons -dmenu -theme-str 'window { width: 600px; height: 354px; }' | cliphist decode | wl-copy
+
+set $scripts ~/.config/sway/scripts
+set $osd $scripts/osd.sh
+set $screenshot $scripts/screenshot.sh
+set $colorpicker $scripts/hyprpicker.sh
+set $reload $scripts/reload.sh
+set $dnd $scripts/dnd.sh
+set $power_profile $scripts/power_profile.sh
+set $sway_theme $scripts/sway_theme.sh
+set $rand_wallpaper $scripts/rand_wallpaper.sh
+set $mirroring $scripts/mirroring.sh
+set $scripts_menu $scripts/scripts_menu.sh
+set $toggle_system_theme $scripts/system_theme.sh
+set $low_battery $scripts/low_battery.sh
+set $system_menu $scripts/system_menu.sh
+set $power_menu $scripts/power_menu.sh

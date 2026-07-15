@@ -7,7 +7,7 @@ configuration {
 	display-window: "Windows";
 	display-run: "Run";
 	drun-display-format: "{icon} {name}";
-	font: "PlemolJP Console NF 12.5";
+	font: "JetBrainsMono Nerd Font 12.5";
 	show-icons: true;
 }
 
@@ -17,18 +17,18 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       350px;
-    height:                      370px;
+    width:                       450px;
+    height:                      365px;
     x-offset:                    0px;
     y-offset:                    0px;
 
     /* properties for all widgets */
     enabled:                     true;
     border:                      2px solid;
-    border-color:                @window-border;
+    border-color:                @accent;
     border-radius:               @rounding;
     cursor:                      "default";
-    background-color:            @background-primary;
+    background-color:            @bg-primary-opacity;
 }
 
 mainbox {
@@ -39,14 +39,6 @@ mainbox {
     children:                    ["listbox" ];
 }
 
-imagebox {
-    padding:                     20px;
-    background-color:            #505050;
-    background-image:            url("~/Pictures/wallpapers/023.jpg", height);
-    orientation:                 vertical;
-    children:                    [ "inputbar", "dummy", "mode-switcher"];
-}
-
 listbox {
     spacing:                     10px;
     padding:                     10px;
@@ -55,52 +47,32 @@ listbox {
     children:                    ["inputbar", "message", "listview"];
 }
 
-dummy {
-    background-color:            transparent;
-}
-
 inputbar {
     enabled:                     true;
     spacing:                     7px;
     padding:                     13px;
     border-radius:               @rounding;
     background-color:		         #00000000;
-    text-color:			             @text-secondary;
+    text-color:			             @fg;
     children:                    [ "textbox-prompt-colon", "entry" ];
 }
+
 textbox-prompt-colon {
     enabled:                     true;
     expand:                      false;
     str:                         "  ";
     background-color:            #00000000;
-    text-color:                  @text;
-}
-entry {
-    enabled:                     true;
-    background-color:            @background-primary;
-    text-color:                  @text;
-    cursor:                      text;
-    placeholder:                 "Search...";
-    background-color:            #00000000;
-    placeholder-color:           @text-secondary;
+    text-color:                  @fg;
 }
 
-mode-switcher{
+entry {
     enabled:                     true;
-    spacing:                     10px;
-    background-color:            transparent;
-    text-color:                  @text-secondary;
-}
-button {
-    padding:                     12px;
-    border-radius:               @rounding;
-    background-color:            @background-secondary;
-    text-color:                  @text-secondary;
-    cursor:                      pointer;
-}
-button selected {
-    background-color:            @background-secondary;
-    text-color:                  @text;
+    background-color:            @bg-primary;
+    text-color:                  @fg;
+    cursor:                      text;
+    placeholder:                 " Search...";
+    background-color:            #00000000;
+    placeholder-color:           @fg-secondary;
 }
 
 listview {
@@ -114,10 +86,10 @@ listview {
     reverse:                     false;
     fixed-height:                true;
     fixed-columns:               true;
-    
+
     spacing:                     10px;
     background-color:            transparent;
-    text-color:                  @text-secondary;
+    text-color:                  @fg-secondary;
     cursor:                      "default";
 }
 
@@ -127,39 +99,47 @@ element {
     padding:                     12px;
     border-radius:               @rounding;
     background-color:            transparent;
-    text-color:                  @text-secondary;
+    text-color:                  @fg-secondary;
     cursor:                      pointer;
 }
+
 element normal.normal {
     background-color:            inherit;
     text-color:                  inherit;
 }
+
 element normal.urgent {
     background-color:            @error;
-    text-color:                  @text-secondary;
+    text-color:                  @fg-secondary;
 }
+
 element normal.active {
-    background-color:            @background-secondary;
-    text-color:                  @text-secondary;
+    background-color:            @bg-secondary;
+    text-color:                  @fg-secondary;
 }
+
 element selected.normal {
-    background-color:            transparent;
-    text-color:                  @text;
+    background-color:            @accent;
+    text-color:                  @bg-primary;
 }
+
 element selected.urgent {
     background-color:            @error;
-    text-color:                  @text;
+    text-color:                  @fg;
 }
+
 element selected.active {
     background-color:            @error;
-    text-color:                  @text;
+    text-color:                  @fg;
 }
+
 element-icon {
     background-color:            transparent;
     text-color:                  inherit;
     size:                        24px;
     cursor:                      inherit;
 }
+
 element-text {
     background-color:            transparent;
     text-color:                  inherit;
@@ -171,17 +151,10 @@ element-text {
 message {
     background-color:            transparent;
 }
-textbox {
-    padding:                     12px;
-    border-radius:               @rounding;
-    background-color:            @background-secondary;
-    text-color:                  @text-secondary;
-    vertical-align:              0.5;
-    horizontal-align:            0.0;
-}
+
 error-message {
     padding:                     12px;
     border-radius:               @rounding;
-    background-color:            @background-secondary;
-    text-color:                  @text-secondary;
+    background-color:            @bg-secondary;
+    text-color:                  @fg-secondary;
 }

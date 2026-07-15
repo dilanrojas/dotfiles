@@ -1,6 +1,7 @@
 #!/bin/sh
 
 pkill waybar
+waybar &
 
 swaymsg reload
 

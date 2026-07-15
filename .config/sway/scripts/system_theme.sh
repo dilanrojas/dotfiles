@@ -3,7 +3,9 @@
 # Define paths and theme names
 QT_CONFIG="$HOME/.config/qt6ct/qt6ct.conf"
 GTK_LIGHT="adw-gtk3"
+ICONS_LIGHT="Papirus-Light"
 GTK_DARK="adw-gtk3-dark"
+ICONS_DARK="Papirus-Dark"
 
 # Ensure the config file exists before proceeding
 if [ ! -f "$QT_CONFIG" ]; then
@@ -34,6 +36,7 @@ dark)
 
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
   gsettings set org.gnome.desktop.interface gtk-theme "$GTK_DARK"
+  gsettings set org.gnome.desktop.interface icon-theme "$ICONS_DARK"
   ;;
 
 light)
@@ -43,6 +46,7 @@ light)
 
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
   gsettings set org.gnome.desktop.interface gtk-theme "$GTK_LIGHT"
+  gsettings set org.gnome.desktop.interface icon-theme "$ICONS_LIGHT"
   ;;
 
 *)

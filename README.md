@@ -4,7 +4,7 @@ A sleek, productive Sway environment with a focus on the GNOME/Adwaita ecosystem
 
 ## Preview
 
-<img src="./preview/img.png" alt="Dotfiles preview" />
+<img src="./preview/image.png" alt="Dotfiles preview" />
 
 ## Index
 
@@ -139,7 +139,18 @@ sudo pacman -S sway-contrib swaybg swayidle swayosd wmname sddm hyprpicker qt6ct
   ripgrep fd fzf luarocks gcc lazygit git udiskie udisks2 libappindicator unzip unrar wget curl \
   mlocate fastfetch python-pipx gnome-keyring seahorse libsecret ksshaskpass ttf-opensans breeze \
   dunst libnotify rofi wireless-regdb playerctl papirus-icon-theme jq parted fwupd fwupd-efi \
-  gnome-firmware
+  gnome-firmware wlsunset gvfs-mtp
+```
+
+
+**LibreOffice Suite**
+
+```bash
+sudo pacman -S libreoffice-still libreoffice-still-es ttf-caladea ttf-carlito \
+  ttf-dejavu ttf-liberation noto-fonts noto-fonts-emoji adobe-source-code-pro-fonts \
+  adobe-source-sans-fonts adobe-source-serif-fonts hunspell hunspell-es_cr \
+  hunspell-en_us hyphen hyphen-en hyphen-es libmythes mythes-en mythes-es \
+  hunspell-en_gb hunspell-es_any
 ```
 
 **Fonts & basic apps**

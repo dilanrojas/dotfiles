@@ -7,20 +7,22 @@
       "bg_lighter": "#484848",
       "fg": "#ffffff",
       "fg_secondary": "#606060"
-    }
+    },
+    "opacity": 0.9
   },
   "default-light": {
     "palette": {
       "bg": "#ffffff",
       "bg_secondary": "#ffffff",
-      "bg_tertiary": "#e0e0e0",
-      "bg_lighter": "#bbbbbb",
+      "bg_tertiary": "#eaeaea",
+      "bg_lighter": "#dddddd",
       "fg": "#000000",
       "fg_secondary": "#aaaaaa"
-    }
+    },
+    "opacity": 0.9
   },
   "solarized-osaka": {
-    "wallpaper": "040.jpg",
+    "wallpaper": "150.jpg",
     "neovim_scheme": "solarized-osaka",
     "alacritty_theme": "solarized-osaka.toml",
     "palette": {
@@ -31,7 +33,7 @@
     }
   },
   "catppuccin": {
-    "wallpaper": "058.jpg",
+    "wallpaper": "192.jpg",
     "neovim_scheme": "catppuccin-mocha",
     "alacritty_theme": "catppuccin.toml",
     "palette": {
@@ -48,7 +50,7 @@
     "palette": {
       "bg": "#1d2021",
       "fg": "#ebdbb2",
-      "fg_secondary": "#a89984",
+      "fg_secondary": "#7e7164",
       "accent": "#d79921"
     }
   },
@@ -95,7 +97,8 @@
       "fg": "#bbc2cf",
       "fg_secondary": "#5a5e64",
       "accent": "#46d9ff"
-    }
+    },
+    "opacity": 0.94
   },
   "tokyonight": {
     "wallpaper": "227.jpg",

@@ -52,8 +52,8 @@ update_firmware() {
 }
 
 # Define the menu options
-OPTIONS="󰣇  Full System Upgrade (All)
-  System Packages (pacman)
+OPTIONS="󰣇  Full System Upgrade
+  System Packages
   AUR Packages
   Flatpak Packages
 󱔼  Firmware Updates"

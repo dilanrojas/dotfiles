@@ -1,13 +1,14 @@
 * {
-    window-border: #282828;
-    background-primary: #000000;
+    accent: #89b4fa;
+    bg-primary: #1e1e2e;
+    bg-primary-opacity: #1e1e2ee6;
 
-    background-secondary: #1a1a1a;
+    bg-secondary: #45475A;
 
-    text-secondary: #606060;
-    text: #ffffff;
+    fg: #cdd6f4;
+    fg-secondary: #45475A;
 
     error: #ff7878;
 
-    rounding: 12px;
+    rounding: 0px;
 }

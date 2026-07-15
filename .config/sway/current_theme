@@ -1,0 +1,4 @@
+THEME=catppuccin
+SYSTEM_THEME=dark
+BG=1e1e2e
+OPACITY=0.9
