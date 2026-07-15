@@ -27,5 +27,10 @@ exec systemctl --user start --ignore-dependencies xdg-desktop-portal
 exec systemctl --user import-environment DISPLAY WAYLAND_DISPLAY SWAYSOCK
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
+exec_always {
+    dbus-update-activation-environment --systemd EDITOR=$editor VISUAL=$editor
+    systemctl --user import-environment EDITOR VISUAL
+}
+
 exec_always swaymsg '[app_id="Alacritty"] blur enable'
 exec_always swaymsg '[app_id="float"] blur enable'

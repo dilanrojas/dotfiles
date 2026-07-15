@@ -18,6 +18,7 @@ ITEMS=(
   "󰫧  Variables Config::$TERMINAL nvim $CFG/config.d/02-variables"
   "  Window Rules Config::$TERMINAL nvim $CFG/config.d/07-rules"
   "  Scripts Folder::$TERMINAL nvim $CFG/scripts"
+  "󰂚  Notification History::$SCRIPTS/notification_history.sh"
   "󰌁  Toggle transparency::$SCRIPTS/toggle_effects.sh"
 )
 
@@ -29,7 +30,7 @@ done
 CHOICE=$(
   printf "%s\n" "${MENU[@]}" |
     rofi -no-show-icons -dmenu -i -p "System Utilities" \
-      -theme-str 'window {width: 300px; height: 354px;}'
+      -theme-str 'window {width: 300px; }'
 )
 
 if [[ -n "$CHOICE" ]]; then

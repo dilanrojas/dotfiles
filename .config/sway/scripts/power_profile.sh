@@ -8,7 +8,7 @@ SAVE="󰾆  Power Saver"
 choice=$(printf "%s\n%s\n%s\n" \
   "$PERF" \
   "$BAL" \
-  "$SAVE" | rofi -no-show-icons -dmenu -i -p "Power Profile" -theme-str 'window {width: 230px; height: 250px; }')
+  "$SAVE" | rofi -no-show-icons -dmenu -i -p "Power Profile" -theme-str 'window {width: 230px; }')
 
 case "$choice" in
 "$PERF")

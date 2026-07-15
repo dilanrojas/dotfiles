@@ -48,7 +48,7 @@ else
     -i \
     -no-show-icons \
     -p "Screenshot" \
-    -theme-str 'window {width: 230px; height: 250px; }')
+    -theme-str 'window {width: 230px; }')
 
   [ -z "$CHOICE" ] && exit 0
 

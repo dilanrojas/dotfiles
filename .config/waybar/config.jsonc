@@ -116,8 +116,8 @@
   "battery": {
     "format": "{icon}",
     "format-full": "{icon}",
-    "format-charging": "{icon} ",
-    "format-plugged": "{icon} ",
+    "format-charging": "{icon}",
+    "format-plugged": "{icon}",
     "states": {
       "warning": 20,
       "critical": 10

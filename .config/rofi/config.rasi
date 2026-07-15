@@ -18,7 +18,7 @@ window {
     anchor:                      center;
     fullscreen:                  false;
     width:                       450px;
-    height:                      365px;
+    // height:                      365px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -72,24 +72,24 @@ entry {
     cursor:                      text;
     placeholder:                 " Search...";
     background-color:            #00000000;
-    placeholder-color:           @fg-secondary;
+    placeholder-color:           #808080aa;
 }
 
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       8;
+    lines:                       5;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
-    fixed-height:                true;
+    fixed-height:                false;
     fixed-columns:               true;
 
     spacing:                     10px;
     background-color:            transparent;
-    text-color:                  @fg-secondary;
+    text-color:                  @fg;
     cursor:                      "default";
 }
 
@@ -99,7 +99,7 @@ element {
     padding:                     12px;
     border-radius:               @rounding;
     background-color:            transparent;
-    text-color:                  @fg-secondary;
+    text-color:                  @fg;
     cursor:                      pointer;
 }
 

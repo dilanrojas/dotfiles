@@ -63,7 +63,7 @@ mic() {
 
 playerctl_action() {
   case "$VALUE" in
-  play-pause | next | previous | stop | play | pause) command playerctl "$VALUE" ;;
+  play-pause | next | previous | stop | play | pause) osd --playerctl "$VALUE" ;;
   *) usage ;;
   esac
 }

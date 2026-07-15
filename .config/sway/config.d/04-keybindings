@@ -17,7 +17,6 @@ bindsym $mod+t exec $sway_theme
 bindsym $mod+Shift+t exec $toggle_system_theme
 bindsym $mod+r exec $rand_wallpaper
 bindsym $mod+Shift+o exec $mirroring
-bindsym $mod+c exec $scripts_menu
 bindsym $mod+Shift+m exec $system_menu
 
 floating_modifier $mod normal

@@ -26,9 +26,15 @@
     "neovim_scheme": "solarized-osaka",
     "alacritty_theme": "solarized-osaka.toml",
     "palette": {
-      "bg": "#00141a",
-      "fg": "#839496",
-      "fg_secondary": "#063642",
+      "accent": "#2aa198"
+    }
+  },
+  "solarized-osaka-day": {
+    "wallpaper": "025.jpg",
+    "neovim_scheme": "solarized-osaka-day",
+    "alacritty_theme": "solarized-osaka-day.toml",
+    "system_theme": "light",
+    "palette": {
       "accent": "#2aa198"
     }
   },
@@ -37,9 +43,6 @@
     "neovim_scheme": "catppuccin-mocha",
     "alacritty_theme": "catppuccin.toml",
     "palette": {
-      "bg": "#1e1e2e",
-      "fg": "#cdd6f4",
-      "fg_secondary": "#45475A",
       "accent": "#89b4fa"
     }
   },
@@ -48,9 +51,6 @@
     "neovim_scheme": "gruvbox",
     "alacritty_theme": "gruvbox-hard.toml",
     "palette": {
-      "bg": "#1d2021",
-      "fg": "#ebdbb2",
-      "fg_secondary": "#7e7164",
       "accent": "#d79921"
     }
   },
@@ -60,9 +60,6 @@
     "alacritty_theme": "gruvbox-light.toml",
     "system_theme": "light",
     "palette": {
-      "bg": "#fbf1c7",
-      "fg": "#3c3836",
-      "fg_secondary": "#7c6f64",
       "accent": "#d79921"
     }
   },
@@ -71,10 +68,23 @@
     "neovim_scheme": "kanagawa-dragon",
     "alacritty_theme": "kanagawa-dragon.toml",
     "palette": {
-      "bg": "#131111",
-      "fg": "#C8C093",
-      "fg_secondary": "#646049",
       "accent": "#938AA9"
+    }
+  },
+  "kanagawa-wave": {
+    "wallpaper": "063.jpg",
+    "neovim_scheme": "kanagawa-wave",
+    "alacritty_theme": "kanagawa-wave.toml",
+    "palette": {
+      "accent": "#7e9cd8"
+    }
+  },
+  "kanagawa-lotus": {
+    "wallpaper": "036.jpg",
+    "neovim_scheme": "kanagawa-lotus",
+    "alacritty_theme": "kanagawa-lotus.toml",
+    "palette": {
+      "accent": "#4d699b"
     }
   },
   "everforest": {
@@ -82,9 +92,6 @@
     "neovim_scheme": "everforest",
     "alacritty_theme": "everforest-hard.toml",
     "palette": {
-      "bg": "#272e33",
-      "fg": "#d3c6aa",
-      "fg_secondary": "#414b50",
       "accent": "#83c092"
     }
   },
@@ -93,9 +100,6 @@
     "neovim_scheme": "doom-one",
     "alacritty_theme": "doom-one.toml",
     "palette": {
-      "bg": "#282c34",
-      "fg": "#bbc2cf",
-      "fg_secondary": "#5a5e64",
       "accent": "#46d9ff"
     },
     "opacity": 0.94
@@ -105,9 +109,6 @@
     "neovim_scheme": "tokyonight-night",
     "alacritty_theme": "tokyonight.toml",
     "palette": {
-      "bg": "#1a1b26",
-      "fg": "#a9b1d6",
-      "fg_secondary": "#787c99",
       "accent": "#7aa2f7"
     }
   },
@@ -116,9 +117,6 @@
     "neovim_scheme": "rose-pine",
     "alacritty_theme": "rose-pine.toml",
     "palette": {
-      "bg": "#191724",
-      "fg": "#e0def4",
-      "fg_secondary": "#524f67",
       "accent": "#c4a7e7"
     }
   },
@@ -128,22 +126,31 @@
     "alacritty_theme": "rose-pine-dawn.toml",
     "system_theme": "light",
     "palette": {
-      "bg": "#faf4ed",
-      "fg": "#575279",
-      "fg_secondary": "#9e95dc",
       "accent": "#907aa9"
     }
   },
-  "solarized-osaka-day": {
-    "wallpaper": "025.jpg",
-    "neovim_scheme": "solarized-osaka-day",
-    "alacritty_theme": "solarized-osaka-day.toml",
-    "system_theme": "light",
+  "dracula": {
+    "wallpaper": "031.jpg",
+    "neovim_scheme": "dracula",
+    "alacritty_theme": "dracula.toml",
     "palette": {
-      "bg": "#fdf5e0",
-      "fg": "#586e74",
-      "fg_secondary": "#97bec8",
-      "accent": "#2aa198"
+      "accent": "#BD93F9"
+    }
+  },
+  "nord": {
+    "wallpaper": "242.jpg",
+    "neovim_scheme": "nordic",
+    "alacritty_theme": "nord.toml",
+    "palette": {
+      "accent": "#8FB4D8"
+    }
+  },
+  "ember": {
+    "wallpaper": "008.jpg",
+    "neovim_scheme": "ember",
+    "alacritty_theme": "ember.toml",
+    "palette": {
+      "accent": "#E2B86B"
     }
   }
 }

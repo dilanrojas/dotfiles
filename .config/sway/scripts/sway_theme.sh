@@ -14,7 +14,7 @@ if [ -z "$1" ]; then
   THEME_LIST=$(jq -r 'keys[] | select(. != "default-dark" and . != "default-light")' "$JSON_FILE")
   THEME=$(
     echo "$THEME_LIST" | rofi -no-show-icons -dmenu -p "Select Theme" -i \
-      -theme-str 'window {width: 300px; height: 354px;}'
+      -theme-str 'window {width: 300px; }'
   )
 
   if [ -z "$THEME" ]; then
@@ -37,9 +37,6 @@ ALACRITTY_THEME=$(jq -r --arg theme "$THEME" '.[$theme].alacritty_theme' "$JSON_
 SYSTEM_THEME=$(jq -r --arg theme "$THEME" '.[$theme].system_theme // "dark"' "$JSON_FILE")
 
 # Extract Shared palette (used for nvim/alacritty-adjacent apps, e.g. sway accents)
-BG=$(jq -r --arg theme "$THEME" '.[$theme].palette.bg' "$JSON_FILE")
-FG=$(jq -r --arg theme "$THEME" '.[$theme].palette.fg' "$JSON_FILE")
-FG_SECONDARY=$(jq -r --arg theme "$THEME" '.[$theme].palette.fg_secondary' "$JSON_FILE")
 ACCENT=$(jq -r --arg theme "$THEME" '.[$theme].palette.accent' "$JSON_FILE")
 ACCENT_ACTIVE="$ACCENT"
 
@@ -50,7 +47,6 @@ BG_DEFAULT_SECONDARY=$(jq -r --arg key "$DEFAULT_KEY" '.[$key].palette.bg_second
 BG_DEFAULT_TERTIARY=$(jq -r --arg key "$DEFAULT_KEY" '.[$key].palette.bg_tertiary' "$JSON_FILE")
 BG_DEFAULT_LIGHTER=$(jq -r --arg key "$DEFAULT_KEY" '.[$key].palette.bg_lighter' "$JSON_FILE")
 FG_DEFAULT=$(jq -r --arg key "$DEFAULT_KEY" '.[$key].palette.fg' "$JSON_FILE")
-FG_SECONDARY_DEFAULT=$(jq -r --arg key "$DEFAULT_KEY" '.[$key].palette.fg_secondary' "$JSON_FILE")
 
 if [ "$BG_DEFAULT" = "null" ] || [ -z "$BG_DEFAULT" ]; then
   echo "Warning: '$DEFAULT_KEY' not found or incomplete in $JSON_FILE, falling back to theme palette."
@@ -59,7 +55,6 @@ if [ "$BG_DEFAULT" = "null" ] || [ -z "$BG_DEFAULT" ]; then
   BG_DEFAULT_TERTIARY="$BG"
   BG_DEFAULT_LIGHTER="$BG"
   FG_DEFAULT="$FG"
-  FG_SECONDARY_DEFAULT="$FG_SECONDARY"
 fi
 
 # ------------------------------------------------------------------------------
@@ -83,18 +78,23 @@ ALPHA_TER="$OPACITY"
 # Hex alpha (00-ff), used by rofi/dunst hex-suffixed colors, rounded to nearest int
 ALPHA=$(awk -v o="$OPACITY" 'BEGIN { printf "%02x", int(o * 255 + 0.5) }')
 
-# Store the current theme
-cat >"$CURRENT_THEME_FILE" <<EOF
-THEME=$THEME
-SYSTEM_THEME=$SYSTEM_THEME
-BG=${BG#\#}
-OPACITY=$OPACITY
-EOF
-
 eval "$(
   awk '
-    /^\[colors\.normal\]/ { in_normal=1; next }
-    /^\[/ { in_normal=0 }
+    /^\[colors\.primary\]/ { in_primary=1; in_normal=0; next }
+    
+    /^\[colors\.normal\]/ { in_normal=1; in_primary=0; next }
+    
+    /^\[/ { in_primary=0; in_normal=0 }
+    
+    in_primary && /^(background|foreground)[[:space:]]*=/ {
+      split($0, a, "=")
+      gsub(/[[:space:]\047]/, "", a[1])
+      gsub(/[[:space:]\047]/, "", a[2])
+      
+      var_name = (a[1] == "background") ? "BG" : "FG"
+      print var_name "=" a[2]
+    }
+    
     in_normal && /^[a-z]+[[:space:]]*=/ {
       split($0, a, "=")
       gsub(/[[:space:]\047]/, "", a[1])
@@ -103,6 +103,14 @@ eval "$(
     }
   ' "$HOME/.config/alacritty/themes/${ALACRITTY_THEME}"
 )"
+
+# Store the current theme
+cat >"$CURRENT_THEME_FILE" <<EOF
+THEME=$THEME
+SYSTEM_THEME=$SYSTEM_THEME
+BG=${BG#\#}
+OPACITY=$OPACITY
+EOF
 
 # ------------------------------------------------------------------------------
 # Waybar
@@ -126,7 +134,6 @@ sed -i "s/\(bg-primary-opacity:[[:space:]]*\).*/\1$BG$ALPHA;/" "$HOME/.config/ro
 sed -i "s/\(bg-secondary:[[:space:]]*\).*/\1$BLACK;/" "$HOME/.config/rofi/theme.rasi"
 sed -i "s/\(accent:[[:space:]]*\).*/\1$ACCENT;/" "$HOME/.config/rofi/theme.rasi"
 sed -i "s/\(fg:[[:space:]]*\).*/\1$FG;/" "$HOME/.config/rofi/theme.rasi"
-sed -i "s/\(fg-secondary:[[:space:]]*\).*/\1$FG_SECONDARY;/" "$HOME/.config/rofi/theme.rasi"
 
 # ------------------------------------------------------------------------------
 # Dunst

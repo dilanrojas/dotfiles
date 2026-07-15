@@ -17,6 +17,8 @@ for_window [app_id="org.gnome.Calculator"] floating enable
 for_window [app_id="org.gnome.clocks"] floating enable
 for_window [app_id="xdg-desktop-portal-gtk"] floating enable
 for_window [app_id="guvcview"] floating enable
+for_window [app_id="imv"] floating enable
+for_window [app_id="oculante"] floating enable, move position center
 for_window [class="guvcview"] floating enable
 for_window [title="(?i)^DBeaver" app_id="java"] floating enable
 for_window [title="Meeting" class="zoom"] floating enable

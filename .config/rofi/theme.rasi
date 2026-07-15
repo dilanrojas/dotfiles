@@ -6,7 +6,7 @@
     bg-secondary: #282828;
 
     fg: #ebdbb2;
-    fg-secondary: #7e7164;
+    fg-secondary: #21222C;
 
     error: #ff7878;
 

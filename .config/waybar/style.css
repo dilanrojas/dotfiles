@@ -108,7 +108,7 @@ window#waybar>box {
 }
 
 #custom-updates {
-  font-size: 16px;
+  font-size: 17px;
 }
 
 #custom-bluetooth {
@@ -116,7 +116,7 @@ window#waybar>box {
 }
 
 #power-profiles-daemon {
-  padding-left: 3px;
+  padding-left: 5px;
 }
 
 #idle_inhibitor {
@@ -135,6 +135,7 @@ window#waybar>box {
   padding: 0px 0px;
   margin: 0px;
   min-width: 30px;
+  font-weight: 600;
   border: none;
   color: inherit;
   box-shadow: none;
