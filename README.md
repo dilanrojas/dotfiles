@@ -4,7 +4,7 @@ A sleek, productive Sway environment with a focus on the GNOME/Adwaita ecosystem
 
 ## Preview
 
-<img src="./preview/image.png" alt="Dotfiles preview" />
+<img src="./preview/desktop.png" alt="Dotfiles preview" />
 
 ## Index
 
@@ -18,11 +18,11 @@ A sleek, productive Sway environment with a focus on the GNOME/Adwaita ecosystem
   - [Audio \& Connectivity](#-audio--connectivity)
   - [Xorg, Graphics \& Gaming](#-xorg-graphics--gaming)
   - [Setup zram](#setup-zram)
+  - [Configure Boot/ESP Flags](#configure-bootesp-flags)
+  - [Battery Tools (Laptops)](#battery-tools-useful-for-a-laptop)
 - [Installation \& Setup](#-installation--setup)
   - [1. Enable Services](#1-enable-services)
   - [2. Deploy Dotfiles](#2-deploy-dotfiles)
-  - [Configure Boot/ESP Flags](#configure-bootesp-flags)
-  - [Battery Tools (Laptops)](#battery-tools-useful-for-a-laptop)
   - [Configuring Persistent Workspaces in Waybar](#configuring-persistent-workspaces-in-waybar)
   - [3. SDDM \& Font Rendering (Optional)](#3-sddm--font-rendering-optional)
   - [Improve Font Rendering](#improve-font-rendering)
@@ -98,7 +98,7 @@ To add more themes:
 | Shell | [Fish](https://fishshell.com/) with [Starship](https://starship.rs/) |
 | Terminal | [Alacritty](https://alacritty.org/) |
 | App Launcher | [Rofi](https://github.com/davatorium/rofi) |
-| File Manager | [Nautilus](https://apps.gnome.org/en/Nautilus/) |
+| File Manager | [Yazi](https://yazi-rs.github.io/) & [Nautilus](https://apps.gnome.org/en/Nautilus/) |
 | Editor | [Neovim](https://neovim.io/) + [LazyVim](https://www.lazyvim.org/) |
 | SDDM Theme | [SDDM Astronaut](https://github.com/Keyitdev/sddm-astronaut-theme) |
 | Wallpapers | [My Collection](https://github.com/dilanrojas/wallpapers.git) |
@@ -227,12 +227,50 @@ sudo cp dotfiles/zram-generator.conf /etc/systemd/
 sudo systemctl enable --now systemd-zram-setup@zram0.service
 ```
 
+### Configure Boot/ESP Flags
+
+Verify the flags:
+
+```bash
+sudo parted /dev/[your_disk] print
+```
+
+Expected output:
+
+```text
+╭─ jwd in ~
+╰─❯ sudo parted /dev/nvme0n1 print
+Model: SKHynix_HFS512GEM4X182N (nvme)
+Disk /dev/nvme0n1: 512GB
+Sector size (logical/physical): 512B/512B
+Partition Table: gpt
+Disk Flags:
+
+Number  Start   End     Size    File system  Name  Flags
+ 1      1049kB  1001MB  1000MB  fat32              boot, esp  # <-- This is the important line
+ 2      1001MB  512GB   511GB   ext4
+```
+
+If your boot partition doesn't have those flags, fix it:
+
+```bash
+sudo parted /dev/[your_disk] set 1 boot on
+sudo parted /dev/[your_disk] set 1 esp on
+```
+
+### Battery Tools (Useful for a Laptop)
+
+```bash
+# Install Power Profiles Daemon
+sudo pacman -S power-profiles-daemon
+
+# Enable the service
+sudo systemctl enable --now power-profiles-daemon
+```
+
 ---
 
 ## 🚀 Installation & Setup
-
-> [!NOTE]
-> For an automated installation, run the [setup.sh](./setup.sh) script
 
 ### 1. Enable Services
 
@@ -264,47 +302,6 @@ xdg-user-dirs-update
 
 # Finalize theme & updatedb for locate
 sudo updatedb
-```
-
-### Configure Boot/ESP Flags
-
-These commands assume your ESP and boot partition is the first one on the disk.
-
-```bash
-sudo parted /dev/[your_disk] set 1 boot on
-sudo parted /dev/[your_disk] set 1 esp on
-```
-
-Verify the changes:
-
-```bash
-sudo parted /dev/[your_disk] print
-```
-
-Expected output:
-
-```text
-╭─ jwd in ~
-╰─❯ sudo parted /dev/nvme0n1 print
-Model: SKHynix_HFS512GEM4X182N (nvme)
-Disk /dev/nvme0n1: 512GB
-Sector size (logical/physical): 512B/512B
-Partition Table: gpt
-Disk Flags:
-
-Number  Start   End     Size    File system  Name  Flags
- 1      1049kB  1001MB  1000MB  fat32              boot, esp  # <-- This is the important line
- 2      1001MB  512GB   511GB   ext4
-```
-
-### Battery Tools (Useful for a Laptop)
-
-```bash
-# Install Power Profiles Daemon
-sudo pacman -S power-profiles-daemon
-
-# Enable the service
-sudo systemctl enable --now power-profiles-daemon
 ```
 
 ### Configuring Persistent Workspaces in Waybar
