@@ -181,7 +181,15 @@ EOF
 
 pkill dunst
 
-pkill swayosd-server
-swayosd-server &
+if pgrep -x "swayosd-server" >/dev/null; then
+  pkill swayosd-server
+  while pgrep -x "swayosd-server" >/dev/null; do
+    sleep 0.1
+  done
+fi
+
+# Launch it detached from the script's shell
+swayosd-server >/dev/null 2>&1 &
+disown
 
 echo "Done."
