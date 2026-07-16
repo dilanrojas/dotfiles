@@ -55,7 +55,7 @@ The `SUPER` key (Windows key) is your primary modifier, referred to as `$mod` be
 | `$mod` + `Shift` + `o` | Toggle Display Mirroring |
 | `$mod` + `c` | Open Scripts Menu |
 | `$mod` + `Shift` + `r` | Reload Sway Configuration |
-| `$mod` + `Shift` + `q` | Open Logout Menu (`wlogout`) |
+| `$mod` + `Shift` + `q` | Open Logout Menu |
 | `Print` | Take Screenshot |
 | `$mod` + `s` | Take Screenshot (Crop / Selection) |
 | `$mod` + `Shift` `m` | Open System menu |
@@ -157,13 +157,30 @@ sudo pacman -S libreoffice-still libreoffice-still-es ttf-caladea ttf-carlito \
 **Fonts & basic apps**
 
 ```bash
-yay -S ttf-plemoljp-bin waybar-module-pacman-updates-git wlogout brave-bin ttf-ms-fonts \
+yay -S ttf-plemoljp-bin waybar-module-pacman-updates-git brave-bin ttf-ms-fonts \
   downgrade wayfreeze lswt appimagelauncher wlctl-bin pfetch --noconfirm
 ```
 
 ```bash
 # A simple program for viewing markdown files on the command line
 pipx install rich-cli
+```
+
+### Set up `udev` rules for AC and USB events.
+
+This scripts will trigger the default `freedesktop` sound for plugging/unplugging an USB.
+
+The `on-power-change.sh` script will play a sound and disable all the effects (blur and transparency) for all
+the desktop components, as well as switching to the power saving mode. This will be reverted once AC is plugged in.
+
+```bash
+chmod +x dotfiles/udev/bin/*
+
+sudo cp dotfiles/udev/bin/* /usr/local/bin/
+sudo cp dotfiles/udev/rules/* /etc/udev/rules.d/
+
+sudo udevadm control --reload-rules
+sudo udevadm trigger
 ```
 
 ### 🎧 Audio & Connectivity

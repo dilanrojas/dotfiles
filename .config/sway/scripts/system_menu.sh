@@ -19,7 +19,7 @@ ITEMS=(
   "  Window Rules Config::$TERMINAL nvim $CFG/config.d/07-rules"
   "  Scripts Folder::$TERMINAL nvim $CFG/scripts"
   "󰂚  Notification History::$SCRIPTS/notification_history.sh"
-  "󰌁  Toggle transparency::$SCRIPTS/toggle_effects.sh"
+  "󰌁  Toggle Effects::$SCRIPTS/toggle_effects.sh"
 )
 
 MENU=()

@@ -6,6 +6,7 @@
   "conform.nvim": { "branch": "master", "commit": "619363c30309d29ffa631e67c8183f2a72caa373" },
   "doom-one.nvim": { "branch": "main", "commit": "beae92173315c7282f6897e666cfd67fbf0f3ac9" },
   "dracula.nvim": { "branch": "main", "commit": "ae752c13e95fb7c5f58da4b5123cb804ea7568ee" },
+  "ember": { "branch": "main", "commit": "7365b8dede43a82ed1df741275b75333422e5402" },
   "everforest": { "branch": "master", "commit": "85a86eb62409e3ec88713bff3d1b9d7374e112e4" },
   "flash.nvim": { "branch": "main", "commit": "b6346946d10d07998efee029fb0f7a593806d0cd" },
   "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },

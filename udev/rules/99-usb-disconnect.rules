@@ -1,0 +1,1 @@
+ACTION=="remove", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", RUN+="/usr/local/bin/on-usb-disconnect.sh"

@@ -66,7 +66,7 @@ shadow_offset 0 0
 default_dim_inactive 0
 
 blur disable
-blur_passes 2
+blur_passes 3
 blur_radius 6
 blur_noise 0.02
 blur_brightness 1.0

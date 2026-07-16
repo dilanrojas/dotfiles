@@ -4,7 +4,7 @@
 set fish_greeting ""
 
 # Aliases
-alias neofetch fastfetch
+alias neofetch pfetch
 alias ls "ls -l --color=auto --group-directories-first"
 alias cat bat
 alias tkn "cat ~/Documents/Files/GitToken.txt"
@@ -13,7 +13,7 @@ alias n nvim
 alias cputemp "sensors | grep Core"
 alias rich "rich --pager --theme one-dark --padding 3,10,3,10"
 
-alias update "sudo pacman -Syu && yay -Syu && flatpak update"
+alias update "~/.config/sway/scripts/update_system.sh"
 alias i "sudo pacman -S --noconfirm"
 alias s "pacman -Ss"
 alias r "sudo pacman -Rns"
@@ -52,3 +52,7 @@ end
 set -gx PATH $HOME/.local/bin $PATH
 
 set -Ux QT_QPA_PLATFORMTHEME qt6ct
+set -Ux _JAVA_AWT_WM_NONREPARENTING 1
+
+set -gx EDITOR nvim
+set -gx VISUAL nvim

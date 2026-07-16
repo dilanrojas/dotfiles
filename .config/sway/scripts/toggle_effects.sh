@@ -160,4 +160,11 @@ sed -i -E \
   "s/(background = \"#${BASE_COLOR})[0-9a-fA-F]{2}(\")/\\1${HEXALPHA}\\2/" \
   "$DUNST_CONF"
 
+# Reload
+
+dunstctl reload
+
+pkill swayosd-server
+swayosd-server &
+
 echo "Done."
