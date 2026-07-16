@@ -71,12 +71,31 @@ if [ -z "$OPACITY" ]; then
   echo "Warning: no opacity set for '$THEME' or '$DEFAULT_KEY', defaulting to $OPACITY"
 fi
 
+# ------------------------------------------------------------------------------
+# Effects (transparency) — read prior persisted state before we overwrite it
+# ------------------------------------------------------------------------------
+EFFECTS="ON"
+if [ -f "$CURRENT_THEME_FILE" ]; then
+  PREV_EFFECTS=$(awk -F= '/^EFFECTS=/{print $2}' "$CURRENT_THEME_FILE")
+  [ -n "$PREV_EFFECTS" ] && EFFECTS="$PREV_EFFECTS"
+fi
+
+# THEME_OPACITY = the theme's declared/intrinsic opacity (persisted as-is).
+# APPLY_OPACITY = what actually gets written into configs right now,
+# which depends on whether effects are currently toggled off.
+THEME_OPACITY="$OPACITY"
+if [ "$EFFECTS" = "OFF" ]; then
+  APPLY_OPACITY="1.0"
+else
+  APPLY_OPACITY="$THEME_OPACITY"
+fi
+
 # Decimal opacity, used as-is by alacritty and CSS alpha() functions
-ALPHA_CSS="$OPACITY"
-ALPHA_TER="$OPACITY"
+ALPHA_CSS="$APPLY_OPACITY"
+ALPHA_TER="$APPLY_OPACITY"
 
 # Hex alpha (00-ff), used by rofi/dunst hex-suffixed colors, rounded to nearest int
-ALPHA=$(awk -v o="$OPACITY" 'BEGIN { printf "%02x", int(o * 255 + 0.5) }')
+ALPHA=$(awk -v o="$APPLY_OPACITY" 'BEGIN { printf "%02x", int(o * 255 + 0.5) }')
 
 eval "$(
   awk '
@@ -109,7 +128,8 @@ cat >"$CURRENT_THEME_FILE" <<EOF
 THEME=$THEME
 SYSTEM_THEME=$SYSTEM_THEME
 BG=${BG#\#}
-OPACITY=$OPACITY
+OPACITY=$THEME_OPACITY
+EFFECTS=$EFFECTS
 EOF
 
 # ------------------------------------------------------------------------------

@@ -29,3 +29,4 @@ set $toggle_system_theme $scripts/system_theme.sh
 set $low_battery $scripts/low_battery.sh
 set $system_menu $scripts/system_menu.sh
 set $power_menu $scripts/power_menu.sh
+set $power_check $scripts/power_check.sh

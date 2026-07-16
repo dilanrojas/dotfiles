@@ -32,5 +32,7 @@ exec_always {
     systemctl --user import-environment EDITOR VISUAL
 }
 
+exec $power_check
+
 exec_always swaymsg '[app_id="Alacritty"] blur enable'
 exec_always swaymsg '[app_id="float"] blur enable'

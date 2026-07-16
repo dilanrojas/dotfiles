@@ -160,9 +160,26 @@ sed -i -E \
   "s/(background = \"#${BASE_COLOR})[0-9a-fA-F]{2}(\")/\\1${HEXALPHA}\\2/" \
   "$DUNST_CONF"
 
+# ------------------------------------------------------------------------------
+# Persist effects state so the theme-changer respects it on next switch
+# ------------------------------------------------------------------------------
+if [[ "$NEW_MODE" == "transparent" ]]; then
+  EFFECTS="ON"
+else
+  EFFECTS="OFF"
+fi
+
+cat >"$CURRENT_THEME_FILE" <<EOF
+THEME=$CURRENT_THEME
+SYSTEM_THEME=$SYSTEM_THEME
+BG=$BASE_COLOR
+OPACITY=$THEME_OPACITY
+EFFECTS=$EFFECTS
+EOF
+
 # Reload
 
-dunstctl reload
+pkill dunst
 
 pkill swayosd-server
 swayosd-server &
