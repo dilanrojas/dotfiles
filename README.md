@@ -1,6 +1,6 @@
 # Sway Dotfiles
 
-A sleek, productive Sway environment with a focus on the GNOME/Adwaita ecosystem.
+A sleek, productive Sway environment with a focus on a full DE experience while being minimal.
 
 ## Preview
 
@@ -50,7 +50,6 @@ The `SUPER` key (Windows key) is your primary modifier, referred to as `$mod` be
 | `$mod` + `Shift` + `p` | Change Power Profile |
 | `$mod` + `t` | Change Sway Theme |
 | `$mod` + `Shift` + `t` | Toggle System Theme (Dark/Light) |
-| `$mod` + `Shift` + `m` | Launch Spotify (with adblock) |
 | `$mod` + `r` | Change Random Wallpaper |
 | `$mod` + `Shift` + `o` | Toggle Display Mirroring |
 | `$mod` + `c` | Open Scripts Menu |
@@ -58,6 +57,7 @@ The `SUPER` key (Windows key) is your primary modifier, referred to as `$mod` be
 | `$mod` + `Shift` + `q` | Open Logout Menu |
 | `Print` | Take Screenshot |
 | `$mod` + `s` | Take Screenshot (Crop / Selection) |
+| `$mod` + `shift` + `s` | Open screenshot menu |
 | `$mod` + `Shift` `m` | Open System menu |
 
 ### Window Management & Navigation
@@ -126,7 +126,7 @@ yay -S rate-mirrors-bin --noconfirm
 rate-mirrors --allow-root --protocol https arch | grep -v '#' | sudo tee /etc/pacman.d/mirrorlist
 ```
 
-**Core environment** — fonts, UI tools, and GNOME apps:
+**Core environment** — fonts, UI tools:
 
 ```bash
 yay -S swayfx swaylock-effects
@@ -140,7 +140,7 @@ sudo pacman -S sway-contrib swaybg swayidle swayosd wmname sddm hyprpicker qt6ct
   ripgrep fd fzf luarocks gcc lazygit git udiskie udisks2 libappindicator unzip unrar wget curl \
   mlocate fastfetch python-pipx gnome-keyring seahorse libsecret ksshaskpass ttf-opensans breeze \
   dunst libnotify rofi wireless-regdb playerctl papirus-icon-theme jq parted fwupd fwupd-efi \
-  gnome-firmware wlsunset gvfs-mtp yazi ueberzugpp oculante
+  gnome-firmware wlsunset gvfs-mtp yazi ueberzugpp oculante swappy
 ```
 
 
