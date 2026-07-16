@@ -10,7 +10,7 @@ while IFS= read -r file; do
   MENU_ITEMS+="${basename}\x00icon\x1f${file}\n"
 done < <(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" \) | sort -f)
 
-CHOICE=$(echo -e "$MENU_ITEMS" | rofi -theme-str 'window { width: 800px; }' -dmenu -i -p "Wallpaper" \
+CHOICE=$(echo -e "$MENU_ITEMS" | rofi -theme-str 'window { width: 800px; height: 667px; }' -dmenu -i -p "Wallpaper" \
   -theme-str 'element { orientation: vertical; } element-icon { size: 13ch; } listview { columns: 4; lines: 3; }')
 
 if [ -n "$CHOICE" ]; then

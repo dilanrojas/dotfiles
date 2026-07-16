@@ -30,7 +30,7 @@ done
 CHOICE=$(
   printf "%s\n" "${MENU[@]}" |
     rofi -no-show-icons -dmenu -i -p "System Utilities" \
-      -theme-str 'window {width: 300px; }'
+      -theme-str 'window { width: 300px; height: 353px; }'
 )
 
 if [[ -n "$CHOICE" ]]; then

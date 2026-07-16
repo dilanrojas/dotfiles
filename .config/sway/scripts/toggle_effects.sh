@@ -181,6 +181,8 @@ EOF
 
 pkill dunst
 
-pkill swayosd-server && swayosd-server &
+pkill -x swayosd-server
+wait
+swayosd-server &
 
 echo "Done."

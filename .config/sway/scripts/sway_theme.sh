@@ -14,7 +14,7 @@ if [ -z "$1" ]; then
   THEME_LIST=$(jq -r 'keys[] | select(. != "default-dark" and . != "default-light")' "$JSON_FILE")
   THEME=$(
     echo "$THEME_LIST" | rofi -no-show-icons -dmenu -p "Select Theme" -i \
-      -theme-str 'window {width: 300px; }'
+      -theme-str 'window { width: 300px; height: 353px; }'
   )
 
   if [ -z "$THEME" ]; then

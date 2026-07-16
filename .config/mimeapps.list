@@ -33,9 +33,11 @@ text/plain=nvim.desktop
 application/json=nvim.desktop
 application/vnd.oasis.opendocument.text=libreoffice-startcenter.desktop
 text/markdown=nvim.desktop
+text/vnd.trolltech.linguist=nvim.desktop
 
 [Added Associations]
 application/vnd.oasis.opendocument.text=libreoffice-startcenter.desktop;
 application/vnd.openxmlformats-officedocument.presentationml.presentation=libreoffice-startcenter.desktop;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-startcenter.desktop;
 text/markdown=nvim.desktop;
+text/vnd.trolltech.linguist=nvim.desktop;
