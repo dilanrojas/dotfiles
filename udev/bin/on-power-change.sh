@@ -18,7 +18,17 @@ if [ -n "$POWER_SUPPLY_ONLINE" ]; then
   AC_STATE="$POWER_SUPPLY_ONLINE"
 else
   sleep 0.2
-  AC_STATE=$(cat /sys/class/power_supply/AC/online 2>/dev/null)
+
+  AC_ONLINE = 0
+
+  for ps in /sys/class/power_supply/*; do
+    [ -r "$ps/type"] || continue
+
+    if [ "$(cat "$ps/type" = "Main")" ]; then
+      AC_ONLINE=$(cat "$ps/online" 2>/dev/null)
+      break
+    fi
+  done
 fi
 
 if [ "$AC_STATE" = "1" ]; then
