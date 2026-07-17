@@ -88,12 +88,13 @@
     }
   },
   "everforest": {
-    "wallpaper": "166.jpg",
+    "wallpaper": "095.jpg",
     "neovim_scheme": "everforest",
     "alacritty_theme": "everforest-hard.toml",
     "palette": {
       "accent": "#83c092"
-    }
+    },
+    "opacity": 0.93
   },
   "doom-one": {
     "wallpaper": "183.jpg",

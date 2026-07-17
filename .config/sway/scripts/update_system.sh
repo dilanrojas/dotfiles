@@ -6,6 +6,11 @@ update_system() {
   local start_time
   start_time=$(date +"%Y-%m-%d %H:%M")
 
+  if ! sudo pacman -Sy --needed archlinux-keyring; then
+    echo "Failed to update the keyring."
+    return 1
+  fi
+
   if sudo pacman -Syu; then
     if journalctl _COMM=pacman --since "$start_time" | grep -qE "upgraded linux(-lts|-zen|-hardened)? "; then
       echo -e "\n\033[1;33m[!] A kernel update was detected.\033[0m"

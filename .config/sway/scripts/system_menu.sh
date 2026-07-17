@@ -6,6 +6,7 @@ SCRIPTS="$CFG/scripts"
 ITEMS=(
   "󰤨  WiFi::$TERMINAL wlctl"
   "  Bluetooth::$TERMINAL bluetui"
+  "󰆞  Screenshot::$SCRIPTS/screenshot.sh"
   "  Update System::sh $SCRIPTS/update_system.sh"
   "󱥚  Sway Theme::sh $SCRIPTS/sway_theme.sh"
   "  Wallpaper Picker::sh $SCRIPTS/wallpaper_picker.sh"

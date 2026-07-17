@@ -1,5 +1,7 @@
 #!/bin/bash
 
+STATE_FILE="/run/ac-online.state"
+
 SESSION=$(loginctl show-seat seat0 -p ActiveSession --value)
 
 if [ -z "$SESSION" ] || [ "$SESSION" = "no-session" ]; then
@@ -9,7 +11,8 @@ fi
 USER_NAME=$(loginctl show-session "$SESSION" -p Name --value)
 USER_ID=$(loginctl show-session "$SESSION" -p User --value)
 
-export SWAYSOCK=$(ls /run/user/"$USER_ID"/sway-ipc."$USER_ID"*.sock 2>/dev/null | head -n 1)
+export SWAYSOCK=$(find /run/user/"$USER_ID" -maxdepth 1 -name "sway-ipc.$USER_ID*.sock" | head -n 1)
+
 if [ -z "$SWAYSOCK" ]; then
   exit 0
 fi
@@ -19,23 +22,39 @@ if [ -n "$POWER_SUPPLY_ONLINE" ]; then
 else
   sleep 0.2
 
-  AC_ONLINE = 0
+  AC_STATE=""
 
   for ps in /sys/class/power_supply/*; do
-    [ -r "$ps/type"] || continue
+    [ -r "$ps/type" ] || continue
 
-    if [ "$(cat "$ps/type" = "Main")" ]; then
-      AC_ONLINE=$(cat "$ps/online" 2>/dev/null)
+    if [ "$(cat "$ps/type")" = "Mains" ]; then
+      AC_STATE=$(cat "$ps/online" 2>/dev/null)
       break
     fi
   done
+
+  if [ -z "$AC_STATE" ] && [ -r /sys/class/power_supply/ADP0/online ]; then
+    AC_STATE=$(cat /sys/class/power_supply/ADP0/online)
+  fi
 fi
+
+if [ -f "$STATE_FILE" ]; then
+  PREVIOUS_STATE=$(cat "$STATE_FILE")
+else
+  PREVIOUS_STATE=""
+fi
+
+if [ "$AC_STATE" = "$PREVIOUS_STATE" ]; then
+  exit 0
+fi
+
+echo "$AC_STATE" >"$STATE_FILE"
 
 if [ "$AC_STATE" = "1" ]; then
   # === PLUGGED IN ===
   powerprofilesctl set balanced
 
-  runuser -u "$USER_NAME" -- env \
+  runuser -u "$USER_NAME" -- \
     bash -c "/home/$USER_NAME/.config/sway/scripts/toggle_effects.sh on"
 
   runuser -u "$USER_NAME" -- env \
@@ -46,7 +65,7 @@ else
   # === ON BATTERY ===
   powerprofilesctl set power-saver
 
-  runuser -u "$USER_NAME" -- env \
+  runuser -u "$USER_NAME" -- \
     bash -c "/home/$USER_NAME/.config/sway/scripts/toggle_effects.sh off"
 
   runuser -u "$USER_NAME" -- env \

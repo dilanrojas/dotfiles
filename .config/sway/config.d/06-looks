@@ -3,7 +3,7 @@
 # -------------
 
 # Wallpaper
-output * bg ~/Pictures/wallpapers/242.jpg fill
+output * bg ~/Pictures/wallpapers/237.jpg fill
 
 # Borders
 default_border pixel 2
@@ -29,9 +29,9 @@ set $color_fg_primary        #ffffff
 set $color_fg_secondary      #cccccc
 set $color_fg_muted          #aaaaaa
 
-set $color_accent            #8FB4D8
+set $color_accent            #d79921
 
-set $color_inactive          #242933
+set $color_inactive          #1d2021
 
 set $alpha_inactive          ff
 set $alpha_active            ff

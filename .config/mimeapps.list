@@ -1,5 +1,5 @@
 [Default Applications]
-inode/directory=yazi.desktop
+inode/directory=org.gnome.Nautilus.desktop
 image/jpeg=oculante.desktop
 image/png=oculante.desktop
 image/gif=oculante.desktop

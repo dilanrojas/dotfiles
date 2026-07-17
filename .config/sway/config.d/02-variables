@@ -11,7 +11,7 @@ set $term alacritty
 set $term_float alacritty --class float -e
 set $menu rofi -show drun
 set $browser brave
-set $files alacritty -e yazi
+set $files nautilus
 set $clipboard cliphist list | rofi -no-show-icons -dmenu -theme-str 'window { width: 600px; height: 354px; }' | cliphist decode | wl-copy
 set $editor nvim
 

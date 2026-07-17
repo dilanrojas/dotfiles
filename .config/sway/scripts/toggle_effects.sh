@@ -183,6 +183,6 @@ pkill dunst
 
 pkill -x swayosd-server
 wait
-swayosd-server &
+/usr/bin/swayosd-server &
 
 echo "Done."
