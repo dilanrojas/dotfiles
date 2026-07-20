@@ -181,8 +181,8 @@ EOF
 
 pkill dunst
 
-pkill -x swayosd-server
-wait
-/usr/bin/swayosd-server &
+# pkill -x swayosd-server
+# wait
+# /usr/bin/swayosd-server &
 
 echo "Done."

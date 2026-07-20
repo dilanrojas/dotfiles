@@ -196,7 +196,7 @@ sed -i "s/\(set \$color_inactive[[:space:]]\+\).*/\1$BG/" \
 # ------------------------------------------------------------------------------
 # SwayOSD
 # ------------------------------------------------------------------------------
-sed -i "s/\(@define-color bg \).*/\1alpha(${BG}, ${ALPHA_CSS});/" "$HOME/.config/swayosd/theme.css"
+sed -i "s/\(@define-color bg \).*/\1$BG;/" "$HOME/.config/swayosd/theme.css"
 sed -i "s/\(@define-color border \).*/\1$ACCENT;/" "$HOME/.config/swayosd/theme.css"
 sed -i "s/\(@define-color segment \).*/\1$BG_DEFAULT_LIGHTER;/" "$HOME/.config/swayosd/theme.css"
 sed -i "s/\(@define-color progress \).*/\1$FG;/" "$HOME/.config/swayosd/theme.css"
