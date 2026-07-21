@@ -2,12 +2,12 @@
 # --- AUTOSTART ---
 # -----------------
 
-exec swayidle -w \
-    timeout 120 'brightnessctl -s set 20%' \
-    resume 'brightnessctl -r' \
-    timeout 120 'swaylock -f' \
-    timeout 240 'brightnessctl set 0%' \
-    resume 'brightnessctl -r' \
+# exec swayidle -w \
+#     timeout 120 'brightnessctl -s set 20%' \
+#     resume 'brightnessctl -r' \
+#     timeout 120 'swaylock -f' \
+#     timeout 240 'brightnessctl set 0%' \
+#     resume 'brightnessctl -r' \
 
 exec waybar
 

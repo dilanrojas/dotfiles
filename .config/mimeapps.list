@@ -1,12 +1,12 @@
 [Default Applications]
 inode/directory=org.gnome.Nautilus.desktop
-image/jpeg=oculante.desktop
-image/png=oculante.desktop
-image/gif=oculante.desktop
-image/bmp=oculante.desktop
-image/webp=oculante.desktop
-image/tiff=oculante.desktop
-image/svg+xml=oculante.desktop
+image/jpeg=org.gnome.Loupe.desktop
+image/png=org.gnome.Loupe.desktop
+image/gif=org.gnome.Loupe.desktop
+image/bmp=org.gnome.Loupe.desktop
+image/webp=org.gnome.Loupe.desktop
+image/tiff=org.gnome.Loupe.desktop
+image/svg+xml=org.gnome.Loupe.desktop
 video/mp4=io.github.celluloid_player.Celluloid.desktop
 video/x-matroska=io.github.celluloid_player.Celluloid.desktop
 video/webm=io.github.celluloid_player.Celluloid.desktop
