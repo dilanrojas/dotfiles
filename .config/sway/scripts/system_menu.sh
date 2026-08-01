@@ -4,6 +4,7 @@ CFG=~/.config/sway
 SCRIPTS="$CFG/scripts"
 
 ITEMS=(
+  "  Power::$SCRIPTS/power_menu.sh"
   "󰤨  WiFi::$TERMINAL wlctl"
   "  Bluetooth::$TERMINAL bluetui"
   "󰆞  Screenshot::$SCRIPTS/screenshot.sh"
@@ -17,6 +18,7 @@ ITEMS=(
   "  Autostart Config::$TERMINAL nvim $CFG/config.d/03-autostart"
   "  Looks Config::$TERMINAL nvim $CFG/config.d/06-looks"
   "󰫧  Variables Config::$TERMINAL nvim $CFG/config.d/02-variables"
+  "  Waybar Config::$TERMINAL nvim ~/.config/waybar/"
   "  Window Rules Config::$TERMINAL nvim $CFG/config.d/07-rules"
   "  Scripts Folder::$TERMINAL nvim $CFG/scripts"
   "󰂚  Notification History::$SCRIPTS/notification_history.sh"

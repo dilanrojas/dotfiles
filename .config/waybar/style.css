@@ -55,9 +55,9 @@ window#waybar>box {
 #custom-dnd,
 #custom-power {
   margin: 0px 0px;
-  padding: 0px 10px;
+  padding: 0px 9px;
   font-size: 18px;
-  font-family: 'JetBrainsMono Nerd Font', sans-serif;
+  font-family: 'JetBrainsMono Nerd Font Propo', sans-serif;
   font-weight: 500;
   border-radius: 0px;
   border: none;
@@ -92,38 +92,12 @@ window#waybar>box {
   font-size: 14px;
 }
 
-#custom-dnd {
-  padding-left: 10px;
-  padding-right: 6px;
-}
-
 #custom-menu {
-  font-size: 19px;
-  padding-right: 10px;
   padding-left: 15px;
 }
 
 #battery {
   padding-right: 15px;
-}
-
-#custom-updates {
-  font-size: 17px;
-}
-
-#custom-bluetooth {
-  padding-right: 8px;
-}
-
-#power-profiles-daemon {
-  padding-left: 5px;
-  font-size: 19px;
-}
-
-#idle_inhibitor {
-  font-size: 17px;
-  padding-right: 12px;
-  padding-left: 8px;
 }
 
 /* Workspaces styling */

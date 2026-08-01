@@ -18,6 +18,7 @@ bindsym $mod+Shift+t exec $toggle_system_theme
 bindsym $mod+r exec $rand_wallpaper
 bindsym $mod+Shift+o exec $mirroring
 bindsym $mod+Shift+m exec $system_menu
+bindsym $mod+Shift+e exec rofi -no-show-icons -modi emoji -show emoji
 
 floating_modifier $mod normal
 bindsym $mod+space input "type:keyboard" xkb_switch_layout next
