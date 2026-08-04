@@ -278,6 +278,8 @@ sudo systemctl enable --now power-profiles-daemon
 sudo systemctl enable sddm bluetooth cups fwupd
 
 systemctl --user enable --now pipewire pipewire-pulse wireplumber
+
+sudo rfkill unblock bluetooth
 ```
 
 ### 2. Deploy Dotfiles
