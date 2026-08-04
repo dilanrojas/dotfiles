@@ -130,7 +130,6 @@ window#waybar>box {
 
 #workspaces button.visible {
   opacity: 1;
-  color: @accent;
 }
 
 #workspaces button:hover:not(.visible) {
