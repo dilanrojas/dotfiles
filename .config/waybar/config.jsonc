@@ -15,15 +15,8 @@
     "clock"
   ],
   "modules-right": [
-    "tray",
-    "sway/scratchpad",
-    "sway/language",
-    "custom/updates",
-    "power-profiles-daemon",
-    "custom/dnd",
-    "network",
-    "pulseaudio",
-    "battery"
+    "group/expand",
+    "group/system"
   ],
   // Modules configuration
   "sway/workspaces": {
@@ -222,5 +215,34 @@
     "format": "",
     "tooltip": false,
     "on-click": "alacritty --class float -e bluetui"
+  },
+  "group/system": {
+    "orientation": "horizontal",
+    "modules": [
+      "sway/language",
+      "network",
+      "pulseaudio",
+      "battery"
+    ]
+  },
+  "group/expand": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 500,
+      "children-class": "drawer-child",
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "custom/menu-trigger",
+      "tray",
+      "sway/scratchpad",
+      "power-profiles-daemon",
+      "custom/dnd",
+      "custom/updates"
+    ]
+  },
+  "custom/menu-trigger": {
+    "format": "",
+    "tooltip": false
   }
 }

@@ -3,7 +3,7 @@
 # -------------
 
 # Wallpaper
-output * bg ~/Pictures/wallpapers/237.jpg fill
+output * bg ~/Pictures/wallpapers/244.jpg fill
 
 # Borders
 default_border pixel 2

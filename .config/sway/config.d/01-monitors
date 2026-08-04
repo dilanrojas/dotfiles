@@ -4,7 +4,7 @@
 
 output eDP-1 {
     scale 1
-    adaptive_sync off
+    adaptive_sync on
     allow_tearing on
     scale_filter linear
     position 0,0

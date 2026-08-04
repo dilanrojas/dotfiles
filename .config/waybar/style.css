@@ -36,6 +36,7 @@ window#waybar>box {
 }
 
 /* Modules styling */
+#custom-menu-trigger,
 #custom-separator,
 #custom-bluetooth,
 #custom-menu,
@@ -55,9 +56,9 @@ window#waybar>box {
 #custom-dnd,
 #custom-power {
   margin: 0px 0px;
-  padding: 0px 9px;
+  padding: 0px 7px;
   font-size: 18px;
-  font-family: 'JetBrainsMono Nerd Font Propo', sans-serif;
+  font-family: 'CaskaydiaCove Nerd Font Propo', sans-serif;
   font-weight: 500;
   border-radius: 0px;
   border: none;
@@ -65,9 +66,6 @@ window#waybar>box {
   color: @fg;
 }
 
-#language,
-#workspaces,
-#clock,
 #tray {
   font-family: 'Adwaita Sans';
 }
@@ -100,6 +98,11 @@ window#waybar>box {
   padding-right: 15px;
 }
 
+#custom-menu-trigger {
+  font-size: 14px;
+  opacity: .6;
+}
+
 /* Workspaces styling */
 #workspaces {
   padding: 0;
@@ -114,7 +117,7 @@ window#waybar>box {
   border: none;
   color: inherit;
   box-shadow: none;
-  opacity: .7;
+  opacity: .8;
 }
 
 #workspaces button.urgent {
@@ -122,16 +125,16 @@ window#waybar>box {
 }
 
 #workspaces button.empty {
-  opacity: .4
+  opacity: .5
 }
 
 #workspaces button.visible {
   opacity: 1;
-  /* color: @accent; */
+  color: @accent;
 }
 
 #workspaces button:hover:not(.visible) {
-  opacity: .8
+  opacity: 1
 }
 
 tooltip {

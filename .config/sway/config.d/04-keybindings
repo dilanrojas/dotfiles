@@ -86,6 +86,8 @@ bindsym $mod+Shift+u move scratchpad
 
 bindsym $mod+u scratchpad show
 
+bindsym XF86Calculator exec gnome-calculator
+
 bindsym $mod+Control+$left resize shrink width 50px
 bindsym $mod+Control+$right resize grow width 50px
 bindsym $mod+Control+$up resize grow height 50px

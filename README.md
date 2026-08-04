@@ -140,7 +140,7 @@ sudo pacman -S sway-contrib swaybg swayidle swayosd wmname sddm hyprpicker qt6ct
   ripgrep fd fzf luarocks gcc lazygit git udiskie udisks2 libappindicator unzip unrar wget curl \
   mlocate fastfetch python-pipx gnome-keyring seahorse libsecret ksshaskpass ttf-opensans breeze \
   dunst libnotify rofi wireless-regdb playerctl papirus-icon-theme jq parted fwupd fwupd-efi \
-  gnome-firmware wlsunset gvfs-mtp yazi ueberzugpp loupe swappy
+  gnome-firmware wlsunset gvfs-mtp yazi ueberzugpp loupe swappy flatpak
 ```
 
 

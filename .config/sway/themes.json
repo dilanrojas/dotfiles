@@ -39,7 +39,7 @@
     }
   },
   "catppuccin": {
-    "wallpaper": "192.jpg",
+    "wallpaper": "056.jpg",
     "neovim_scheme": "catppuccin-mocha",
     "alacritty_theme": "catppuccin.toml",
     "palette": {
@@ -47,7 +47,7 @@
     }
   },
   "gruvbox-hard": {
-    "wallpaper": "237.jpg",
+    "wallpaper": "244.jpg",
     "neovim_scheme": "gruvbox",
     "alacritty_theme": "gruvbox-hard.toml",
     "palette": {
