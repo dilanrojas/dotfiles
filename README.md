@@ -133,7 +133,7 @@ yay -S swayfx swaylock-effects
 
 sudo pacman -S sway-contrib swaybg swayidle swayosd wmname sddm hyprpicker qt6ct qt5ct waybar \
   nwg-look nwg-displays adw-gtk-theme polkit-gnome xdg-desktop-portal-wlr xdg-desktop-portal-gtk \
-  alacritty fish starship lsd bat nautilus gnome-disk-utility loupe showtime gnome-text-editor \
+  alacritty fish starship lsd bat nautilus gnome-disk-utility loupe celluloid gnome-text-editor \
   gnome-calendar gnome-clocks gnome-calculator papers grim slurp cliphist neovim nano \
   brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd \
   woff2-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm \
