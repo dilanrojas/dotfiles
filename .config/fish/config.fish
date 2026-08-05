@@ -53,6 +53,7 @@ set -gx PATH $HOME/.local/bin $PATH
 
 set -Ux QT_QPA_PLATFORMTHEME qt6ct
 set -Ux _JAVA_AWT_WM_NONREPARENTING 1
+set -Ux WLR_SCENE_DISABLE_DIRECT_SCANOUT 1
 
 set -gx EDITOR nvim
 set -gx VISUAL nvim
