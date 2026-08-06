@@ -277,7 +277,7 @@ sudo systemctl enable --now power-profiles-daemon
 ```bash
 sudo systemctl enable sddm bluetooth cups fwupd
 
-systemctl --user enable --now pipewire pipewire-pulse wireplumber
+systemctl --user enable --now pipewire pipewire-pulse wireplumber xdg-user-dirs
 
 sudo rfkill unblock bluetooth
 ```
