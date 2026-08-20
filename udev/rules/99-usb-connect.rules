@@ -1,0 +1,1 @@
+ACTION=="add", SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{authorized}=="1", RUN+="/usr/local/bin/on-usb-connect.sh"

@@ -1,6 +1,6 @@
-# Sway Dotfiles
+# Hyprland Dotfiles
 
-A sleek, productive Sway environment with a focus on a full DE experience while being minimal.
+A sleek, productive Hyprland environment with a focus on a full DE experience while being minimal.
 
 ## Preview
 
@@ -14,7 +14,7 @@ A sleek, productive Sway environment with a focus on a full DE experience while 
 - [Themes](#themes)
 - [Core Components](#-core-components)
 - [List of Packages](#-list-of-packages)
-  - [Sway \& Desktop](#-sway--desktop)
+  - [Hyprland \& Desktop](#-hyprland--desktop)
   - [Audio \& Connectivity](#-audio--connectivity)
   - [Xorg, Graphics \& Gaming](#-xorg-graphics--gaming)
   - [Setup zram](#setup-zram)
@@ -37,53 +37,77 @@ The `SUPER` key (Windows key) is your primary modifier, referred to as `$mod` be
 
 | Keybind | Action |
 | --- | --- |
-| `$mod` + `Return` | Open Terminal |
-| `$mod` + `q` | Kill active window |
-| `$mod` + `m` | Open Menu (App Launcher) |
-| `$mod` + `b` | Open Web Browser |
-| `$mod` + `e` | Open File Manager |
-| `$mod` + `p` | Open Colorpicker |
-| `$mod` + `Shift` + `b` | Open Bluetooth Manager (`bluetui`) |
-| `$mod` + `Shift` + `w` | Open Network Manager (`nmtui`) |
-| `$mod` + `v` | Open Clipboard History |
-| `$mod` + `n` | Toggle Do Not Disturb (`dnd`) |
-| `$mod` + `Shift` + `p` | Change Power Profile |
-| `$mod` + `t` | Change Sway Theme |
-| `$mod` + `Shift` + `t` | Toggle System Theme (Dark/Light) |
-| `$mod` + `r` | Change Random Wallpaper |
-| `$mod` + `Shift` + `o` | Toggle Display Mirroring |
-| `$mod` + `c` | Open Scripts Menu |
-| `$mod` + `Shift` + `r` | Reload Sway Configuration |
-| `$mod` + `Shift` + `q` | Open Logout Menu |
-| `Print` | Take Screenshot |
-| `$mod` + `s` | Take Screenshot (Crop / Selection) |
-| `$mod` + `shift` + `s` | Open screenshot menu |
-| `$mod` + `Shift` `m` | Open System menu |
+| `SUPER` + `RETURN` | Open Terminal (`alacritty`) |
+| `SUPER` + `E` | Open File Manager (`nautilus`) |
+| `SUPER` + `B` | Open Web Browser (`brave`) |
+| `SUPER` + `M` | Open App Launcher (`rofi`) |
+| `SUPER` + `P` | Open Color Picker (`hyprpicker`) |
+| `SUPER` + `SPACE` | Switch Keyboard Layout |
+| `SUPER` + `V` | Open Clipboard History |
+| `SUPER` + `R` | Toggle Night Light |
+| `SUPER` + `N` | Toggle Do Not Disturb |
+| `SUPER` + `SHIFT` + `N` | Open Notification History |
+| `SUPER` + `SHIFT` + `B` | Open Bluetooth Manager (`bluetui`) |
+| `SUPER` + `SHIFT` + `W` | Open Network Manager (`wlctl`) |
+| `SUPER` + `SHIFT` + `P` | Change Power Profile |
+| `SUPER` + `SHIFT` + `Q` | Open Power Menu |
+| `SUPER` + `SHIFT` + `R` | Reload Desktop |
+| `SUPER` + `SHIFT` + `T` | Change System Theme |
+| `SUPER` + `T` | Change Hyprland Theme |
+| `SUPER` + `SHIFT` + `M` | Open System Menu |
+| `SUPER` + `CONTROL` + `W` | Open Wallpaper Picker |
+| `SUPER` + `S` | Crop/Window Screenshot |
+| `SUPER` + `SHIFT` + `S` / `PRINT` | Screenshot menu (Full Screen) |
 
-### Window Management & Navigation
+### Window Management & Layout
 
 | Keybind | Action |
 | --- | --- |
-| `$mod` + `Arrow` / `Vim Keys` | Focus Window (Left/Down/Up/Right) |
-| `$mod` + `Shift` + `Arrow` / `Vim Keys` | Move Window (Left/Down/Up/Right) |
-| `$mod` + `Control` + `Arrow` | Resize Active Window |
-| `$mod` + `1` to `0` | Switch to Workspace 1–10 |
-| `$mod` + `Shift` + `1` to `0` | Move Container to Workspace 1–10 |
-| `$mod` + `f` | Toggle Fullscreen |
-| `$mod` + `Shift` + `f` | Toggle Floating Mode |
-| `$mod` + `space` | Switch Keyboard Layout |
-| `$mod` + `u` | Show Scratchpad |
-| `$mod` + `Shift` + `u` | Move Window to Scratchpad |
+| `SUPER` + `Q` | Close Active Window |
+| `SUPER` + `F` | Toggle Fullscreen |
+| `SUPER` + `SHIFT` + `F` | Toggle Floating |
+| `SUPER` + `O` | Toggle Pseudo Tiling |
+| `SUPER` + `I` | Toggle Split |
+| `SUPER` + `W` | Cycle Focus Between Floating and Tiled Windows |
+| `SUPER` + `H` / `J` / `K` / `L` | Move Focus (Left / Down / Up / Right) |
+| `SUPER` + `SHIFT` + `H` / `J` / `K` / `L` | Move Active Window (Left / Down / Up / Right) |
+| `SUPER` + `CTRL` + `H` / `J` / `K` / `L` | Resize Active Window |
+| `SUPER` + `LMB` (Drag) | Move Window |
+| `SUPER` + `RMB` (Drag) | Resize Window |
+
+### Workspaces & Scratchpad
+
+| Keybind | Action |
+| --- | --- |
+| `SUPER` + `1`–`0` | Switch to Workspace 1–10 |
+| `SUPER` + `SHIFT` + `1`–`0` | Move Window to Workspace 1–10 |
+| `SUPER` + `U` | Toggle Special Workspace (Scratchpad) |
+| `SUPER` + `SHIFT` + `U` | Move Window to Special Workspace |
+| `SUPER` + `Scroll Up` / `Down` | Cycle Workspaces |
+
+### Media & Hardware Controls
+
+| Keybind | Action |
+| --- | --- |
+| `XF86AudioRaiseVolume` / `SUPER` + `F3` | Increase Volume |
+| `XF86AudioLowerVolume` / `SUPER` + `F2` | Decrease Volume |
+| `XF86AudioMute` / `SUPER` + `F1` | Toggle Volume Mute |
+| `XF86AudioMicMute` / `SUPER` + `F4` | Toggle Mic Mute |
+| `XF86MonBrightnessUp` / `SUPER` + `F6` | Increase Brightness |
+| `XF86MonBrightnessDown` / `SUPER` + `F5` | Decrease Brightness |
+| `XF86AudioPlay` / `Pause` / `SUPER` + `F10` / `F11` | Play / Pause Media |
+| `XF86AudioNext` / `SUPER` + `F12` | Next Track |
+| `XF86AudioPrev` / `SUPER` + `F9` | Previous Track |
 
 ---
 
 ## Themes
 
-Press `$mod` + `t` to open the Sway theme picker.
+Press `$mod` + `t` to open the Hyprland theme picker.
 
 To add more themes:
 
-1. Add an entry to `~/.config/sway/themes.json`.
+1. Add an entry to `~/.config/hypr/themes.json`.
 2. Add a matching Alacritty theme in `~/.config/alacritty/themes`.
 3. Add a matching Neovim theme in `~/.config/nvim/lua/plugins/themes.lua`.
 
@@ -93,7 +117,7 @@ To add more themes:
 
 | Component | Tool |
 | --- | --- |
-| Window Manager | [Sway](https://swaywm.org/) |
+| Window Manager | [Hyprland](https://hypr.land/) |
 | Bar | [Waybar](https://github.com/Alexays/Waybar) |
 | Shell | [Fish](https://fishshell.com/) with [Starship](https://starship.rs/) |
 | Terminal | [Alacritty](https://alacritty.org/) |
@@ -107,7 +131,7 @@ To add more themes:
 
 ## 📦 List of Packages
 
-### ❄️ Sway & Desktop
+### ❄️ Hyprland & Desktop
 
 **AUR Helper**
 
@@ -129,10 +153,8 @@ rate-mirrors --allow-root --protocol https arch | grep -v '#' | sudo tee /etc/pa
 **Core environment** — fonts, UI tools:
 
 ```bash
-yay -S swayfx swaylock-effects
-
-sudo pacman -S sway-contrib swaybg swayidle swayosd wmname sddm hyprpicker qt6ct qt5ct waybar \
-  nwg-look nwg-displays adw-gtk-theme polkit-gnome xdg-desktop-portal-wlr xdg-desktop-portal-gtk \
+sudo pacman -S hyprland hyprpaper hypridle hyprlock hyprsunset swayosd sddm hyprpicker qt6ct qt5ct waybar \
+  nwg-look nwg-displays adw-gtk-theme polkit-gnome xdg-desktop-portal-hyprland xdg-desktop-portal-gtk \
   alacritty fish starship lsd bat nautilus gnome-disk-utility loupe celluloid gnome-text-editor \
   gnome-calendar gnome-clocks gnome-calculator papers grim slurp cliphist neovim nano \
   brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd \
@@ -140,7 +162,7 @@ sudo pacman -S sway-contrib swaybg swayidle swayosd wmname sddm hyprpicker qt6ct
   ripgrep fd fzf luarocks gcc lazygit git udiskie udisks2 libappindicator unzip unrar wget curl \
   mlocate fastfetch python-pipx gnome-keyring seahorse libsecret ksshaskpass ttf-opensans breeze \
   dunst libnotify rofi wireless-regdb playerctl papirus-icon-theme jq parted fwupd fwupd-efi \
-  gnome-firmware wlsunset gvfs-mtp yazi ueberzugpp loupe swappy flatpak
+  gnome-firmware gvfs-mtp yazi ueberzugpp loupe swappy flatpak pulsemixer
 ```
 
 
@@ -157,8 +179,8 @@ sudo pacman -S libreoffice-still libreoffice-still-es ttf-caladea ttf-carlito \
 **Fonts & basic apps**
 
 ```bash
-yay -S ttf-plemoljp-bin waybar-module-pacman-updates-git brave-bin ttf-ms-fonts \
-  downgrade wayfreeze lswt appimagelauncher wlctl-bin pfetch --noconfirm
+yay -S ttf-plemoljp-bin ttf-ibmplex-mono-nerd waybar-module-pacman-updates-git brave-bin ttf-ms-fonts \
+  downgrade lswt appimagelauncher wlctl-bin pfetch yaru-icon-theme grimblast-git --noconfirm
 ```
 
 ```bash
@@ -289,9 +311,6 @@ sudo rfkill unblock bluetooth
 cp -r dotfiles/.config $HOME/
 cp -r dotfiles/.local $HOME/
 
-# Clone wallpapers
-git clone https://github.com/dilanrojas/wallpapers.git $HOME/Pictures/wallpapers
-
 # Set default shell
 sudo usermod --shell /usr/bin/fish $USER
 sudo usermod --shell /usr/bin/fish root
@@ -304,20 +323,6 @@ xdg-user-dirs-update
 
 # Finalize theme & updatedb for locate
 sudo updatedb
-```
-
-### Configuring Persistent Workspaces in Waybar
-
-Get your primary monitor name:
-
-```bash
-swaymsg -t get_outputs
-```
-
-Then update your Waybar config — locate the `workspaces` module and set the values accordingly:
-
-```bash
-nvim ~/.config/waybar/config.json
 ```
 
 ### 3. SDDM & Font Rendering (Optional)

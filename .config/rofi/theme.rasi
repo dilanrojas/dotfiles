@@ -1,0 +1,14 @@
+* {
+    accent: #de6145;
+    bg-primary: #101315;
+    bg-primary-opacity: #101315e6;
+
+    bg-secondary: #080a0b;
+
+    fg: #cacccc;
+    fg-secondary: #21222C;
+
+    error: #ff7878;
+
+    rounding: 0px;
+}

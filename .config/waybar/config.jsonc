@@ -1,0 +1,214 @@
+// -*- mode: jsonc -*-
+{
+  // "layer": "top",
+  "reload_style_on_change": true,
+  // "position": "bottom",
+  "height": 32,
+  // "width": 1280,
+  "spacing": 0,
+  "modules-left": [
+    "hyprland/workspaces"
+    // "hyprland/window"
+  ],
+  "modules-center": [
+    "clock"
+  ],
+  "modules-right": [
+    "group/expand",
+    "tray",
+    "group/system"
+  ],
+  // Modules configuration
+  "hyprland/workspaces": {
+    "format": "{icon}",
+    "format-icons": {
+      "1": "1",
+      "2": "2",
+      "3": "3",
+      "4": "4",
+      "5": "5",
+      "6": "6",
+      "7": "7",
+      "8": "8",
+      "9": "9",
+      "10": "10",
+      "active": ""
+      //"urgent": ""
+    },
+    "persistent-workspaces": {
+      "*": 5,
+      "HDMI-A-1": 5
+    }
+  },
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "US",
+    "format-es": "LA",
+    "on-click": "hyprctl switchxkblayout all next"
+  },
+  "idle_inhibitor": {
+    "format": "{icon}",
+    "format-icons": {
+      "activated": "",
+      "deactivated": ""
+    }
+  },
+  "tray": {
+    "icon-size": 18,
+    "spacing": 16
+  },
+  "clock": {
+    "format": "{:%a %b %d  %I:%M %p}",
+    "on-click": "gnome-calendar",
+    "tooltip": false
+  },
+  "battery": {
+    "format": "{icon}",
+    "format-full": "{icon}",
+    "format-charging": "{icon}",
+    "format-plugged": "{icon}",
+    "states": {
+      "warning": 20,
+      "critical": 10
+    },
+    "format-icons": [
+      "󰂎",
+      "󰁺",
+      "󰁻",
+      "󰁼",
+      "󰁽",
+      "󰁾",
+      "󰁿",
+      "󰂀",
+      "󰂁",
+      "󰂂",
+      "󰁹"
+    ],
+    "interval": 3,
+    "tooltip": true,
+    "tooltip-format": "{capacity}%",
+    "on-click": "bash ~/.config/hypr/scripts/power_profile.sh",
+    "on-scroll-up": "bash ~/.config/hypr/scripts/osd.sh brightness increase",
+    "on-scroll-down": "bash ~/.config/hypr/scripts/osd.sh brightness decrease",
+    "scroll-step": 5
+  },
+  "power-profiles-daemon": {
+    "format": "{icon}",
+    "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+    "tooltip": true,
+    "format-icons": {
+      "performance": "󰓅",
+      "balanced": "󰾅",
+      "power-saver": "󰾆"
+    }
+  },
+  "custom/updates": {
+    "format": " {}",
+    "return-type": "json",
+    "tooltip": false,
+    "on-click": "~/.config/hypr/scripts/update_system.sh",
+    "exec-if": "which waybar-module-pacman-updates",
+    "exec": "waybar-module-pacman-updates --interval-seconds 5 --network-interval-seconds 300"
+  },
+  "network": {
+    "format-icons": [
+      "󰤯",
+      "󰤟",
+      "󰤢",
+      "󰤥",
+      "󰤨"
+    ],
+    "format": "{icon}",
+    "format-wifi": "{icon}",
+    "format-ethernet": "󰀂",
+    "format-disconnected": "󰤮",
+    "tooltip-format-wifi": "{essid} ({frequency} GHz)",
+    "tooltip-format-ethernet": "Connected",
+    "tooltip-format-disconnected": "Disconnected",
+    "interval": 3,
+    "spacing": 1,
+    "on-click": "alacritty --class float -e wlctl"
+  },
+  "pulseaudio": {
+    "format": "{icon}",
+    "format-muted": "",
+    "format-icons": {
+      "headphone": "",
+      "headset": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pamixer --toggle-mute",
+    "on-click-right": "alacritty --class float -e pulsemixer",
+    "tooltip": true,
+    "tooltip-format": "{volume}%",
+    "on-scroll-up": "bash ~/.config/hypr/scripts/osd.sh volume increase",
+    "on-scroll-down": "bash ~/.config/hypr/scripts/osd.sh volume decrease",
+    "scroll-step": 5
+  },
+  "custom/separator": {
+    "format": "⋮",
+    "tooltip": false
+  },
+  "custom/dnd": {
+    "exec": "~/.config/waybar/scripts/dnd-status.sh",
+    "return-type": "json",
+    "interval": 30,
+    "signal": 8,
+    "on-click-right": "~/.config/hypr/scripts/notification_history.sh",
+    "on-click": "~/.config/hypr/scripts/dnd.sh",
+    "format": "{icon}",
+    "format-icons": {
+      "dnd-on": "󰂛",
+      "dnd-off": "󰂚"
+    }
+  },
+  "custom/menu": {
+    "format": "󰣇",
+    "tooltip": false,
+    "on-click": "~/.config/hypr/scripts/system_menu.sh"
+  },
+  "custom/bluetooth": {
+    "format": "",
+    "tooltip": false,
+    "on-click": "alacritty --class float -e bluetui"
+  },
+  "group/system": {
+    "orientation": "horizontal",
+    "modules": [
+      "hyprland/language",
+      "custom/dnd",
+      "network",
+      "pulseaudio",
+      "battery"
+    ]
+  },
+  "group/expand": {
+    "orientation": "horizontal",
+    "drawer": {
+      "transition-duration": 0,
+      "children-class": "drawer-child",
+      "transition-left-to-right": true
+    },
+    "modules": [
+      "custom/menu-trigger",
+      "power-profiles-daemon",
+      "custom/updates"
+    ]
+  },
+  "group/extra": {
+    "orientation": "horizontal",
+    "modules": [
+      "tray",
+      "power-profiles-daemon",
+      "custom/updates"
+    ]
+  },
+  "custom/menu-trigger": {
+    "format": "",
+    "tooltip": false
+  }
+}

@@ -1,0 +1,43 @@
+"$schema" = 'https://starship.rs/config-schema.json'
+
+scan_timeout = 200
+
+format = """
+╭─ $username$directory$git_branch$git_status
+╰─$character"""
+
+[line_break]
+disabled = false
+
+[azure]
+symbol = "☁️ "
+
+[erlang]
+symbol = "ⓔ "
+
+[nodejs]
+symbol = "[⬢](bold green) "
+
+[pulumi]
+symbol = "🧊 "
+
+[username]
+show_always = true
+
+[time]
+disabled = false
+format = "[ $time]($style)"
+time_format = "%I:%M %p"
+utc_time_offset = "local"
+style = "italic dimmed white"
+
+[battery]
+format = "[ $percentage $symbol]($style)"
+full_symbol = "█"
+charging_symbol = "[↑](italic bold green)"
+discharging_symbol = "↓"
+unknown_symbol = "░"
+empty_symbol = "▃"
+
+[status]
+symbol = " "

@@ -1,0 +1,5 @@
+# This file contains fish universal variable definitions.
+# VERSION: 3.0
+SETUVAR --export QT_QPA_PLATFORMTHEME:qt6ct
+SETUVAR --export WLR_SCENE_DISABLE_DIRECT_SCANOUT:1
+SETUVAR --export _JAVA_AWT_WM_NONREPARENTING:1
