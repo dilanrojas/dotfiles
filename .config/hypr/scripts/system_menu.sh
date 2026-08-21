@@ -22,6 +22,7 @@ ITEMS=(
   "  Scripts Folder::$TERMINAL nvim $CFG/scripts"
   "󰂚  Notification History::$SCRIPTS/notification_history.sh"
   "󰌁  Toggle Effects::$SCRIPTS/toggle_effects.sh"
+  "  Smart Gaps::$SCRIPTS/toggle_smart_gaps.sh"
 )
 
 MENU=()
