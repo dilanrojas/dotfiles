@@ -134,7 +134,7 @@ eval "$(
 )"
 
 ACCENT_HEX="${ACCENT#\#}"
-BG_HEX="${ACCENT#\#}"
+BG_HEX="${BG#\#}"
 
 # Store the current theme
 cat >"$CURRENT_THEME_FILE" <<EOF
@@ -201,7 +201,7 @@ sed -i "s/\(import[[:space:]]*=[[:space:]]*\[\"[.\/]*themes\/\).*/\1$ALACRITTY_T
 # Hyprland
 # ------------------------------------------------------------------------------
 sed -i -E "/^[[:space:]]*active_border/s/rgba\([0-9a-fA-F]{6,8}\)/rgba(${ACCENT_HEX}ff)/" "$LOOKS_FILE"
-sed -i -E "/inactive_border/s/rgba\([0-9a-fA-F]{6,8}\)/rgba(${BG_HEX}40)/" "$LOOKS_FILE"
+sed -i -E "/inactive_border/s/rgba\([0-9a-fA-F]{6,8}\)/rgba(${BG_HEX}ff)/" "$LOOKS_FILE"
 
 # ------------------------------------------------------------------------------
 # SwayOSD

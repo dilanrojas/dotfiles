@@ -160,11 +160,26 @@ sudo pacman -S hyprland hyprpaper hypridle hyprlock hyprsunset swayosd sddm hypr
   brightnessctl pamixer ttf-jetbrains-mono-nerd ttf-cascadia-code-nerd ttf-iosevkaterm-nerd \
   woff2-font-awesome noto-fonts-emoji dconf-editor kcolorchooser libsecret ruby nodejs npm \
   ripgrep fd fzf luarocks gcc lazygit git udiskie udisks2 libappindicator unzip unrar wget curl \
-  mlocate fastfetch python-pipx gnome-keyring seahorse libsecret ksshaskpass ttf-opensans breeze \
+  mlocate fastfetch python-pipx gnome-keyring seahorse ksshaskpass ttf-opensans breeze \
   dunst libnotify rofi wireless-regdb playerctl papirus-icon-theme jq parted fwupd fwupd-efi \
   gnome-firmware gvfs-mtp yazi ueberzugpp loupe swappy flatpak pulsemixer
 ```
 
+**Dev Tools + AI**
+
+```bash
+# Utilities
+sudo pacman -S opencode git-delta
+
+# Configure git
+git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
+
+# Git diff visualizer
+git config --global core.pager delta
+git config --global interactive.diffFilter 'delta --color-only'
+git config --global delta.navigate true
+git config --global delta.side-by-side true
+```
 
 **LibreOffice Suite**
 
@@ -314,9 +329,6 @@ cp -r dotfiles/.local $HOME/
 # Set default shell
 sudo usermod --shell /usr/bin/fish $USER
 sudo usermod --shell /usr/bin/fish root
-
-# Configure git
-git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
 
 # Update user directories
 xdg-user-dirs-update

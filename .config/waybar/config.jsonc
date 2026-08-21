@@ -178,8 +178,8 @@
   "group/system": {
     "orientation": "horizontal",
     "modules": [
-      "hyprland/language",
       "tray",
+      "hyprland/language",
       "network",
       "pulseaudio",
       "battery"
@@ -195,6 +195,7 @@
     "modules": [
       "custom/menu-trigger",
       "power-profiles-daemon",
+      "custom/bluetooth",
       "custom/dnd",
       "custom/updates"
     ]

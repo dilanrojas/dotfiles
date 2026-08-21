@@ -30,7 +30,7 @@ hl.config({
 		hide_on_key_press = false,
 		warp_on_change_workspace = 0,
 		no_hardware_cursors = 0,
-		no_break_fs_vrr = 2,
+		no_break_fs_vrr = 0,
 		inactive_timeout = 10,
 	},
 })

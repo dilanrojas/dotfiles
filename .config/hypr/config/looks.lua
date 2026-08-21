@@ -12,7 +12,7 @@ hl.config({
 
 		col = {
 			active_border = { colors = { "rgba(de6145ff)" } },
-			inactive_border = "rgba(de614540)",
+			inactive_border = "rgba(101315ff)",
 		},
 
 		resize_on_border = false,
@@ -58,6 +58,22 @@ hl.config({
 	},
 })
 
+-- Smart gaps
+-- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
+-- hl.workspace_rule({ workspace = "f[1]", gaps_out = 0, gaps_in = 0 })
+-- hl.window_rule({
+-- 	name = "no-gaps-wtv1",
+-- 	match = { float = false, workspace = "w[tv1]" },
+-- 	border_size = 0,
+-- 	rounding = 0,
+-- })
+-- hl.window_rule({
+-- 	name = "no-gaps-f1",
+-- 	match = { float = false, workspace = "f[1]" },
+-- 	border_size = 0,
+-- 	rounding = 0,
+-- })
+
 -- Default animations, see https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
 hl.curve("easeOutQuint", { type = "bezier", points = { { 0.23, 1 }, { 0.32, 1 } } })
 hl.curve("easeInOutCubic", { type = "bezier", points = { { 0.65, 0.05 }, { 0.36, 1 } } })
@@ -86,23 +102,6 @@ hl.animation({
 	bezier = "easeOutQuint",
 	style = "slide",
 })
-
--- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
--- "Smart gaps" / "No gaps when only"
--- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
--- hl.workspace_rule({ workspace = "f[1]", gaps_out = 0, gaps_in = 0 })
--- hl.window_rule({
--- 	name = "no-gaps-wtv1",
--- 	match = { float = false, workspace = "w[tv1]" },
--- 	border_size = 0,
--- 	rounding = 0,
--- })
--- hl.window_rule({
--- 	name = "no-gaps-f1",
--- 	match = { float = false, workspace = "f[1]" },
--- 	border_size = 0,
--- 	rounding = 0,
--- })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({

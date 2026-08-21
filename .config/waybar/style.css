@@ -77,8 +77,15 @@ window#waybar>box {
   opacity: 0.4;
 }
 
-#tray {
-  font-weight: 400;
+#language,
+#tray,
+#clock {
+  font-family: 'Adwaita Sans';
+}
+
+#tray,
+#language,
+#clock {
   font-size: 16px;
 }
 
