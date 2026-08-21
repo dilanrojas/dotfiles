@@ -178,7 +178,7 @@
   },
   "ember": {
     "label": "Ember",
-    "wallpaper": "02-ember.jpg",
+    "wallpaper": "04-ember.jpg",
     "neovim_scheme": "ember",
     "alacritty_theme": "ember.toml",
     "palette": {

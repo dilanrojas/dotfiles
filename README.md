@@ -162,7 +162,7 @@ sudo pacman -S hyprland hyprpaper hypridle hyprlock hyprsunset swayosd sddm hypr
   ripgrep fd fzf luarocks gcc lazygit git udiskie udisks2 libappindicator unzip unrar wget curl \
   mlocate fastfetch python-pipx gnome-keyring seahorse ksshaskpass ttf-opensans breeze \
   dunst libnotify rofi wireless-regdb playerctl papirus-icon-theme jq parted fwupd fwupd-efi \
-  gnome-firmware gvfs-mtp yazi ueberzugpp loupe swappy flatpak pulsemixer
+  gnome-firmware gvfs-mtp yazi ueberzugpp loupe swappy flatpak pulsemixer gpu-screen-recorder
 ```
 
 **Dev Tools + AI**

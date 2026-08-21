@@ -4,7 +4,7 @@
   "reload_style_on_change": true,
   // "position": "bottom",
   "height": 32,
-  // "width": 1280,
+  // "width": 1000,
   "spacing": 0,
   "modules-left": [
     "hyprland/workspaces"
@@ -14,6 +14,7 @@
     "clock"
   ],
   "modules-right": [
+    "custom/screenrecord",
     "group/expand",
     "group/system"
   ],
@@ -203,5 +204,12 @@
   "custom/menu-trigger": {
     "format": "",
     "tooltip": false
+  },
+  "custom/screenrecord": {
+    "exec": "~/.config/waybar/scripts/screenrecord-status.sh",
+    "return-type": "json",
+    "interval": 1,
+    "signal": 9,
+    "on-click": "~/.config/hypr/scripts/screenrecord.sh stop"
   }
 }

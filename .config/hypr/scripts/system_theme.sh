@@ -5,9 +5,7 @@ QT5_CONFIG="$HOME/.config/qt5ct/qt5ct.conf"
 QT6_CONFIG="$HOME/.config/qt6ct/qt6ct.conf"
 
 GTK_LIGHT="adw-gtk3"
-ICONS_LIGHT="Yaru-blue"
 GTK_DARK="adw-gtk3-dark"
-ICONS_DARK="Yaru-blue-dark"
 
 # Ensure the config files exist before proceeding
 if [ ! -f "$QT5_CONFIG" ]; then
@@ -48,7 +46,6 @@ dark)
 
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
   gsettings set org.gnome.desktop.interface gtk-theme "$GTK_DARK"
-  gsettings set org.gnome.desktop.interface icon-theme "$ICONS_DARK"
   ;;
 
 light)
@@ -63,7 +60,6 @@ light)
 
   gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
   gsettings set org.gnome.desktop.interface gtk-theme "$GTK_LIGHT"
-  gsettings set org.gnome.desktop.interface icon-theme "$ICONS_LIGHT"
   ;;
 
 *)
