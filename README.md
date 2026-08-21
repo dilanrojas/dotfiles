@@ -169,7 +169,7 @@ sudo pacman -S hyprland hyprpaper hypridle hyprlock hyprsunset swayosd sddm hypr
 
 ```bash
 # Utilities
-sudo pacman -S opencode git-delta
+sudo pacman -S opencode git-delta python-pdftotext tesseract tesseract-data-eng tesseract-data-spa
 
 # Configure git
 git config --global credential.helper /usr/lib/git-core/git-credential-libsecret
