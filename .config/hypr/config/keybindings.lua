@@ -118,29 +118,57 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(osd .. " volume increase"), { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(osd .. " volume decrease"), { locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd(osd .. " volume toggle-mute"), { locked = true, repeating = true })
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(osd .. " mic toggle-mute"), { locked = true, repeating = true })
+-- hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd(osd .. " volume increase"), { locked = true, repeating = true })
+-- hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd(osd .. " volume decrease"), { locked = true, repeating = true })
+-- hl.bind("XF86AudioMute", hl.dsp.exec_cmd(osd .. " volume toggle-mute"), { locked = true, repeating = true })
+-- hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd(osd .. " mic toggle-mute"), { locked = true, repeating = true })
+--
+-- hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(osd .. " brightness increase"), { locked = true, repeating = true })
+-- hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(osd .. " brightness decrease"), { locked = true, repeating = true })
+--
+-- hl.bind("XF86AudioNext", hl.dsp.exec_cmd(osd .. " playerctl next"), { locked = true })
+-- hl.bind("XF86AudioPause", hl.dsp.exec_cmd(osd .. " playerctl play-pause"), { locked = true })
+-- hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(osd .. " playerctl play-pause"), { locked = true })
+-- hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(osd .. " playerctl previous"), { locked = true })
+--
+-- -- Keyboard media
+-- hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd(osd .. " volume toggle-mute"), { locked = true, repeating = true })
+-- hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd(osd .. " volume decrease"), { locked = true, repeating = true })
+-- hl.bind(mainMod .. " + F3", hl.dsp.exec_cmd(osd .. " volume increase"), { locked = true, repeating = true })
+-- hl.bind(mainMod .. " + F4", hl.dsp.exec_cmd(osd .. " mic toggle-mute"), { locked = true, repeating = true })
+--
+-- hl.bind(mainMod .. " + F5", hl.dsp.exec_cmd(osd .. " brightness decrease"), { locked = true, repeating = true })
+-- hl.bind(mainMod .. " + F6", hl.dsp.exec_cmd(osd .. " brightness increase"), { locked = true, repeating = true })
+--
+-- hl.bind(mainMod .. " + F12", hl.dsp.exec_cmd(osd .. " playerctl next"), { locked = true })
+-- hl.bind(mainMod .. " + F11", hl.dsp.exec_cmd(osd .. " playerctl play-pause"), { locked = true })
+-- hl.bind(mainMod .. " + F10", hl.dsp.exec_cmd(osd .. " playerctl play-pause"), { locked = true })
+-- hl.bind(mainMod .. " + F9", hl.dsp.exec_cmd(osd .. " playerctl previous"), { locked = true })
 
-hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd(osd .. " brightness increase"), { locked = true, repeating = true })
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd(osd .. " brightness decrease"), { locked = true, repeating = true })
+-- Media keys
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("pamixer -i 5"), { locked = true, repeating = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("pamixer -d 5"), { locked = true, repeating = true })
+hl.bind("XF86AudioMute", hl.dsp.exec_cmd("pamixer -t"), { locked = true, repeating = true })
+hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("pamixer --default-source -t"), { locked = true, repeating = true })
 
-hl.bind("XF86AudioNext", hl.dsp.exec_cmd(osd .. " playerctl next"), { locked = true })
-hl.bind("XF86AudioPause", hl.dsp.exec_cmd(osd .. " playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPlay", hl.dsp.exec_cmd(osd .. " playerctl play-pause"), { locked = true })
-hl.bind("XF86AudioPrev", hl.dsp.exec_cmd(osd .. " playerctl previous"), { locked = true })
+hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl set 5%+"), { locked = true, repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { locked = true, repeating = true })
+
+hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
+hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
 -- Keyboard media
-hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd(osd .. " volume toggle-mute"), { locked = true, repeating = true })
-hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd(osd .. " volume decrease"), { locked = true, repeating = true })
-hl.bind(mainMod .. " + F3", hl.dsp.exec_cmd(osd .. " volume increase"), { locked = true, repeating = true })
-hl.bind(mainMod .. " + F4", hl.dsp.exec_cmd(osd .. " mic toggle-mute"), { locked = true, repeating = true })
+hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd("pamixer -t"), { locked = true, repeating = true })
+hl.bind(mainMod .. " + F2", hl.dsp.exec_cmd("pamixer -d 5"), { locked = true, repeating = true })
+hl.bind(mainMod .. " + F3", hl.dsp.exec_cmd("pamixer -i 5"), { locked = true, repeating = true })
+hl.bind(mainMod .. " + F4", hl.dsp.exec_cmd("pamixer --default-source -t"), { locked = true, repeating = true })
 
-hl.bind(mainMod .. " + F5", hl.dsp.exec_cmd(osd .. " brightness decrease"), { locked = true, repeating = true })
-hl.bind(mainMod .. " + F6", hl.dsp.exec_cmd(osd .. " brightness increase"), { locked = true, repeating = true })
+hl.bind(mainMod .. " + F5", hl.dsp.exec_cmd("brightnessctl set 5%-"), { locked = true, repeating = true })
+hl.bind(mainMod .. " + F6", hl.dsp.exec_cmd("brightnessctl set 5%+"), { locked = true, repeating = true })
 
-hl.bind(mainMod .. " + F12", hl.dsp.exec_cmd(osd .. " playerctl next"), { locked = true })
-hl.bind(mainMod .. " + F11", hl.dsp.exec_cmd(osd .. " playerctl play-pause"), { locked = true })
-hl.bind(mainMod .. " + F10", hl.dsp.exec_cmd(osd .. " playerctl play-pause"), { locked = true })
-hl.bind(mainMod .. " + F9", hl.dsp.exec_cmd(osd .. " playerctl previous"), { locked = true })
+hl.bind(mainMod .. " + F12", hl.dsp.exec_cmd("playerctl next"), { locked = true })
+hl.bind(mainMod .. " + F11", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind(mainMod .. " + F10", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind(mainMod .. " + F9", hl.dsp.exec_cmd("playerctl previous"), { locked = true })

@@ -180,7 +180,6 @@
     "modules": [
       "hyprland/language",
       "tray",
-      "custom/dnd",
       "network",
       "pulseaudio",
       "battery"

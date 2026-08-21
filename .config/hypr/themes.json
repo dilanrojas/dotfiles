@@ -168,7 +168,7 @@
   },
   "nord": {
     "label": "Nordic",
-    "wallpaper": "05-nord.jpg",
+    "wallpaper": "04-nord.jpg",
     "neovim_scheme": "nordic",
     "alacritty_theme": "nord.toml",
     "palette": {
@@ -178,7 +178,7 @@
   },
   "ember": {
     "label": "Ember",
-    "wallpaper": "03-ember.jpg",
+    "wallpaper": "02-ember.jpg",
     "neovim_scheme": "ember",
     "alacritty_theme": "ember.toml",
     "palette": {

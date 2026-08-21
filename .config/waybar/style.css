@@ -28,7 +28,7 @@ window#waybar {
 window#waybar>box {
   margin: 0px;
   border-radius: 0px;
-  padding: 0px 0px;
+  padding: 0px 8px;
   opacity: 1;
   border: none;
   background: @bg;
@@ -53,30 +53,19 @@ window#waybar>box {
 #battery,
 #clock,
 #custom-dnd,
-#custom-power {
+#custom-power,
+#cpu,
+#memory,
+#temperature {
   margin: 0px 0px;
-  padding: 0px 8px;
-  font-size: 18px;
-  font-family: 'CaskaydiaCove Nerd Font Propo', sans-serif;
-  font-weight: 400;
+  padding: 0px 9px;
+  font-size: 17px;
+  font-family: 'BlexMono Nerd Font Propo', sans-serif;
+  font-weight: 500;
   border-radius: 0px;
   border: none;
   opacity: 1;
   color: @fg;
-}
-
-#language,
-#workspaces,
-#clock,
-#tray {
-  font-family: 'Adwaita Sans';
-}
-
-#workspaces,
-#clock,
-#language {
-  font-size: 15px;
-  font-weight: 500;
 }
 
 #custom-separator {
@@ -93,14 +82,6 @@ window#waybar>box {
   font-size: 16px;
 }
 
-#custom-menu {
-  padding-left: 15px;
-}
-
-#battery {
-  padding-right: 16px;
-}
-
 #custom-menu-trigger {
   font-size: 14px;
   opacity: .6;
@@ -110,11 +91,10 @@ window#waybar>box {
 #workspaces {
   padding: 0;
   margin: 0;
-  padding-left: 7px;
 }
 
 #workspaces button {
-  padding: 0px 0px;
+  padding: 0px 2px;
   margin: 0px;
   min-width: 30px;
   border: none;

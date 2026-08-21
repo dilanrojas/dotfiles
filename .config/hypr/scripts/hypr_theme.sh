@@ -22,7 +22,7 @@ if [ -z "$1" ]; then
   THEME=$(
     echo "$THEME_LIST" | rofi -no-show-icons -dmenu -p "Select Theme" -i \
       -display-columns 2 \
-      -theme-str 'window { width: 300px; height: 395px; }' |
+      -theme-str 'window { width: 300px; height: 405px; }' |
       cut -f1
   )
 

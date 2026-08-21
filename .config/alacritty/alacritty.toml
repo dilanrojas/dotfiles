@@ -31,23 +31,23 @@ multiplier = 3
 draw_bold_text_with_bright_colors = true
 
 [font]
-size = 13.5
+size = 14
 offset = { x = 0, y = 0 }
 
 [font.normal]
-family = "CaskaydiaCove Nerd Font"
-style = "Regular"
+family = "BlexMono Nerd Font"
+style = "Text"
 
 [font.bold]
-family = "CaskaydiaCove Nerd Font"
+family = "BlexMono Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "CaskaydiaCove Nerd Font"
-style = "Italic"
+family = "BlexMono Nerd Font"
+style = "Text Italic"
 
 [font.bold_italic]
-family = "CaskaydiaCove Nerd Font"
+family = "BlexMono Nerd Font"
 style = "Bold"
 
 [selection]
