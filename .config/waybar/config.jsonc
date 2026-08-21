@@ -15,7 +15,6 @@
   ],
   "modules-right": [
     "group/expand",
-    "tray",
     "group/system"
   ],
   // Modules configuration
@@ -180,6 +179,7 @@
     "orientation": "horizontal",
     "modules": [
       "hyprland/language",
+      "tray",
       "custom/dnd",
       "network",
       "pulseaudio",
@@ -196,14 +196,7 @@
     "modules": [
       "custom/menu-trigger",
       "power-profiles-daemon",
-      "custom/updates"
-    ]
-  },
-  "group/extra": {
-    "orientation": "horizontal",
-    "modules": [
-      "tray",
-      "power-profiles-daemon",
+      "custom/dnd",
       "custom/updates"
     ]
   },

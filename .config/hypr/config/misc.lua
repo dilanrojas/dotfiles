@@ -9,7 +9,7 @@ hl.config({
 		disable_splash_rendering = true,
 		disable_scale_notification = true,
 		font_family = "Adwaita Sans",
-		vrr = 2,
+		vrr = 1,
 	},
 	ecosystem = {
 		no_update_news = true,

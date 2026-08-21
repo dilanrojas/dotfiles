@@ -3,7 +3,7 @@
 window#osd {
   border-radius: 0px;
   background: @bg;
-  border: 2px solid @progress;
+  border: 1px solid @progress;
 }
 
 window#osd #container {

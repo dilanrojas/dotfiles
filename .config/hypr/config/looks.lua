@@ -6,9 +6,9 @@
 hl.config({
 	general = {
 		gaps_in = 4,
-		gaps_out = 8,
+		gaps_out = 10,
 
-		border_size = 2,
+		border_size = 1,
 
 		col = {
 			active_border = { colors = { "rgba(de6145ff)" } },
@@ -42,8 +42,10 @@ hl.config({
 		blur = {
 			enabled = true,
 			size = 1,
-			passes = 4,
+			passes = 5,
 			vibrancy = 0.0,
+			noise = 0.09,
+			popups = false,
 			brightness = 1.0,
 			contrast = 1.0,
 			new_optimizations = true,
@@ -87,20 +89,19 @@ hl.animation({
 
 -- Ref https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 -- "Smart gaps" / "No gaps when only"
--- uncomment all if you wish to use that.
 -- hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
--- hl.workspace_rule({ workspace = "f[1]",   gaps_out = 0, gaps_in = 0 })
+-- hl.workspace_rule({ workspace = "f[1]", gaps_out = 0, gaps_in = 0 })
 -- hl.window_rule({
---     name  = "no-gaps-wtv1",
---     match = { float = false, workspace = "w[tv1]" },
---     border_size = 0,
---     rounding    = 0,
+-- 	name = "no-gaps-wtv1",
+-- 	match = { float = false, workspace = "w[tv1]" },
+-- 	border_size = 0,
+-- 	rounding = 0,
 -- })
 -- hl.window_rule({
---     name  = "no-gaps-f1",
---     match = { float = false, workspace = "f[1]" },
---     border_size = 0,
---     rounding    = 0,
+-- 	name = "no-gaps-f1",
+-- 	match = { float = false, workspace = "f[1]" },
+-- 	border_size = 0,
+-- 	rounding = 0,
 -- })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more

@@ -47,7 +47,7 @@ CHOICE=$(
       -theme-str '
         window {
           width: 1000px;
-          height: 750px;
+          height: 660px;
         }
 
         listview {
