@@ -61,8 +61,8 @@ window#waybar>box {
   margin: 0px 0px;
   padding: 0px 8px;
   font-size: 17px;
-  font-family: 'BlexMono Nerd Font Propo', sans-serif;
-  font-weight: 500;
+  font-family: 'JetBrainsMono Nerd Font Propo', sans-serif;
+  font-weight: 400;
   border-radius: 0px;
   border: none;
   opacity: 1;
@@ -79,8 +79,8 @@ window#waybar>box {
 }
 
 #language,
-#tray,
-#clock {
+#clock,
+#tray {
   font-family: 'Adwaita Sans';
 }
 
@@ -108,7 +108,7 @@ window#waybar>box {
   border: none;
   color: inherit;
   box-shadow: none;
-  opacity: .8;
+  opacity: 1;
   background: transparent;
   transition: none;
 }

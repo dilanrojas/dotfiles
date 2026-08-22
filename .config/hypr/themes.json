@@ -76,7 +76,7 @@
   },
   "kanagawa-dragon": {
     "label": "Kanagawa Dragon",
-    "wallpaper": "04-kanagawa-dragon.jpg",
+    "wallpaper": "01-kanagawa-dragon.jpg",
     "neovim_scheme": "kanagawa-dragon",
     "alacritty_theme": "kanagawa-dragon.toml",
     "palette": {
