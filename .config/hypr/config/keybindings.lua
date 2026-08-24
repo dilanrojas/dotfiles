@@ -34,7 +34,7 @@ local mainMod = "SUPER"
 
 -- Programs
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + SHIFT + CONTROL + R", hl.dsp.exec_cmd(reload))
+hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd(reload))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
@@ -42,7 +42,6 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + SPACE", hl.dsp.exec_cmd("hyprctl switchxkblayout all next"))
 hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd(power_menu))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd(term_float .. " bluetui"))
-hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(term_float .. " wlctl"))
 hl.bind(mainMod .. " + SHIFT + W", hl.dsp.exec_cmd(term_float .. " wlctl"))
 
 -- Scripts

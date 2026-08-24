@@ -189,7 +189,7 @@
   "group/expand": {
     "orientation": "horizontal",
     "drawer": {
-      "transition-duration": 0,
+      "transition-duration": 200,
       "children-class": "drawer-child",
       "transition-left-to-right": true
     },
@@ -210,5 +210,10 @@
     "interval": 1,
     "signal": 9,
     "on-click": "~/.config/hypr/scripts/screenrecord.sh stop"
+  },
+  "custom/power": {
+    "format": "",
+    "on-click": "~/.config/hypr/scripts/power_menu.sh",
+    "tooltip": false
   }
 }

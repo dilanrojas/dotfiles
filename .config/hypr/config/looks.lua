@@ -40,7 +40,7 @@ hl.config({
 		},
 
 		blur = {
-			enabled = true,
+			enabled = false,
 			size = 1,
 			passes = 5,
 			vibrancy = 0.0,
@@ -54,7 +54,7 @@ hl.config({
 	},
 
 	animations = {
-		enabled = false,
+		enabled = true,
 	},
 })
 
@@ -98,7 +98,7 @@ hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 0.8, bezier = "al
 hl.animation({
 	leaf = "workspaces",
 	enabled = true,
-	speed = 2.8,
+	speed = 2.2,
 	bezier = "easeOutQuint",
 	style = "slide",
 })

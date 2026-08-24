@@ -1,0 +1,33 @@
+# oxocarbon alacritty theme (generated from the neovim colorscheme)
+
+[colors.primary]
+background = '#161616'
+foreground = '#d6d6d6'
+
+[colors.cursor]
+text = '#d6d6d6'
+cursor = '#d6d6d6'
+
+[colors.selection]
+text = '#d6d6d6'
+background = '#161616'
+
+[colors.normal]
+black = '#2a2a2a'
+red = '#33b1ff'
+green = '#be95ff'
+yellow = '#42be65'
+blue = '#78a9ff'
+magenta = '#82cfff'
+cyan = '#3ddbd9'
+white = '#f3f3f3'
+
+[colors.bright]
+black = '#5c5c5c'
+red = '#33b1ff'
+green = '#be95ff'
+yellow = '#42be65'
+blue = '#78a9ff'
+magenta = '#82cfff'
+cyan = '#08bdba'
+white = '#ffffff'

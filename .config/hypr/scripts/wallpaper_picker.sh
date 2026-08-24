@@ -38,6 +38,9 @@ done < <(
     sort -f
 )
 
+# Remove trailing newline so rofi doesn't show an empty last entry
+MENU_ITEMS="${MENU_ITEMS%\\n}"
+
 CHOICE=$(
   echo -e "$MENU_ITEMS" |
     rofi \
@@ -47,12 +50,12 @@ CHOICE=$(
       -theme-str '
         window {
           width: 1000px;
-          height: 730px;
+          height: 403px;
         }
 
         listview {
           columns: 3;
-          lines: 2;
+          lines: 1;
           spacing: 5px;
         }
 
@@ -60,7 +63,10 @@ CHOICE=$(
           orientation: vertical;
           padding: 0px;
           spacing: 0px;
-          border-radius: 0px;
+        }
+
+        element selected.normal {
+          background-color: @accent;
         }
 
         element-icon {
@@ -68,7 +74,14 @@ CHOICE=$(
         }
 
         element-text {
+          enabled: true;
           horizontal-align: 0.5;
+          padding: 10px 00px;
+        }
+
+        element selected.normal {
+          color: @bg-primary;
+          background-color: @accent;
         }
       '
 )

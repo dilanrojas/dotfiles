@@ -332,4 +332,39 @@ return {
       transparent = true,
     },
   },
+  {
+    "datsfilipe/vesper.nvim",
+    name = "vesper",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("vesper").setup({
+        transparent = true,
+      })
+    end,
+  },
+  {
+    "EdenEast/nightfox.nvim",
+    name = "nightfox",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("nightfox").setup({
+        options = {
+          transparent = true,
+          terminal_colors = false,
+        },
+      })
+    end,
+  },
+  {
+    "sainnhe/sonokai",
+    name = "sonokai",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.g.sonokai_transparent_background = 1
+      vim.g.sonokai_disable_background = 1
+    end,
+  },
 }

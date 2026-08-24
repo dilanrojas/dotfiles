@@ -57,9 +57,10 @@ window#waybar>box {
 #cpu,
 #memory,
 #temperature,
-#custom-screenrecord.recording {
+#custom-screenrecord.recording,
+#custom-power {
   margin: 0px 0px;
-  padding: 0px 8px;
+  padding: 0px 7px;
   font-size: 17px;
   font-family: 'JetBrainsMono Nerd Font Propo', sans-serif;
   font-weight: 400;
@@ -95,6 +96,10 @@ window#waybar>box {
   opacity: .6;
 }
 
+#custom-menu {
+  font-size: 20px;
+}
+
 /* Workspaces styling */
 #workspaces {
   padding: 0;
@@ -110,7 +115,7 @@ window#waybar>box {
   box-shadow: none;
   opacity: 1;
   background: transparent;
-  transition: none;
+  transition: opacity .12s ease;
 }
 
 #workspaces button.urgent {

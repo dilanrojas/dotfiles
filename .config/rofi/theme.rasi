@@ -1,7 +1,7 @@
 * {
     accent: #de6145;
     bg-primary: #101315;
-    bg-primary-opacity: #101315e6;
+    bg-primary-opacity: #101315ff;
 
     bg-secondary: #080a0b;
 

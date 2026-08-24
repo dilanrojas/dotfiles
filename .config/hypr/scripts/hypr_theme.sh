@@ -13,16 +13,56 @@ fi
 
 # If no theme argument is provided, prompt with Rofi
 if [ -z "$1" ]; then
-  THEME_LIST=$(jq -r '
-    to_entries[]
-    | select(.key != "default-dark" and .key != "default-light")
+  MENU_ITEMS=""
+
+  while IFS=$'\t' read -r key label; do
+    icon="$HOME/.config/hypr/wallpapers/$key/arch.jpg"
+    MENU_ITEMS+="${key}\t${label}\x00icon\x1f${icon}\n"
+  done < <(jq -r '
+    [ to_entries[]
+      | select(.key != "default-dark" and .key != "default-light") ]
+    | sort_by(.key)[]
     | "\(.key)\t\(.value.label)"
   ' "$JSON_FILE")
 
+  # Strip the trailing newline so rofi doesn't show an empty last entry
+  MENU_ITEMS="${MENU_ITEMS%\\n}"
+
   THEME=$(
-    echo "$THEME_LIST" | rofi -no-show-icons -dmenu -p "Select Theme" -i \
-      -display-columns 2 \
-      -theme-str 'window { width: 300px; height: 412px; }' |
+    echo -e "$MENU_ITEMS" | rofi -dmenu -i -p "Select Theme" -display-columns 2 \
+      -theme-str '
+        window {
+          width: 1000px;
+          height: 403px;
+        }
+
+        listview {
+          columns: 3;
+          lines: 1;
+          spacing: 5px;
+        }
+
+        element {
+          orientation: vertical;
+          padding: 0px;
+          spacing: 0px;
+        }
+
+        element-icon {
+          size: 28ch;
+        }
+
+        element-text {
+          enabled: true;
+          horizontal-align: 0.5;
+          padding: 10px 00px;
+        }
+
+        element selected.normal {
+          color: @bg-primary;
+          background-color: @accent;
+        }
+      ' |
       cut -f1
   )
 

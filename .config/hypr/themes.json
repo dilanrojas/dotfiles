@@ -81,7 +81,7 @@
   },
   "kanagawa-dragon": {
     "label": "Kanagawa Dragon",
-    "wallpaper": "02-kanagawa-dragon.jpg",
+    "wallpaper": "05-kanagawa-dragon.jpg",
     "neovim_scheme": "kanagawa-dragon",
     "alacritty_theme": "kanagawa-dragon.toml",
     "palette": {
@@ -247,5 +247,49 @@
     },
     "opacity": 0.85,
     "icons": "Yaru-prussiangreen-dark"
+  },
+  "vesper": {
+    "label": "Vesper",
+    "wallpaper": "arch.jpg",
+    "neovim_scheme": "vesper",
+    "alacritty_theme": "vesper.toml",
+    "palette": {
+      "active": "#82D9C2",
+      "inactive": "#3F6B61"
+    },
+    "icons": "Yaru-magenta-dark"
+  },
+  "nightfox": {
+    "label": "Nightfox",
+    "wallpaper": "03-nightfox.jpg",
+    "neovim_scheme": "nightfox",
+    "alacritty_theme": "nightfox.toml",
+    "palette": {
+      "active": "#83a598",
+      "inactive": "#41534f"
+    },
+    "icons": "Yaru-blue-dark"
+  },
+  "onedark": {
+    "label": "Onedark",
+    "wallpaper": "04-onedark.jpg",
+    "neovim_scheme": "onedark",
+    "alacritty_theme": "onedark.toml",
+    "palette": {
+      "active": "#61afef",
+      "inactive": "#314a66"
+    },
+    "icons": "Yaru-blue-dark"
+  },
+  "sonokai": {
+    "label": "Sonokai",
+    "wallpaper": "01-sonokai.jpg",
+    "neovim_scheme": "sonokai",
+    "alacritty_theme": "sonokai.toml",
+    "palette": {
+      "active": "#b39df3",
+      "inactive": "#59537a"
+    },
+    "icons": "Yaru-magenta-dark"
   }
 }

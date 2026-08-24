@@ -1,5 +1,5 @@
 @define-color fg #cacccc;
-@define-color bg alpha(#101315, 0.9);
+@define-color bg alpha(#101315, 1.0);
 @define-color accent #de6145;
 
 @define-color black #080a0b;
