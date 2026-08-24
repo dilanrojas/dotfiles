@@ -211,7 +211,7 @@ return {
     priority = 1000,
     opts = {
       transparent = {
-        enabled = false, -- Master switch to enable transparency
+        enabled = true, -- Master switch to enable transparency
         pmenu = true, -- Popup menu (e.g., autocomplete suggestions)
         normal = true, -- Main editor window background
         normalfloat = true, -- Floating windows

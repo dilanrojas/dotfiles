@@ -47,8 +47,10 @@ SYSTEM_THEME=$(jq -r --arg theme "$THEME" '.[$theme].system_theme // "dark"' "$J
 ICON_THEME=$(jq -r --arg theme "$THEME" '.[$theme].icons // "Yaru-blue-dark"' "$JSON_FILE")
 
 # Extract Shared palette (used for nvim/alacritty-adjacent apps, e.g. sway accents)
-ACCENT=$(jq -r --arg theme "$THEME" '.[$theme].palette.accent' "$JSON_FILE")
-ACCENT_ACTIVE="$ACCENT"
+ACCENT=$(jq -r --arg theme "$THEME" '.[$theme].palette.active' "$JSON_FILE")
+
+# Border colors: active = full accent, inactive = dimmed accent
+ACCENT_INACTIVE=$(jq -r --arg theme "$THEME" '.[$theme].palette.inactive' "$JSON_FILE")
 
 # Extract default light/dark palette (used for waybar/rofi/dunst) based on SYSTEM_THEME
 DEFAULT_KEY="default-${SYSTEM_THEME}"
@@ -134,7 +136,7 @@ eval "$(
 )"
 
 ACCENT_HEX="${ACCENT#\#}"
-BG_HEX="${BG#\#}"
+ACCENT_INACTIVE_HEX="${ACCENT_INACTIVE#\#}"
 
 # Store the current theme
 cat >"$CURRENT_THEME_FILE" <<EOF
@@ -201,7 +203,7 @@ sed -i "s/\(import[[:space:]]*=[[:space:]]*\[\"[.\/]*themes\/\).*/\1$ALACRITTY_T
 # Hyprland
 # ------------------------------------------------------------------------------
 sed -i -E "/^[[:space:]]*active_border/s/rgba\([0-9a-fA-F]{6,8}\)/rgba(${ACCENT_HEX}ff)/" "$LOOKS_FILE"
-sed -i -E "/inactive_border/s/rgba\([0-9a-fA-F]{6,8}\)/rgba(${BG_HEX}ff)/" "$LOOKS_FILE"
+sed -i -E "/inactive_border/s/rgba\([0-9a-fA-F]{6,8}\)/rgba(${ACCENT_INACTIVE_HEX}ff)/" "$LOOKS_FILE"
 
 # ------------------------------------------------------------------------------
 # SwayOSD

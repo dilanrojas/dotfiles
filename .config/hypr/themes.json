@@ -23,11 +23,12 @@
   },
   "solarized-osaka": {
     "label": "Solarized Osaka",
-    "wallpaper": "03-solarized-osaka.jpg",
+    "wallpaper": "07-solarized-osaka.jpg",
     "neovim_scheme": "solarized-osaka",
     "alacritty_theme": "solarized-osaka.toml",
     "palette": {
-      "accent": "#2aa198"
+      "active": "#2aa198",
+      "inactive": "#15504C"
     },
     "opacity": 0.85,
     "icons": "Yaru-prussiangreen-dark"
@@ -39,7 +40,8 @@
     "alacritty_theme": "solarized-osaka-day.toml",
     "system_theme": "light",
     "palette": {
-      "accent": "#2aa198"
+      "active": "#2aa198",
+      "inactive": "#94D0CC"
     },
     "icons": "Yaru-prussiangreen"
   },
@@ -49,17 +51,19 @@
     "neovim_scheme": "catppuccin-mocha",
     "alacritty_theme": "catppuccin.toml",
     "palette": {
-      "accent": "#89b4fa"
+      "active": "#89b4fa",
+      "inactive": "#445A7D"
     },
     "icons": "Yaru-purple-dark"
   },
   "gruvbox": {
     "label": "Gruvbox",
-    "wallpaper": "02-gruvbox.jpg",
+    "wallpaper": "03-gruvbox.jpg",
     "neovim_scheme": "gruvbox",
     "alacritty_theme": "gruvbox-hard.toml",
     "palette": {
-      "accent": "#d79921"
+      "active": "#d79921",
+      "inactive": "#6C4C10"
     },
     "icons": "Yaru-dark"
   },
@@ -70,27 +74,30 @@
     "alacritty_theme": "gruvbox-light.toml",
     "system_theme": "light",
     "palette": {
-      "accent": "#d79921"
+      "active": "#d79921",
+      "inactive": "#EBCC90"
     },
     "icons": "Yaru"
   },
   "kanagawa-dragon": {
     "label": "Kanagawa Dragon",
-    "wallpaper": "01-kanagawa-dragon.jpg",
+    "wallpaper": "02-kanagawa-dragon.jpg",
     "neovim_scheme": "kanagawa-dragon",
     "alacritty_theme": "kanagawa-dragon.toml",
     "palette": {
-      "accent": "#938AA9"
+      "active": "#938AA9",
+      "inactive": "#4A4554"
     },
     "icons": "Yaru-wartybrown-dark"
   },
   "kanagawa-wave": {
     "label": "Kanagawa Wave",
-    "wallpaper": "02-kanagawa-wave.jpg",
+    "wallpaper": "03-kanagawa-wave.jpg",
     "neovim_scheme": "kanagawa-wave",
     "alacritty_theme": "kanagawa-wave.toml",
     "palette": {
-      "accent": "#7e9cd8"
+      "active": "#7e9cd8",
+      "inactive": "#3F4E6C"
     },
     "icons": "Yaru-wartybrown-dark"
   },
@@ -101,7 +108,8 @@
     "alacritty_theme": "kanagawa-lotus.toml",
     "system_theme": "light",
     "palette": {
-      "accent": "#4d699b"
+      "active": "#4d699b",
+      "inactive": "#A6B4CD"
     },
     "icons": "Yaru-wartybrown"
   },
@@ -111,7 +119,8 @@
     "neovim_scheme": "everforest",
     "alacritty_theme": "everforest-hard.toml",
     "palette": {
-      "accent": "#83c092"
+      "active": "#83c092",
+      "inactive": "#426049"
     },
     "icons": "Yaru-sage-dark"
   },
@@ -121,7 +130,8 @@
     "neovim_scheme": "doom-one",
     "alacritty_theme": "doom-one.toml",
     "palette": {
-      "accent": "#46d9ff"
+      "active": "#46d9ff",
+      "inactive": "#236C80"
     },
     "icons": "Yaru-blue-dark"
   },
@@ -131,7 +141,8 @@
     "neovim_scheme": "tokyonight-night",
     "alacritty_theme": "tokyonight.toml",
     "palette": {
-      "accent": "#7aa2f7"
+      "active": "#7aa2f7",
+      "inactive": "#3D517C"
     },
     "icons": "Yaru-purple-dark"
   },
@@ -141,7 +152,8 @@
     "neovim_scheme": "rose-pine",
     "alacritty_theme": "rose-pine.toml",
     "palette": {
-      "accent": "#c4a7e7"
+      "active": "#c4a7e7",
+      "inactive": "#625474"
     },
     "icons": "Yaru-magenta-dark"
   },
@@ -152,17 +164,19 @@
     "alacritty_theme": "rose-pine-dawn.toml",
     "system_theme": "light",
     "palette": {
-      "accent": "#907aa9"
+      "active": "#907aa9",
+      "inactive": "#C8BCD4"
     },
     "icons": "Yaru-magenta"
   },
   "dracula": {
     "label": "Dracula",
-    "wallpaper": "01-dracula.jpg",
+    "wallpaper": "02-dracula.jpg",
     "neovim_scheme": "dracula",
     "alacritty_theme": "dracula.toml",
     "palette": {
-      "accent": "#BD93F9"
+      "active": "#BD93F9",
+      "inactive": "#5E4A7C"
     },
     "icons": "Yaru-purple-dark"
   },
@@ -172,7 +186,8 @@
     "neovim_scheme": "nordic",
     "alacritty_theme": "nord.toml",
     "palette": {
-      "accent": "#8FB4D8"
+      "active": "#8FB4D8",
+      "inactive": "#485A6C"
     },
     "icons": "Yaru-blue-dark"
   },
@@ -182,7 +197,8 @@
     "neovim_scheme": "ember",
     "alacritty_theme": "ember.toml",
     "palette": {
-      "accent": "#E2B86B"
+      "active": "#E2B86B",
+      "inactive": "#715C36"
     },
     "icons": "Yaru-dark"
   },
@@ -192,17 +208,19 @@
     "neovim_scheme": "ashen",
     "alacritty_theme": "ashen.toml",
     "palette": {
-      "accent": "#de6145"
+      "active": "#de6145",
+      "inactive": "#6F3022"
     },
     "icons": "Yaru-red-dark"
   },
   "vercel": {
     "label": "Vercel",
-    "wallpaper": "arch.jpg",
+    "wallpaper": "03-vercel.jpg",
     "neovim_scheme": "vercel",
     "alacritty_theme": "vercel.toml",
     "palette": {
-      "accent": "#8d8d8d"
+      "active": "#8d8d8d",
+      "inactive": "#464646"
     },
     "icons": "Yaru-blue-dark"
   },
@@ -213,7 +231,8 @@
     "alacritty_theme": "vercel-light.toml",
     "system_theme": "light",
     "palette": {
-      "accent": "#808080"
+      "active": "#808080",
+      "inactive": "#c9c9c9"
     },
     "icons": "Yaru-blue"
   },
@@ -223,7 +242,8 @@
     "neovim_scheme": "solarized",
     "alacritty_theme": "solarized-dark.toml",
     "palette": {
-      "accent": "#2aa198"
+      "active": "#2aa198",
+      "inactive": "#15504C"
     },
     "opacity": 0.85,
     "icons": "Yaru-prussiangreen-dark"

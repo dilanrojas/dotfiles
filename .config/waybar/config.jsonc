@@ -196,7 +196,6 @@
     "modules": [
       "custom/menu-trigger",
       "power-profiles-daemon",
-      "custom/bluetooth",
       "custom/dnd",
       "custom/updates"
     ]

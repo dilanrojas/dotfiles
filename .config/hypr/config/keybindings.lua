@@ -34,7 +34,7 @@ local mainMod = "SUPER"
 
 -- Programs
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd(terminal))
-hl.bind(mainMod .. " + SHIFT + R", hl.dsp.exec_cmd(reload))
+hl.bind(mainMod .. " + SHIFT + CONTROL + R", hl.dsp.exec_cmd(reload))
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("hyprpicker -a"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))

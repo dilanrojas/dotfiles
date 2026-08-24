@@ -146,4 +146,4 @@ action = "ResetFontSize"
 live_config_reload = true
 working_directory = "None"
 
-import = ["./themes/everforest-hard.toml"]
+import = ["./themes/ashen.toml"]
