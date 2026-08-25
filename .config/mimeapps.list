@@ -34,6 +34,7 @@ application/json=nvim.desktop
 application/vnd.oasis.opendocument.text=libreoffice-startcenter.desktop
 text/markdown=nvim.desktop
 text/vnd.trolltech.linguist=nvim.desktop
+application/vnd.efi.iso=gnome-disk-image-mounter.desktop
 
 [Added Associations]
 application/vnd.oasis.opendocument.text=libreoffice-startcenter.desktop;
@@ -41,3 +42,4 @@ application/vnd.openxmlformats-officedocument.presentationml.presentation=libreo
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-startcenter.desktop;
 text/markdown=nvim.desktop;
 text/vnd.trolltech.linguist=nvim.desktop;
+application/vnd.efi.iso=gnome-disk-image-mounter.desktop;
