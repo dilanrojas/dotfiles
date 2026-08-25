@@ -2,7 +2,7 @@
 
 # Define options using Nerd Font icons (optional, but looks great)
 # If you don't use a Nerd Font, you can replace these with plain text.
-shutdown="  Power Off"
+shutdown="  Shutdown"
 reboot="󰑙  Reboot"
 lock="  Lock"
 suspend="  Suspend"

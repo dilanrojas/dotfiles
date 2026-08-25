@@ -291,5 +291,16 @@
       "inactive": "#59537a"
     },
     "icons": "Yaru-magenta-dark"
+  },
+  "retro-82": {
+    "label": "Retro 82",
+    "wallpaper": "05-retro-82.jpg",
+    "neovim_scheme": "retro-82",
+    "alacritty_theme": "retro-82.toml",
+    "palette": {
+      "active": "#FAA968",
+      "inactive": "#645145"
+    },
+    "icons": "Yaru-dark"
   }
 }

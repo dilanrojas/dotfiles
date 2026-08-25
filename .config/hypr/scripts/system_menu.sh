@@ -16,7 +16,6 @@ ITEMS=(
   "  Waybar::$SCRIPTS/waybar_menu.sh"
   "  Looks::$SCRIPTS/looks_menu.sh"
   "󰂚  Notification History::$SCRIPTS/notification_history.sh"
-  "󰌁  Toggle Effects::$SCRIPTS/toggle_effects.sh"
 )
 
 MENU=()

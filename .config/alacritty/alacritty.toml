@@ -8,7 +8,7 @@ decorations = "Full"
 title = "Alacritty@ArchLinux"
 startup_mode = "Maximized"
 decorations_theme_variant = "Dark"
-opacity = 1.0
+opacity = 0.9
 blur = true
 
 [window.padding]
@@ -146,4 +146,4 @@ action = "ResetFontSize"
 live_config_reload = true
 working_directory = "None"
 
-import = ["./themes/ashen.toml"]
+import = ["./themes/retro-82.toml"]

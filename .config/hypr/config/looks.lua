@@ -11,8 +11,8 @@ hl.config({
 		border_size = 1,
 
 		col = {
-			active_border = { colors = { "rgba(de6145ff)" } },
-			inactive_border = "rgba(6F3022ff)",
+			active_border = { colors = { "rgba(FAA968ff)" } },
+			inactive_border = "rgba(645145ff)",
 		},
 
 		resize_on_border = false,
@@ -40,7 +40,7 @@ hl.config({
 		},
 
 		blur = {
-			enabled = false,
+			enabled = true,
 			size = 1,
 			passes = 5,
 			vibrancy = 0.0,
@@ -54,7 +54,7 @@ hl.config({
 	},
 
 	animations = {
-		enabled = true,
+		enabled = false,
 	},
 })
 
@@ -93,11 +93,11 @@ hl.animation({ leaf = "fadeSwitch", enabled = false })
 hl.animation({ leaf = "layers", enabled = true, speed = 2.6, bezier = "easeOutQuint" })
 hl.animation({ leaf = "layersIn", enabled = true, speed = 2.8, bezier = "easeOutQuint", style = "fade" })
 hl.animation({ leaf = "layersOut", enabled = true, speed = 1.0, bezier = "linear", style = "fade" })
-hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1, bezier = "almostLinear" })
-hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 0.8, bezier = "almostLinear" })
+hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1.2, bezier = "almostLinear" })
+hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 1.2, bezier = "almostLinear" })
 hl.animation({
 	leaf = "workspaces",
-	enabled = true,
+	enabled = false,
 	speed = 2.2,
 	bezier = "easeOutQuint",
 	style = "slide",

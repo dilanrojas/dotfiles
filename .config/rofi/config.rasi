@@ -156,5 +156,5 @@ error-message {
     padding:                     12px;
     border-radius:               @rounding;
     background-color:            @bg-secondary;
-    text-color:                  @fg-secondary;
+    text-color:                  @error;
 }

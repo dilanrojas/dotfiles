@@ -367,4 +367,12 @@ return {
       vim.g.sonokai_disable_background = 1
     end,
   },
+  {
+    "OldJobobo/retro-82.nvim",
+    priority = 1000,
+    opts = {
+      transparent = true,
+      terminal_colors = false,
+    },
+  },
 }
