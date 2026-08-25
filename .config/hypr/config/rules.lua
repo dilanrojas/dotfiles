@@ -195,6 +195,7 @@ hl.layer_rule({
 hl.layer_rule({
 	match = { namespace = "swayosd" },
 	no_anim = false,
+	blur = true,
 })
 
 hl.layer_rule({
