@@ -1,7 +1,7 @@
 * {
-    accent: #FAA968;
-    bg-primary: #00172E;
-    bg-secondary: #00172E;
-    fg: #FFF1DA;
-    bg-primary-opacity: #00172Eff;
+    accent: #de6145;
+    bg-primary: #101315;
+    bg-secondary: #080a0b;
+    fg: #cacccc;
+    bg-primary-opacity: #101315e6;
 }

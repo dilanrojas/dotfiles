@@ -17,10 +17,9 @@ local power_change = "~/.config/hypr/scripts/power_profile.sh"
 local power_menu = "~/.config/hypr/scripts/power_menu.sh"
 local screenshot = "~/.config/hypr/scripts/screenshot.sh"
 local system_theme = "~/.config/hypr/scripts/system_theme.sh"
-local hypr_theme = "~/.config/hypr/scripts/hypr_theme.sh"
+local looks_menu = "~/.config/hypr/scripts/looks_menu.sh"
 local dnd = "~/.config/hypr/scripts/dnd.sh"
 local system_menu = "~/.config/hypr/scripts/system_menu.sh"
-local wallpaper_picker = "~/.config/hypr/scripts/wallpaper_picker.sh"
 local notification_history = "~/.config/hypr/scripts/notification_history.sh"
 local night_light = "~/.config/hypr/scripts/night_light.sh"
 local clipboard =
@@ -50,11 +49,10 @@ hl.bind(mainMod .. " + S", hl.dsp.exec_cmd(screenshot .. " crop"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd(screenshot))
 hl.bind("PRINT", hl.dsp.exec_cmd(screenshot .. " full"))
 hl.bind(mainMod .. " + SHIFT + T", hl.dsp.exec_cmd(system_theme))
-hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(hypr_theme))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(looks_menu))
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(dnd))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd(system_menu))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd(clipboard))
-hl.bind(mainMod .. " + CONTROL + W", hl.dsp.exec_cmd(wallpaper_picker))
 hl.bind(mainMod .. " + SHIFT + N", hl.dsp.exec_cmd(notification_history))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(night_light))
 hl.bind(mainMod .. " + O", hl.dsp.exec_cmd(opencode))

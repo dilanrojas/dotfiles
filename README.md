@@ -55,7 +55,6 @@ The `SUPER` key (Windows key) is your primary modifier, referred to as `$mod` be
 | `SUPER` + `SHIFT` + `T` | Change System Theme |
 | `SUPER` + `T` | Change Hyprland Theme |
 | `SUPER` + `SHIFT` + `M` | Open System Menu |
-| `SUPER` + `CONTROL` + `W` | Open Wallpaper Picker |
 | `SUPER` + `S` | Crop/Window Screenshot |
 | `SUPER` + `SHIFT` + `S` / `PRINT` | Screenshot menu (Full Screen) |
 
