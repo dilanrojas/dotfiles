@@ -1,0 +1,12 @@
+{
+  "label": "Vercel Light",
+  "wallpaper": "arch.jpg",
+  "neovim_scheme": "vercel",
+  "system_theme": "light",
+  "opacity": 0.9,
+  "icons": "Yaru-blue",
+  "palette": {
+    "active": "#808080",
+    "inactive": "#c9c9c9"
+  }
+}

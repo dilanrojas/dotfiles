@@ -1,0 +1,12 @@
+{
+  "label": "Everforest",
+  "wallpaper": "04-everforest.jpg",
+  "neovim_scheme": "everforest",
+  "system_theme": "dark",
+  "opacity": 0.9,
+  "icons": "Yaru-sage-dark",
+  "palette": {
+    "active": "#83c092",
+    "inactive": "#426049"
+  }
+}

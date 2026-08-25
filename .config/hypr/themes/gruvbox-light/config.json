@@ -1,0 +1,12 @@
+{
+  "label": "Gruvbox Light",
+  "wallpaper": "arch.jpg",
+  "neovim_scheme": "gruvbox",
+  "system_theme": "light",
+  "opacity": 0.9,
+  "icons": "Yaru",
+  "palette": {
+    "active": "#d79921",
+    "inactive": "#EBCC90"
+  }
+}

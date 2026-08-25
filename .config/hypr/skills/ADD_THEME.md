@@ -1,109 +1,206 @@
-# Add a Neovim-Based Theme (Agent Skill)
+# Add a Theme (Agent Skill)
 
 Use this guide when asked to "add a theme" to this Hyprland + Neovim (LazyVim) setup.
-It is fully self-contained so any agent/model can follow it without prior context.
+Each theme is a **self-contained folder** under `~/.config/hypr/themes/<key>/`. The
+switcher (`hypr_theme.sh`) reads that folder and writes generated copies into each
+app's own config dir — it never reads a central registry.
 
 ## What "adding a theme" means
 
-A switchable theme touches **four** places. All four must exist or the theme
-breaks at apply time (the switcher `hypr_theme.sh` reads all of them):
+A switchable theme touches **one folder** plus the shared wallpaper template. A theme
+folder contains everything that was previously scattered across the system:
 
-| # | File | Purpose |
-|---|------|---------|
-| 1 | `~/.config/hypr/themes.json` | Theme registry entry (label, wallpaper, nvim scheme, alacritty theme, palette, icons) |
-| 2 | `~/.config/alacritty/themes/<key>.toml` | Alacritty 16-color terminal palette |
-| 3 | `~/.config/hypr/wallpapers/<key>/arch.jpg` | Wallpaper (recolored "ARCH" SVG) |
-| 4 | `~/.config/nvim/lua/plugins/themes.lua` | LazyVim plugin spec + **transparency** enable |
+```
+~/.config/hypr/themes/<key>/
+  config.json      # metadata: label, wallpaper, neovim_scheme, system_theme, opacity, icons, palette
+  alacritty.toml   # SOLID [colors.*] terminal palette (no alpha)
+  rofi.rasi        # SOLID: accent, bg-primary, bg-secondary, fg
+  waybar.css       # SOLID @define-color set (fg/bg/accent/black/blue/cyan/green/magenta/red/yellow)
+  swayosd.css      # SOLID: bg, border, segment, progress
+  dunstrc          # ONLY the 3 sed lines: background, foreground, frame_color (SOLID)
+  nvim.lua         # plugin install spec + LazyVim colorscheme activation
+  wallpapers/      # wallpaper image(s)
+```
 
-The switcher is `~/.config/hypr/scripts/hypr_theme.sh`. It reads `themes.json`
-and rewrites waybar/rofi/dunst/alacritty/hyprland/nvim + sets the wallpaper.
-It only consumes from the alacritty toml: `[colors.primary]` `background`/`foreground`
-and `[colors.normal]` `black red green yellow blue magenta cyan white`.
+The switcher generates the *live* copies from these sources, injecting transparency
+from `config.json.opacity` + the master switch (`EFFECTS` in
+`~/.config/hypr/themes/current_theme`):
 
----
+- `~/.config/alacritty/active_theme.toml`  ← copy of `alacritty.toml` (alacritty.toml imports it)
+- `~/.config/rofi/active_theme.rasi`       ← `rofi.rasi` + injected `bg-primary-opacity` (config.rasi imports it)
+- `~/.config/waybar/theme.css`             ← `waybar.css` with `bg` wrapped in `alpha(...)` (style.css imports it)
+- `~/.config/swayosd/theme.css`            ← `swayosd.css` with `bg` wrapped in `alpha(...)` (style.css imports it)
+- `~/.config/dunst/dunstrc`                ← `dunstrc` lines sed in (background gets the alpha)
+- `~/.config/nvim/lua/plugins/colorscheme.lua` ← copy of `nvim.lua`
+- `~/.config/hypr/config/looks.lua`        ← borders sed from `palette`
+- hyprpaper wallpaper + gsettings icon theme + `system_theme.sh`
+
+**Rule of thumb:** if an app can import/include a file, the theme folder holds that
+file and the app's config imports the generated copy. If it can't (dunst, hyprland
+looks.lua), the value is `sed`-patched from the theme's source file.
 
 ## Step-by-step
 
 Pick a trending neovim colorscheme from <https://dotfyle.com/neovim/colorscheme/trending>
 (or any repo). Choose a stable `key` (e.g. `vesper`, `nightfox`).
 
-### 1. Get the palette (the hard part)
+### 1. Get the palette
 
-Fetch the theme's **terminal color mapping** from its source (not the marketing README):
-
-- `lua/<name>/colors.lua`, `lua/<name>/init.lua`, `autoload/<name>.vim`, or `colors/<name>.vim`
-- Look for `terminal_color_0..15`, `g:terminal_ansi_colors`, or `g:terminal_color_*`.
-
-Map them onto Alacritty's layout:
+Fetch the theme's **terminal color mapping** from its source
+(`lua/<name>/colors.lua`, `autoload/<name>.vim`, `colors/<name>.vim`); look for
+`terminal_color_0..15` / `g:terminal_ansi_colors`. Map onto Alacritty's layout:
 
 ```
-normal.black  = terminal_color_0
-normal.red    = terminal_color_1
-normal.green  = terminal_color_2
+normal.black  = terminal_color_0      bright.black  = terminal_color_8
+normal.red    = terminal_color_1      bright.red    = terminal_color_9
+normal.green  = terminal_color_2      ...
 normal.yellow = terminal_color_3
 normal.blue   = terminal_color_4
 normal.magenta= terminal_color_5
 normal.cyan   = terminal_color_6
 normal.white  = terminal_color_7
-bright.*      = terminal_color_8..15   (bright.black = _8, ... bright.white = _15)
-primary.background = the theme's Normal bg (often terminal_color_background or bg0)
+primary.background = the theme's Normal bg
 primary.foreground = the theme's Normal fg
 ```
 
-If the theme ships an official `extras/alacritty/*.toml`, just **use it as-is**
-(format is identical). Nightfox/Cyberdream/Tokyonight/Catppuccin do.
+If the theme ships `extras/alacritty/*.toml`, use it as-is.
 
-`blend_hex(a, b, t)` in lua = `a*(1-t) + b*t` per channel.
+### 2. Scaffold the theme folder
 
-### 2. Write the alacritty toml
+```bash
+KEY=mytheme
+TH="$HOME/.config/hypr/themes/$KEY"
+mkdir -p "$TH/wallpapers"
+```
 
-`~/.config/alacritty/themes/<key>.toml`:
+### 3. Write the files
+
+**`$TH/alacritty.toml`** (solid — no alpha):
 
 ```toml
-# <key> alacritty theme (generated from the neovim colorscheme)
-
 [colors.primary]
 background = '#101010'
 foreground = '#cccccc'
 
-[colors.cursor]
-text = '#cccccc'
-cursor = '#cccccc'
-
-[colors.selection]
-text = '#cccccc'
-background = '#101010'
-
 [colors.normal]
 black = '#101010'
-red = '#FF8080'
+red   = '#FF8080'
 green = '#82D9C2'
-yellow = '#FFC799'
-blue = '#82D9C2'
-magenta = '#FFCFA8'
-cyan = '#A0A0A0'
+yellow= '#FFC799'
+blue  = '#82D9C2'
+magenta= '#FFCFA8'
+cyan  = '#A0A0A0'
 white = '#CCCCCC'
 
 [colors.bright]
 black = '#65737E'
-red = '#FF8080'
+red   = '#FF8080'
 green = '#FFCFA8'
-yellow = '#FFCFA8'
-blue = '#65737E'
-magenta = '#FF8080'
-cyan = '#FFCFA8'
+yellow= '#FFCFA8'
+blue  = '#65737E'
+magenta= '#FF8080'
+cyan  = '#FFCFA8'
 white = '#7E7E7E'
 ```
 
-> **GOTCHA — positional args in bash:** when generating this from a shell
-> function, the 10th+ argument MUST use braces: use `${12}` NOT `$12`.
-> `$12` is parsed as `$1` + `2` and leaks the theme name into the value
-> (e.g. `black = 'sonokai2'`). This is the #1 bug to avoid.
+**`$TH/rofi.rasi`** (solid — `bg-primary-opacity` is generated at runtime, don't add it):
 
-### 3. Generate the wallpaper
+```
+* {
+    accent: #82D9C2;
+    bg-primary: #101010;
+    bg-secondary: #101010;
+    fg: #cccccc;
+}
+```
 
-The template is `~/.config/hypr/wallpapers/wallpaper_template.svg`
-(plain "ARCH" text on a solid background). Recolor and export to JPEG:
+**`$TH/waybar.css`** (solid):
+
+```
+@define-color fg #cccccc;
+@define-color bg #101010;
+@define-color accent #82D9C2;
+
+@define-color black #101010;
+@define-color blue #82D9C2;
+@define-color cyan #A0A0A0;
+@define-color green #82D9C2;
+@define-color magenta #FFCFA8;
+@define-color red #FF8080;
+@define-color yellow #FFC799;
+```
+
+**`$TH/swayosd.css`** (solid):
+
+```
+@define-color bg #101010;
+@define-color border #82D9C2;
+@define-color segment #484848;
+@define-color progress #cccccc;
+```
+
+> `segment` = a slightly lighter shade of the bg. Use `#484848` for dark themes,
+> `#dddddd` for light themes.
+
+**`$TH/dunstrc`** (only these 3 lines):
+
+```
+background = "#101010"
+foreground = "#cccccc"
+frame_color = "#cccccc"
+```
+
+**`$TH/config.json`**:
+
+```json
+{
+  "label": "My Theme",
+  "wallpaper": "arch.jpg",
+  "neovim_scheme": "mytheme",
+  "system_theme": "dark",
+  "opacity": 0.9,
+  "icons": "Yaru-mytheme-dark",
+  "palette": {
+    "active": "#82D9C2",
+    "inactive": "#456a63"
+  }
+}
+```
+
+- `neovim_scheme`: exact string passed to `:colorscheme`.
+- `palette.active` / `inactive`: the accent (hyprland borders + rofi) and a darkened
+  version (inactive borders).
+- `icons`: a matching `Yaru-*` icon theme (`-dark` for dark themes).
+- `opacity`: optional, defaults to `0.9`.
+
+**`$TH/nvim.lua`** — the plugin install spec AND the colorscheme activation (this
+replaces what used to be two files). Find the plugin spec from the repo's docs and
+append the LazyVim colorscheme block:
+
+```lua
+return {
+  {
+    "owner/mytheme.nvim",
+    name = "mytheme",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("mytheme").setup({ transparent = true })
+    end,
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "mytheme",
+    },
+  },
+}
+```
+
+### 4. Generate the wallpaper
+
+The template is `~/.config/hypr/themes/wallpaper_template.svg` (plain "ARCH" text on a
+solid background). Recolor and export to JPEG:
 
 ```bash
 gen_wall() {
@@ -111,118 +208,33 @@ gen_wall() {
   hex2rgb() { local h="${1#\#}"; echo "$((16#${h:0:2})), $((16#${h:2:2})), $((16#${h:4:2}))"; }
   local rgb_bg rgb_fg
   rgb_bg=$(hex2rgb "$bg"); rgb_fg=$(hex2rgb "$fg")
-  local out="$HOME/.config/hypr/wallpapers/$key"; mkdir -p "$out"
-  local svg; svg=$(cat "$HOME/.config/hypr/wallpapers/wallpaper_template.svg")
-  svg="${svg//rgb(255, 255, 255)/rgb($rgb_bg)}"   # background
-  svg="${svg//rgb(85, 85, 85)/rgb($rgb_fg)}"       # ARCH text
+  local out="$HOME/.config/hypr/themes/$key/wallpapers"; mkdir -p "$out"
+  local svg; svg=$(cat "$HOME/.config/hypr/themes/wallpaper_template.svg")
+  svg="${svg//rgb(255, 255, 255)/rgb($rgb_bg)}"
+  svg="${svg//rgb(85, 85, 85)/rgb($rgb_fg)}"
   printf '%s' "$svg" > "$out/_wp.svg"
   rsvg-convert -w 1920 -h 1200 "$out/_wp.svg" -o "$out/_wp.png"
-  magick "$out/_wp.png" -quality 92 "jpg:$out/arch.jpg"   # MUST be real JPEG, not .png named .jpg
+  magick "$out/_wp.png" -quality 92 "jpg:$out/arch.jpg"
   rm -f "$out/_wp.svg" "$out/_wp.png"
 }
-gen_wall <key> "<bg>" "<fg>"
+gen_wall mytheme "<bg>" "<fg>"
 ```
 
-> `rsvg-convert` outputs PNG even with a `.jpg` name — always re-encode with
-> `magick`/`convert` to a real JPEG, or hyprpaper may choke.
+### 5. Switch
 
-> Name it **`arch.jpg`** inside the folder (matches existing light-theme
-> convention and keeps `themes.json` simple).
-
-### 4. Add the `themes.json` entry
-
-Append before the final `}` (add a trailing comma to the previous entry):
-
-```json
-  "<key>": {
-    "label": "<Pretty Name>",
-    "wallpaper": "arch.jpg",
-    "neovim_scheme": "<colorscheme-name>",
-    "alacritty_theme": "<key>.toml",
-    "palette": {
-      "active": "<accent-hex>",
-      "inactive": "<dimmed-accent-hex>"
-    },
-    "icons": "Yaru-<hue>-dark"
-  }
+```bash
+hypr_theme.sh mytheme        # or run it with no arg for the rofi menu
 ```
 
-- `neovim_scheme`: the exact string passed to `:colorscheme` (usually the repo name).
-- `active`/`inactive`: the theme's signature accent (used for Hyprland borders +
-  waybar). `inactive` should be a darkened version.
-- `icons`: pick a matching `Yaru-*` icon theme (`-dark` for dark themes).
-
-Validate: `jq empty ~/.config/hypr/themes.json`.
-
-### 5. Register the Neovim plugin (transparent!)
-
-Append a spec to `~/.config/nvim/lua/plugins/themes.lua` (before the final `}`).
-Every theme MUST be made transparent. Use the theme's native option when it has one:
-
-```lua
-  {
-    "owner/<repo>.nvim",
-    name = "<key>",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("<key>").setup({ transparent = true })
-    end,
-  },
-```
-
-Known transparency knobs (verify against the repo if unsure):
-
-| Theme | Transparent option |
-|-------|--------------------|
-| vesper | `require("vesper").setup({ transparent = true })` |
-| nightfox | `require("nightfox").setup({ options = { transparent = true, terminal_colors = false } })` |
-| cyberdream | `require("cyberdream").setup({ transparent = true })` |
-| sonokai | `vim.g.sonokai_transparent_background = 1; vim.g.sonokai_disable_background = 1` |
-| onedark | `require("onedark").setup({ style = "darker", transparent = true })` |
-| catppuccin / tokyonight / kanagawa / etc. | see existing entries in the file |
-
-> **oxocarbon special case:** it has NO native transparency and is Fennel-based.
-> Two fixes required:
-> 1. Add `build = false` to the spec (otherwise lazy tries to `luarocks`/`fennel`
->    build and fails with `lua5.1: No such file`). The repo ships precompiled Lua,
->    so no build is needed.
-> 2. Force transparency via a `ColorScheme` autocmd:
-> ```lua
->   {
->     "nyoom-engineering/oxocarbon.nvim",
->     name = "oxocarbon",
->     lazy = false,
->     priority = 1000,
->     build = false,
->     config = function()
->       vim.api.nvim_create_autocmd("ColorScheme", {
->         pattern = "oxocarbon",
->         callback = function()
->           local hl = vim.api.nvim_set_hl
->           for _, g in ipairs({ "Normal", "NormalNC", "SignColumn", "LineNr",
->             "CursorLineNr", "VertSplit", "NormalFloat", "FloatBorder",
->             "TelescopeNormal", "TelescopeBorder", "NvimTreeNormal",
->             "StatusLineNC", "WinBar", "WinBarNC" }) do
->             hl(0, g, { bg = "NONE" })
->           end
->         end,
->       })
->     end,
->   },
-> ```
-
-Validate lua: `luajit -e 'assert(loadfile(...))'` or just open nvim and read `:Lazy` errors.
-
----
+The first time you switch to a theme whose nvim plugin isn't installed yet, the
+switcher runs `:Lazy install` in any running nvim; the plugin installs on next
+launch. The stored `config.json` drives the rest.
 
 ## Final checklist
 
-- [ ] `themes.json` parses (`jq empty`)
-- [ ] `~/.config/alacritty/themes/<key>.toml` exists, no `<key>N` leaked values
-- [ ] `~/.config/hypr/wallpapers/<key>/arch.jpg` is a real JPEG
-- [ ] `themes.lua` has the spec, transparent, and (for oxocarbon) `build = false`
-- [ ] Twice-confirm alacritty bright colors use `${12}`..`${19}` braces if scripted
-
-Switch with `hypr_theme.sh <key>` or the rofi theme menu. The nvim plugin
-installs on next `nvim` launch (`:Lazy sync`).
+- [ ] `~/.config/hypr/themes/<key>/` has `config.json`, `alacritty.toml`, `rofi.rasi`,
+      `waybar.css`, `swayosd.css`, `dunstrc`, `nvim.lua`, `wallpapers/`
+- [ ] `jq empty ~/.config/hypr/themes/<key>/config.json` passes
+- [ ] `hypr_theme.sh <key>` applies wallpaper, alacritty, rofi, waybar, dunst, swayosd,
+      hyprland borders, icons, and nvim
+- [ ] `toggle_effects.sh off/on` toggles transparency everywhere

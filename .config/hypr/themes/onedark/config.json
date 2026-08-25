@@ -1,0 +1,12 @@
+{
+  "label": "Onedark",
+  "wallpaper": "04-onedark.jpg",
+  "neovim_scheme": "onedark",
+  "system_theme": "dark",
+  "opacity": 0.9,
+  "icons": "Yaru-blue-dark",
+  "palette": {
+    "active": "#61afef",
+    "inactive": "#314a66"
+  }
+}

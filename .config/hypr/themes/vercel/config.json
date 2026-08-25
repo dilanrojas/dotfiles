@@ -1,0 +1,12 @@
+{
+  "label": "Vercel",
+  "wallpaper": "03-vercel.jpg",
+  "neovim_scheme": "vercel",
+  "system_theme": "dark",
+  "opacity": 0.9,
+  "icons": "Yaru-blue-dark",
+  "palette": {
+    "active": "#8d8d8d",
+    "inactive": "#464646"
+  }
+}

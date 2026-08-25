@@ -1,5 +1,6 @@
 @theme "/dev/null"
 @import "/theme.rasi"
+@import "active_theme.rasi"
 
 configuration {
 	modi: "window,run,drun";

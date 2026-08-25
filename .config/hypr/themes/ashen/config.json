@@ -1,0 +1,12 @@
+{
+  "label": "Ashen",
+  "wallpaper": "01-ashen.jpg",
+  "neovim_scheme": "ashen",
+  "system_theme": "dark",
+  "opacity": 0.9,
+  "icons": "Yaru-red-dark",
+  "palette": {
+    "active": "#de6145",
+    "inactive": "#6F3022"
+  }
+}

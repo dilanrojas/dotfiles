@@ -1,0 +1,12 @@
+{
+  "label": "Kanagawa Wave",
+  "wallpaper": "03-kanagawa-wave.jpg",
+  "neovim_scheme": "kanagawa-wave",
+  "system_theme": "dark",
+  "opacity": 0.9,
+  "icons": "Yaru-wartybrown-dark",
+  "palette": {
+    "active": "#7e9cd8",
+    "inactive": "#3F4E6C"
+  }
+}

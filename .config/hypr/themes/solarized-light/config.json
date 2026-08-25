@@ -1,0 +1,12 @@
+{
+  "label": "Solarized Light",
+  "wallpaper": "arch.jpg",
+  "neovim_scheme": "solarized-osaka-light",
+  "system_theme": "light",
+  "opacity": 0.9,
+  "icons": "Yaru-prussiangreen",
+  "palette": {
+    "active": "#2aa198",
+    "inactive": "#94D0CC"
+  }
+}

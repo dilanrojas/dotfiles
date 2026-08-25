@@ -1,0 +1,12 @@
+{
+  "label": "Nightfox",
+  "wallpaper": "03-nightfox.jpg",
+  "neovim_scheme": "nightfox",
+  "system_theme": "dark",
+  "opacity": 0.9,
+  "icons": "Yaru-blue-dark",
+  "palette": {
+    "active": "#83a598",
+    "inactive": "#41534f"
+  }
+}

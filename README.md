@@ -103,13 +103,39 @@ The `SUPER` key (Windows key) is your primary modifier, referred to as `$mod` be
 
 ## Themes
 
-Press `$mod` + `t` to open the Hyprland theme picker.
+Press `SUPER` + `T` to open the Hyprland theme picker, or `SUPER` + `SHIFT` + `T` for the system theme picker.
 
-To add more themes:
+### Architecture (folder-based)
 
-1. Add an entry to `~/.config/hypr/themes.json`.
-2. Add a matching Alacritty theme in `~/.config/alacritty/themes`.
-3. Add a matching Neovim theme in `~/.config/nvim/lua/plugins/themes.lua`.
+Each theme is a self-contained folder at `~/.config/hypr/themes/<key>/`:
+
+| File | Purpose |
+| --- | --- |
+| `config.json` | Metadata: `label`, `wallpaper`, `neovim_scheme`, `system_theme`, `opacity`, `icons`, `palette` |
+| `wallpapers/` | Wallpaper image(s) applied as the desktop background (referenced by `config.json` → `wallpaper`) |
+| `preview.png` | Thumbnail shown as the picker icon (must be provided manually) |
+| `alacritty.toml` | Solid terminal colors (transparency is added at switch time) |
+| `rofi.rasi` | Solid rofi colors (`accent`, `bg-primary`, `bg-secondary`, `fg`) |
+| `waybar.css` | Solid Waybar colors |
+| `swayosd.css` | Solid SwayOSD colors |
+| `dunstrc` | 3 lines: `background` / `foreground` / `frame_color` |
+| `nvim.lua` | Neovim colorscheme activation snippet |
+
+The global switch lives in `~/.config/hypr/themes/current_theme`
+(`THEME=`, `SYSTEM_THEME=`, `EFFECTS=on|off`). All Neovim plugin specs are
+pre-installed in `~/.config/nvim/lua/plugins/themes.lua`, and the active
+theme's `nvim.lua` is copied to `colorscheme.lua` for launch persistence.
+
+### Adding a new theme
+
+You can scaffold a new theme automatically with **OpenCode** (or any AI
+model) using the `ADD_THEME` skill — it creates the folder, `config.json`
+and every app file from a palette you provide.
+
+> **Manual intervention still required:** you must supply the theme's
+> `preview.png` (shown in the picker) and the wallpapers inside `wallpapers/`.
+> You also need to add the Neovim plugin spec to `themes.lua` so the
+> colorscheme gets installed.
 
 ---
 

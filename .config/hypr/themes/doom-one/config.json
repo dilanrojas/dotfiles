@@ -1,0 +1,12 @@
+{
+  "label": "Doom One",
+  "wallpaper": "03-doom-one.jpg",
+  "neovim_scheme": "doom-one",
+  "system_theme": "dark",
+  "opacity": 0.9,
+  "icons": "Yaru-blue-dark",
+  "palette": {
+    "active": "#46d9ff",
+    "inactive": "#236C80"
+  }
+}

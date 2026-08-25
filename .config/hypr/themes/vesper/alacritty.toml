@@ -1,0 +1,33 @@
+# vesper alacritty theme (generated from the neovim colorscheme)
+
+[colors.primary]
+background = '#101010'
+foreground = '#cccccc'
+
+[colors.cursor]
+text = '#cccccc'
+cursor = '#cccccc'
+
+[colors.selection]
+text = '#cccccc'
+background = '#101010'
+
+[colors.normal]
+black = '#101010'
+red = '#FF8080'
+green = '#82D9C2'
+yellow = '#FFC799'
+blue = '#82D9C2'
+magenta = '#FFCFA8'
+cyan = '#A0A0A0'
+white = '#CCCCCC'
+
+[colors.bright]
+black = '#65737E'
+red = '#FF8080'
+green = '#FFCFA8'
+yellow = '#FFCFA8'
+blue = '#65737E'
+magenta = '#FF8080'
+cyan = '#FFCFA8'
+white = '#7E7E7E'

@@ -1,0 +1,12 @@
+{
+  "label": "Solarized Dark",
+  "wallpaper": "02-solarized-dark.jpg",
+  "neovim_scheme": "solarized",
+  "system_theme": "dark",
+  "opacity": 0.85,
+  "icons": "Yaru-prussiangreen-dark",
+  "palette": {
+    "active": "#2aa198",
+    "inactive": "#15504C"
+  }
+}

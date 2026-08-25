@@ -1,0 +1,33 @@
+# retro-82 alacritty theme (generated from the retro-82.nvim colorscheme)
+
+[colors.primary]
+background = "#00172E"
+foreground = "#FFF1DA"
+
+[colors.cursor]
+text = "#FFF1DA"
+cursor = "#FFF1DA"
+
+[colors.selection]
+text = "#FFF1DA"
+background = "#0A3A45"
+
+[colors.normal]
+black = "#00172E"
+red = "#E97B3C"
+green = "#028391"
+yellow = "#F85525"
+blue = "#3F8F8A"
+magenta = "#E97B3C"
+cyan = "#FAA968"
+white = "#F6DCAC"
+
+[colors.bright]
+black = "#5F8F96"
+red = "#E97B3C"
+green = "#028391"
+yellow = "#F85525"
+blue = "#3F8F8A"
+magenta = "#E97B3C"
+cyan = "#FAA968"
+white = "#F6DCAC"
