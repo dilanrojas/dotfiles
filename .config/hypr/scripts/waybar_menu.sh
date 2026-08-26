@@ -16,7 +16,7 @@ done
 CHOICE=$(
   printf "%s\n" "${MENU[@]}" |
     rofi -no-show-icons -dmenu -i -p "Waybar Config" \
-      -theme-str 'window { width: 300px; height: 240px; }'
+      -theme-str 'window { width: 280px; height: 245px; }'
 )
 
 if [[ -n "$CHOICE" ]]; then

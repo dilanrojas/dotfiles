@@ -1,6 +1,7 @@
 return {
   {
     "catppuccin/nvim",
+    lazy = true,
     name = "catppuccin",
     priority = 1000,
     config = function()
@@ -19,6 +20,7 @@ return {
   },
   {
     "NTBBloodbath/doom-one.nvim",
+    lazy = true,
     config = function()
       -- Enable transparent background
       vim.g.doom_one_transparent_background = true
@@ -29,6 +31,7 @@ return {
   },
   {
     "Mofiqul/dracula.nvim",
+    lazy = true,
 
     config = function()
       require("dracula").setup({
@@ -41,6 +44,7 @@ return {
   },
   {
     "sainnhe/everforest",
+    lazy = true,
     config = function()
       vim.g.everforest_enable_italic = 1
       vim.g.everforest_transparent_background = 1
@@ -49,6 +53,7 @@ return {
   },
   {
     "ellisonleao/gruvbox.nvim",
+    lazy = true,
     priority = 1000,
     config = true,
     opts = {
@@ -58,6 +63,7 @@ return {
   },
   {
     "rebelot/kanagawa.nvim",
+    lazy = true,
     opts = {
       colors = {
         theme = {
@@ -106,6 +112,7 @@ return {
   },
   {
     "marko-cerovac/material.nvim",
+    lazy = true,
     opts = {
       disable = {
         background = true,
@@ -114,6 +121,7 @@ return {
   },
   {
     "loctvl842/monokai-pro.nvim",
+    lazy = true,
     config = function()
       require("monokai-pro").setup({
         transparent_background = true,
@@ -168,7 +176,7 @@ return {
   },
   {
     "AlexvZyl/nordic.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       require("nordic").setup({
@@ -186,6 +194,7 @@ return {
   },
   {
     "navarasu/onedark.nvim",
+    lazy = true,
     priority = 1000,
     config = function()
       require("onedark").setup({
@@ -197,6 +206,7 @@ return {
   {
     "rose-pine/neovim",
     name = "rose-pine",
+    priority = 1000,
     opts = {
       styles = {
         bold = true,
@@ -207,7 +217,6 @@ return {
   },
   {
     "maxmx03/solarized.nvim",
-    lazy = false,
     priority = 1000,
     opts = {
       transparent = {
@@ -226,7 +235,7 @@ return {
   },
   {
     "craftzdog/solarized-osaka.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       require("solarized-osaka").setup({
@@ -247,13 +256,14 @@ return {
   },
   {
     "tiagovla/tokyodark.nvim",
+    lazy = true,
     opts = {
       transparent_background = true,
     },
   },
   {
     "folke/tokyonight.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     opts = {
       style = "night",
@@ -268,7 +278,7 @@ return {
   },
   {
     "tiesen243/vercel.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       require("vercel").setup({
@@ -288,6 +298,7 @@ return {
   },
   {
     "Gentleman-Programming/gentleman-kanagawa-blur",
+    lazy = true,
     name = "gentleman-kanagawa-blur",
     priority = 1000,
     opts = {
@@ -296,6 +307,7 @@ return {
   },
   {
     "sainnhe/gruvbox-material",
+    lazy = true,
     config = function()
       vim.g.gruvbox_material_enable_italic = 1
       vim.g.gruvbox_material_transparent_background = 1
@@ -304,6 +316,7 @@ return {
   },
   {
     "ember-theme/nvim",
+    lazy = true,
     name = "ember",
     priority = 1000,
     config = function()
@@ -326,7 +339,7 @@ return {
   },
   {
     "ficcdaf/ashen.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     opts = {
       transparent = true,
@@ -334,8 +347,8 @@ return {
   },
   {
     "datsfilipe/vesper.nvim",
+    lazy = true,
     name = "vesper",
-    lazy = false,
     priority = 1000,
     config = function()
       require("vesper").setup({
@@ -345,8 +358,8 @@ return {
   },
   {
     "EdenEast/nightfox.nvim",
+    lazy = true,
     name = "nightfox",
-    lazy = false,
     priority = 1000,
     config = function()
       require("nightfox").setup({
@@ -359,8 +372,8 @@ return {
   },
   {
     "sainnhe/sonokai",
+    lazy = true,
     name = "sonokai",
-    lazy = false,
     priority = 1000,
     config = function()
       vim.g.sonokai_transparent_background = 1
@@ -369,6 +382,7 @@ return {
   },
   {
     "OldJobobo/retro-82.nvim",
+    lazy = true,
     priority = 1000,
     config = function()
       require("retro82").setup({
@@ -379,8 +393,8 @@ return {
   },
   {
     "ribru17/bamboo.nvim",
+    lazy = true,
     name = "bamboo",
-    lazy = false,
     priority = 1000,
     config = function()
       require("bamboo").setup({
@@ -391,6 +405,7 @@ return {
   },
   {
     "uhs-robert/oasis.nvim",
+    lazy = true,
     name = "oasis",
     priority = 1000,
     config = function()

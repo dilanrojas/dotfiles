@@ -5,6 +5,8 @@ ITEMS=(
   "󱥚  Theme::sh $SCRIPTS/hypr_theme.sh"
   "  Wallpaper::sh $SCRIPTS/wallpaper_picker.sh"
   "󰌁  Toggle Effects::$SCRIPTS/toggle_effects.sh"
+  "󰗘  Toggle Animations::$SCRIPTS/toggle_animations.sh"
+  "  Toggle Gaps::$SCRIPTS/toggle_smart_gaps.sh"
 )
 
 MENU=()
@@ -15,7 +17,7 @@ done
 CHOICE=$(
   printf "%s\n" "${MENU[@]}" |
     rofi -no-show-icons -dmenu -i -p "Looks" \
-      -theme-str 'window { width: 230px; height: 245px; }'
+      -theme-str 'window { width: 280px; height: 358px; }'
 )
 
 if [[ -n "$CHOICE" ]]; then
