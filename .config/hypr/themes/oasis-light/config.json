@@ -1,0 +1,12 @@
+{
+  "label": "Oasis Light",
+  "wallpaper": "arch.jpg",
+  "neovim_scheme": "oasis-desert",
+  "system_theme": "light",
+  "opacity": 0.9,
+  "icons": "Yaru-olive",
+  "palette": {
+    "active": "#655F2D",
+    "inactive": "#C9BC8F"
+  }
+}

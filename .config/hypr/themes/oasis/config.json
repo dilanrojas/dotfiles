@@ -1,0 +1,12 @@
+{
+  "label": "Oasis",
+  "wallpaper": "01-oasis.jpg",
+  "neovim_scheme": "oasis-moonlight",
+  "system_theme": "dark",
+  "opacity": 0.9,
+  "icons": "Yaru-blue-dark",
+  "palette": {
+    "active": "#7FA3C9",
+    "inactive": "#4E6578"
+  }
+}

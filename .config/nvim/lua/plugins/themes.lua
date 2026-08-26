@@ -389,4 +389,14 @@ return {
       require("bamboo").load()
     end,
   },
+  {
+    "uhs-robert/oasis.nvim",
+    name = "oasis",
+    priority = 1000,
+    config = function()
+      require("oasis").setup({
+        transparent = true,
+      })
+    end,
+  },
 }

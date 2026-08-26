@@ -14,7 +14,7 @@ chosen=$(echo -e "$shutdown\n$reboot\n$suspend\n$logout\n$lock" | rofi \
   -no-show-icons \
   -i \
   -p "Power Menu" \
-  -theme-str 'window { width: 220px; height: 350px; }')
+  -theme-str 'window { width: 220px; height: 358px; }')
 
 # Perform the action based on selection
 case "$chosen" in
