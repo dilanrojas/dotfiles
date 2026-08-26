@@ -163,6 +163,14 @@ hl.window_rule({
 	float = true,
 })
 
+hl.window_rule({
+	name = "gnome-console",
+	match = {
+		class = "org.gnome.Console",
+	},
+	float = true,
+})
+
 -- Disable blur globally
 hl.window_rule({
 	match = { class = ".*" },

@@ -370,9 +370,11 @@ return {
   {
     "OldJobobo/retro-82.nvim",
     priority = 1000,
-    opts = {
-      transparent = true,
-      terminal_colors = false,
-    },
+    config = function()
+      require("retro82").setup({
+        transparent = true,
+        terminal_colors = false,
+      })
+    end,
   },
 }

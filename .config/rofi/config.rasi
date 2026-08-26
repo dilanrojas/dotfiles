@@ -8,7 +8,7 @@ configuration {
 	display-window: "Windows";
 	display-run: "Run";
 	drun-display-format: "{icon} {name}";
-	font: "JetBrainsMono Nerd Font 12";
+	font: "JetBrainsMono Nerd Font 13";
 	show-icons: true;
 }
 
@@ -85,7 +85,7 @@ listview {
     scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
-    fixed-height:                true;
+    fixed-height:                false;
     fixed-columns:               true;
 
     spacing:                     10px;

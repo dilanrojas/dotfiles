@@ -33,7 +33,7 @@
 
     separator_height = 5
     frame_width = 1
-background = "#101315e6"
+background = "#101315ff"
 foreground = "#cacccc"
 frame_color = "#cacccc"
 
