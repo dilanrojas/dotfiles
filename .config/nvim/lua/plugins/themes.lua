@@ -377,4 +377,16 @@ return {
       })
     end,
   },
+  {
+    "ribru17/bamboo.nvim",
+    name = "bamboo",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("bamboo").setup({
+        transparent = true,
+      })
+      require("bamboo").load()
+    end,
+  },
 }

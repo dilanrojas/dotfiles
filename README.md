@@ -128,12 +128,12 @@ theme's `nvim.lua` is copied to `colorscheme.lua` for launch persistence.
 ### Adding a new theme
 
 You can scaffold a new theme automatically with **OpenCode** (or any AI
-model) using the `ADD_THEME` skill — it creates the folder, `config.json`
+model) using the `ADD_THEME` (located at `.config/opencode/skills/`) skill — it creates the folder, `config.json`
 and every app file from a palette you provide.
 
 > **Manual intervention still required:** you must supply the theme's
-> `preview.png` (shown in the picker) and the wallpapers inside `wallpapers/`.
-> You also need to add the Neovim plugin spec to `themes.lua` so the
+> `preview.png` (shown in the picker) and custom wallpapers inside `wallpapers/`.
+> You may also to add the Neovim plugin spec to `themes.lua` so the
 > colorscheme gets installed.
 
 ---

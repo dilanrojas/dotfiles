@@ -1,0 +1,12 @@
+{
+  "label": "Osaka Jade",
+  "wallpaper": "02-osaka-jade.jpg",
+  "neovim_scheme": "bamboo",
+  "system_theme": "dark",
+  "opacity": 0.9,
+  "icons": "Yaru-sage-dark",
+  "palette": {
+    "active": "#71CEAD",
+    "inactive": "#1d3a30"
+  }
+}

@@ -18,7 +18,8 @@ folder contains everything that was previously scattered across the system:
   waybar.css       # SOLID @define-color set (fg/bg/accent/black/blue/cyan/green/magenta/red/yellow)
   swayosd.css      # SOLID: bg, border, segment, progress
   dunstrc          # ONLY the 3 sed lines: background, foreground, frame_color (SOLID)
-  nvim.lua         # plugin install spec + LazyVim colorscheme activation
+  nvim.lua         # ONLY the active theme's LazyVim colorscheme activation
+                   # (the plugin install spec lives in nvim/lua/plugins/themes.lua)
   wallpapers/      # wallpaper image(s)
 ```
 
@@ -173,21 +174,13 @@ frame_color = "#cccccc"
 - `icons`: a matching `Yaru-*` icon theme (`-dark` for dark themes).
 - `opacity`: optional, defaults to `0.9`.
 
-**`$TH/nvim.lua`** — the plugin install spec AND the colorscheme activation (this
-replaces what used to be two files). Find the plugin spec from the repo's docs and
-append the LazyVim colorscheme block:
+**`$TH/nvim.lua`** — ONLY the active theme's colorscheme activation. This file is
+copied verbatim to `~/.config/nvim/lua/plugins/colorscheme.lua` by the switcher, so it
+must NOT contain the plugin install spec (that belongs in `themes.lua`, below). It
+just tells LazyVim which already-installed colorscheme to load:
 
 ```lua
 return {
-  {
-    "owner/mytheme.nvim",
-    name = "mytheme",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require("mytheme").setup({ transparent = true })
-    end,
-  },
   {
     "LazyVim/LazyVim",
     opts = {
@@ -196,6 +189,36 @@ return {
   },
 }
 ```
+
+> If the theme needs an explicit `require("mytheme").load()` or a non-default
+> `style`, handle that in the `themes.lua` plugin spec (the switcher never touches
+> `themes.lua`). `colorscheme.lua` carries only the active theme.
+
+### 3b. Register the plugin in `themes.lua`
+
+The plugin install spec goes in the **master registry**
+`~/.config/nvim/lua/plugins/themes.lua` — not in the theme folder. Every installable
+neovim colorscheme lives there as one entry, each configured to be **fully
+transparent** (e.g. `transparent = true`). Find the spec from the repo's docs and
+append it before the final `}`:
+
+```lua
+  {
+    "owner/mytheme.nvim",
+    name = "mytheme",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("mytheme").setup({ transparent = true })
+      require("mytheme").load()
+    end,
+  },
+```
+
+This is the only manual step outside the theme folder: adding a new theme means
+editing `themes.lua` (add spec) **and** creating the `$TH/` folder (with the
+colorscheme-only `nvim.lua`). The switcher copies `$TH/nvim.lua` → `colorscheme.lua`
+to pick the active one; LazyVim loads the matching spec from `themes.lua`.
 
 ### 4. Generate the wallpaper
 
