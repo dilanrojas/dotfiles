@@ -1,0 +1,12 @@
+{
+  "label": "Gentleman Kanagawa",
+  "wallpaper": "01-gentleman-kanagawa.jpg",
+  "neovim_scheme": "gentleman-kanagawa-blur",
+  "system_theme": "dark",
+  "opacity": 0.9,
+  "icons": "Yaru-yellow-dark",
+  "palette": {
+    "active": "#E0C15A",
+    "inactive": "#5C5230"
+  }
+}

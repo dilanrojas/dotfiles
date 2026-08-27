@@ -32,8 +32,8 @@
     text_icon_padding = 15
 
     separator_height = 5
-    frame_width = 1
-background = "#101315e6"
+    frame_width = 2
+background = "#101315ff"
 foreground = "#cacccc"
 frame_color = "#cacccc"
 

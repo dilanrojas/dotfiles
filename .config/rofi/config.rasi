@@ -25,7 +25,7 @@ window {
 
     /* properties for all widgets */
     enabled:                     true;
-    border:                      1px solid;
+    border:                      2px solid;
     border-color:                @fg;
     border-radius:               @rounding;
     cursor:                      "default";

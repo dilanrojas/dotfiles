@@ -60,6 +60,14 @@ vi_mode_style = "None"
 unfocused_hollow = true
 thickness = 0.15
 
+# Smooth cursor
+# smooth_motion = true
+# smooth_motion_factor = 0.8
+# smooth_motion_spring = 0.8
+# smooth_motion_max_stretch_x = 8.0
+# smooth_motion_max_stretch_y = 8.0
+# smooth_motion_antijitter_ms = 50
+
 [mouse]
 hide_when_typing = true
 

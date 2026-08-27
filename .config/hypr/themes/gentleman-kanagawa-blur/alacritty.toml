@@ -1,0 +1,26 @@
+# Colors (Gentleman Kanagawa Blur)
+# Source: https://github.com/Gentleman-Programming/gentleman-kanagawa-blur (extras/alacritty)
+
+[colors.primary]
+background = '#161617'
+foreground = '#c9c7cd'
+
+[colors.normal]
+black = '#27272a'
+red = '#ea83a5'
+green = '#90b99f'
+yellow = '#e6b99d'
+blue = '#9ca2cf'
+magenta = '#e29eca'
+cyan = '#85b5ba'
+white = '#c9c7cd'
+
+[colors.bright]
+black = '#353539'
+red = '#ed96b3'
+green = '#a7c8b3'
+yellow = '#eac5ae'
+blue = '#acb1d7'
+magenta = '#e8b0d4'
+cyan = '#97c0c4'
+white = '#c9c7cd'

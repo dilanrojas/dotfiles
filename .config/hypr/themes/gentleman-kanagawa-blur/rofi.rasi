@@ -1,0 +1,6 @@
+* {
+    accent: #E0C15A;
+    bg-primary: #161617;
+    bg-secondary: #161617;
+    fg: #c9c7cd;
+}

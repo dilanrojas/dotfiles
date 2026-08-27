@@ -79,7 +79,7 @@ else
     -i \
     -no-show-icons \
     -p "Screenshot" \
-    -theme-str 'window {width: 280px; height: 300px;}')
+    -theme-str 'window {width: 280px; height: 303px;}')
   [[ -z "$CHOICE" ]] && exit 0
   sleep 0.4
   case "$CHOICE" in

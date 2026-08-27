@@ -32,7 +32,7 @@ MENU_ITEMS="${MENU_ITEMS%\\n}"
 
 CHOICE=$(
   echo -e "$MENU_ITEMS" | rofi -dmenu -i -p "Wallpaper" -theme-str '
-    window { width: 1280px; height: 405px; }
+    window { width: 1280px; height: 408px; }
     listview { columns: 4; lines: 1; spacing: 5px; }
     element { orientation: vertical; padding: 0px; spacing: 0px; }
     element selected.normal { background-color: @accent; }

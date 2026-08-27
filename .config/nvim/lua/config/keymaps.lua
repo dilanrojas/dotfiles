@@ -20,3 +20,5 @@ end, { desc = "Clear console and Run Java Main" })
 vim.keymap.set("n", "<leader>ww", function()
   vim.cmd("noautocmd w")
 end, { desc = "Save file without formatting" })
+
+vim.keymap.set("x", "<leader>p", '"_dP')
