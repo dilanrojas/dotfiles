@@ -9,7 +9,7 @@ ITEMS=(
   "  Theme::$TERMINAL nvim $CFG/theme.css"
 )
 
-CHOICE=$(printf "%s\n" "${ITEMS[@]}" | "$SCRIPT_DIR/rofi.sh" -L -p "Waybar Config" -w 280px)
+CHOICE=$(printf "%s\n" "${ITEMS[@]}" | "$SCRIPT_DIR/rofi.sh" -L -p "Waybar")
 
 if [[ -n "$CHOICE" ]]; then
   for item in "${ITEMS[@]}"; do

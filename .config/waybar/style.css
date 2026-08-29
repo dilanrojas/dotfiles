@@ -27,7 +27,9 @@ window#waybar {
 
 window#waybar>box {
   margin: 0px;
+  margin-bottom: 0px;
   border-radius: 0px;
+
   padding: 0px 8px;
   opacity: 1;
   border: none;

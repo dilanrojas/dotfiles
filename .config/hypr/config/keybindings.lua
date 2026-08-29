@@ -22,8 +22,7 @@ local dnd = "~/.config/hypr/scripts/dnd.sh"
 local system_menu = "~/.config/hypr/scripts/system_menu.sh"
 local notification_history = "~/.config/hypr/scripts/notification_history.sh"
 local night_light = "~/.config/hypr/scripts/night_light.sh"
-local clipboard =
-	"cliphist list | rofi -no-show-icons -dmenu -theme-str 'window { width: 600px; height: 358px; }' | cliphist decode | wl-copy"
+local clipboard = "cliphist list | rofi -no-show-icons -p Clipboard -dmenu | cliphist decode | wl-copy"
 
 ---------------------
 ---- KEYBINDINGS ----

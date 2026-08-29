@@ -4,14 +4,14 @@
 * {
 	  font: "JetBrainsMono Nerd Font 13";
     prompt-font: "JetBrainsMono Nerd Font Bold 13";
-    rounding: 0px;
+    rounding: 6px;
 }
 
 configuration {
 	modi: "window,run,drun";
-	display-drun: "drun";
-	display-window: "windows";
-	display-run: "run";
+	display-drun: "Apps";
+	display-window: "Windows";
+	display-run: "Run";
 	drun-display-format: "{icon} {name}";
 	show-icons: true;
 }
@@ -32,7 +32,7 @@ window {
     border-color:                @fg;
     border-radius:               @rounding;
     cursor:                      "default";
-    background-color:            @bg-opacity;
+    background-color:            @bg;
 }
 
 mainbox {
@@ -44,8 +44,8 @@ mainbox {
 }
 
 listbox {
-    spacing:                     8px;
-    padding:                     6px;
+    spacing:                     2px;
+    padding:                     0px;
     background-color:            transparent;
     orientation:                 vertical;
     children:                    ["inputbar", "message", "listview"];
@@ -54,7 +54,7 @@ listbox {
 inputbar {
     enabled:                     true;
     spacing:                     8px;
-    padding:                     0px;
+    padding:                     6px;
     border-radius:               @rounding;
     background-color:		         transparent;
     text-color:			             @fg;
@@ -62,17 +62,17 @@ inputbar {
 }
 
 prompt {
-    background-color: @blue;
-    font: @prompt-font;
-    text-color: @bg;
-    padding: 3px 7px;
-    border-radius: @rounding;
+    background-color:            @blue;
+    font:                        @prompt-font;
+    text-color:                  @bg;
+    padding:                     3px 7px;
+    border-radius:               @rounding;
 }
 
 entry {
     enabled:                     true;
     cursor:                      text;
-    padding: 3px 0px;
+    padding:                     3px 0px;
     text-color:                  @fg;
     background-color:            transparent;
 }
@@ -84,6 +84,7 @@ listview {
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
+    padding:                     0px 6px 6px 6px;
     layout:                      vertical;
     reverse:                     false;
     fixed-height:                true;
@@ -106,7 +107,7 @@ element {
 }
 
 element normal.normal {
-    background-color:            @bg;
+    background-color:            transparent;
     text-color:                  @fg;
 }
 

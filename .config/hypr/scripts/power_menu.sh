@@ -9,7 +9,7 @@ suspend="  Suspend"
 logout="󰍂  Log Out"
 
 # Ask rofi for a selection
-chosen=$(echo -e "$shutdown\n$reboot\n$suspend\n$logout\n$lock" | "$(dirname "${BASH_SOURCE[0]}")/rofi.sh" -p "Power Menu")
+chosen=$(echo -e "$shutdown\n$reboot\n$suspend\n$logout\n$lock" | "$(dirname "${BASH_SOURCE[0]}")/rofi.sh" -p "Power")
 
 # Perform the action based on selection
 case "$chosen" in

@@ -23,14 +23,14 @@ hl.config({
 	},
 
 	decoration = {
-		rounding = 0,
+		rounding = 6,
 		rounding_power = 2,
 
 		active_opacity = 1.0,
 		inactive_opacity = 1.0,
 
 		dim_inactive = false,
-		dim_strength = 0.15,
+		dim_strength = 0.05,
 
 		shadow = {
 			enabled = false,

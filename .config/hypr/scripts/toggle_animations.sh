@@ -31,6 +31,7 @@ elif [[ $# -eq 1 ]]; then
 fi
 
 LOOKS_FILE="$HOME/.config/hypr/config/looks.lua"
+HYPRLOCK_FILE="$HOME/.config/hypr/hyprlock.conf"
 
 [[ -f "$LOOKS_FILE" ]] || {
   echo "Missing file: $LOOKS_FILE" >&2
@@ -80,6 +81,21 @@ awk -v val="$NEW_VALUE" '
   }
   { print }
 ' "$LOOKS_FILE" > "${LOOKS_FILE}.tmp" && mv "${LOOKS_FILE}.tmp" "$LOOKS_FILE"
+
+# Also toggle animations in hyprlock.conf, if present.
+if [[ -f "$HYPRLOCK_FILE" ]]; then
+  awk -v val="$NEW_VALUE" '
+    /^[[:space:]]*animations[[:space:]]*\{/ { in_block=1 }
+    in_block && /^[[:space:]]*\}/ { in_block=0 }
+    in_block && /^[[:space:]]*enabled[[:space:]]*=[[:space:]]*[a-zA-Z]+/ {
+      match($0, /^[[:space:]]*/)
+      indent = substr($0, 1, RLENGTH)
+      print indent "enabled = " val
+      next
+    }
+    { print }
+  ' "$HYPRLOCK_FILE" > "${HYPRLOCK_FILE}.tmp" && mv "${HYPRLOCK_FILE}.tmp" "$HYPRLOCK_FILE"
+fi
 
 hyprctl reload
 

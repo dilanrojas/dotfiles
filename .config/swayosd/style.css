@@ -1,7 +1,7 @@
 @import url('./theme.css');
 
 window#osd {
-  border-radius: 0px;
+  border-radius: 8px;
   background: @bg;
   border: 2px solid @progress;
 }

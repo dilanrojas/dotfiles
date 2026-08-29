@@ -78,19 +78,16 @@ compute_alpha() {
 # ---- generators (write live copies from theme source) ----
 gen_rofi() {
   local key="$1" src="$THEMES_DIR/$1/rofi.rasi"
-  local bg
-  bg=$(awk -F'[:;]' '/^[[:space:]]*bg:/{gsub(/[ \t#]/,"",$2); print $2}' "$src")
-  # Inject bg-opacity (bg + alpha) INSIDE the * { } block (before the closing brace)
-  awk -v hex="${bg}${ALPHA_HEX}" '
-    { lines[NR] = $0 }
-    END {
-      for (i = 1; i <= NR; i++) {
-        if (lines[i] ~ /^}[[:space:]]*$/ && i == NR) {
-          print "    bg-opacity: #" hex ";"
-        }
-        print lines[i]
-      }
+  # Bake the window alpha into the `bg` and `bg-darker` colors themselves
+  # (e.g. `bg: #00141a;` -> `bg: #00141ad9;` when effects are on, `...ff;` off).
+  # No separate `bg-opacity` key: the color carries its own opacity, so the
+  # panel is transparent with effects on and fully opaque with them off.
+  awk -v a="$ALPHA_HEX" '
+    /^[[:space:]]*(bg|bg-darker)[[:space:]]*:/ {
+      m = match($0, /#[0-9A-Fa-f]{6}/)
+      $0 = substr($0, 1, m - 1) "#" substr($0, m + 1, 6) a substr($0, m + 7)
     }
+    { print }
   ' "$src" >"$ROFI_ACTIVE"
 }
 
@@ -127,9 +124,10 @@ apply_dunst() {
   bg="${bg#\#}"
   fg=$(awk -F'"' '/foreground =/{print $2}' "$src")
   frame=$(awk -F'"' '/frame_color =/{print $2}' "$src")
-  sed -i -E "s/^[[:space:]]*background[[:space:]]*=[[:space:]]*.*/background = \"#${bg}${ALPHA_HEX}\"/" "$DUNST_CONF"
-  sed -i -E "s/^[[:space:]]*foreground[[:space:]]*=[[:space:]]*.*/foreground = \"${fg}\"/" "$DUNST_CONF"
-  sed -i -E "s/^[[:space:]]*frame_color[[:space:]]*=[[:space:]]*.*/frame_color = \"${frame}\"/" "$DUNST_CONF"
+  # Preserve the original leading indentation captured in \1.
+  sed -i -E "s/^([[:space:]]*)background[[:space:]]*=[[:space:]]*.*/\1background = \"#${bg}${ALPHA_HEX}\"/" "$DUNST_CONF"
+  sed -i -E "s/^([[:space:]]*)foreground[[:space:]]*=[[:space:]]*.*/\1foreground = \"${fg}\"/" "$DUNST_CONF"
+  sed -i -E "s/^([[:space:]]*)frame_color[[:space:]]*=[[:space:]]*.*/\1frame_color = \"${frame}\"/" "$DUNST_CONF"
 }
 
 apply_looks() {
@@ -212,5 +210,6 @@ apply_opacity() {
   gen_rofi "$key"
   gen_waybar "$key"
   gen_swayosd "$key"
+  apply_dunst "$key"
   apply_alacritty_opacity
 }

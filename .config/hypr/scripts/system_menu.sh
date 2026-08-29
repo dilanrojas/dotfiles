@@ -19,7 +19,7 @@ ITEMS=(
   "󰂚  Notification History::$SCRIPTS/notification_history.sh"
 )
 
-CHOICE=$(printf "%s\n" "${ITEMS[@]}" | "$SCRIPT_DIR/rofi.sh" -L -p "System Utilities")
+CHOICE=$(printf "%s\n" "${ITEMS[@]}" | "$SCRIPT_DIR/rofi.sh" -L -p "Menu")
 
 if [[ -n "$CHOICE" ]]; then
   for item in "${ITEMS[@]}"; do

@@ -1,9 +1,8 @@
 * {
     accent: #3a363b;
     blue: #798186;
-    bg: #101315;
-    bg-darker: #06090b;
+    bg: #101315e6;
+    bg-darker: #06090be6;
     fg: #cacccc;
     error: #de6145;
-    bg-opacity: #101315e6;
 }

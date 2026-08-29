@@ -112,7 +112,7 @@ stop_recording() {
 pick_audio_and_start() {
   local options=$'  Desktop audio\n  Desktop audio + microphone\n  No audio'
   local choice
-  choice="$(echo "$options" | "$(dirname "${BASH_SOURCE[0]}")/rofi.sh" -p "Record audio")" || exit 0
+  choice="$(echo "$options" | "$(dirname "${BASH_SOURCE[0]}")/rofi.sh" -p "Screen Recorder")" || exit 0
   [[ -z "$choice" ]] && exit 0
 
   case "$choice" in

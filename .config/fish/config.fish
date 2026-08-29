@@ -4,7 +4,7 @@
 set fish_greeting ""
 
 # Aliases
-alias neofetch pfetch
+alias fetch pfetch
 alias ls "ls -l --color=auto --group-directories-first"
 alias cat bat
 alias tkn "cat ~/Documents/Files/GitToken.txt"

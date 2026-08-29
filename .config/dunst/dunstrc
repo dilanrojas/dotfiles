@@ -33,9 +33,9 @@
 
     separator_height = 5
     frame_width = 2
-background = "#101315e6"
-foreground = "#cacccc"
-frame_color = "#cacccc"
+    background = "#101315e6"
+    foreground = "#cacccc"
+    frame_color = "#cacccc"
 
     separator_color = frame
     sort = yes
@@ -79,7 +79,7 @@ frame_color = "#cacccc"
     always_run_script = true
     title = Dunst
     class = Dunst
-    corner_radius = 0
+    corner_radius = 6
     corners = all
     ignore_dbusclose = false
 

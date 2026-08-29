@@ -30,6 +30,8 @@ elif [[ $# -eq 1 ]]; then
 fi
 
 HYPRLAND_CONF="$HOME/.config/hypr/config/looks.lua"
+ROUNDING_BACKUP="$HOME/.config/hypr/config/.smart_gaps_rounding.bak"
+ROUNDING_LINE=26
 
 [[ -f "$HYPRLAND_CONF" ]] || {
   echo "Missing file: $HYPRLAND_CONF" >&2
@@ -51,6 +53,11 @@ if [[ "$MODE_ARG" == "on" ]]; then
   # Set global gaps to 0
   sed -i -E 's/^(\s*)gaps_in\s*=\s*[0-9]+,/\1gaps_in = 0,/' "$HYPRLAND_CONF"
   sed -i -E 's/^(\s*)gaps_out\s*=\s*[0-9]+,/\1gaps_out = 0,/' "$HYPRLAND_CONF"
+  # Remember the previously used rounding and disable it
+  CUR=$(sed -n "${ROUNDING_LINE}p" "$HYPRLAND_CONF" | grep -oP 'rounding\s*=\s*\K[0-9]+')
+  [[ -z "$CUR" || "$CUR" == "0" ]] && CUR=$(cat "$ROUNDING_BACKUP" 2>/dev/null || echo "6")
+  echo "$CUR" > "$ROUNDING_BACKUP"
+  sed -i -E "${ROUNDING_LINE}s/^(\s*)rounding\s*=\s*[0-9]+,/\1rounding = 0,/" "$HYPRLAND_CONF"
   echo "Smart gaps enabled"
 else
   # Comment smart gaps lines (lines 62-75)
@@ -58,6 +65,10 @@ else
   # Restore default global gaps
   sed -i -E 's/^(\s*)gaps_in\s*=\s*[0-9]+,/\1gaps_in = 4,/' "$HYPRLAND_CONF"
   sed -i -E 's/^(\s*)gaps_out\s*=\s*[0-9]+,/\1gaps_out = 10,/' "$HYPRLAND_CONF"
+  # Restore the previously used rounding
+  PREV=$(cat "$ROUNDING_BACKUP" 2>/dev/null || echo "6")
+  sed -i -E "${ROUNDING_LINE}s/^(\s*)rounding\s*=\s*[0-9]+,/\1rounding = ${PREV},/" "$HYPRLAND_CONF"
+  rm -f "$ROUNDING_BACKUP"
   echo "Smart gaps disabled"
 fi
 

@@ -17,7 +17,7 @@ ITEMS=(
   "  Scripts Folder::$TERMINAL nvim $CFG/scripts"
 )
 
-CHOICE=$(printf "%s\n" "${ITEMS[@]}" | "$SCRIPT_DIR/rofi.sh" -L -p "Hyprland Config")
+CHOICE=$(printf "%s\n" "${ITEMS[@]}" | "$SCRIPT_DIR/rofi.sh" -L -p "Hyprland")
 
 if [[ -n "$CHOICE" ]]; then
   for item in "${ITEMS[@]}"; do

@@ -18,7 +18,7 @@ if [ -z "${1:-}" ]; then
   MENU_ITEMS="${MENU_ITEMS%\\n}"
 
   THEME=$(
-    echo -e "$MENU_ITEMS" | rofi -dmenu -i -p "Select Theme" -display-columns 2 \
+    echo -e "$MENU_ITEMS" | rofi -dmenu -i -p "Theme" -display-columns 2 \
       -theme-str '
         window { width: 1280px; }
         listview { columns: 4; lines: 1; }
