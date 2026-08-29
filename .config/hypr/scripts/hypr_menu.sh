@@ -2,6 +2,7 @@
 TERMINAL="alacritty --class float -e"
 CFG=~/.config/hypr
 SCRIPTS="$CFG/scripts"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 ITEMS=(
   "󰍹  Monitors::$TERMINAL nvim $CFG/config/monitors.lua"
@@ -16,16 +17,7 @@ ITEMS=(
   "  Scripts Folder::$TERMINAL nvim $CFG/scripts"
 )
 
-MENU=()
-for item in "${ITEMS[@]}"; do
-  MENU+=("${item%%::*}")
-done
-
-CHOICE=$(
-  printf "%s\n" "${MENU[@]}" |
-    rofi -no-show-icons -dmenu -i -p "Hyprland Config" \
-      -theme-str 'window { width: 280px; height: 358px; }'
-)
+CHOICE=$(printf "%s\n" "${ITEMS[@]}" | "$SCRIPT_DIR/rofi.sh" -L -p "Hyprland Config")
 
 if [[ -n "$CHOICE" ]]; then
   for item in "${ITEMS[@]}"; do

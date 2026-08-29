@@ -2,6 +2,7 @@
 TERMINAL="alacritty --class float -e"
 CFG=~/.config/hypr
 SCRIPTS="$CFG/scripts"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 ITEMS=(
   "  Power::$SCRIPTS/power_menu.sh"
@@ -18,16 +19,7 @@ ITEMS=(
   "󰂚  Notification History::$SCRIPTS/notification_history.sh"
 )
 
-MENU=()
-for item in "${ITEMS[@]}"; do
-  MENU+=("${item%%::*}")
-done
-
-CHOICE=$(
-  printf "%s\n" "${MENU[@]}" |
-    rofi -no-show-icons -dmenu -i -p "System Utilities" \
-      -theme-str 'window { width: 280px; height: 358px; }'
-)
+CHOICE=$(printf "%s\n" "${ITEMS[@]}" | "$SCRIPT_DIR/rofi.sh" -L -p "System Utilities")
 
 if [[ -n "$CHOICE" ]]; then
   for item in "${ITEMS[@]}"; do

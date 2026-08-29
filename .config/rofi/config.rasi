@@ -1,14 +1,18 @@
 @theme "/dev/null"
-@import "/theme.rasi"
 @import "active_theme.rasi"
+
+* {
+	  font: "JetBrainsMono Nerd Font 13";
+    prompt-font: "JetBrainsMono Nerd Font Bold 13";
+    rounding: 0px;
+}
 
 configuration {
 	modi: "window,run,drun";
-	display-drun: "Applications";
-	display-window: "Windows";
-	display-run: "Run";
+	display-drun: "drun";
+	display-window: "windows";
+	display-run: "run";
 	drun-display-format: "{icon} {name}";
-	font: "JetBrainsMono Nerd Font 13";
 	show-icons: true;
 }
 
@@ -18,8 +22,7 @@ window {
     location:                    center;
     anchor:                      center;
     fullscreen:                  false;
-    width:                       420px;
-    height:                      365px;
+    width:                       520px;
     x-offset:                    0px;
     y-offset:                    0px;
 
@@ -29,7 +32,7 @@ window {
     border-color:                @fg;
     border-radius:               @rounding;
     cursor:                      "default";
-    background-color:            @bg-primary-opacity;
+    background-color:            @bg-opacity;
 }
 
 mainbox {
@@ -41,8 +44,8 @@ mainbox {
 }
 
 listbox {
-    spacing:                     10px;
-    padding:                     10px;
+    spacing:                     8px;
+    padding:                     6px;
     background-color:            transparent;
     orientation:                 vertical;
     children:                    ["inputbar", "message", "listview"];
@@ -50,45 +53,43 @@ listbox {
 
 inputbar {
     enabled:                     true;
-    spacing:                     7px;
-    padding:                     13px;
+    spacing:                     8px;
+    padding:                     0px;
     border-radius:               @rounding;
-    background-color:		         #00000000;
+    background-color:		         transparent;
     text-color:			             @fg;
-    children:                    [ "textbox-prompt-colon", "entry" ];
+    children:                    ["prompt", "entry" ];
 }
 
-textbox-prompt-colon {
-    enabled:                     true;
-    expand:                      false;
-    str:                         "  ";
-    background-color:            #00000000;
-    text-color:                  @fg;
+prompt {
+    background-color: @blue;
+    font: @prompt-font;
+    text-color: @bg;
+    padding: 3px 7px;
+    border-radius: @rounding;
 }
 
 entry {
     enabled:                     true;
-    background-color:            @bg-primary;
-    text-color:                  @fg;
     cursor:                      text;
-    placeholder:                 " Search...";
-    background-color:            #00000000;
-    placeholder-color:           #808080aa;
+    padding: 3px 0px;
+    text-color:                  @fg;
+    background-color:            transparent;
 }
 
 listview {
     enabled:                     true;
     columns:                     1;
-    lines:                       5;
+    lines:                       7;
     cycle:                       true;
     dynamic:                     true;
     scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
-    fixed-height:                false;
+    fixed-height:                true;
     fixed-columns:               true;
 
-    spacing:                     10px;
+    spacing:                     0px;
     background-color:            transparent;
     text-color:                  @fg;
     cursor:                      "default";
@@ -96,32 +97,32 @@ listview {
 
 element {
     enabled:                     true;
-    spacing:                     12px;
-    padding:                     12px;
+    spacing:                     2px;
+    padding:                     8px;
     border-radius:               @rounding;
-    background-color:            transparent;
+    background-color:            @bg-darker;
     text-color:                  @fg;
     cursor:                      pointer;
 }
 
 element normal.normal {
-    background-color:            inherit;
-    text-color:                  inherit;
+    background-color:            @bg;
+    text-color:                  @fg;
 }
 
 element normal.urgent {
     background-color:            @error;
-    text-color:                  @fg-secondary;
+    text-color:                  @fg;
 }
 
 element normal.active {
-    background-color:            @bg-secondary;
-    text-color:                  @fg-secondary;
+    background-color:            @bg-darker;
+    text-color:                  @fg;
 }
 
 element selected.normal {
-    background-color:            transparent;
-    text-color:                  @accent;
+    background-color:            @accent;
+    text-color:                  white;
 }
 
 element selected.urgent {
@@ -156,6 +157,6 @@ message {
 error-message {
     padding:                     12px;
     border-radius:               @rounding;
-    background-color:            @bg-secondary;
+    background-color:            @bg-darker;
     text-color:                  @error;
 }

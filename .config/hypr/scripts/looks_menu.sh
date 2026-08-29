@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 SCRIPTS=~/.config/hypr/scripts
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 ITEMS=(
   "󱥚  Theme::sh $SCRIPTS/hypr_theme.sh"
@@ -9,16 +10,7 @@ ITEMS=(
   "  Toggle Gaps::$SCRIPTS/toggle_smart_gaps.sh"
 )
 
-MENU=()
-for item in "${ITEMS[@]}"; do
-  MENU+=("${item%%::*}")
-done
-
-CHOICE=$(
-  printf "%s\n" "${MENU[@]}" |
-    rofi -no-show-icons -dmenu -i -p "Looks" \
-      -theme-str 'window { width: 280px; height: 358px; }'
-)
+CHOICE=$(printf "%s\n" "${ITEMS[@]}" | "$SCRIPT_DIR/rofi.sh" -L -p "Looks")
 
 if [[ -n "$CHOICE" ]]; then
   for item in "${ITEMS[@]}"; do

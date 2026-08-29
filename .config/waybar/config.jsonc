@@ -215,5 +215,9 @@
     "format": "",
     "on-click": "~/.config/hypr/scripts/power_menu.sh",
     "tooltip": false
+  },
+  "custom/arrow-left": {
+    "format": "󰍞",
+    "tooltip": false
   }
 }

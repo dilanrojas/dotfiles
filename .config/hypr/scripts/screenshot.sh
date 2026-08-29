@@ -73,13 +73,8 @@ if [[ $# -gt 0 ]]; then
     ;;
   esac
 else
-  OPTIONS="󰆞  Crop Selection\n󰖯  Window Selection\n󰹑  Fullscreen\n󱂵  Active Window"
-  CHOICE=$(echo -e "$OPTIONS" | rofi \
-    -dmenu \
-    -i \
-    -no-show-icons \
-    -p "Screenshot" \
-    -theme-str 'window {width: 280px; height: 303px;}')
+  OPTIONS="󰆞  Crop Selection\n  Window Selection\n󰹑  Fullscreen\n  Active Window"
+  CHOICE=$(echo -e "$OPTIONS" | "$(dirname "${BASH_SOURCE[0]}")/rofi.sh" -p "Screenshot")
   [[ -z "$CHOICE" ]] && exit 0
   sleep 0.4
   case "$CHOICE" in

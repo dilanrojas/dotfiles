@@ -1,6 +1,8 @@
 * {
-    accent: #938AA9;
-    bg-primary: #131111;
-    bg-secondary: #0d0c0c;
+    accent: #844444;
+    blue: #8ba4b0;
+    bg: #131111;
+    bg-darker: #090707;
     fg: #c5c9c5;
+    error: #E46876;
 }

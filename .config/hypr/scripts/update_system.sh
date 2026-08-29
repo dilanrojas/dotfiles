@@ -64,7 +64,7 @@ OPTIONS="󰣇  Full System Upgrade
 󱔼  Firmware Updates"
 
 # Launch rofi and get user choice
-CHOICE=$(echo -e "$OPTIONS" | rofi -no-show-icons -dmenu -i -p "Update Manager" -theme-str 'window { width: 330px; height: 358px; }')
+CHOICE=$(echo -e "$OPTIONS" | "$(dirname "${BASH_SOURCE[0]}")/rofi.sh" -p "Update System")
 
 # Exit if user cancels
 [ -z "$CHOICE" ] && exit 0

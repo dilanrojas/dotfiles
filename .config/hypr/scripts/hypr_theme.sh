@@ -20,12 +20,11 @@ if [ -z "${1:-}" ]; then
   THEME=$(
     echo -e "$MENU_ITEMS" | rofi -dmenu -i -p "Select Theme" -display-columns 2 \
       -theme-str '
-        window { width: 1280px; height: 408px; }
-        listview { columns: 4; lines: 1; spacing: 5px; }
+        window { width: 1280px; }
+        listview { columns: 4; lines: 1; }
         element { orientation: vertical; padding: 0px; spacing: 0px; }
         element-icon { size: 28ch; }
-        element-text { enabled: true; horizontal-align: 0.5; padding: 10px 00px; }
-        element selected.normal { color: @bg-primary; background-color: @accent; }
+        element-text { enabled: true; horizontal-align: 0.5; padding: 0px 0px 15px 0px; }
       ' |
       cut -f1
   )

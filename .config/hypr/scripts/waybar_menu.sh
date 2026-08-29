@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 TERMINAL="alacritty --class float -e"
 CFG=~/.config/waybar
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 ITEMS=(
   "  Config::$TERMINAL nvim $CFG/config.jsonc"
@@ -8,16 +9,7 @@ ITEMS=(
   "  Theme::$TERMINAL nvim $CFG/theme.css"
 )
 
-MENU=()
-for item in "${ITEMS[@]}"; do
-  MENU+=("${item%%::*}")
-done
-
-CHOICE=$(
-  printf "%s\n" "${MENU[@]}" |
-    rofi -no-show-icons -dmenu -i -p "Waybar Config" \
-      -theme-str 'window { width: 280px; height: 245px; }'
-)
+CHOICE=$(printf "%s\n" "${ITEMS[@]}" | "$SCRIPT_DIR/rofi.sh" -L -p "Waybar Config" -w 280px)
 
 if [[ -n "$CHOICE" ]]; then
   for item in "${ITEMS[@]}"; do

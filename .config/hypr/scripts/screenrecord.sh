@@ -24,7 +24,7 @@ focused_monitor() {
 }
 
 start_recording() {
-  local with_mic="$1"
+  local audio_mode="${1:-desktop}"
 
   # If a recording is somehow already running, treat this as a stop instead of
   # spawning a second instance on top of it.
@@ -35,10 +35,11 @@ start_recording() {
 
   local audio_devices="default_output"
   local audio_args=()
-  if [[ "$with_mic" == "true" ]]; then
-    audio_devices+="|default_input"
-  fi
-  audio_args=(-a "$audio_devices" -ac aac)
+  case "$audio_mode" in
+  mic) audio_devices+="|default_input" ;&
+  desktop) audio_args=(-a "$audio_devices" -ac aac) ;;
+  none) audio_args=() ;;
+  esac
 
   local monitor
   monitor="$(focused_monitor)"
@@ -109,30 +110,30 @@ stop_recording() {
 }
 
 pick_audio_and_start() {
-  local options=$'Desktop Audio\nDesktop Audio + Microphone'
+  local options=$'  Desktop audio\n  Desktop audio + microphone\n  No audio'
   local choice
-  choice="$(echo "$options" | rofi -dmenu -no-show-icons -i -p "Record audio" \
-    -theme-str 'window {width: 350px; height: 190px;}')" || exit 0
+  choice="$(echo "$options" | "$(dirname "${BASH_SOURCE[0]}")/rofi.sh" -p "Record audio")" || exit 0
   [[ -z "$choice" ]] && exit 0
 
-  if [[ "$choice" == *"Microphone"* ]]; then
-    start_recording "true"
-  else
-    start_recording "false"
-  fi
+  case "$choice" in
+  *"microphone"*) start_recording "mic" ;;
+  *"No audio"*) start_recording "none" ;;
+  *) start_recording "desktop" ;;
+  esac
 }
 
 case "${1:-}" in
 stop) stop_recording ;;
 start)
   shift
-  with_mic="false"
+  audio_mode="desktop"
   for arg in "$@"; do
     case "$arg" in
-    --with-mic) with_mic="true" ;;
+    --with-mic) audio_mode="mic" ;;
+    --no-audio) audio_mode="none" ;;
     esac
   done
-  start_recording "$with_mic"
+  start_recording "$audio_mode"
   ;;
 "")
   if screenrecording_active; then
@@ -142,7 +143,7 @@ start)
   fi
   ;;
 *)
-  echo "Usage: $0 [start [--with-mic] | stop]" >&2
+  echo "Usage: $0 [start [--with-mic|--no-audio] | stop]" >&2
   exit 1
   ;;
 esac

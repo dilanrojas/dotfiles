@@ -35,6 +35,7 @@ application/vnd.oasis.opendocument.text=libreoffice-startcenter.desktop
 text/markdown=nvim.desktop
 text/vnd.trolltech.linguist=nvim.desktop
 application/vnd.efi.iso=gnome-disk-image-mounter.desktop
+x-scheme-handler/mailto=brave-browser.desktop
 
 [Added Associations]
 application/vnd.oasis.opendocument.text=libreoffice-startcenter.desktop;

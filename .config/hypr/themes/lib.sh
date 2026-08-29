@@ -79,14 +79,14 @@ compute_alpha() {
 gen_rofi() {
   local key="$1" src="$THEMES_DIR/$1/rofi.rasi"
   local bg
-  bg=$(awk -F'[:;]' '/bg-primary:/{gsub(/[ \t#]/,"",$2); print $2}' "$src")
-  # Inject bg-primary-opacity INSIDE the * { } block (before the closing brace)
+  bg=$(awk -F'[:;]' '/^[[:space:]]*bg:/{gsub(/[ \t#]/,"",$2); print $2}' "$src")
+  # Inject bg-opacity (bg + alpha) INSIDE the * { } block (before the closing brace)
   awk -v hex="${bg}${ALPHA_HEX}" '
     { lines[NR] = $0 }
     END {
       for (i = 1; i <= NR; i++) {
         if (lines[i] ~ /^}[[:space:]]*$/ && i == NR) {
-          print "    bg-primary-opacity: #" hex ";"
+          print "    bg-opacity: #" hex ";"
         }
         print lines[i]
       }
