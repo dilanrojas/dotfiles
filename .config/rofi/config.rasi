@@ -4,7 +4,7 @@
 * {
 	  font: "JetBrainsMono Nerd Font 12";
     prompt-font: "JetBrainsMono Nerd Font Bold 12";
-    rounding: 0px;
+    rounding: 6px;
 }
 
 configuration {
@@ -101,7 +101,7 @@ element {
     spacing:                     2px;
     padding:                     8px;
     border-radius:               @rounding;
-    background-color:            @bg-darker;
+    background-color:            transparent;
     text-color:                  @fg;
     cursor:                      pointer;
 }
@@ -117,7 +117,7 @@ element normal.urgent {
 }
 
 element normal.active {
-    background-color:            @bg-darker;
+    background-color:            transparent;
     text-color:                  @fg;
 }
 

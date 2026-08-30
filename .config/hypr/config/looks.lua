@@ -5,14 +5,14 @@
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
 	general = {
-		gaps_in = 4,
+		gaps_in = 3,
 		gaps_out = 10,
 
 		border_size = 2,
 
 		col = {
-			active_border = { colors = { "rgba(89B4FAff)" } },
-			inactive_border = "rgba(464656ff)",
+			active_border = { colors = { "rgba(de6145ff)" } },
+			inactive_border = "rgba(383b3dff)",
 		},
 
 		resize_on_border = false,
@@ -23,7 +23,7 @@ hl.config({
 	},
 
 	decoration = {
-		rounding = 0,
+		rounding = 6,
 		rounding_power = 2,
 
 		active_opacity = 1.0,
@@ -34,9 +34,9 @@ hl.config({
 
 		shadow = {
 			enabled = false,
-			range = 25,
-			render_power = 2,
-			color = "rgba(0000000c)",
+			range = 35,
+			render_power = 3,
+			color = "rgba(00000020)",
 		},
 
 		blur = {
@@ -44,9 +44,9 @@ hl.config({
 			size = 1,
 			passes = 6,
 			vibrancy = 0.0,
-			noise = 0.06,
+			noise = 0.04,
 			popups = false,
-			brightness = 1.0,
+			brightness = 0.65,
 			contrast = 1.0,
 			new_optimizations = true,
 			xray = false,
@@ -54,7 +54,7 @@ hl.config({
 	},
 
 	animations = {
-		enabled = false,
+		enabled = true,
 	},
 })
 
@@ -82,7 +82,7 @@ hl.curve("almostLinear", { type = "bezier", points = { { 0.5, 0.5 }, { 0.75, 1.0
 hl.curve("quick", { type = "bezier", points = { { 0.15, 0 }, { 0.1, 1 } } })
 
 hl.animation({ leaf = "global", enabled = true, speed = 7, bezier = "default" })
-hl.animation({ leaf = "border", enabled = true, speed = 3.8, bezier = "easeOutQuint" })
+hl.animation({ leaf = "border", enabled = true, speed = 1.0, bezier = "almostLinear" })
 hl.animation({ leaf = "windows", enabled = true, speed = 2.6, bezier = "easeOutQuint" })
 hl.animation({ leaf = "windowsIn", enabled = true, speed = 2.8, bezier = "easeOutQuint", style = "popin 92%" })
 hl.animation({ leaf = "windowsOut", enabled = true, speed = 1.0, bezier = "linear", style = "popin 92%" })

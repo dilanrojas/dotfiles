@@ -86,11 +86,6 @@ window#waybar>box {
   font-family: 'Adwaita Sans';
 }
 
-#clock,
-#language {
-  font-weight: 700;
-}
-
 #tray,
 #language,
 #clock {
@@ -115,7 +110,7 @@ window#waybar>box {
 #workspaces button {
   padding: 0px;
   margin: 0px;
-  min-width: 30px;
+  min-width: 28px;
   border: none;
   color: inherit;
   box-shadow: none;

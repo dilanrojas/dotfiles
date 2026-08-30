@@ -4,7 +4,7 @@
   "reload_style_on_change": true,
   // "position": "bottom",
   "height": 32,
-  //"width": 1800,
+  //"width": 800,
   "spacing": 0,
   "modules-left": [
     "hyprland/workspaces"

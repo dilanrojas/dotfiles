@@ -1,1 +1,1 @@
-pgrep hyprsunset && killall hyprsunset || hyprsunset --temperature 4800
+pgrep hyprsunset && killall hyprsunset || hyprsunset --temperature 5200

@@ -1,9 +1,8 @@
 {
   "label": "Solarized Osaka",
-  "wallpaper": "03-solarized-osaka.jpg",
+  "wallpaper": "09-solarized-osaka.jpg",
   "neovim_scheme": "solarized-osaka",
   "system_theme": "dark",
-  "opacity": 0.85,
   "icons": "Yaru-prussiangreen-dark",
   "palette": {
     "active": "#2aa198",

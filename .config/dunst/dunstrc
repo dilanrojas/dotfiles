@@ -26,16 +26,16 @@
     indicate_hidden = yes
     transparency = 0
 
-    padding = 15
-    gap_size = 5
+    padding = 12
+    gap_size = 8
     horizontal_padding = 10
-    text_icon_padding = 15
+    text_icon_padding = 12
 
     separator_height = 5
-    frame_width = 1
-    background = "#3c3c4ce6"
-    foreground = "#CDD6F4"
-    frame_color = "#464656"
+    frame_width = 2
+    background = "#101315cc"
+    foreground = "#cacccc"
+    frame_color = "#cacccc"
 
     separator_color = frame
     sort = yes
@@ -48,7 +48,7 @@
     markup = full
     format = "<b>%s</b>\n%b"
     alignment = left
-    vertical_alignment = top
+    vertical_alignment = center
     show_age_threshold = 60
     ellipsize = middle
 
@@ -79,7 +79,7 @@
     always_run_script = true
     title = Dunst
     class = Dunst
-    corner_radius = 0
+    corner_radius = 12
     corners = all
     ignore_dbusclose = false
 

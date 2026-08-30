@@ -191,22 +191,26 @@ hl.window_rule({
 -- Disable rofi animations
 hl.layer_rule({
 	match = { namespace = "rofi" },
+	ignore_alpha = 0.5,
 	no_anim = false,
 	blur = true,
 })
 
 hl.layer_rule({
 	match = { namespace = "waybar" },
+	ignore_alpha = 0.5,
 	blur = true,
 })
 
 hl.layer_rule({
 	match = { namespace = "swayosd" },
 	no_anim = false,
+	ignore_alpha = 0.5,
 	blur = true,
 })
 
 hl.layer_rule({
 	match = { namespace = "notifications" },
+	ignore_alpha = 0.5,
 	blur = true,
 })

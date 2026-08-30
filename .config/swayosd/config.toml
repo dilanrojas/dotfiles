@@ -9,7 +9,7 @@ top_margin = 0.95
 # max_volume = 150
 
 ## The minimum brightness that can be reached in %
-min_brightness = 5
+min_brightness = 2
 
 ## show percentage on the right of the OSD
 # show_percentage = true

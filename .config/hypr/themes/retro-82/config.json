@@ -1,9 +1,8 @@
 {
   "label": "Retro 82",
-  "wallpaper": "02-retro-82.jpg",
+  "wallpaper": "05-retro-82.jpg",
   "neovim_scheme": "retro-82",
   "system_theme": "dark",
-  "opacity": 0.9,
   "icons": "Yaru-dark",
   "palette": {
     "active": "#E97B3C",
