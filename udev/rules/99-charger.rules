@@ -1,1 +1,0 @@
-SUBSYSTEM=="power_supply", KERNEL=="ADP0", ACTION=="change", RUN+="/usr/local/bin/on-power-change.sh"

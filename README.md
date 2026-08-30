@@ -228,23 +228,6 @@ yay -S ttf-plemoljp-bin ttf-ibmplex-mono-nerd waybar-module-pacman-updates-git b
 pipx install rich-cli
 ```
 
-### Set up `udev` rules for AC and USB events.
-
-This scripts will trigger the default `freedesktop` sound for plugging/unplugging an USB.
-
-The `on-power-change.sh` script will play a sound and disable all the effects (blur and transparency) for all
-the desktop components, as well as switching to the power saving mode. This will be reverted once AC is plugged in.
-
-```bash
-chmod +x dotfiles/udev/bin/*
-
-sudo cp dotfiles/udev/bin/* /usr/local/bin/
-sudo cp dotfiles/udev/rules/* /etc/udev/rules.d/
-
-sudo udevadm control --reload-rules
-sudo udevadm trigger
-```
-
 ### 🎧 Audio & Connectivity
 
 **Sound servers, Bluetooth, and printing**
