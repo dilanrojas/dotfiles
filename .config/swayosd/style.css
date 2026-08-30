@@ -1,9 +1,9 @@
 @import url('./theme.css');
 
 window#osd {
-  border-radius: 8px;
+  border-radius: 0px;
   background: @bg;
-  border: 2px solid @progress;
+  border: 1px solid @segment;
 }
 
 window#osd #container {

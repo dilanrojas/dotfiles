@@ -1,12 +1,12 @@
 {
   "label": "Vesper",
-  "wallpaper": "04-vesper.jpg",
+  "wallpaper": "03-vesper.jpg",
   "neovim_scheme": "vesper",
   "system_theme": "dark",
   "opacity": 0.9,
   "icons": "Yaru-prussiangreen-dark",
   "palette": {
-    "active": "#82D9C2",
-    "inactive": "#3F6B61"
+    "active": "#cccccc",
+    "inactive": "#383838"
   }
 }

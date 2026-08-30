@@ -124,10 +124,10 @@ apply_dunst() {
   bg="${bg#\#}"
   fg=$(awk -F'"' '/foreground =/{print $2}' "$src")
   frame=$(awk -F'"' '/frame_color =/{print $2}' "$src")
-  # Preserve the original leading indentation captured in \1.
+  frame="${frame#\#}"
   sed -i -E "s/^([[:space:]]*)background[[:space:]]*=[[:space:]]*.*/\1background = \"#${bg}${ALPHA_HEX}\"/" "$DUNST_CONF"
   sed -i -E "s/^([[:space:]]*)foreground[[:space:]]*=[[:space:]]*.*/\1foreground = \"${fg}\"/" "$DUNST_CONF"
-  sed -i -E "s/^([[:space:]]*)frame_color[[:space:]]*=[[:space:]]*.*/\1frame_color = \"${frame}\"/" "$DUNST_CONF"
+  sed -i -E "s/^([[:space:]]*)frame_color[[:space:]]*=[[:space:]]*.*/\1frame_color = \"#${frame}\"/" "$DUNST_CONF"
 }
 
 apply_looks() {

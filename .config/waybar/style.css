@@ -21,14 +21,13 @@ window#waybar {
   background-color: transparent;
   transition-property: background-color;
   transition-duration: .5s;
-  margin: 0;
-  padding: 0;
+  margin: 0px;
+  padding: 0px;
 }
 
 window#waybar>box {
   margin: 0px;
   margin-bottom: 0px;
-  border-radius: 0px;
 
   padding: 0px 8px;
   opacity: 1;
@@ -85,6 +84,11 @@ window#waybar>box {
 #clock,
 #tray {
   font-family: 'Adwaita Sans';
+}
+
+#clock,
+#language {
+  font-weight: 700;
 }
 
 #tray,

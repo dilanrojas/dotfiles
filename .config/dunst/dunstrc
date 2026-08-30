@@ -32,10 +32,10 @@
     text_icon_padding = 15
 
     separator_height = 5
-    frame_width = 2
-    background = "#101315e6"
-    foreground = "#cacccc"
-    frame_color = "#cacccc"
+    frame_width = 1
+    background = "#3c3c4ce6"
+    foreground = "#CDD6F4"
+    frame_color = "#464656"
 
     separator_color = frame
     sort = yes
@@ -79,7 +79,7 @@
     always_run_script = true
     title = Dunst
     class = Dunst
-    corner_radius = 6
+    corner_radius = 0
     corners = all
     ignore_dbusclose = false
 

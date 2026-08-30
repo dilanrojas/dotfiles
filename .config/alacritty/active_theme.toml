@@ -1,29 +1,74 @@
-# Colors (Ashen)
-
 [colors.primary]
-background = '#101315'
-foreground = '#cacccc'
+background = '#1E1E2E'
+foreground = '#CDD6F4'
+dim_foreground = '#CDD6F4'
+bright_foreground = '#CDD6F4'
 
-[colors.normal]
-black = '#080a0b'
-red = '#565d60'
-green = '#9fa5a9'
-yellow = '#d9dbdc'
-blue = '#798186'
-magenta = '#aeaeae'
-cyan = '#707070'
-white = '#cacccc'
+# Cursor colors
+[colors.cursor]
+text = '#1E1E2E'
+cursor = '#F5E0DC'
 
-[colors.bright]
-black = '#4b4e55'
-red = '#de6145'
-green = '#4c595f'
-yellow = '#c9c2b4'
-blue = '#5d6367'
-magenta = '#9a9a9a'
-cyan = '#707070'
-white = '#a5aeb4'
+[colors.vi_mode_cursor]
+text = '#1E1E2E'
+cursor = '#B4BEFE'
 
+# Search colors
+[colors.search.matches]
+foreground = '#1E1E2E'
+background = '#A6ADC8'
+
+[colors.search.focused_match]
+foreground = '#1E1E2E'
+background = '#A6E3A1'
+
+[colors.footer_bar]
+foreground = '#1E1E2E'
+background = '#A6ADC8'
+
+# Keyboard regex hints
+[colors.hints.start]
+foreground = '#1E1E2E'
+background = '#F9E2AF'
+
+[colors.hints.end]
+foreground = '#1E1E2E'
+background = '#A6ADC8'
+
+# Selection colors
 [colors.selection]
-text = '#cacccc'
-background = '#343d41'
+text = '#1E1E2E'
+background = '#F5E0DC'
+
+# Normal colors
+[colors.normal]
+black = '#45475A'
+red = '#F38BA8'
+green = '#A6E3A1'
+yellow = '#F9E2AF'
+blue = '#89B4FA'
+magenta = '#F5C2E7'
+cyan = '#94E2D5'
+white = '#BAC2DE'
+
+# Bright colors
+[colors.bright]
+black = '#585B70'
+red = '#F38BA8'
+green = '#A6E3A1'
+yellow = '#F9E2AF'
+blue = '#89B4FA'
+magenta = '#F5C2E7'
+cyan = '#94E2D5'
+white = '#A6ADC8'
+
+# Dim colors
+[colors.dim]
+black = '#45475A'
+red = '#F38BA8'
+green = '#A6E3A1'
+yellow = '#F9E2AF'
+blue = '#89B4FA'
+magenta = '#F5C2E7'
+cyan = '#94E2D5'
+white = '#BAC2DE'

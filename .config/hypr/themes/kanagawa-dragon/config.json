@@ -1,12 +1,12 @@
 {
   "label": "Kanagawa Dragon",
-  "wallpaper": "05-kanagawa-dragon.jpg",
+  "wallpaper": "01-kanagawa-dragon.jpg",
   "neovim_scheme": "kanagawa-dragon",
   "system_theme": "dark",
   "opacity": 0.9,
   "icons": "Yaru-wartybrown-dark",
   "palette": {
-    "active": "#938AA9",
-    "inactive": "#4A4554"
+    "active": "#a292a3",
+    "inactive": "#3b3939"
   }
 }

@@ -1,12 +1,12 @@
 {
   "label": "Catppuccin",
-  "wallpaper": "01-catppuccin.jpg",
+  "wallpaper": "04-catppuccin.jpg",
   "neovim_scheme": "catppuccin-mocha",
   "system_theme": "dark",
   "opacity": 0.9,
   "icons": "Yaru-purple-dark",
   "palette": {
-    "active": "#89b4fa",
-    "inactive": "#445A7D"
+    "active": "#89B4FA",
+    "inactive": "#464656"
   }
 }

@@ -31,7 +31,7 @@ hl.config({
 		warp_on_change_workspace = 0,
 		no_hardware_cursors = 0,
 		no_break_fs_vrr = 0,
-		inactive_timeout = 10,
+		inactive_timeout = 0,
 	},
 })
 

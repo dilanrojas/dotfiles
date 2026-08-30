@@ -151,6 +151,11 @@ foreground = "#cccccc"
 frame_color = "#cccccc"
 ```
 
+**Color scheme rule:**
+- **Dark themes** (`system_theme: "dark"`): notification `background` = theme base bg +30 per RGB channel; `frame_color` = background +10
+- **Light themes** (`system_theme: "light"`): notification `background` = theme base bg -20 per RGB channel; `frame_color` = background -10
+- `foreground` = theme's normal fg (unchanged)
+
 **`$TH/config.json`**:
 
 ```json
@@ -169,9 +174,9 @@ frame_color = "#cccccc"
 ```
 
 - `neovim_scheme`: exact string passed to `:colorscheme`.
-- `palette.active` / `inactive`: the accent (hyprland borders + rofi) and a darkened
-  version (inactive borders).
-- `icons`: a matching `Yaru-*` icon theme (`-dark` for dark themes).
+- `palette.active`: accent color (hyprland borders + rofi)
+- `palette.inactive`: **must match `frame_color` from `dunstrc`** (used for inactive hyprland borders)
+- `icons`: a matching `Yaru-*` icon theme (`-dark` for dark themes, no suffix for light).
 - `opacity`: optional, defaults to `0.9`.
 
 **`$TH/nvim.lua`** — ONLY the active theme's colorscheme activation. This file is

@@ -4,7 +4,7 @@
 * {
 	  font: "JetBrainsMono Nerd Font 12";
     prompt-font: "JetBrainsMono Nerd Font Bold 12";
-    rounding: 6px;
+    rounding: 0px;
 }
 
 configuration {
