@@ -5,14 +5,14 @@
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
 	general = {
-		gaps_in = 2,
-		gaps_out = 6,
+		gaps_in = 5,
+		gaps_out = 10,
 
 		border_size = 2,
 
 		col = {
-			active_border = { colors = { "rgba(ad8ee6ff)" } },
-			inactive_border = "rgba(42434eff)",
+			active_border = { colors = { "rgba(2aa198ff)" } },
+			inactive_border = "rgba(283c42ff)",
 		},
 
 		resize_on_border = false,
@@ -40,9 +40,9 @@ hl.config({
 		},
 
 		blur = {
-			enabled = false,
+			enabled = true,
 			size = 1,
-			passes = 5,
+			passes = 4,
 			vibrancy = 0.0,
 			noise = 0.04,
 			popups = false,
@@ -64,7 +64,7 @@ hl.config({
 -- hl.window_rule({
 -- 	name = "no-gaps-wtv1",
 -- 	match = { float = false, workspace = "w[tv1]" },
--- 	border_size  0,
+-- 	border_size = 0,
 -- 	rounding = 0,
 -- })
 -- hl.window_rule({

@@ -4,7 +4,7 @@
   "reload_style_on_change": true,
   // "position": "bottom",
   "height": 32,
-  //"width": 800,
+  //"width": 1080,
   "spacing": 0,
   "modules-left": [
     "hyprland/workspaces"
@@ -177,7 +177,7 @@
     "orientation": "horizontal",
     "modules": [
       "tray",
-      "hyprland/language",
+      "custom/dnd",
       "network",
       "pulseaudio",
       "battery"
@@ -186,15 +186,15 @@
   "group/expand": {
     "orientation": "horizontal",
     "drawer": {
-      "transition-duration": 200,
+      "transition-duration": 0,
       "children-class": "drawer-child",
       "transition-left-to-right": true
     },
     "modules": [
       "custom/menu-trigger",
       "power-profiles-daemon",
-      "custom/dnd",
-      "custom/updates"
+      "custom/updates",
+      "hyprland/language"
     ]
   },
   "custom/menu-trigger": {

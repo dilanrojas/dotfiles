@@ -194,7 +194,7 @@ hl.window_rule({
 	no_blur = true,
 })
 
--- Enable blur only for alacritty
+-- Enable blur for specific apps
 hl.window_rule({
 	match = { class = "Alacritty" },
 	no_blur = false,

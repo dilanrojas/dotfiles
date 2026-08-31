@@ -1,4 +1,4 @@
-@define-color bg alpha(#1a1b26, 1.0);
-@define-color border #a9b1d6;
+@define-color bg alpha(#00141a, 0.92);
+@define-color border #9eacad;
 @define-color segment #484848;
-@define-color progress #a9b1d6;
+@define-color progress #9eacad;

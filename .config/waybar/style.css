@@ -99,6 +99,7 @@ window#waybar>box {
 
 #custom-menu {
   font-size: 20px;
+  margin-right: 2px;
 }
 
 /* Workspaces styling */
@@ -116,7 +117,7 @@ window#waybar>box {
   box-shadow: none;
   opacity: 1;
   background: transparent;
-  transition: opacity .12s ease;
+  transition: none;
 }
 
 #workspaces button.urgent {

@@ -7,7 +7,7 @@
     width = 450
     height = (0, 300)
     origin = top-right
-    offset = (16, 16)
+    offset = (22, 22)
     scale = 0
     notification_limit = 20
 
@@ -33,9 +33,9 @@
 
     separator_height = 5
     frame_width = 2
-    background = "#1a1b26ff"
-    foreground = "#a9b1d6"
-    frame_color = "#a9b1d6"
+    background = "#00141aeb"
+    foreground = "#9eacad"
+    frame_color = "#9eacad"
 
     separator_color = frame
     sort = yes
