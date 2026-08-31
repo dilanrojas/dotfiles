@@ -1,13 +1,14 @@
 @import url('./theme.css');
 
 window#osd {
-  border-radius: 12px;
+  border-radius: 0px;
   background: @bg;
   border: 2px solid @border;
 }
 
 window#osd #container {
-  margin: 10px 15px;
+  margin: 11px 17px;
+  margin-right: 22px;
 }
 
 window#osd image,

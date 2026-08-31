@@ -28,10 +28,11 @@ hl.config({
 
 	cursor = {
 		hide_on_key_press = false,
-		warp_on_change_workspace = 0,
+		warp_on_change_workspace = 1,
 		no_hardware_cursors = 0,
 		no_break_fs_vrr = 0,
 		inactive_timeout = 0,
+		no_warps = false,
 	},
 })
 

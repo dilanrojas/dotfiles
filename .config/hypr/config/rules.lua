@@ -171,6 +171,14 @@ hl.window_rule({
 	float = true,
 })
 
+hl.window_rule({
+	name = "lunar-client",
+	match = {
+		class = "Lunar Client 1.8.9 (v2.22.31-2635)",
+	},
+	float = true,
+})
+
 -- Disable blur globally
 hl.window_rule({
 	match = { class = ".*" },
@@ -205,7 +213,7 @@ hl.layer_rule({
 hl.layer_rule({
 	match = { namespace = "swayosd" },
 	no_anim = false,
-	ignore_alpha = 0.5,
+	ignore_alpha = 0.7,
 	blur = true,
 })
 

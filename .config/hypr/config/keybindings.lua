@@ -143,9 +143,9 @@ hl.bind(mainMod .. " + F5", hl.dsp.exec_cmd(osd .. " brightness decrease"), { lo
 hl.bind(mainMod .. " + F6", hl.dsp.exec_cmd(osd .. " brightness increase"), { locked = true, repeating = true })
 
 hl.bind(mainMod .. " + F12", hl.dsp.exec_cmd(osd .. " playerctl next"), { locked = true })
-hl.bind(mainMod .. " + F11", hl.dsp.exec_cmd(osd .. " playerctl play-pause"), { locked = true })
+hl.bind(mainMod .. " + F11", hl.dsp.exec_cmd(osd .. " playerctl previous"), { locked = true })
 hl.bind(mainMod .. " + F10", hl.dsp.exec_cmd(osd .. " playerctl play-pause"), { locked = true })
-hl.bind(mainMod .. " + F9", hl.dsp.exec_cmd(osd .. " playerctl previous"), { locked = true })
+hl.bind(mainMod .. " + F9", hl.dsp.exec_cmd(osd .. " playerctl play-pause"), { locked = true })
 
 -- Media keys
 -- hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("pamixer -i 5"), { locked = true, repeating = true })

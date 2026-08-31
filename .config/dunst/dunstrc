@@ -6,8 +6,8 @@
     follow = keyboard
     width = 450
     height = (0, 300)
-    origin = top-center
-    offset = (4, 4)
+    origin = top-right
+    offset = (16, 16)
     scale = 0
     notification_limit = 20
 
@@ -33,9 +33,9 @@
 
     separator_height = 5
     frame_width = 2
-    background = "#101315cc"
-    foreground = "#cacccc"
-    frame_color = "#cacccc"
+    background = "#00172Ecc"
+    foreground = "#FFF1DA"
+    frame_color = "#FFF1DA"
 
     separator_color = frame
     sort = yes
@@ -79,7 +79,7 @@
     always_run_script = true
     title = Dunst
     class = Dunst
-    corner_radius = 12
+    corner_radius = 0
     corners = all
     ignore_dbusclose = false
 

@@ -5,14 +5,14 @@
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
 	general = {
-		gaps_in = 3,
-		gaps_out = 10,
+		gaps_in = 2,
+		gaps_out = 4,
 
 		border_size = 2,
 
 		col = {
-			active_border = { colors = { "rgba(de6145ff)" } },
-			inactive_border = "rgba(383b3dff)",
+			active_border = { colors = { "rgba(E97B3Cff)" } },
+			inactive_border = "rgba(283f56ff)",
 		},
 
 		resize_on_border = false,
@@ -23,20 +23,20 @@ hl.config({
 	},
 
 	decoration = {
-		rounding = 6,
+		rounding = 0,
 		rounding_power = 2,
 
 		active_opacity = 1.0,
 		inactive_opacity = 1.0,
 
 		dim_inactive = false,
-		dim_strength = 0.05,
+		dim_strength = 0.06,
 
 		shadow = {
-			enabled = false,
-			range = 35,
-			render_power = 3,
-			color = "rgba(00000020)",
+			enabled = true,
+			range = 15,
+			render_power = 2,
+			color = "rgba(00000018)",
 		},
 
 		blur = {
@@ -46,7 +46,7 @@ hl.config({
 			vibrancy = 0.0,
 			noise = 0.04,
 			popups = false,
-			brightness = 0.65,
+			brightness = 1.0,
 			contrast = 1.0,
 			new_optimizations = true,
 			xray = false,
@@ -97,8 +97,8 @@ hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1, bezier = "almos
 hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 0.9, bezier = "almostLinear" })
 hl.animation({
 	leaf = "workspaces",
-	enabled = false,
-	speed = 2.2,
+	enabled = true,
+	speed = 2.4,
 	bezier = "easeOutQuint",
 	style = "slide",
 })

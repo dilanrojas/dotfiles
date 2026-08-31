@@ -1,8 +1,8 @@
 * {
-    accent: #3a363b;
-    blue: #798186;
-    bg: #101315cc;
-    bg-darker: #06090bcc;
-    fg: #cacccc;
-    error: #de6145;
+    accent: #9d4825;
+    blue: #3F8F8A;
+    bg: #00172Ecc;
+    bg-darker: #000d24cc;
+    fg: #FFF1DA;
+    error: #E97B3C;
 }
