@@ -110,11 +110,11 @@ window#waybar>box {
 #workspaces button {
   padding: 0px;
   margin: 0px;
-  min-width: 43px;
+  min-width: 28px;
   border: none;
   color: inherit;
   box-shadow: none;
-  opacity: .7;
+  opacity: 1;
   background: transparent;
   transition: opacity .12s ease;
 }
@@ -124,7 +124,7 @@ window#waybar>box {
 }
 
 #workspaces button.empty {
-  opacity: .35
+  opacity: .6
 }
 
 #workspaces button.active {

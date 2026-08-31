@@ -179,6 +179,15 @@ hl.window_rule({
 	float = true,
 })
 
+hl.window_rule({
+	name = "libreoffice-save",
+	match = {
+		class = "soffice",
+		title = "Save",
+	},
+	rounding = 12,
+})
+
 -- Disable blur globally
 hl.window_rule({
 	match = { class = ".*" },

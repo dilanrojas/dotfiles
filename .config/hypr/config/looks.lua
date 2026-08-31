@@ -6,13 +6,13 @@
 hl.config({
 	general = {
 		gaps_in = 2,
-		gaps_out = 4,
+		gaps_out = 6,
 
 		border_size = 2,
 
 		col = {
-			active_border = { colors = { "rgba(E97B3Cff)" } },
-			inactive_border = "rgba(283f56ff)",
+			active_border = { colors = { "rgba(ad8ee6ff)" } },
+			inactive_border = "rgba(42434eff)",
 		},
 
 		resize_on_border = false,
@@ -33,16 +33,16 @@ hl.config({
 		dim_strength = 0.06,
 
 		shadow = {
-			enabled = true,
+			enabled = false,
 			range = 15,
 			render_power = 2,
 			color = "rgba(00000018)",
 		},
 
 		blur = {
-			enabled = true,
+			enabled = false,
 			size = 1,
-			passes = 6,
+			passes = 5,
 			vibrancy = 0.0,
 			noise = 0.04,
 			popups = false,
@@ -54,7 +54,7 @@ hl.config({
 	},
 
 	animations = {
-		enabled = true,
+		enabled = false,
 	},
 })
 
@@ -64,7 +64,7 @@ hl.config({
 -- hl.window_rule({
 -- 	name = "no-gaps-wtv1",
 -- 	match = { float = false, workspace = "w[tv1]" },
--- 	border_size = 0,
+-- 	border_size  0,
 -- 	rounding = 0,
 -- })
 -- hl.window_rule({
@@ -97,10 +97,10 @@ hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1, bezier = "almos
 hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 0.9, bezier = "almostLinear" })
 hl.animation({
 	leaf = "workspaces",
-	enabled = true,
+	enabled = false,
 	speed = 2.4,
 	bezier = "easeOutQuint",
-	style = "slide",
+	style = "fade",
 })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more

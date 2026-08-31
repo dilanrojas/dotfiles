@@ -5,10 +5,10 @@ WINIT_X11_SCALE_FACTOR = "1"
 [window]
 dynamic_padding = false
 decorations = "Full"
-title = "Alacritty@ArchLinux"
+#title = "Alacritty@ArchLinux"
 startup_mode = "Maximized"
 decorations_theme_variant = "Dark"
-opacity = 0.8
+opacity = 1.0
 blur = true
 
 [window.padding]

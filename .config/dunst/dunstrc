@@ -33,9 +33,9 @@
 
     separator_height = 5
     frame_width = 2
-    background = "#00172Ecc"
-    foreground = "#FFF1DA"
-    frame_color = "#FFF1DA"
+    background = "#1a1b26ff"
+    foreground = "#a9b1d6"
+    frame_color = "#a9b1d6"
 
     separator_color = frame
     sort = yes
