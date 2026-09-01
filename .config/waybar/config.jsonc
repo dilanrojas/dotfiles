@@ -184,7 +184,7 @@
   "group/expand": {
     "orientation": "horizontal",
     "drawer": {
-      "transition-duration": 0,
+      "transition-duration": 300,
       "children-class": "drawer-child",
       "transition-left-to-right": true
     },

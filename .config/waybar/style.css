@@ -98,6 +98,10 @@ window#waybar>box {
   margin-right: 2px;
 }
 
+#custom-screenrecord.recording {
+  opacity: .6;
+}
+
 /* Workspaces styling */
 #workspaces {
   padding: 0;
@@ -152,8 +156,4 @@ tooltip {
 
 #battery.critical:not(.charging) {
   color: @red;
-}
-
-#custom-screenrecord.recording {
-  opacity: .6;
 }
