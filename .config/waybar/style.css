@@ -1,7 +1,3 @@
-/* ---------------
-   --- Waybar ----
-   --------------- */
-
 @import url('./theme.css');
 
 * {
@@ -27,10 +23,8 @@ window#waybar {
 
 window#waybar>box {
   margin: 0px;
-  margin-bottom: 0px;
 
   padding: 0px 8px;
-  opacity: 1;
   border: none;
   background: @bg;
 }
@@ -54,6 +48,7 @@ window#waybar>box {
 #battery,
 #clock,
 #custom-dnd,
+#custom-nightlight,
 #custom-power,
 #cpu,
 #memory,
@@ -95,6 +90,7 @@ window#waybar>box {
 #custom-menu-trigger {
   font-size: 14px;
   opacity: .6;
+  padding-left: 14px;
 }
 
 #custom-menu {
@@ -138,9 +134,9 @@ window#waybar>box {
 
 tooltip {
   border-radius: 0px;
-  border: 1px solid #404040;
+  border: 2px solid @accent;
   font-family: inherit;
-  background: black;
+  background: #101010;
   padding: 2px;
 }
 

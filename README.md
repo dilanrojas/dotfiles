@@ -19,6 +19,7 @@ A sleek, productive Hyprland environment with a focus on a full DE experience wh
   - [Xorg, Graphics \& Gaming](#-xorg-graphics--gaming)
   - [Setup zram](#setup-zram)
   - [Configure Boot/ESP Flags](#configure-bootesp-flags)
+  - [Setup Plymouth & Kernel parameters](#setup-plymouth--kernel-parameters)
   - [Battery Tools (Laptops)](#battery-tools-useful-for-a-laptop)
 - [Installation \& Setup](#-installation--setup)
   - [1. Enable Services](#1-enable-services)
@@ -303,6 +304,24 @@ sudo parted /dev/[your_disk] set 1 boot on
 sudo parted /dev/[your_disk] set 1 esp on
 ```
 
+### Setup Plymouth & Kernel parameters
+
+Installing Plymouth
+
+```bash
+# Install package
+sudo pacman -S plymouth
+
+# Reload initramfs
+sudo mkinitcpio -P
+```
+
+Kernel parameters for a silent boot
+
+```bash
+nowatchdog nmi_watchdog=0 quiet splash=silent loglevel=0 log_level=0 systemd.show_status=false rd.udev.log_level=0 vt.global_cursor=default=0
+```
+
 ### Battery Tools (Useful for a Laptop)
 
 ```bash
@@ -322,7 +341,7 @@ sudo systemctl enable --now power-profiles-daemon
 ```bash
 sudo systemctl enable sddm bluetooth cups fwupd
 
-systemctl --user enable --now pipewire pipewire-pulse wireplumber xdg-user-dirs hyprsunset
+systemctl --user enable --now pipewire pipewire-pulse wireplumber xdg-user-dirs hyprsunset hypridle
 
 sudo rfkill unblock bluetooth
 ```
@@ -352,13 +371,13 @@ sudo updatedb
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/keyitdev/sddm-astronaut-theme/master/setup.sh)"
 ```
 
-### Improve Font Rendering
+### Improve Font Rendering (Might not look good on some screens)
 
 ```bash
 # Clone the repo and run the script
 git clone https://github.com/maximilionus/lucidglyph && cd lucidglyph
 sudo ./lucidglyph.sh install
 
-# To remove:
+# For removing it:
 # sudo ./lucidglyph.sh remove
 ```
