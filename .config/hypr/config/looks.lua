@@ -100,7 +100,7 @@ hl.animation({
 	enabled = false,
 	speed = 2.4,
 	bezier = "easeOutQuint",
-	style = "fade",
+	style = "slide",
 })
 
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more

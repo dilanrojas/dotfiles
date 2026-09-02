@@ -83,30 +83,40 @@ stop_recording() {
   done
 
   rm -f "$STATUS_FILE"
+  # Signal waybar immediately so the indicator clears even though the
+  # notification (dunstify -A) blocks. Previously refresh_waybar was after
+  # dunstify, so the module stayed "recording" until the notification
+  # timed out / was dismissed. The interval:1 poll is also re-triggered on
+  # click (exec-on-event:true) before rm, so without an early signal the next
+  # poll still saw the old state.
+  refresh_waybar
 
   if pgrep -f "^gpu-screen-recorder" >/dev/null; then
     pkill -9 -f "^gpu-screen-recorder"
     notify -u critical "Recording force-killed" "The video may be corrupted"
   else
-    local filename=""
-    shopt -s nullglob
-    local -a files=("$OUTPUT_DIR"/screenrecording-*.mp4)
-    shopt -u nullglob
-    if ((${#files[@]})); then
-      filename="$(printf '%s\n' "${files[@]}" | sort -r | head -1)"
-    fi
-    local base
-    base="$(basename "${filename:-screenrecording}")"
-    local action
-    action="$(dunstify -a "Screen Recorder" -A open,Open "Screen recording saved" "$base" 2>/dev/null || true)"
-    if [[ "$action" == "open" && -n "$filename" ]]; then
-      xdg-open "$filename"
-    fi
+    # Detach the blocking action-notification from the waybar on-click child.
+    # Waybar forkExec tracks the on-click pid; if we block here waybar's next
+    # exec is delayed until dunstify returns (notification timeout). Background
+    # with setsid so killing the on-click cgroup doesn't kill dunstify, and the
+    # script can exit immediately after the refresh above.
+    setsid bash -c '
+      OUTPUT_DIR="$HOME/Videos/Recordings"
+      shopt -s nullglob
+      files=("$OUTPUT_DIR"/screenrecording-*.mp4)
+      shopt -u nullglob
+      filename=""
+      if ((${#files[@]})); then
+        filename="$(printf "%s\n" "${files[@]}" | sort -r | head -1)"
+      fi
+      base="$(basename "${filename:-screenrecording}")"
+      action="$(dunstify -a "Screen Recorder" -A open,Open "Screen recording saved" "$base" 2>/dev/null || true)"
+      if [[ "$action" == "open" && -n "$filename" ]]; then
+        xdg-open "$filename" &>/dev/null &
+      fi
+    ' &>/dev/null &
+    disown || true
   fi
-
-  # Refresh waybar last: signalling it earlier tears down this on-click child
-  # process (killing the script before notify runs).
-  refresh_waybar
 }
 
 pick_audio_and_start() {

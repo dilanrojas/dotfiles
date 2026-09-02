@@ -194,14 +194,14 @@
       "custom/updates",
       "custom/dnd",
       "custom/nightlight",
-      "idle_inhibitor",
-      "hyprland/language"
+      "idle_inhibitor"
     ]
   },
   "group/system": {
     "orientation": "horizontal",
     "modules": [
       "tray",
+      "hyprland/language",
       "network",
       "pulseaudio",
       "battery"
