@@ -26,7 +26,7 @@ usage() {
 [[ -z "$ACTION" || -z "$VALUE" ]] && usage
 
 # Focused monitor, used so the OSD pops up on the right screen
-MONITOR=$(swayosd-client --monitor "$(hyprctl monitors -j | jq -r '.[] | select(.focused == true).name')")
+MONITOR=$(hyprctl monitors -j | jq -r '.[] | select(.focused == true) | .name')
 
 osd() {
   swayosd-client --monitor "$MONITOR" "$@"
