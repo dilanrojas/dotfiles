@@ -50,3 +50,5 @@ end
 # pnpm end
 
 set -gx PATH $HOME/.local/bin $PATH
+
+set -gx ANDROID_HOME $HOME/Android/Sdk/

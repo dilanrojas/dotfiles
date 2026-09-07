@@ -58,7 +58,7 @@ window#waybar>box {
   margin: 0px 0px;
   padding: 0px 7px;
   font-size: 17px;
-  font-family: 'JetBrainsMono Nerd Font Propo', sans-serif;
+  font-family: 'BlexMono Nerd Font Propo', sans-serif;
   font-weight: 500;
   border-radius: 0px;
   border: none;
@@ -89,7 +89,7 @@ window#waybar>box {
 
 #custom-menu-trigger {
   font-size: 14px;
-  opacity: .6;
+  opacity: .5;
   padding-left: 14px;
 }
 

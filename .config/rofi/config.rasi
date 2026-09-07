@@ -2,8 +2,8 @@
 @import "active_theme.rasi"
 
 * {
-	  font: "JetBrainsMono Nerd Font 12";
-    prompt-font: "JetBrainsMono Nerd Font Bold 12";
+	  font: "BlexMono Nerd Font Text 12";
+    prompt-font: "BlexMono Nerd Font Bold 12";
     rounding: 0px;
 }
 

@@ -36,6 +36,11 @@ text/markdown=nvim.desktop
 text/vnd.trolltech.linguist=nvim.desktop
 application/vnd.efi.iso=gnome-disk-image-mounter.desktop
 x-scheme-handler/mailto=brave-browser.desktop
+x-scheme-handler/pttp=CiscoPacketTracerPtsa-9.0.1.desktop
+application/x-pka=CiscoPacketTracer-9.0.1.desktop
+application/x-pkt=CiscoPacketTracer-9.0.1.desktop
+application/x-pkz=CiscoPacketTracer-9.0.1.desktop
+application/x-pksz=CiscoPacketTracer-9.0.1.desktop
 
 [Added Associations]
 application/vnd.oasis.opendocument.text=libreoffice-startcenter.desktop;
