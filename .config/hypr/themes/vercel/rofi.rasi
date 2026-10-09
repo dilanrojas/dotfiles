@@ -3,6 +3,6 @@
     blue: #60a5fa;
     bg: #000000;
     bg-darker: #000000;
-    fg: #909090;
+    fg: #aaaaaa;
     error: #ef4444;
 }

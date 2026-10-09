@@ -46,7 +46,7 @@ EOF
 CFG_WALLPAPER=""
 CFG_NVIM=""
 CFG_SYSTEM="dark"
-CFG_OPACITY="0.92"
+CFG_OPACITY="0.88"
 CFG_ICONS=""
 CFG_ACTIVE=""
 CFG_INACTIVE=""
@@ -57,7 +57,7 @@ read_cfg() {
   CFG_WALLPAPER=$(jq -r '.wallpaper' "$f")
   CFG_NVIM=$(jq -r '.neovim_scheme' "$f")
   CFG_SYSTEM=$(jq -r '.system_theme // "dark"' "$f")
-  CFG_OPACITY=$(jq -r '.opacity // 0.92' "$f")
+  CFG_OPACITY=$(jq -r '.opacity // 0.78' "$f")
   CFG_ICONS=$(jq -r '.icons // ""' "$f")
   CFG_ACTIVE=$(jq -r '.palette.active' "$f")
   CFG_INACTIVE=$(jq -r '.palette.inactive' "$f")
@@ -108,10 +108,12 @@ gen_swayosd() {
     if ($0 ~ /^@define-color bg /) {
       split($0, p, "#")
       gsub(/;.*/, "", p[2])
-      printf "@define-color bg alpha(#%s, %s);\n", p[2], a
+      printf "@define-color bg alpha(#%s, 1.0);\n", p[2], a
     } else { print }
   }' "$src" >"$SWAYOSD_THEME"
 }
+
+# printf "@define-color bg alpha(#%s, %s);\n", p[2], a
 
 gen_alacritty() {
   cp "$THEMES_DIR/$1/alacritty.toml" "$ALACRITTY_ACTIVE"

@@ -8,7 +8,7 @@ decorations = "Full"
 #title = "Alacritty@ArchLinux"
 startup_mode = "Maximized"
 decorations_theme_variant = "Dark"
-opacity = 0.92
+opacity = 0.78
 blur = true
 
 [window.padding]
