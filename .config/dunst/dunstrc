@@ -33,9 +33,9 @@
 
     separator_height = 5
     frame_width = 2
-    background = "#00141ac7"
-    foreground = "#9eacad"
-    frame_color = "#9eacad"
+    background = "#101315c7"
+    foreground = "#cacccc"
+    frame_color = "#"
 
     separator_color = frame
     sort = yes
@@ -48,7 +48,7 @@
     markup = full
     format = "<b>%s</b>\n%b"
     alignment = left
-    vertical_alignment = center
+    vertical_alignment = top
     show_age_threshold = 60
     ellipsize = middle
 

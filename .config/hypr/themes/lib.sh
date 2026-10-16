@@ -125,7 +125,6 @@ apply_dunst() {
   bg=$(awk -F'"' '/background =/{print $2}' "$src")
   bg="${bg#\#}"
   fg=$(awk -F'"' '/foreground =/{print $2}' "$src")
-  frame=$(awk -F'"' '/frame_color =/{print $2}' "$src")
   frame="${frame#\#}"
   sed -i -E "s/^([[:space:]]*)background[[:space:]]*=[[:space:]]*.*/\1background = \"#${bg}${ALPHA_HEX}\"/" "$DUNST_CONF"
   sed -i -E "s/^([[:space:]]*)foreground[[:space:]]*=[[:space:]]*.*/\1foreground = \"${fg}\"/" "$DUNST_CONF"

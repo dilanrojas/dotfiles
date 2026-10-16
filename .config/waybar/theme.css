@@ -1,11 +1,11 @@
-@define-color fg #9eacad;
-@define-color bg alpha(#00141a, 0.78);
-@define-color accent #2aa198;
+@define-color fg #cacccc;
+@define-color bg alpha(#101315, 0.78);
+@define-color accent #de6145;
 
-@define-color black #073642;
-@define-color blue #268bd2;
-@define-color cyan #2aa198;
-@define-color green #859900;
-@define-color magenta #d33682;
-@define-color red #dc322f;
-@define-color yellow #b58900;
+@define-color black #080a0b;
+@define-color blue #798186;
+@define-color cyan #707070;
+@define-color green #9fa5a9;
+@define-color magenta #aeaeae;
+@define-color red #565d60;
+@define-color yellow #d9dbdc;
