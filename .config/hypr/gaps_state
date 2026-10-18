@@ -1,0 +1,11 @@
+# State for toggle_smart_gaps.sh — edit the values, then toggle.
+ON_GAPS_IN=5
+ON_GAPS_OUT=10
+ON_BORDER_SIZE=2
+ON_DIM_INACTIVE=false
+ON_SHADOW_ENABLED=false
+OFF_GAPS_IN=0
+OFF_GAPS_OUT=0
+OFF_BORDER_SIZE=0
+OFF_DIM_INACTIVE=true
+OFF_SHADOW_ENABLED=true

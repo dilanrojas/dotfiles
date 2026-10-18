@@ -9,6 +9,12 @@ hl.window_rule({
 	suppress_event = "maximize",
 })
 
+-- hl.window_rule({
+-- 	name = "round only floating",
+-- 	match = { float = "false" },
+-- 	rounding = 0,
+-- })
+
 hl.window_rule({
 	name = "fix-xwayland-drags",
 	match = {

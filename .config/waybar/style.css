@@ -59,7 +59,7 @@ window#waybar>box {
   padding: 0px 7px;
   font-size: 17px;
   font-family: 'BlexMono Nerd Font Propo', sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   border-radius: 0px;
   border: none;
   opacity: 1;
@@ -110,7 +110,7 @@ window#waybar>box {
 
 #workspaces button {
   padding: 0px;
-  margin: 0px;
+  margin: 4px 0px;
   min-width: 28px;
   border: none;
   color: inherit;
@@ -118,6 +118,7 @@ window#waybar>box {
   opacity: 1;
   background: transparent;
   transition: none;
+  border-radius: 6px;
 }
 
 #workspaces button.urgent {

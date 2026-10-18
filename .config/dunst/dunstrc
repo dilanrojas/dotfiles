@@ -6,8 +6,8 @@
     follow = keyboard
     width = 450
     height = (0, 300)
-    origin = top-right
-    offset = (22, 22)
+    origin = top-center
+    offset = (4, 4)
     scale = 0
     notification_limit = 20
 
@@ -33,9 +33,9 @@
 
     separator_height = 5
     frame_width = 2
-    background = "#101315c7"
-    foreground = "#cacccc"
-    frame_color = "#"
+    background = "#343434"
+    foreground = "#ffffff"
+    frame_color = "#424242"
 
     separator_color = frame
     sort = yes

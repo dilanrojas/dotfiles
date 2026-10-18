@@ -190,9 +190,9 @@ apply_theme() {
   CUR_SYSTEM="$CFG_SYSTEM"
   gen_alacritty "$key"
   gen_rofi "$key"
-  gen_waybar "$key"
-  gen_swayosd "$key"
-  apply_dunst "$key"
+  # gen_waybar "$key"
+  # gen_swayosd "$key"
+  # apply_dunst "$key"
   apply_looks "$key"
   apply_alacritty_opacity
   apply_nvim "$key"
@@ -209,8 +209,8 @@ apply_opacity() {
   read_cfg "$key" || return 1
   compute_alpha
   gen_rofi "$key"
-  gen_waybar "$key"
-  gen_swayosd "$key"
-  apply_dunst "$key"
+  # gen_waybar "$key"
+  # gen_swayosd "$key"
+  # apply_dunst "$key"
   apply_alacritty_opacity
 }

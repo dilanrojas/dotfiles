@@ -11,8 +11,8 @@ hl.config({
 		border_size = 2,
 
 		col = {
-			active_border = { colors = { "rgba(de6145ff)" } },
-			inactive_border = "rgba(383b3dff)",
+			active_border = { colors = { "rgba(a292a3ff)" } },
+			inactive_border = "rgba(3b3939ff)",
 		},
 
 		resize_on_border = false,
@@ -30,11 +30,11 @@ hl.config({
 		inactive_opacity = 1.0,
 
 		dim_inactive = false,
-		dim_strength = 0.06,
+		dim_strength = 0.04,
 
 		shadow = {
 			enabled = false,
-			range = 15,
+			range = 10,
 			render_power = 2,
 			color = "rgba(00000018)",
 		},
@@ -54,7 +54,7 @@ hl.config({
 	},
 
 	animations = {
-		enabled = false,
+		enabled = true,
 	},
 })
 
@@ -97,7 +97,7 @@ hl.animation({ leaf = "fadeLayersIn", enabled = true, speed = 1, bezier = "almos
 hl.animation({ leaf = "fadeLayersOut", enabled = true, speed = 0.9, bezier = "almostLinear" })
 hl.animation({
 	leaf = "workspaces",
-	enabled = false,
+	enabled = true,
 	speed = 2.4,
 	bezier = "easeOutQuint",
 	style = "slide",

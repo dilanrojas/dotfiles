@@ -5,6 +5,7 @@
 	  font: "BlexMono Nerd Font Text 12";
     prompt-font: "BlexMono Nerd Font Bold 12";
     rounding: 0px;
+    rounding-inner: 0px;
 }
 
 configuration {
@@ -65,8 +66,8 @@ prompt {
     background-color:            @blue;
     font:                        @prompt-font;
     text-color:                  @bg;
-    padding:                     3px 6px;
-    border-radius:               @rounding;
+    padding:                     3px 10px;
+    border-radius:               @rounding-inner;
 }
 
 entry {
@@ -100,7 +101,7 @@ element {
     enabled:                     true;
     spacing:                     2px;
     padding:                     8px;
-    border-radius:               @rounding;
+    border-radius:               @rounding-inner;
     background-color:            transparent;
     text-color:                  @fg;
     cursor:                      pointer;

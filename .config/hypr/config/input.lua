@@ -48,3 +48,9 @@ hl.device({
 	accel_profile = "adaptive",
 	sensitivity = 0.15,
 })
+
+hl.on("window.open", function(w)
+	local cx = w.at.x + w.size.x / 2
+	local cy = w.at.y + w.size.y / 2
+	hl.dispatch(hl.dsp.cursor.move({ x = cx, y = cy }))
+end)

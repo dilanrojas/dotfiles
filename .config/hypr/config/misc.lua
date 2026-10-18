@@ -10,6 +10,7 @@ hl.config({
 		disable_scale_notification = true,
 		font_family = "Adwaita Sans",
 		vrr = 0,
+		focus_on_activate = 1,
 	},
 	ecosystem = {
 		no_update_news = true,
