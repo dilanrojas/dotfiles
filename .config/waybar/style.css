@@ -139,7 +139,7 @@ window#waybar>box {
 
 tooltip {
   border-radius: 0px;
-  border: 2px solid @accent;
+  border: 2px solid @fg;
   font-family: inherit;
   background: #101010;
   padding: 2px;
