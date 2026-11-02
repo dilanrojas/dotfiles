@@ -1,0 +1,60 @@
+#!/usr/bin/env bash
+# system_theme.sh — light/dark switch for GTK (gsettings) + Qt icon themes.
+#
+# Colors/palettes are handled by Kvantum (per theme family, see themes/lib.sh
+# apply_kvantum). This script only flips display-dark-mode signals: gsettings
+# color-scheme/gtk-theme (virt-manager, GTK apps, Qt ≥6.5 portal pickup) and the
+# breeze / breeze-dark icon themes for qt5ct/qt6ct.
+
+# Define paths and theme names
+QT5_CONFIG="$HOME/.config/qt5ct/qt5ct.conf"
+QT6_CONFIG="$HOME/.config/qt6ct/qt6ct.conf"
+CURRENT_THEME_FILE="$HOME/.config/hypr/themes/current_theme"
+
+GTK_LIGHT="adw-gtk3"
+GTK_DARK="adw-gtk3-dark"
+
+# ---------------------------------------------------------------- mode selection
+# Explicit argument wins. Otherwise use the SYSTEM_THEME recorded by hypr_theme.sh
+# in themes/current_theme, falling back to dark.
+MODE=""
+if [ -n "${1:-}" ]; then
+    MODE="$(echo "$1" | tr '[:upper:]' '[:lower:]')"
+else
+    if [ -f "$CURRENT_THEME_FILE" ]; then
+        MODE=$(awk -F= '$1 == "SYSTEM_THEME" {print $2}' "$CURRENT_THEME_FILE" | head -1)
+    fi
+    MODE="${MODE:-dark}"
+    echo "No mode specified. Using current system theme ($MODE)..."
+fi
+
+case "$MODE" in
+dark)
+    echo "Switching to DARK mode..."
+
+    # Qt5 and Qt6 icon themes
+    sed -i 's/^icon_theme=.*/icon_theme=breeze-dark/' "$QT5_CONFIG"
+    sed -i 's/^icon_theme=.*/icon_theme=breeze-dark/' "$QT6_CONFIG"
+
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
+    gsettings set org.gnome.desktop.interface gtk-theme "$GTK_DARK"
+    ;;
+
+light)
+    echo "Switching to LIGHT mode..."
+
+    # Qt5 and Qt6 icon themes
+    sed -i 's/^icon_theme=.*/icon_theme=breeze/' "$QT5_CONFIG"
+    sed -i 's/^icon_theme=.*/icon_theme=breeze/' "$QT6_CONFIG"
+
+    gsettings set org.gnome.desktop.interface color-scheme 'prefer-light'
+    gsettings set org.gnome.desktop.interface gtk-theme "$GTK_LIGHT"
+    ;;
+
+*)
+    echo "Invalid option: '$1'. Please use 'light' or 'dark'." >&2
+    exit 1
+    ;;
+esac
+
+echo "Theme adjustment complete!"

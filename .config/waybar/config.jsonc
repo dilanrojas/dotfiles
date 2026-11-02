@@ -24,16 +24,16 @@
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "1": "dev",
-      "2": "www",
-      "3": "img",
-      "4": "doc",
-      "5": "mda",
-      "6": "fls",
-      "7": "ter",
-      "8": "sys",
-      "9": "gfx",
-      "10": "kvm"
+      "1": "DEV",
+      "2": "WWW",
+      "3": "IMG",
+      "4": "DOC",
+      "5": "MDA",
+      "6": "FLS",
+      "7": "TER",
+      "8": "SYS",
+      "9": "GFX",
+      "10": "KVM"
     },
     "persistent-workspaces": {
       "*": 10,

@@ -24,7 +24,7 @@ window#waybar {
 window#waybar>box {
   margin: 0px;
 
-  padding: 0px 8px;
+  padding: 0px 10px;
   border: none;
   background: @bg;
 }
@@ -99,8 +99,7 @@ window#waybar>box {
 }
 
 #custom-spotify {
-  padding-right: 2px;
-  font-size: 15.5px;
+  padding-right: 7px;
 }
 
 #custom-spotify-prev,
@@ -133,7 +132,6 @@ window#waybar>box {
 }
 
 #window {
-  font-size: 15.5px;
   margin-left: 4px;
   margin-right: 20px;
   color: @fg;
@@ -147,7 +145,8 @@ window#waybar>box {
 
 #workspaces button {
   padding: 0px;
-  margin: 3px 4px;
+  margin: 0px 4px;
+  margin-top: 3px;
   min-width: 35px;
   border: none;
   color: inherit;

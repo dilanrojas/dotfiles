@@ -8,7 +8,7 @@ decorations = "Full"
 #title = "Alacritty@ArchLinux"
 startup_mode = "Maximized"
 decorations_theme_variant = "Dark"
-opacity = 0.9
+opacity = 1.0
 blur = true
 
 [window.padding]
@@ -35,19 +35,19 @@ size = 14
 offset = { x = 0, y = 0 }
 
 [font.normal]
-family = "BlexMono Nerd Font"
-style = "Text"
+family = "JetBrainsMono Nerd Font"
+style = "Regular"
 
 [font.bold]
-family = "BlexMono Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Bold"
 
 [font.italic]
-family = "BlexMono Nerd Font"
-style = "Text Italic"
+family = "JetBrainsMono Nerd Font"
+style = "Italic"
 
 [font.bold_italic]
-family = "BlexMono Nerd Font"
+family = "JetBrainsMono Nerd Font"
 style = "Bold"
 
 [selection]
@@ -63,10 +63,10 @@ thickness = 0.15
 # Smooth cursor
 # smooth_motion = true
 # smooth_motion_factor = 0.8
-# smooth_motion_spring = 0.8
-# smooth_motion_max_stretch_x = 8.0
-# smooth_motion_max_stretch_y = 8.0
-# smooth_motion_antijitter_ms = 50
+# smooth_motion_spring = 0.6
+# smooth_motion_max_stretch_x = 1.5
+# smooth_motion_max_stretch_y = 1.5
+# smooth_motion_antijitter_ms = 30
 
 [mouse]
 hide_when_typing = true

@@ -48,6 +48,7 @@ CFG_NVIM=""
 CFG_SYSTEM="dark"
 CFG_OPACITY="0.88"
 CFG_ICONS=""
+CFG_KVANTUM=""
 CFG_ACTIVE=""
 CFG_INACTIVE=""
 
@@ -59,6 +60,7 @@ read_cfg() {
   CFG_SYSTEM=$(jq -r '.system_theme // "dark"' "$f")
   CFG_OPACITY=$(jq -r '.opacity // 0.9' "$f")
   CFG_ICONS=$(jq -r '.icons // ""' "$f")
+  CFG_KVANTUM=$(jq -r '.kvantum // ""' "$f")
   CFG_ACTIVE=$(jq -r '.palette.active' "$f")
   CFG_INACTIVE=$(jq -r '.palette.inactive' "$f")
   return 0
@@ -169,6 +171,28 @@ apply_wallpaper() {
   sed -i "s|^\([[:space:]]*path[[:space:]]*=[[:space:]]*\).*|\1~/.config/hypr/themes/$key/wallpapers/$CFG_WALLPAPER|" "$HYPRPAPER_CONF"
 }
 
+apply_kvantum() {
+    local key="$1"
+    local name="$CFG_KVANTUM"
+    local theme_dir="$THEMES_DIR/$key/kvantum/$name"
+
+    # Map the per-family Kvantum theme into ~/.config/Kvantum so kvantummanager
+    # can find it. If the family declares one that isn't shipped on disk, fall
+    # back to a bundled theme by light/dark.
+    if [ -n "$name" ] && [ -d "$theme_dir" ]; then
+        ln -sfn "$theme_dir" "$HOME/.config/Kvantum/$name" 2>/dev/null
+    elif [ -n "$name" ] && [ ! -d "$HOME/.config/Kvantum/$name" ]; then
+        name=""
+    fi
+
+    [ -z "$name" ] && return 0
+
+    if command -v kvantummanager >/dev/null 2>&1; then
+        kvantummanager --set "$name" >/dev/null 2>&1 && echo "Kvantum: $name" ||
+            echo "Warning: kvantummanager --set '$name' failed" >&2
+    fi
+}
+
 apply_icons() {
   [ -n "$CFG_ICONS" ] && gsettings set org.gnome.desktop.interface icon-theme "$CFG_ICONS" 2>/dev/null
 }
@@ -198,6 +222,7 @@ apply_theme() {
   apply_nvim "$key"
   apply_wallpaper "$key"
   apply_icons
+  apply_kvantum "$key"
   apply_system_theme
   write_current
 }

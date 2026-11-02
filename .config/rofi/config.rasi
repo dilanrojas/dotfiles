@@ -4,8 +4,8 @@
 * {
 	  font: "BlexMono Nerd Font Text 12";
     prompt-font: "BlexMono Nerd Font Bold 12";
-    rounding: 0px;
-    rounding-inner: 0px;
+    rounding: 4px;
+    rounding-inner: 4px;
 }
 
 configuration {
