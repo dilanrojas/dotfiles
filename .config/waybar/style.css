@@ -48,6 +48,10 @@ window#waybar>box {
 #battery,
 #clock,
 #custom-dnd,
+#custom-spotify,
+#custom-spotify-prev,
+#custom-spotify-toggle,
+#custom-spotify-next,
 #custom-nightlight,
 #custom-power,
 #cpu,
@@ -56,9 +60,9 @@ window#waybar>box {
 #custom-screenrecord.recording,
 #custom-power {
   margin: 0px 0px;
-  padding: 0px 7px;
+  padding: 0px 8px;
   font-size: 17px;
-  font-family: 'BlexMono Nerd Font Propo', sans-serif;
+  font-family: 'JetBrainsMono Nerd Font Propo', sans-serif;
   font-weight: 500;
   border-radius: 0px;
   border: none;
@@ -72,34 +76,67 @@ window#waybar>box {
   margin: 0px;
   padding: 0px 2px;
   color: @fg;
-  opacity: 0.4;
+  opacity: 0.35;
 }
 
-#language,
-#clock,
+
 #tray {
   font-family: 'Adwaita Sans';
 }
 
-#tray,
-#language,
-#clock {
-  font-size: 16px;
-}
-
-#custom-menu-trigger {
-  font-size: 14px;
-  opacity: .5;
-  padding-left: 14px;
-}
-
-#custom-menu {
-  font-size: 20px;
-  margin-right: 2px;
-}
-
 #custom-screenrecord.recording {
   opacity: .6;
+}
+
+#custom-updates {
+  padding-right: 0;
+  margin-right: 0;
+}
+
+#custom-spotify.paused {
+  opacity: .5;
+  color: @accent;
+}
+
+#custom-spotify {
+  padding-right: 2px;
+  font-size: 15.5px;
+}
+
+#custom-spotify-prev,
+#custom-spotify-toggle,
+#custom-spotify-next {
+  padding: 0px 6px;
+  font-size: 21px;
+  opacity: .9;
+}
+
+#custom-spotify-prev:hover,
+#custom-spotify-toggle:hover,
+#custom-spotify-next:hover {
+  opacity: 1;
+  color: @accent;
+}
+
+#custom-spotify-next {
+  margin-right: 4px;
+}
+
+/* Nothing playing (or Spotify closed): collapse the widgets entirely */
+#custom-spotify.idle,
+#custom-spotify-prev.idle,
+#custom-spotify-toggle.idle,
+#custom-spotify-next.idle {
+  padding: 0px;
+  margin: 0px;
+  font-size: 0px;
+}
+
+#window {
+  font-size: 15.5px;
+  margin-left: 4px;
+  margin-right: 20px;
+  color: @fg;
 }
 
 /* Workspaces styling */
@@ -110,27 +147,34 @@ window#waybar>box {
 
 #workspaces button {
   padding: 0px;
-  margin: 4px 0px;
-  min-width: 28px;
+  margin: 3px 4px;
+  min-width: 35px;
   border: none;
   color: inherit;
   box-shadow: none;
-  opacity: 1;
+  opacity: .85;
+  border-bottom: 2px solid transparent;
   background: transparent;
   transition: none;
-  border-radius: 6px;
 }
+
+#workspaces button:first-child {
+  margin-left: 0;
+}
+
 
 #workspaces button.urgent {
   color: @red;
 }
 
 #workspaces button.empty {
-  opacity: .6
+  opacity: .5;
 }
 
 #workspaces button.active {
   opacity: 1;
+  color: @accent;
+  border-color: @accent;
 }
 
 #workspaces button:hover:not(.active) {
@@ -141,7 +185,7 @@ tooltip {
   border-radius: 0px;
   border: 2px solid @fg;
   font-family: inherit;
-  background: #101010;
+  background: @bg;
   padding: 2px;
 }
 

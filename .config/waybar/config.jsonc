@@ -3,40 +3,45 @@
   "reload_style_on_change": true,
   // "layer": "top",
   // "position": "bottom",
-  //"width": 1440,
-  //"fixed-center": false,
-  "height": 32,
+  // "width": 700,
+  "fixed-center": false,
+  "height": 30,
   "spacing": 0,
   "modules-left": [
-    "hyprland/workspaces"
-  ],
-  "modules-center": [
-    "clock"
+    "hyprland/workspaces",
+    "hyprland/window"
   ],
   "modules-right": [
-    "custom/screenrecord",
-    "group/expand",
-    "group/system"
+    "group/tray",
+    "custom/separator",
+    "group/extra",
+    "custom/separator",
+    "group/system",
+    "custom/separator",
+    "clock",
+    "custom/dnd"
   ],
   "hyprland/workspaces": {
     "format": "{icon}",
     "format-icons": {
-      "1": "1",
-      "2": "2",
-      "3": "3",
-      "4": "4",
-      "5": "5",
-      "6": "6",
-      "7": "7",
-      "8": "8",
-      "9": "9",
-      "10": "10",
-      "active": ""
+      "1": "dev",
+      "2": "www",
+      "3": "img",
+      "4": "doc",
+      "5": "mda",
+      "6": "fls",
+      "7": "ter",
+      "8": "sys",
+      "9": "gfx",
+      "10": "kvm"
     },
     "persistent-workspaces": {
-      "*": 5,
-      "HDMI-A-1": 5
+      "*": 10,
+      "HDMI-A-1": 0
     }
+  },
+  "hyprland/window": {
+    "format": "{}"
   },
   "hyprland/language": {
     "format": "{}",
@@ -57,7 +62,7 @@
     "spacing": 16
   },
   "clock": {
-    "format": "{:%b %d  %I:%M %p}",
+    "format": "{:%b %d %I:%M %p}",
     "on-click": "gnome-calendar",
     "tooltip": false
   },
@@ -181,30 +186,68 @@
     "signal": 9,
     "on-click": "~/.config/hypr/scripts/screenrecord.sh stop"
   },
-  "group/expand": {
+  "custom/spotify": {
+    "exec": "~/.config/waybar/scripts/spotify-status.sh",
+    "return-type": "json",
+    "format": "{}",
+    "max-length": 20,
+    "tooltip": true
+  },
+  "custom/spotify-prev": {
+    "exec": "~/.config/waybar/scripts/spotify-controls.sh prev",
+    "return-type": "json",
+    "on-click": "playerctl --player spotify previous"
+  },
+  "custom/spotify-toggle": {
+    "exec": "~/.config/waybar/scripts/spotify-controls.sh toggle",
+    "return-type": "json",
+    "on-click": "playerctl --player spotify play-pause"
+  },
+  "custom/spotify-next": {
+    "exec": "~/.config/waybar/scripts/spotify-controls.sh next",
+    "return-type": "json",
+    "on-click": "playerctl --player spotify next"
+  },
+  "group/spotify": {
     "orientation": "horizontal",
-    "drawer": {
-      "transition-duration": 200,
-      "children-class": "drawer-child",
-      "transition-left-to-right": true
-    },
     "modules": [
-      "custom/menu-trigger",
+      "custom/spotify",
+      "custom/spotify-prev",
+      "custom/spotify-toggle",
+      "custom/spotify-next"
+    ]
+  },
+  "group/tray": {
+    "orientation": "horizontal",
+    "modules": [
+      "custom/screenrecord",
+      "group/spotify",
+      "tray",
+      "custom/updates"
+    ]
+  },
+  "group/extra": {
+    "orientation": "horizontal",
+    "modules": [
       "power-profiles-daemon",
-      "custom/updates",
-      "custom/dnd",
       "custom/nightlight",
-      "idle_inhibitor"
+      "idle_inhibitor",
+      "hyprland/language"
     ]
   },
   "group/system": {
     "orientation": "horizontal",
     "modules": [
-      "tray",
-      "hyprland/language",
       "network",
       "pulseaudio",
       "battery"
     ]
+  },
+  "custom/separator": {
+    "format": "|"
+  },
+  "custom/menu": {
+    "format": "󰣇",
+    "on-click": "rofi -show drun"
   }
 }

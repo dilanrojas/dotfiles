@@ -1,27 +1,29 @@
+# Colors (Solarized Osaka)
+# Source https://github.com/craftzdog/solarized-osaka.nvim
+
+# Default colors
 [colors.primary]
-background = '#0C0E13'
-foreground = '#F5F5DC'
+background = '#00141a'
+foreground = '#9eacad'
 
+# Normal colors
 [colors.normal]
-black = '#0C0E13'
-red = '#FF7979'
-green = '#7FCF78'
-yellow = '#F0E68C'
-blue = '#81C0FF'
-magenta = '#C695FF'
-cyan = '#69C3AA'
-white = '#F5F5DC'
+black   = '#073642'
+red     = '#dc322f'
+green   = '#859900'
+yellow  = '#b58900'
+blue    = '#268bd2'
+magenta = '#d33682'
+cyan    = '#2aa198'
+white   = '#eee8d5'
 
+# Bright colors
 [colors.bright]
-black = '#4E6578'
-red = '#FFA0A0'
-green = '#A3E39A'
-yellow = '#F8B471'
-blue = '#87CEEB'
-magenta = '#D2ADFF'
-cyan = '#8AD3BE'
-white = '#FFFFF0'
-
-[colors.selection]
-background = '#24364D'
-foreground = '#F5F5DC'
+black   = '#4c4c4c'
+red     = '#cb4b16'
+green   = '#586e75'
+yellow  = '#657b83'
+blue    = '#839496'
+magenta = '#6c71c4'
+cyan    = '#93a1a1'
+white   = '#fdf6e3'

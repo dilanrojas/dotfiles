@@ -57,7 +57,7 @@ read_cfg() {
   CFG_WALLPAPER=$(jq -r '.wallpaper' "$f")
   CFG_NVIM=$(jq -r '.neovim_scheme' "$f")
   CFG_SYSTEM=$(jq -r '.system_theme // "dark"' "$f")
-  CFG_OPACITY=$(jq -r '.opacity // 0.78' "$f")
+  CFG_OPACITY=$(jq -r '.opacity // 0.9' "$f")
   CFG_ICONS=$(jq -r '.icons // ""' "$f")
   CFG_ACTIVE=$(jq -r '.palette.active' "$f")
   CFG_INACTIVE=$(jq -r '.palette.inactive' "$f")

@@ -28,7 +28,7 @@ hl.config({
 
 	cursor = {
 		hide_on_key_press = false,
-		warp_on_change_workspace = 1,
+		warp_on_change_workspace = 0,
 		no_hardware_cursors = 0,
 		no_break_fs_vrr = 0,
 		inactive_timeout = 0,
@@ -49,8 +49,7 @@ hl.device({
 	sensitivity = 0.15,
 })
 
-hl.on("window.open", function(w)
-	local cx = w.at.x + w.size.x / 2
-	local cy = w.at.y + w.size.y / 2
-	hl.dispatch(hl.dsp.cursor.move({ x = cx, y = cy }))
-end)
+-- hl.on("window.open", function(w)
+-- 	local cx = w.at.x + w.size.x / 2
+-- 	local cy = w.at.y + w.size.y / 2
+-- 	hl.dispatch(hl.dsp.cursor.move({ x = cx, y = cy })) end)

@@ -5,14 +5,14 @@
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
 	general = {
-		gaps_in = 5,
-		gaps_out = 10,
+		gaps_in = 3,
+		gaps_out = 8,
 
 		border_size = 2,
 
 		col = {
-			active_border = { colors = { "rgba(81C0FFff)" } },
-			inactive_border = "rgba(34363bff)",
+			active_border = { colors = { "rgba(2aa198ff)" } },
+			inactive_border = "rgba(283c42ff)",
 		},
 
 		resize_on_border = false,
@@ -30,7 +30,7 @@ hl.config({
 		inactive_opacity = 1.0,
 
 		dim_inactive = false,
-		dim_strength = 0.025,
+		dim_strength = 0.1,
 
 		shadow = {
 			enabled = false,
@@ -106,7 +106,8 @@ hl.animation({
 -- See https://wiki.hypr.land/Configuring/Layouts/Dwindle-Layout/ for more
 hl.config({
 	dwindle = {
-		preserve_split = true, -- You probably want this
+		preserve_split = true,
+		force_split = 2,
 	},
 })
 

@@ -194,6 +194,16 @@ hl.window_rule({
 	rounding = 12,
 })
 
+-- XWayland Spotify sends rogue activate requests (e.g. on config reload /
+-- waybar restart), which steals focus and switches workspaces due to
+-- misc.focus_on_activate. Opt Spotify out of activate-based focusing.
+hl.window_rule({
+	name = "spotify-no-activate",
+	match = { class = "[Ss]potify" },
+	suppress_event = "activatefocus",
+	focus_on_activate = false,
+})
+
 -- Disable blur globally
 hl.window_rule({
 	match = { class = ".*" },
