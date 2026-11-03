@@ -11,8 +11,8 @@ hl.config({
 		border_size = 2,
 
 		col = {
-			active_border = { colors = { "rgba(89B4FAff)" } },
-			inactive_border = "rgba(464656ff)",
+			active_border = { colors = { "rgba(d79921ff)" } },
+			inactive_border = "rgba(505050ff)",
 		},
 
 		resize_on_border = false,

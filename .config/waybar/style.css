@@ -61,8 +61,8 @@ window#waybar>box {
 #custom-power {
   margin: 0px 0px;
   padding: 0px 8px;
-  font-size: 17px;
-  font-family: 'JetBrainsMono Nerd Font Propo', sans-serif;
+  font-size: 16.5px;
+  font-family: 'BlexMono Nerd Font Propo', sans-serif;
   font-weight: 500;
   border-radius: 0px;
   border: none;
