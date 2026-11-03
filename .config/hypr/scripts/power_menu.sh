@@ -23,7 +23,8 @@ case "$chosen" in
   hyprlock
   ;;
 "$suspend")
-  systemctl suspend
+  hyprlock &
+  sleep 0.5 && systemctl suspend
   ;;
 "$logout")
   command -v hyprshutdown >/dev/null 2>&1 && hyprshutdown || hyprctl dispatch 'hl.dsp.exit()'

@@ -1,31 +1,34 @@
-# Colors (Gruvbox dark)
+# Colors (Osaka Jade)
+# Source https://github.com/Justikun/omarchy-osaka-jade-theme
 
 # Default colors
 [colors.primary]
-# hard contrast background = = '#1d2021'
-# medium contrast background = '#282828'
-# soft contrast background = = '#32302f'
-background = '#1d2021'
-foreground = '#ebdbb2'
+background = '#111c18'
+foreground = '#C1C497'
 
 # Normal colors
 [colors.normal]
-black   = '#282828'
-red     = '#cc241d'
-green   = '#98971a'
-yellow  = '#d79921'
-blue    = '#458588'
-magenta = '#b16286'
-cyan    = '#689d6a'
-white   = '#a89984'
+black   = '#23372B'
+red     = '#FF5345'
+green   = '#549e6a'
+yellow  = '#459451'
+blue    = '#509475'
+magenta = '#D2689C'
+cyan    = '#2DD5B7'
+white   = '#F6F5DD'
 
 # Bright colors
 [colors.bright]
-black   = '#928374'
-red     = '#fb4934'
-green   = '#b8bb26'
-yellow  = '#fabd2f'
-blue    = '#83a598'
-magenta = '#d3869b'
-cyan    = '#8ec07c'
-white   = '#ebdbb2'
+black   = '#53685B'
+red     = '#db9f9c'
+green   = '#63b07a'
+yellow  = '#E5C736'
+blue    = '#ACD4CF'
+magenta = '#75bbb3'
+cyan    = '#8CD3CB'
+white   = '#9eebb3'
+
+# Cursor
+[colors.cursor]
+text   = '#000000'
+cursor = '#D7C995'

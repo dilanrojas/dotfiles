@@ -52,6 +52,11 @@ hl.window_rule({
 })
 
 hl.window_rule({
+	match = { class = "^Lunar Client" },
+	immediate = true,
+})
+
+hl.window_rule({
 	name = "float-pavucontrol",
 	match = { class = "org.pulseaudio.pavucontrol" },
 	float = true,

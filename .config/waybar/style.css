@@ -23,9 +23,11 @@ window#waybar {
 
 window#waybar>box {
   margin: 0px;
+  margin-bottom: 0;
 
-  padding: 0px 10px;
+  padding: 0px 6px;
   border: none;
+  border-radius: 0px;
   background: @bg;
 }
 
@@ -62,7 +64,7 @@ window#waybar>box {
   margin: 0px 0px;
   padding: 0px 8px;
   font-size: 16.5px;
-  font-family: 'BlexMono Nerd Font Propo', sans-serif;
+  font-family: 'CaskaydiaCove Nerd Font Propo', sans-serif;
   font-weight: 500;
   border-radius: 0px;
   border: none;
@@ -99,7 +101,7 @@ window#waybar>box {
 }
 
 #custom-spotify {
-  padding-right: 7px;
+  padding-right: 4px;
 }
 
 #custom-spotify-prev,
@@ -144,23 +146,21 @@ window#waybar>box {
 }
 
 #workspaces button {
-  padding: 0px;
-  margin: 0px 4px;
-  margin-top: 3px;
-  min-width: 35px;
+  padding: 0px 7px;
+  margin: 3px;
+  min-width: 0px;
   border: none;
   color: inherit;
   box-shadow: none;
-  opacity: .85;
-  border-bottom: 2px solid transparent;
+  opacity: 1;
   background: transparent;
   transition: none;
+  border-radius: 5px;
 }
 
 #workspaces button:first-child {
   margin-left: 0;
 }
-
 
 #workspaces button.urgent {
   color: @red;
@@ -172,8 +172,8 @@ window#waybar>box {
 
 #workspaces button.active {
   opacity: 1;
-  color: @accent;
-  border-color: @accent;
+  color: @bg;
+  background: @accent;
 }
 
 #workspaces button:hover:not(.active) {

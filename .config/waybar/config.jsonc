@@ -5,7 +5,7 @@
   // "position": "bottom",
   // "width": 700,
   "fixed-center": false,
-  "height": 30,
+  "height": 28,
   "spacing": 0,
   "modules-left": [
     "hyprland/workspaces",

@@ -9,7 +9,7 @@ hl.config({
 		disable_splash_rendering = true,
 		disable_scale_notification = true,
 		font_family = "Adwaita Sans",
-		vrr = 2,
+		vrr = 0,
 		focus_on_activate = 1,
 	},
 	ecosystem = {
@@ -21,6 +21,11 @@ hl.config({
 	},
 	render = {
 		direct_scanout = 0,
+		async_commit = false,
 		new_render_scheduling = false,
+		commit_timing_enabled = false,
+	},
+	debug = {
+		vfr = false,
 	},
 })
