@@ -21,11 +21,8 @@ hl.config({
 	},
 	render = {
 		direct_scanout = 0,
-		async_commit = false,
-		new_render_scheduling = false,
-		commit_timing_enabled = false,
 	},
 	debug = {
-		vfr = false,
+		vfr = true,
 	},
 })

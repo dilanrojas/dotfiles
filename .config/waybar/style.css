@@ -25,9 +25,9 @@ window#waybar>box {
   margin: 0px;
   margin-bottom: 0;
 
-  padding: 0px 6px;
+  padding: 0px 11px;
   border: none;
-  border-radius: 0px;
+  border-radius: 6px;
   background: @bg;
 }
 
@@ -62,7 +62,7 @@ window#waybar>box {
 #custom-screenrecord.recording,
 #custom-power {
   margin: 0px 0px;
-  padding: 0px 8px;
+  padding: 0px 7px;
   font-size: 16.5px;
   font-family: 'CaskaydiaCove Nerd Font Propo', sans-serif;
   font-weight: 500;
@@ -74,11 +74,11 @@ window#waybar>box {
 
 #custom-separator {
   opacity: 1;
-  font-size: .9rem;
+  font-size: .7rem;
   margin: 0px;
   padding: 0px 2px;
   color: @fg;
-  opacity: 0.35;
+  opacity: 0.25;
 }
 
 

@@ -1,34 +1,29 @@
-# Colors (Osaka Jade)
-# Source https://github.com/Justikun/omarchy-osaka-jade-theme
+# Colors (Emberbox)
 
-# Default colors
 [colors.primary]
-background = '#111c18'
-foreground = '#C1C497'
+background = '#1c1b19'
+foreground = '#E8D9C3'
 
-# Normal colors
 [colors.normal]
-black   = '#23372B'
-red     = '#FF5345'
-green   = '#549e6a'
-yellow  = '#459451'
-blue    = '#509475'
-magenta = '#D2689C'
-cyan    = '#2DD5B7'
-white   = '#F6F5DD'
+black   = '#1A1816'
+red     = '#E0675E'
+green   = '#9EB67C'
+yellow  = '#E2B86B'
+blue    = '#7A9DBB'
+magenta = '#B18AC7'
+cyan    = '#7FB4A8'
+white   = '#D5C5B1'
 
-# Bright colors
 [colors.bright]
-black   = '#53685B'
-red     = '#db9f9c'
-green   = '#63b07a'
-yellow  = '#E5C736'
-blue    = '#ACD4CF'
-magenta = '#75bbb3'
-cyan    = '#8CD3CB'
-white   = '#9eebb3'
+black   = '#5C544C'
+red     = '#F07A6D'
+green   = '#B5CC8D'
+yellow  = '#F0C978'
+blue    = '#93B4D1'
+magenta = '#C9A5DD'
+cyan    = '#96CCC0'
+white   = '#F2E7D6'
 
-# Cursor
-[colors.cursor]
-text   = '#000000'
-cursor = '#D7C995'
+[colors.selection]
+text = '#1A1816'
+background = '#E2B86B'

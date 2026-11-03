@@ -7,7 +7,7 @@
     width = 450
     height = (0, 300)
     origin = top-right
-    offset = (20, 20)
+    offset = (18, 18)
     scale = 0
     notification_limit = 20
 
@@ -33,9 +33,9 @@
 
     separator_height = 5
     frame_width = 2
-    background = "#0C0E13c7"
-    foreground = "#F5F5DC"
-    frame_color = "#F5F5DC"
+    background = "#1c1b19ff"
+    foreground = "#E8D9C3"
+    frame_color = "#E8D9C3"
 
     separator_color = frame
     sort = yes
@@ -79,7 +79,7 @@
     always_run_script = true
     title = Dunst
     class = Dunst
-    corner_radius = 0
+    corner_radius = 6
     corners = all
     ignore_dbusclose = false
 
